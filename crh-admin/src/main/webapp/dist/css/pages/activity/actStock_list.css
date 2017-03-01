@@ -1,0 +1,135 @@
+.u-qx{
+    display: inline-block;
+    cursor: pointer;
+    margin-left: -44px;
+    margin-right: 20px;
+}
+.u-qx label{
+    width: 30px;
+    height: 30px;
+    border: #ccc solid 1px;
+    border-radius: 30px;
+    cursor: pointer;
+    margin: 0;
+    vertical-align: middle;
+    margin-right: 13px;
+}
+.u-dot{
+    background: #3c8dbc !important;
+}
+.m-box{
+    position: relative;
+    margin-top: 20px;
+    border-top: #ccc solid 1px;
+    padding-top: 20px;
+}
+.m-box .title{
+	position:relative;
+}
+.m-box .title label{
+    background: #eee;
+    padding: 0px 10px;
+    margin-right: 20px;
+}
+.m-box .boxin{
+    position: relative;
+    width:100%;
+    background: #eee;
+}
+.m-box .boxin table{
+    width:100%;
+}
+.m-box .boxin th{
+    height:40px;
+    text-align: center;
+    border-bottom: #ccc solid 1px;
+}
+.m-box .boxin td{
+    text-align: center;
+}
+.m-box .boxin td label{
+    padding: 0 10px;
+    margin-top: 5px;
+}
+.m-box .boxin tr .delete{
+	text-decoration:line-through;
+}
+.m-box .boxin .nostock{
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background: #eee;
+}
+.m-box .m-dot{
+    position: absolute;
+    left: -44px;
+    top:1px;
+    display: inline-block;
+    width:30px;
+    height:30px;
+    border:#ccc solid 1px;
+    border-radius:30px;
+    cursor: pointer;
+}
+.dot{
+    background: #3c8dbc !important;
+}
+.m-box .kcnum label{
+    margin-bottom: 0;
+    line-height: normal;
+    margin-right: 30px;
+}
+.maintitle label{
+    margin-right:15px;
+}
+.maintitle button{
+    margin-left: 20px;
+}
+.maintitle input[type=radio]{
+    margin-left: 20px;
+    margin-right: 5px;
+}
+.maintitle .mbtn{
+    float: right;
+    border: #3c8dbc solid 1px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-left: 15px;
+    cursor: pointer;
+    color: #3c8dbc;
+}
+.maintitle .mbtn:hover{
+    background: #3c8dbc;
+    color: #ffffff;
+}
+
+.red{
+    color: #f00000;
+}
+.disnone{
+    display: none !important;
+}
+.m-tip{
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 300px;
+    height: 150px;
+    border: #ccc solid 1px;
+    background: #ffffff;
+    border-radius: 10px;
+    margin-left: -150px;
+    margin-top: -100px;
+    box-shadow: 0 0 10px #ccc;
+    text-align: center;
+}
+.m-tip p{
+    font-size: 20px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+.m-tip button{
+    margin-left: 20px;
+    margin-right: 20px;
+}

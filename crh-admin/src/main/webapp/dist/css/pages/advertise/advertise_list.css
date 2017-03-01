@@ -1,0 +1,262 @@
+/*upload file via ajax */
+.upload-btn {
+  vertical-align: top;
+  display: inline-block;
+  *display: inline /*IE7*/;
+  width: 80px;
+  height: 30px;
+  margin: 5px 5px 0 0;
+  *zoom: 1;
+}
+.upload-btn a {
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+.upload-btn span {
+  width: 80px;
+  height: 30px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  cursor: pointer;
+}
+.upload-btn .input-file {
+  width: 80px;
+  height: 30px;
+  padding: 0;
+  margin: 0;
+  border: none 0;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  cursor: pointer;
+}
+.upload-btn p,
+.remove-btn p {
+  padding: 0;
+  font-size: 12px;
+  line-height: 20px;
+  background-color: #F5F5F5;
+  color: #999;
+  text-align: center;
+  color: #666;
+  width: 53px;
+  height: 30px;
+  padding: 4px 0;
+  border: solid 1px;
+  border-color: #DCDCDC #DCDCDC #B3B3B3 #DCDCDC;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+.upload-btn p i {
+  vertical-align: middle;
+  margin-right: 4px;
+}
+.upload-btn a:hover p {
+  background-color: #E6E6E6;
+  color: #333;
+  border-color: #CFCFCF #CFCFCF #B3B3B3 #CFCFCF;
+}
+.adspic-list ul {
+  font-size: 0;
+  *word-spacing: -1px /*IE67*/;
+  margin-left: -1px;
+}
+.adspic-list ul li {
+  font-size: 12px;
+  vertical-align: top;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  letter-spacing: normal;
+  word-spacing: normal;
+  display: inline-block;
+  *display: inline /*IE6,7*/;
+  width: 140px;
+  height: 135px;
+  border: solid 1px #E6E6E6;
+  position: relative;
+  z-index: 1;
+  zoom: 1;
+  cursor: move;
+}
+.adspic-list:hover ul li {
+  border-color: #CCC;
+}
+.adspic-list ul li .upload-thumb {
+  line-height: 0;
+  background-color: #FFF;
+  text-align: center;
+  vertical-align: middle;
+  *display: block;
+  width: 120px;
+  height: 85px;
+  border: solid 1px #F5F5F5;
+  z-index: 1;
+  top: 10px;
+  margin-top: 3px;
+  margin-left: 10px;
+  overflow: hidden;
+}
+.adspic-list ul li .upload-setDefault {
+  width: 120px;
+  height: 20px;
+  text-align: center;
+  vertical-align: middle;
+}
+.adspic-list ul li .upload-setDefault .isCover {
+  color: #dd4b39;
+}
+.adspic-list ul li .upload-thumb img {
+  max-width: 120px;
+  max-height: 120px;
+  margin-top: expression(120-this.height/2);
+  *margin-top: expression(60-this.height/2) /*IE6,7*/;
+}
+.adspic-list ul li .show-default {
+  display: block;
+  width: 120px;
+  height: 30px;
+  padding: 90px 0 0;
+  border: solid 1px #F5F5F5;
+  position: absolute;
+  z-index: 2;
+  top: 10px;
+  left: 10px;
+  cursor: pointer;
+}
+.adspic-list ul li .show-default:hover {
+  border-color: #27A9E3;
+}
+.adspic-list ul li .show-default.selected,
+.adspic-list ul li .show-default.selected:hover {
+  border-color: #28B779;
+}
+.adspic-list ul li .show-default p {
+  color: #28B779;
+  line-height: 20px;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr='#E5FFFFFF', endColorstr='#E5FFFFFF');
+  background: rgba(255, 255, 255, 0.9);
+  display: none;
+  height: 20px;
+  padding: 5px;
+}
+.adspic-list ul li .show-default:hover p {
+  color: #27A9E3;
+  display: block;
+}
+.adspic-list ul li .show-default.selected p {
+  color: #28B779;
+  display: block;
+}
+.adspic-list ul li .show-default p i {
+  font-size: 14px;
+  margin-right: 4px;
+}
+.adspic-list ul li a.del {
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 9px;
+  font-weight: lighter;
+  background-color: #FFF;
+  line-height: 14px;
+  text-align: center;
+  display: none;
+  width: 14px;
+  height: 14px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 8px;
+  position: absolute;
+  z-index: 3;
+  top: -8px;
+  right: -8px;
+}
+.adspic-list ul li .show-default:hover a.del {
+  color: #27A9E3;
+  display: block;
+}
+.adspic-list ul li .show-default.selected:hover a.del {
+  color: #28B779;
+}
+.adspic-list ul li .show-default:hover a.del:hover {
+  text-decoration: none;
+}
+.adspic-upload .show-sort {
+  line-height: 20px;
+  color: #999;
+  width: 55px;
+  height: 20px;
+  padding: 4px 0 4px 4px;
+  border-style: solid;
+  border-color: #E6E6E6;
+  border-width: 1px 0 1px 1px;
+  position: absolute;
+  z-index: 2;
+  left: 10px;
+  top: 140px;
+}
+.adspic-upload .show-sort .text {
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 20px;
+  vertical-align: middle;
+  width: 10px;
+  height: 20px;
+  padding: 0;
+  border: none 0;
+}
+.adspic-upload .show-sort .text:focus {
+  color: #28B779;
+  text-decoration: underline;
+  box-shadow: none;
+}
+.adspic-upload .upload-btn {
+  width: 60px;
+  height: 30px;
+  margin: 0;
+  position: absolute;
+  z-index: 1px;
+  left: 10px;
+  top: 90px;
+  margin-left: 30px;
+}
+.adspic-upload .remove-btn {
+  width: 60px;
+  height: 30px;
+  margin: 0;
+  position: absolute;
+  z-index: 1px;
+  left: 70px;
+  top: 145px;
+}
+.adspic-upload .upload-btn span,
+.adspic-upload .remove-btn {
+  width: 60px;
+  height: 30px;
+}
+.adspic-upload .upload-btn .input-file {
+  width: 60px;
+  height: 30px;
+}
+.adspic-upload .upload-btn p {
+  width: 58px;
+  height: 30px;
+}
+.select-album {
+  background-color: #FFF;
+  border-top: solid 1px #E6E6E6;
+  padding: 10px;
+}
+.adspic-list:hover .select-album {
+  border-color: #CCC;
+}
+
+.delete, .up, .down,.edit_startup,.delete_startup {
+	margin : 10px
+}
+
+.adImg {
+	cursor:pointer;
+}

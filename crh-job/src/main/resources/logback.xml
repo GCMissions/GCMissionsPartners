@@ -1,0 +1,28 @@
+<configuration>
+	<contextName>standard-code</contextName>
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%level %logger{55} - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<logger name="com.zcckj" level="warn" />
+
+	<root level="warn">
+		<appender-ref ref="console" />
+	</root>
+
+	<appender name="file" class="ch.qos.logback.core.FileAppender">
+		<file>${catalina.base}/logs/job.log</file>
+		<append>true</append>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>%-20(%d{HH:mm:ss.SSS} [%thread]) - %msg%n</pattern>
+			<charset>UTF-8</charset>
+		</encoder>
+	</appender>
+
+	<logger name="com.hengtiansoft.task.job" level="warn" additivity="false">
+		<appender-ref ref="file" />
+	</logger>
+
+</configuration>

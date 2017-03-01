@@ -1,0 +1,273 @@
+.clearfix{
+	clear:both;
+}
+
+#tab_3>.tab_div,#tab_4>.tab_div {
+	padding:10px;
+}
+
+.btn-save{
+	margin:0px auto;
+}
+
+.myNav{
+	padding-top:20px;
+	background: #fff;
+}
+.myNav ul{
+	list-style: none;
+	margin: 0px auto;
+    width: 800px;
+}
+.myNav ul li{
+	width:160px;
+	float: left;
+	margin-left:10px;
+	margin-right:10px;
+    background: rgba(242, 242, 242, 1);
+    text-align: center;
+}
+
+#stockDialog .col-sm-2{
+	width:140px;
+	padding-right:0px;
+}
+#stockDialog .col-sm-10{
+	padding-right:0px;
+}
+
+.actDate {
+	margin-top:5px;
+	line-height:24px;
+}
+.actDate ul{
+	padding-left:0px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+.actDate ul li {
+	list-style:none;
+	float:left;
+	color:#333;
+	background-color:#f2f2f2;
+	padding:8px 25px;
+	margin-right:10px;
+	margin-bottom: 5px;
+	position:relative;
+}
+.actDate ul li span{
+	color:#333;
+	position:absolute;
+	right:5px;
+	top:0px;
+	cursor:pointer;
+	font-size:20px;
+}
+
+.mainSpec>div input{
+	width: 100px;
+	text-align: center;
+}
+.mainSpec div {
+	margin-bottom: 15px;
+}
+.mainSpec ul {
+	float:left;
+	margin-top:10px;
+	padding-left:0px;
+}
+.mainSpec a {
+	margin-left: 15px
+}
+.mainSpec ul li{
+	list-style:none;
+	float:left;
+	color:#333;
+	background-color:#f2f2f2;
+	padding:8px 25px;
+	margin-right:10px;
+	margin-bottom:5px;
+	position:relative;
+}
+.mainSpec ul li span{
+	color:#333;
+	position:absolute;
+	right:5px;
+	top:0px;
+	cursor:pointer;
+	font-size:20px;
+}
+
+.selMainSpec {
+	display:none;
+	margin-top:10px;
+}
+.selMainSpec select{
+	width:11%;
+}
+
+#addMainSpec {
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
+.subSpec a {
+	float:left;
+	margin-top:16px;
+	margin-left:10px;
+}
+.subSpec .selSubSpec {
+	float: left;
+	display:none;
+	padding-top: 12px;
+    margin-left: 5px;
+}
+.subSpec .selSubSpec input{
+    margin: 0 10px;
+    width: 80px;
+    height:30px;
+    text-align:center;
+    border-radius: 4px;
+    box-shadow: none;
+    border-color: #d2d6de;
+    border: 1px solid #ccc;
+}
+
+.spec_area>label{
+	background: #f2f2f2;
+    width: 80px;
+    text-align: center;
+    padding: 5px 0px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+.spec_area div{
+	margin-left:5px;
+}
+.spec_area div input{
+	width:60px;
+	text-align: center;
+}
+
+.num_area {
+	margin:0px auto;
+	text-align:center;
+}
+
+.price_area>ul{
+	padding-left: 0px;
+}
+.price_area span{
+	margin-top:2px;
+	background: #f2f2f2;
+    width: 80px;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: center;
+    display:inline-block;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	height: 28px;
+	line-height: 28px;
+}
+.price_area li{
+	list-style:none;
+	line-height:25px;
+	margin-bottom:5px;
+}
+.price_area ul li ul{
+    margin-top: -37px;
+	margin-left:60px;
+}
+.price_area ul li .sec_spec{
+	float: left;
+    display: inline-block;
+    width: 100px;
+    height: 30px;
+    line-height: 20px;
+}
+.price_area input{
+	float: right;
+	margin: 0 10px;
+    width: 65px;
+    height:30px;
+    text-align:center;
+    border-radius: 4px;
+    box-shadow: none;
+    border-color: #d2d6de;
+    border: 1px solid #ccc;
+}
+
+#stockDialog .modal-footer{
+	text-align:center;
+}
+#stockDialog .modal-footer button{
+	width:80px;
+}
+#stockDialog .modal-footer #saveStockInfo {
+	margin-right:20px;
+}
+
+#modify_num {
+	margin: 0 10px;
+    width: 110px;
+    height:30px;
+    text-align:center;
+    border-radius: 4px;
+    box-shadow: none;
+    border-color: #d2d6de;
+    border: 1px solid #ccc;
+}
+
+.modifyStock input{
+    width: 110px;
+    height:30px;
+    text-align:center;
+    border-radius: 4px;
+    box-shadow: none;
+    border-color: #d2d6de;
+    border: 1px solid #ccc;
+}
+
+.requireInfo div {
+    margin-left: 12px;
+    min-height: 35px;
+}
+
+.partakeInfo table{
+	padding: 5px;
+}
+
+.partakeInfo tbody tr span{
+	margin:auto 5px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.partakeInfo tbody tr input[type="text"]{
+	width: 60px;
+	text-align:center;
+}
+.partakeInfo tbody tr input[type="checkbox"]{
+	vertical-align: middle;
+}
+
+.partakeInfo,.deadlineInfo{
+	margin-left:17px;
+}
+.deadlineInfo span{
+	cursor:pointer;
+}
+.deadlineInfo input{
+	width:50px;
+	text-align:center;
+	margin:auto 5px;
+}
+
+.sale_time {
+	line-height:32px;
+}
+

@@ -1,0 +1,28 @@
+/target
+*.iml
+**/*.iml
+.project
+.classpath
+.settings/
+.checkstyle
+.springBeans
+**/.tgitconfig
+/build
+/bin
+.idea/
+wly-admin/.externalToolBuilders/org.eclipse.wst.jsdt.core.javascriptValidator (1).launch
+/wly-admin/src/main/webapp/node_modules
+/wly-admin/src/main/webapp/build/pages
+/wly-admin/src/main/build
+/wly-admin/src/main/node_modules
+/wly-admin/src/main/bower.json
+/wly-admin/src/main/composer.json
+/wly-admin/src/main/package.json
+/wly-admin/src/main/Gruntfile.js
+/wly-admin/.externalToolBuilders
+/wly-admin/src/main/java/com/hengtiansoft/business/marketing/dto/*.orig
+target
+bin
+wly-b2c/.externalToolBuilders/org.eclipse.wst.jsdt.core.javascriptValidator (1).launch
+wly-b2c/.externalToolBuilders/org.eclipse.wst.validation.validationbuilder.launch
+*.launch

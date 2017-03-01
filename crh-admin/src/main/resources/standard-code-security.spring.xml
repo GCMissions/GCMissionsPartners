@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+    	http://www.springframework.org/schema/aop
+		http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<property name="realm" ref="realm" />
+		<property name="subjectDAO.sessionStorageEvaluator.sessionStorageEnabled"
+			value="false" />
+		<property name="subjectFactory" ref="subjectFactory" />
+		<property name="sessionManager" ref="sessionManager" />
+	</bean>
+
+	<!-- Subject工厂 -->
+	<bean id="subjectFactory"
+		class="com.hengtiansoft.common.authority.shiro.StatelessDefaultSubjectFactory" />
+	<!-- 会话管理器 -->
+	<bean id="sessionManager" class="org.apache.shiro.session.mgt.DefaultSessionManager">
+		<property name="sessionValidationSchedulerEnabled" value="false" />
+	</bean>
+
+	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+		<property name="securityManager" ref="securityManager" />
+		<property name="loginUrl" value="/web/login/login" />
+		<property name="filterChainDefinitions">
+			<value>
+				/=authc
+				/assets/**=anon
+				/web/api-docs/**=anon
+				/web/error/404=anon
+				/web/error/overdue=anon
+				/web/login/refund=anon
+				/web/login/login=anon
+				/web/login/captcha=anon
+				/web/login/authc=pass
+				/web/region/**=anon
+				/web/**=authc
+				/web/message/**=anon
+				
+			</value>
+		</property>
+	</bean>
+
+	<bean id="authc"
+		class="com.hengtiansoft.common.authority.shiro.StatelessAuthcFilter">
+		<property name="loginUrl" value="/web/login/login" />
+	</bean>
+	<bean id="pass"
+		class="org.apache.shiro.web.filter.authc.PassThruAuthenticationFilter">
+		<property name="loginUrl" value="/web/login/authc" />
+	</bean>
+
+	<!-- <bean id="realm" class="org.apache.shiro.realm.text.PropertiesRealm" 
+		/> -->
+	<bean id="realm" class="com.hengtiansoft.common.authority.shiro.StatelessRealm">
+		<property name="statelessAuthcImpl" ref="statelessAuthcImpl" />
+	</bean>
+
+	<bean id="statelessAuthcImpl"
+		class="com.hengtiansoft.common.authority.shiro.StatelessAuthcImpl"></bean>
+
+
+	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
+	<bean
+		class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor"
+		depends-on="lifecycleBeanPostProcessor">
+		<property name="securityManager" ref="securityManager" />
+	</bean>
+
+	<!-- captcha -->
+	<bean id="kaptchaSupport" class="com.hengtiansoft.common.security.KaptchaSupport">
+		<constructor-arg type="java.util.Properties">
+			<props>
+				<prop key="kaptcha.noise.impl">com.google.code.kaptcha.impl.NoNoise</prop>
+			</props>
+		</constructor-arg>
+	</bean>
+
+</beans>

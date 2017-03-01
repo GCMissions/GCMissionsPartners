@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="memcachedCacheManager" class="com.hengtiansoft.common.xmemcached.MemcachedCacheManager">
+    	<property name="cacheManager" ref="cacheManager"></property>
+    </bean>
+	<bean id="cacheManager" class="com.hengtiansoft.common.xmemcached.MemcachedCacheFactory">
+		 <property name="defaultProps">
+			<props>
+ 				<prop key="addrs">${memcached.addrs}</prop>
+				<!-- <prop key="weights">1 1</prop> -->
+				<prop key="commandFactory">net.rubyeye.xmemcached.command.TextCommandFactory</prop>
+				<prop key="sessionLocator">net.rubyeye.xmemcached.impl.KetamaMemcachedSessionLocator</prop>
+				<prop key="expiration">1800</prop>
+				<prop key="useDefault">false</prop>
+<!-- 				<prop key="connectionPoolSize">${xmemcached.pool_size}</prop> -->
+<!-- 				<prop key="useNamespace">${xmemcached.use_namespace}</prop> -->
+				<!-- <prop key="namespace">com.hengtiansoft.xyl.memcached.xmemcached.ClientManagerFactory</prop> -->
+				<!-- <prop key="transcoder">com.hengtiansoft.xyl.memcached.xmemcached.ClientManagerFactory</prop> -->
+				<!-- <prop key="bufferAllocator">com.hengtiansoft.xyl.memcached.xmemcached.ClientManagerFactory</prop> -->
+			</props>
+		</property>
+		<property name="cacheConfigurationList">
+			<list>
+				<bean class="com.hengtiansoft.common.xmemcached.CacheConfiguration">
+					<property name="properties">
+						<props>
+							<prop key="addrs">${memcached.auth.addrs}</prop>
+							<prop key="cacheName">authorization</prop>
+							<prop key="expiration">36000</prop>
+							<prop key="keyPrefix">#AUTH#</prop>
+						</props>
+					</property>
+				</bean>
+				<bean class="com.hengtiansoft.common.xmemcached.CacheConfiguration">
+					<property name="properties">
+						<props>
+							<prop key="addrs">${memcached.auth.addrs}</prop>
+							<prop key="cacheName">LOGIN_CACHE</prop>
+							<prop key="expiration">43200</prop>
+						</props>
+					</property>
+				</bean>
+				<!-- 默认缓存空间 -->
+				<bean class="com.hengtiansoft.common.xmemcached.CacheConfiguration">
+					<property name="properties">
+						<props>
+							<prop key="cacheName">DEFAULT</prop>
+							<!-- 43200 = 60 * 60 * 12 -->
+							<prop key="expiration">43200</prop>
+						</props>
+					</property>
+				</bean>
+				<bean class="com.hengtiansoft.common.xmemcached.CacheConfiguration">
+					<property name="properties">
+						<props>
+							<prop key="cacheName">APPLICATIONAL</prop>
+							<!-- 43200 = 60 * 60 * 12 -->
+							<prop key="expiration">43200</prop>
+						</props>
+					</property>
+				</bean>
+				<bean class="com.hengtiansoft.common.xmemcached.CacheConfiguration">
+					<property name="properties">
+						<props>
+							<prop key="cacheName">MEMCACHED_FOR_SMS</prop>
+							<!-- 在Memcached上做短信验证码缓存,使用2分钟 -->
+							<!-- 1800 = 60 * 15 -->
+							<prop key="expiration">1800</prop>
+						</props>
+					</property>
+				</bean>
+				<bean class="com.hengtiansoft.common.xmemcached.CacheConfiguration">
+					<property name="properties">
+						<props>
+							<prop key="cacheName">ORDERCACHE</prop>
+							<prop key="expiration">86400</prop>
+						</props>
+					</property>
+				</bean>
+				<!-- 首页热门推荐 -->
+				<bean class="com.hengtiansoft.common.xmemcached.CacheConfiguration">
+					<property name="properties">
+						<props>
+							<prop key="cacheName">welyHotCache</prop>
+							<prop key="expiration">86400</prop>
+						</props>
+					</property>
+				</bean>
+				</list>
+		</property>
+		<property name="cacheNames" value="categoryCache,adCache,homepageCache"></property>
+		
+	</bean>
+
+</beans>

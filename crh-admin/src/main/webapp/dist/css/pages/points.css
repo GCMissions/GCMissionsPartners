@@ -1,0 +1,11 @@
+.form-control {
+    display: inline-block;
+    width: 15%;
+}
+.point-red {
+	color: red;
+	padding-left: 88px;
+}
+.hidden{
+	display: none;
+}

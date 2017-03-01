@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+	<contextName>standard-code</contextName>
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %level %logger{55} - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	
+	<appender name="offline" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>../logs/offline.log</file>
+		<append>true</append>
+	    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">  
+	        <fileNamePattern>../logs/offline-%d{yyyy-MM-dd}.log</fileNamePattern>  
+	        <maxHistory>30</maxHistory>
+	    </rollingPolicy>
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %level %logger{55} - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+
+	<logger name="com.hengtiansoft" level="warn" />
+	
+	<logger name="com.hengtiansoft.business.offline" level="info" >
+		<appender-ref ref="offline" />
+	</logger>
+	
+
+	<root level="warn">
+		<appender-ref ref="console" />
+	</root>
+</configuration>

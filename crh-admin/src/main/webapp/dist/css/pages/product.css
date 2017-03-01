@@ -1,0 +1,73 @@
+/* Choose category   */
+ul, ol {
+	list-style : none outside none
+} 
+
+.goodspic-upload-show img{
+	width:140px;
+	height:180px
+}
+.goodspic-upload-show .upload-setDefault {
+	color : #dd4b39;font-weight:bold
+}
+/*上下架*/
+table.treetable .shipTypeSelection   span{
+	display: inline-block;
+	min-width: 65px;
+	
+	text-align: center;
+	line-height:28px;
+	border: 1px solid #dadada;
+	margin: 10px;
+	padding: 0 5px;
+	cursor: pointer;
+}
+table.treetable .shipTypeSelection  {
+	float: left;
+}
+table.treetable .regionTD{
+	height: 100%;
+	overflow: hidden;
+}
+
+table.treetable .shipTypeSelection  span.active{
+	border: 1px solid #f56a3e;
+	color: #f56a3e;
+}
+//右下 角 选中图标
+table.treetable .shipTypeSelection  span.active span {
+	
+}
+.modal-content{
+	/*width: 1000px;
+    margin-left: -200px;*/
+}
+
+.goodRate{
+	float: left;
+	height:30px;
+	width:30px;
+	background-image:url(../../img/u142.png)
+}
+.badRate{
+	float: left;
+	height:30px;
+	width:30px;
+	background-image:url(../../img/u148.png)
+}
+.rateStars{
+	padding-left: 15px;
+	float: left;
+	width: 180px;
+	height: 100%;
+	overflow: hidden;
+}
+.rateImg{
+	float: left;
+	height:130px;
+	width:130px;
+}
+.imgPl{
+	float: left;
+	overflow: hidden;
+}

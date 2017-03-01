@@ -1,0 +1,107 @@
+.form-control {
+  display: inline-block;
+  width: 50%;
+}
+.form_select {
+	width: 26%;
+}
+.control-length {
+	width: 223px;
+}
+.box .row {
+  padding: 5px 0px;
+}
+.box label {
+  line-height: 34px;
+}
+.box .row_middle {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.box .label_length label {
+  width: 115px;
+}
+.return {
+	width: 60px;
+}
+.row-center {
+	width: 345px;
+	margin: 0 auto;
+	padding: 20px 0px 0px 0px;
+}
+.panel-body .row {
+	padding: 15px 0px;
+}
+.panel-body .label_length {
+	width:126px;
+	float: left;
+}
+.table-color th {
+	background-color: #f4f4f4;
+	text-align: center;
+}
+.add-index {
+	position: absolute;
+    z-index: 3;
+    width: 200px;
+    height: 100px;
+    margin-left: 100px;
+    top:8px;
+}
+.btn-width {
+	width:160px;
+}
+.hidden {
+	display:none;
+}
+.label_pattern{
+	width:155px;
+	text-align:right;
+}
+.inputAdd{
+	width:100%;
+}
+.relatedSupplier {
+	width:500px;
+}
+#relatedSupplier {
+	display: inline-block;	
+}
+.relatedSupplier tr {
+	border:1px solid #d2d6de;
+}
+.relatedSupplier th, .relatedSupplier tr {
+	text-align:center;
+}
+.relatedSupplier th ,.relatedSupplier td {
+	border:1px solid #d2d6de;
+}
+.fieldError {
+    line-height: 23px;
+    color: #ffb042;
+    padding-left: 6px;
+    float: none;
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+#codePic {
+	cursor: pointer;
+    padding-right: 20px;
+}
+#addForm .control-label {
+	width:130px;
+}
+.delivery_list .control-label {
+	width:115px;
+}
+.detail_span {
+	width: 126px;
+    display: block;
+    float: left;
+}
+#tab_1 .control-label {
+    width: 130px;
+}

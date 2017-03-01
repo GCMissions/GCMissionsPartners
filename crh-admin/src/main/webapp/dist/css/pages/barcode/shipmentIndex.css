@@ -1,0 +1,39 @@
+body {
+	background-color: #fff;
+	font-size: 16px;
+	height: 100%;
+	overflow: hidden
+}
+
+.detailContent{
+	width:1000px;
+	margin-left:-200px;
+} 
+.detailBody{
+	height:300px;
+	overflow:auto;
+} 
+#info {
+	margin-top: 20px;
+}
+
+.one_code {
+	width: 30%;
+	height: 45px;
+	text-align: center;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	padding-top: 10px;
+	list-style: none;
+	float: left;
+	border: 1px solid #eee;
+	position: relative;
+}
+.delCode {
+	display: block;
+	float: right;
+	color: #000;
+	position: absolute;
+	top: 10px;
+	right: 5px;
+}

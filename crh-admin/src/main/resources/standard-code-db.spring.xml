@@ -1,0 +1,34 @@
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xmlns:repository="http://www.springframework.org/schema/data/repository"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xsi:schemaLocation="
+     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+     http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+     http://www.springframework.org/schema/data/repository http://www.springframework.org/schema/data/repository/spring-repository.xsd
+	 http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
+	 http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
+
+	<!-- in-memory database and a datasource -->
+	<!-- <jdbc:embedded-database id="dataSource"> <jdbc:script location="classpath:database/hsqldb-schema.sql" 
+		/> <jdbc:script location="classpath:database/hsqldb-dataload.sql" /> </jdbc:embedded-database> -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="${jdbc.driverClass}" />
+		<property name="jdbcUrl" value="${jdbc.url}" />
+		<property name="user" value="${jdbc.user}" />
+		<property name="password" value="${jdbc.password}" />
+		<property name="initialPoolSize" value="${connection_pools.initial_pool_size}" />
+		<property name="minPoolSize" value="${connection_pools.min_pool_size}" />
+		<property name="maxPoolSize" value="${connection_pools.max_pool_size}" />
+		<property name="maxIdleTime" value="${connection_pools.max_idle_time}" />
+		<property name="acquireIncrement" value="${connection_pools.acquire_increment}" />
+		<property name="checkoutTimeout" value="${connection_pools.checkout_timeout}" />
+	</bean>
+	<!-- NOTE: for JPA -->
+	<import resource="classpath:standard-code-db-jpa.spring.xml" />
+
+</beans>

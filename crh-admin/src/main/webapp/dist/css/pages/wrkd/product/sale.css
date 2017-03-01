@@ -1,0 +1,19 @@
+
+.box-header input[type='text']{
+	width: 150px;
+	text-align:center;
+	margin-right:20px;
+}
+
+.box-header input[type='radio'] {
+	margin-right:10px;
+}
+
+#searchBtn {
+	width:90px;
+	margin-left:20px;
+}
+.control {
+	width: 120px;
+}
+

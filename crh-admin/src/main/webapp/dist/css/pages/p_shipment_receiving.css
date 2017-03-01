@@ -1,0 +1,22 @@
+
+.form-control {
+	display:inline-block;
+	width:65%;
+}
+#totalNoFrom {
+    display: inline-block;
+    width: 40%;
+}
+#totalNoTo {
+    display: inline-block;
+    width: 40%;
+}
+.btn-group.bootstrap-select.form-control {
+	width:50%;
+}
+.box .row{
+	padding:5px 0px;
+}
+.box label{
+	line-height: 34px;
+}

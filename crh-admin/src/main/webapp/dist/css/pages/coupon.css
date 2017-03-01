@@ -1,0 +1,111 @@
+.form-control {
+  display: inline-block;
+  width: 50%;
+}
+.btn-group.bootstrap-select.form-control {
+  width: 50%;
+}
+.control-length {
+	width: 223px;
+}
+.box .row {
+  padding: 5px 0px;
+}
+.box label {
+  line-height: 34px;
+  width:110px;
+  text-align:right;
+}
+.box .row_middle {
+  width: 50%;
+  margin: 0 auto;
+}
+.submit_length {
+  width: 150px;
+  margin: 0 auto;
+  padding-top: 100px;
+}
+.btn_left {
+  float: left;
+}
+.btn_right {
+  float: right;
+}
+.box .label_length {
+  display: inline-block;
+  float: left;
+}
+.box .div_length {
+	width: 475px;
+}
+.box .label_length label {
+  width: 121px;
+}
+.return {
+	width: 60px;
+}
+.row-center {
+	width: 345px;
+	margin: 0 auto;
+	padding: 20px 0px 0px 0px;
+}
+.panel-body .row {
+	padding: 15px 0px;
+}
+.panel-body .label_length {
+	width:122px;
+	float:left;
+}
+.table-color th {
+	background-color: #f4f4f4;
+	text-align: center;
+}
+.add-index {
+	position: absolute;
+    z-index: 3;
+    width: 200px;
+    height: 100px;
+    margin-left: 100px;
+    top:8px;
+}
+.btn-width {
+	width:160px;
+}
+.hidden {
+	display:none;
+}
+.modal-body .form-horizontal {
+	padding:0;
+}
+.row-padding {
+	padding:15px;
+}
+.fieldError {
+    line-height: 23px;
+    color: #ffb042;
+    padding-left: 6px;
+    float: none;
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.tab-span span {
+	padding-right:10px;
+}
+.detail_span {
+	width: 122px;
+    display: block;
+    float: left;
+}
+.cooperate div {
+	display: inline-block;
+	float: left;
+    padding: 0 50px 10px 0;
+}
+.a-dis {
+	cursor:default;
+}
+.fa-dis {
+	color: rgba(60, 141, 188, 0.38);
+}

@@ -1,0 +1,73 @@
+.form-control {
+  display: inline-block;
+  width: 50%;
+}
+.box .row {
+  padding: 5px 0px;
+}
+.panel-body .row {
+	padding: 15px 0px;
+}
+.panel-body .label_length {
+	width:126px;
+	float: left;
+}
+.table-color th {
+	background-color: #f4f4f4;
+	text-align: center;
+}
+.add-index {
+	position: absolute;
+    z-index: 3;
+    width: 200px;
+    height: 100px;
+    margin-left: 100px;
+    top:8px;
+}
+.btn-width {
+	width:160px;
+}
+.hidden {
+	display:none;
+}
+.modal-body {
+	position: relative;
+    padding: 15px;
+}
+.modal-body .form-horizontal {
+	padding:0;
+}
+.row-padding {
+	padding:15px;
+}
+.modal-footer {
+	padding: 8px;	
+}
+.modal-footer .bootstrap-dialog-footer-buttons {
+	text-align:right;
+}
+.label_pattern{
+	width:155px;
+	text-align:right;
+}
+.inputAdd{
+	width:100%;
+}
+#codePic {
+	cursor: pointer;
+    padding-right: 20px;
+}
+#addForm .control-label,#tab_1 .control-label  {
+	width:130px;
+}
+.supplier_list .control-label {
+	width:115px;
+}
+.detail_span {
+	width: 126px;
+    display: block;
+    float: left;
+}
+.editItem, .removeItem {
+	cursor:pointer;
+}

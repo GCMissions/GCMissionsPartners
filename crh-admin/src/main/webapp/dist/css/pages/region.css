@@ -1,0 +1,37 @@
+.region {
+border-bottom: 1px dashed #3c8dbc
+}
+.region .active{
+    background-color: #f00;
+    color: #fff;
+}
+.region .form-group span,.citys .form-group span{
+	min-width: 10px;
+}
+.region .form-group > span{
+	display: inline-block;
+	min-width: 180px;
+	height: 25px;
+	text-align: center;
+	line-height:25px;
+	cursor: pointer;
+}
+.region .provinceList {
+	margin: 20px;
+	
+}
+.cityList span{
+	display: inline-block;
+	min-width: 65px;
+	height: 30px;
+	text-align: center;
+	line-height:28px;
+	border: 1px solid #dadada;
+	margin: 14px;
+	padding: 0 5px;
+	cursor: pointer;
+}
+.cityList span.active{
+	border: 1px solid #f00;
+    color: #f00;
+}

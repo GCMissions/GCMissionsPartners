@@ -1,0 +1,74 @@
+body{
+	background-color:#fff;
+	font-size:16px;
+	height:100%;
+	overflow:hidden
+}
+.box-body {
+	padding-left:0px;
+}
+.modal-content{
+	margin-left:-200px;
+}
+#info{
+	margin-top:20px;
+	padding-left:0px;
+}
+.one_code{
+	width:30%; 
+	height:45px;
+	text-align:center;
+	margin-right:10px;
+	margin-bottom:10px;
+	padding-top:10px;
+	list-style:none;
+	float:left;
+	border:1px solid #eee;
+	position:relative;
+}
+.modal-body{
+	overflow:auto;
+}
+.delCode{
+	display:block; 
+	float:right; 
+	color:#000;
+	position:absolute;
+	top:10px;
+	right:5px;
+}
+.box-payInfo {
+	color:red;
+}
+.box-payMethod div{
+	padding-bottom:10px;
+}
+.box-payMethod a{    
+    color: #fff;
+    border-radius: 20px;
+}
+.box-payMethod .weixin {
+	background-color: green;
+}
+.box-payMethod .pay {
+	background-color: red;
+	padding: 6px 19px;
+}
+.box-payMethod .order {
+	background-color: #3c8dbc;
+	padding: 6px 19px;
+}
+.hidden {
+	display:none;
+}
+.payStatus {
+	color:red;
+	padding-left: 77px;
+    padding-top: 20px;
+}
+.datailItem {
+	cursor: pointer;
+}
+.fa-dis {
+    color: rgba(60, 141, 188, 0.38);
+}

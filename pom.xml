@@ -1,0 +1,30 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.hengtiansoft</groupId>
+  <artifactId>church_admin</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  
+  
+  	<modules>
+		<module>crh-common</module>
+		<module>crh-admin</module>
+		<module>crh-job</module>
+	</modules>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+
+		<logback.version>1.1.1</logback.version>
+		<spring.version>4.0.3.RELEASE</spring.version>
+		<spring.data.version>1.5.1.RELEASE</spring.data.version>
+		<hibernate.version>4.3.5.Final</hibernate.version>
+		<hibernate.jpa.version>1.0.0.Final</hibernate.jpa.version>
+		<shiro.version>1.2.3</shiro.version>
+		<hqldb.version>2.2.8</hqldb.version>
+		<jackson.version>2.5.4</jackson.version>
+		<jsr311.version>1.1.1</jsr311.version>
+	</properties>
+</project>

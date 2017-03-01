@@ -1,0 +1,9 @@
+<config>
+	<context-values>
+		<resource path="src/main/webapp/WEB-INF/template/main.ftl">
+			<value key="good" object-class="org.hibernate.engine.jdbc.internal.DDLFormatterImpl"/>
+		</resource>
+	</context-values>
+	<macro-library>
+	</macro-library>
+</config>

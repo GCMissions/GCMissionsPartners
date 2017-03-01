@@ -1,0 +1,34 @@
+.condition-sel {
+	margin-left : 40px;
+	margin-top : 20px;
+}
+
+.condition-sel select {
+	margin-right : 20px;
+	width : 16%;
+}
+
+.condition-input {
+	margin-left: 40px;
+    margin-top: 2%;
+}
+
+.condition-input input {
+	margin-right : 20px;
+	text-align: center;
+}
+
+.pname-input {
+	width : 30%;
+}
+
+.min-price {
+	width : 16%;
+}
+
+.max-price {
+	width : 16%;
+}
+.validate {
+	cursor:pointer;
+}
