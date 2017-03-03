@@ -11,7 +11,7 @@ import com.hengtiansoft.common.domain.BaseEntity;
 
 @Entity
 @Table(name = "group")
-public class GroupEntity extends BaseEntity {
+public class RegionEntity extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
 
@@ -20,8 +20,8 @@ public class GroupEntity extends BaseEntity {
     @Column(name = "ID")
     private Long id;
     
-    @Column(name = "GROUP_NAME")
-    private String groupName;
+    @Column(name = "REGION_NAME")
+    private String regionName;
     
     @Column(name = "COLOR")
     private String color;
@@ -37,12 +37,12 @@ public class GroupEntity extends BaseEntity {
         this.id = id;
     }
 
-    public String getGroupName() {
-        return groupName;
+    public String getRegionName() {
+        return regionName;
     }
 
-    public void setGroupName(String groupName) {
-        this.groupName = groupName;
+    public void setRegionName(String regionName) {
+        this.regionName = regionName;
     }
 
     public String getColor() {

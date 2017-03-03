@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hengtiansoft.common.dto.ResultDto;
-import com.hengtiansoft.crh.dto.GroupDto;
+import com.hengtiansoft.crh.dto.RegionDto;
 import com.hengtiansoft.crh.service.GroupService;
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
@@ -25,7 +25,7 @@ public class PartnerController {
     @RequestMapping(value = "/show", method = RequestMethod.POST)
     @ResponseBody
     @ApiOperation(value = "Partner Show", httpMethod = "POST", response = ResultDto.class)
-    public ResultDto<List<GroupDto>> getGroups() {
+    public ResultDto<List<RegionDto>> getGroups() {
         return groupService.getAllGroups();
     }
 }

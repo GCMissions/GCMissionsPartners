@@ -29,8 +29,8 @@ public class PartnersEntity extends BaseEntity {
     @Column(name = "MISSION")
     private String mission;
     
-    @Column(name = "C_G_REF_ID")
-    private Long cGRefId;
+    @Column(name = "C_R_REF_ID")
+    private Long cRRefId;
     
     @Column(name = "INTRODUCE")
     private String introduce;
@@ -70,12 +70,12 @@ public class PartnersEntity extends BaseEntity {
         this.mission = mission;
     }
 
-    public Long getcGRefId() {
-        return cGRefId;
+    public Long getcRRefId() {
+        return cRRefId;
     }
 
-    public void setcGRefId(Long cGRefId) {
-        this.cGRefId = cGRefId;
+    public void setcRRefId(Long cRRefId) {
+        this.cRRefId = cRRefId;
     }
 
     public String getIntroduce() {

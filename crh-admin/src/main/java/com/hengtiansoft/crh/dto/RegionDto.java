@@ -3,7 +3,7 @@ package com.hengtiansoft.crh.dto;
 import java.io.Serializable;
 import java.util.List;
 
-public class GroupDto implements Serializable {
+public class RegionDto implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -11,10 +11,8 @@ public class GroupDto implements Serializable {
     
     private String color;
     
-    private List<CountryDto> countryList;
+    private List<CountryDto> item;
     
-    private List<PartnerDto> partnerList;
-
     public String getName() {
         return name;
     }
@@ -31,19 +29,11 @@ public class GroupDto implements Serializable {
         this.color = color;
     }
 
-    public List<CountryDto> getCountryList() {
-        return countryList;
+    public List<CountryDto> getItem() {
+        return item;
     }
 
-    public void setCountryList(List<CountryDto> countryList) {
-        this.countryList = countryList;
-    }
-
-    public List<PartnerDto> getPartnerList() {
-        return partnerList;
-    }
-
-    public void setPartnerList(List<PartnerDto> partnerList) {
-        this.partnerList = partnerList;
+    public void setItem(List<CountryDto> item) {
+        this.item = item;
     }
 }

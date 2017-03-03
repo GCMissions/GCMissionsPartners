@@ -9,7 +9,7 @@ public class CountryDto implements Serializable {
 
     private String name;
     
-    private List<PartnerDto> partnerList;
+    private List<PartnerDto> item;
 
     public String getName() {
         return name;
@@ -19,11 +19,11 @@ public class CountryDto implements Serializable {
         this.name = name;
     }
 
-    public List<PartnerDto> getPartnerList() {
-        return partnerList;
+    public List<PartnerDto> getItem() {
+        return item;
     }
 
-    public void setPartnerList(List<PartnerDto> partnerList) {
-        this.partnerList = partnerList;
+    public void setItem(List<PartnerDto> item) {
+        this.item = item;
     }
 }

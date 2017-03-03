@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "country_group_ref")
-public class CountryGroupRefEntity implements Serializable {
+public class CountryRegionRefEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -23,8 +23,8 @@ public class CountryGroupRefEntity implements Serializable {
     @Column(name = "COUNTRY_ID")
     private Long countyId;
     
-    @Column(name = "GROUP_ID")
-    private Long groupId;
+    @Column(name = "REGION_ID")
+    private Long regionId;
 
     public Long getId() {
         return id;
@@ -42,11 +42,11 @@ public class CountryGroupRefEntity implements Serializable {
         this.countyId = countyId;
     }
 
-    public Long getGroupId() {
-        return groupId;
+    public Long getRegionId() {
+        return regionId;
     }
 
-    public void setGroupId(Long groupId) {
-        this.groupId = groupId;
+    public void setRegionId(Long regionId) {
+        this.regionId = regionId;
     }
 }
