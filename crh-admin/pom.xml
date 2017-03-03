@@ -20,11 +20,6 @@
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-		  <groupId>com.hengtiansoft.standard</groupId>
-		  <artifactId>std_oss</artifactId>
-		  <version>0.0.2-SNAPSHOT</version>
-		</dependency>
-		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
 			<version>1.2.11</version>

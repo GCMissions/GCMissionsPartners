@@ -91,17 +91,4 @@
 	<bean class="com.hengtiansoft.common.jpush.service.JpushService" init-method="init">
 		<property name="jpuhSwitch" value="${Jpush.Switch}" />
 	</bean>
-	
-	<!-- add alibaba oss upload -->
-	<bean id="ossClientInfo" class="com.hengtiansoft.standard.oss.OssClientInfo">
-	    <property name="accessKeyId" value="${accessKeyId}" />
-	    <property name="accessKeySecret" value="${accessKeySecret}" />
-	    <property name="endpoint" value="${endpoint}" />
-	    <property name="bucketName" value="${bucketName}" />
-	</bean>
-	
-	<bean class="com.hengtiansoft.standard.oss.OssFileOperatorImpl">
-	    <constructor-arg name="ossClientInfo" ref="ossClientInfo" />
-	</bean>
-	
 </beans>
