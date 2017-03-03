@@ -28,7 +28,9 @@
 		<property name="loginUrl" value="/web/login/login" />
 		<property name="filterChainDefinitions">
 			<value>
-				/=authc
+				<!-- /=authc -->
+				/web/slide/**=anon
+				/web/resource/**=anon
 				/assets/**=anon
 				/web/api-docs/**=anon
 				/web/error/404=anon
@@ -40,7 +42,6 @@
 				/web/region/**=anon
 				/web/**=authc
 				/web/message/**=anon
-				
 			</value>
 		</property>
 	</bean>

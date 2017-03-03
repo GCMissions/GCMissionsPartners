@@ -3,7 +3,7 @@ package com.hengtiansoft.church.authority.dto;
 import java.io.Serializable;
 import java.util.List;
 
-import com.hengtiansoft.wrw.entity.SRoleInfoEntity;
+import com.hengtiansoft.church.entity.SRoleInfoEntity;
 
 /**
  * Class Name: SUserEditDto

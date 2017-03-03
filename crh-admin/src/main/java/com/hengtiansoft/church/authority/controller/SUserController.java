@@ -16,11 +16,11 @@ import com.hengtiansoft.church.authority.dto.SUserSaveAndUpdateDto;
 import com.hengtiansoft.church.authority.dto.SUserSearchDto;
 import com.hengtiansoft.church.authority.dto.SUserUpdateDto;
 import com.hengtiansoft.church.authority.service.SUserService;
+import com.hengtiansoft.church.entity.SRoleInfoEntity;
 import com.hengtiansoft.common.authority.AuthorityContext;
 import com.hengtiansoft.common.dto.ResultDto;
 import com.hengtiansoft.common.dto.ResultDtoFactory;
 import com.hengtiansoft.common.util.AppConfigUtil;
-import com.hengtiansoft.wrw.entity.SRoleInfoEntity;
 
 /**
  * Class Name: SUserController Description: 账户控制器

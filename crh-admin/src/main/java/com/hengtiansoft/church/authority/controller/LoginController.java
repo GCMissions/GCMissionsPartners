@@ -18,13 +18,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hengtiansoft.church.authority.dto.LoginDto;
+import com.hengtiansoft.church.dao.SUserDao;
+import com.hengtiansoft.church.entity.SUserEntity;
+import com.hengtiansoft.church.enums.StatusEnum;
 import com.hengtiansoft.common.authority.AuthorityContext;
 import com.hengtiansoft.common.dto.ResultDto;
 import com.hengtiansoft.common.dto.ResultDtoFactory;
 import com.hengtiansoft.common.security.KaptchaSupport;
-import com.hengtiansoft.wrw.dao.SUserDao;
-import com.hengtiansoft.wrw.entity.SUserEntity;
-import com.hengtiansoft.wrw.enums.StatusEnum;
 
 /**
  * Class Name: LoginController Description: 登录控制器

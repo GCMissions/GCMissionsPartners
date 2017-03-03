@@ -37,9 +37,6 @@ $(function(){
 					},
 				 
 					columns: [
-//					    {
-//					    	checkbox: true
-//					    },
 						{
 							width: 50,
 							align: 'center',
@@ -52,21 +49,8 @@ $(function(){
 							align: 'center'
 						} ,
 						{
-							field: 'userName',
-							align: 'center'
-						} ,
-						{
-							field: 'phone',
-							align: 'center'
-						} ,
-						{
 							field: 'email',
 							align: 'center'
-						} ,
-						{
-							field: 'status',
-							align: 'center',
-							class: 'status'
 						} ,
 						{
 							field: 'createTime',
@@ -78,19 +62,10 @@ $(function(){
 							checkbox: false, 
 							formatter:function(value,row,index){  
 								var handleField;
-								handleField = '<a  title="修改" class="editItem" data-id="'+row.id+'">' 
+								handleField = '<a  title="Editor" class="editItem" data-id="'+row.id+'">' 
 								+'<i class="fa fa-edit"  style="font-size:20px;margin-right: 4%;"></i></a>'
-								+'<a  title="删除" class="removeItem" data-id="'+row.id+'">'
+								+'<a  title="Delete" class="removeItem" data-id="'+row.id+'">'
 								+'<i class="fa fa-trash"  style="font-size:20px"></i></a>';
-								/*if(row.status == "启用"){
-									handleField = '<a  title="修改" class="editItem" data-id="'+row.id+'">' 
-													+'<i class="fa fa-edit"  style="font-size:20px;margin-right: 4%;"></i></a>'
-													+'<a  title="删除" class="removeItem" data-id="'+row.id+'">'
-													+'<i class="fa fa-trash"  style="font-size:20px"></i></a>';
-								}else{
-									handleField = '<a  title="查看" class="editItem " data-id="'+row.id+'">' 
-													+'<i class="fa fa-eye"  style="font-size:20px;margin-right: 4%;"></i></a>';
-								}*/
 								return handleField;
 							} 
 						}

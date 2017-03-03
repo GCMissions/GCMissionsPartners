@@ -14,16 +14,8 @@
  */
 package com.hengtiansoft.church.common.util;
 
+import com.hengtiansoft.church.entity.SUserEntity;
 import com.hengtiansoft.common.authority.AuthorityContext;
-import com.hengtiansoft.common.exception.BizServiceException;
-import com.hengtiansoft.common.util.ApplicationContextUtil;
-import com.hengtiansoft.wrw.dao.SOrgDao;
-import com.hengtiansoft.wrw.dao.SRegionDao;
-import com.hengtiansoft.wrw.entity.SOrgEntity;
-import com.hengtiansoft.wrw.entity.SRegionEntity;
-import com.hengtiansoft.wrw.entity.SUserEntity;
-import com.hengtiansoft.wrw.enums.RegionLevelType;
-import com.hengtiansoft.wrw.enums.StatusEnum;
 
 /**
  * Class Name: UserUtil
@@ -32,32 +24,6 @@ import com.hengtiansoft.wrw.enums.StatusEnum;
  * @author xiaoluzhou
  */
 public class UserUtil {
-
-    public static Integer getUserRegionId() {
-        SOrgEntity org = ApplicationContextUtil.getBean(SOrgDao.class).findByOrgIdAndStatus(getUserOrgId(), StatusEnum.NORMAL.getCode());
-        if (org == null) {
-            throw new BizServiceException("未找到对应的区域信息");
-        }
-        SRegionDao regionDao = ApplicationContextUtil.getBean(SRegionDao.class);
-        SRegionEntity region = regionDao.findOne(org.getRegion());
-        if (region == null) {
-            throw new BizServiceException("未找到对应的区域信息");
-        }
-        if (RegionLevelType.CITY.getKey().equals(region.getLevelType())) {
-            return region.getId();
-        } else {
-            return region.getParentId();
-        }
-    }
-
-    public static String getStoreInfo() {
-        Long orgId = ((SUserEntity) AuthorityContext.getCurrentUser()).getOrgId();
-        SOrgEntity org = ApplicationContextUtil.getBean(SOrgDao.class).findByOrgIdAndStatus(orgId, StatusEnum.NORMAL.getCode());
-        if (org == null) {
-            throw new BizServiceException("未找到对应的门店信息");
-        }
-        return org.getOrgName();
-    }
 
     public static Long getUserOrgId() {
         return ((SUserEntity) AuthorityContext.getCurrentUser()).getOrgId();

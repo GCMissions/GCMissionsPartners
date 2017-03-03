@@ -88,248 +88,24 @@
              
               <ul class="sidebar-menu">
                 <!--<li class="header">MAIN NAVIGATION</li>-->
-                <#if auth.hasPermission("product")>
-                <li class="treeview">
-                  <a href="#">
-                    <i class="fa fa-th"></i> 
-                    <span>商品管理</span> 
-                    <i class="fa fa-angle-left pull-right"></i>
-                  </a>
-                  <ul class="treeview-menu">
-                  		<#if auth.hasPermission("product.product")>
-                        <li><a href="activity/" class="J_menuItem"><i class="fa fa-circle-o"></i>商品列表</a></li>
-                        </#if>
-                        <#if auth.hasPermission("product.productshief")>
-                        <li><a href="productShief/" class="J_menuItem"><i class="fa fa-circle-o"></i>商品上下架</a></li>
-						</#if>
-                        <#if auth.hasPermission("product.category")>
-                        <li><a href="category/" class="J_menuItem"><i class="fa fa-circle-o"></i>商品品类管理</a></li>
-                        </#if>
-                  </ul>
-                </li>
-                </#if>
-
-				  
-				 
-				<#if auth.hasPermission("seller")> 
-                <li class="treeview">
-                    <a href="#"> <i class="fa  fa-server"></i><span>服务商管理</span> <i class="fa fa-angle-left pull-right"></i> </a>
-                    <ul class="treeview-menu">
-                   		<#if auth.hasPermission("seller.supplier")> 
-                        <li><a href="supplier/" class="J_menuItem"><i class="fa fa-circle-o"></i>服务商管理</a></li>
-                        </#if>
-                    </ul>
-				</li>
-                 </#if>
-                 
-                <#if auth.hasPermission("validate")>
-					<li class="treeview">
-			            <a href="#"> <i class="fa  fa-bank"></i><span>服务商平台验证</span> <i class="fa fa-angle-left pull-right"></i> </a>
-			            <ul class="treeview-menu">
-			            	<li><a href="orgOrder/" class="J_menuItem"><i class="fa fa-circle-o"></i>订单查询</a></li>
-			                <li><a href="validate/" class="J_menuItem"><i class="fa fa-circle-o"></i>商品验证</a></li>
-			            </ul>
-					</li> 
-				</#if>   
-                 
-                <#if auth.hasPermission("marketing")>  
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa  fa-map-signs"></i> 
-                        <span>营销管理</span> 
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </a>
-                    <ul class="treeview-menu">
-                    	<#if auth.hasPermission("marketing.coupon")>  
-                        <li><a href="coupon/" class="J_menuItem"><i class="fa fa-circle-o"></i>优惠券管理</a></li>
-                         </#if>
-                         <#if auth.hasPermission("product.bargain")>  
-                        <li><a href="bargain/" class="J_menuItem"><i class="fa fa-circle-o"></i>砍价管理</a></li>
-                         </#if>
-                    </ul>
-				</li>
-				 </#if>
-				 
-                <#if auth.hasPermission("order")>
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa  fa-credit-card"></i> 
-                        <span>订单管理 </span> 
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </a>
-                    <ul class="treeview-menu">
-                    	<#if auth.hasPermission("order.ordeManager")>
-                        <li><a href="order/" class="J_menuItem"><i class="fa fa-circle-o"></i>订单管理</a></li>
-                        </#if>
-                    </ul>
-				</li>
-                </#if>
-                
-				<#if auth.hasPermission("advertise")>
-				<li class="treeview">
-	                <a href="#"> <i class="fa  fa-cube"></i><span>广告管理</span> <i class="fa fa-angle-left pull-right"></i> </a>
-	                <ul class="treeview-menu">
-	                    <li><a href="advertise/" class="J_menuItem"><i class="fa fa-circle-o"></i>广告管理</a></li>
-	                </ul>
-				</li> 
-				</#if>
-				
-				<#if auth.hasPermission("context")>
-				<li class="treeview">
-	                <a href="#"> <i class="fa   fa-facebook-official"></i><span>内容管理</span> <i class="fa fa-angle-left pull-right"></i> </a>
-	                <ul class="treeview-menu">
-	                	<#if auth.hasPermission("context.manager")>
-	                    <li><a href="context/" class="J_menuItem"><i class="fa fa-circle-o"></i>内容管理</a></li>
-	                    </#if>
-	                    <#if auth.hasPermission("context.intersection")>
-	                    <li><a href="intersection/" class="J_menuItem"><i class="fa fa-circle-o"></i>合集管理</a></li>
-	                    </#if>
-	                </ul>
-				</li>
-				</#if>
-				
-				<#if auth.hasPermission("wrkd")>  
-		            <li class="treeview">
-		                <a href="#"> <i class="fa  fa-graduation-cap"></i><span>吾儿酷袋</span> <i class="fa fa-angle-left pull-right"></i> </a>
-		                <ul class="treeview-menu">
-		                    <li><a href="coolbag/" class="J_menuItem"><i class="fa fa-circle-o"></i>吾儿酷袋管理</a></li>
-		                </ul>
-					</li>    
-				</#if>
-				
-				<#if auth.hasPermission("kdProduct")>
-                <li class="treeview">
-                  <a href="#">
-                    <i class="fa fa-th"></i> 
-                    <span>酷袋商品管理</span> 
-                    <i class="fa fa-angle-left pull-right"></i>
-                  </a>
-                  <ul class="treeview-menu">
-                  		<#if auth.hasPermission("kd.product")>
-                        <li><a href="coolbag/product/" class="J_menuItem"><i class="fa fa-circle-o"></i>商品列表</a></li>
-                        </#if>
-                        <#if auth.hasPermission("kd.productshief")>
-                        <li><a href="coolbag/product/sale/" class="J_menuItem"><i class="fa fa-circle-o"></i>商品上下架</a></li>
-						</#if>
-                  </ul>
-                </li>
-                </#if>
-                
-                <#if auth.hasPermission("kdOrder")>
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa  fa-credit-card"></i> 
-                        <span>酷袋订单管理 </span> 
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </a>
-                    <ul class="treeview-menu">
-                    	<#if auth.hasPermission("kdOrder.ordeManager")>
-                        <li><a href="kdOrder/" class="J_menuItem"><i class="fa fa-circle-o"></i>订单管理</a></li>
-                        </#if>
-                    </ul>
-				</li>
-                </#if>
-                
-                <#if auth.hasPermission("kdAdvertise")>
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa  fa-credit-card"></i> 
-                        <span>酷袋广告位管理 </span> 
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </a>
-                    <ul class="treeview-menu">
-                    	<#if auth.hasPermission("kdAdvertise.advertiseManager")>
-                        <li><a href="kdAdvertise/" class="J_menuItem"><i class="fa fa-circle-o"></i>广告位管理</a></li>
-                        </#if>
-                    </ul>
-				</li>
-                </#if>
-                
-                <#if auth.hasPermission("appHotAd")>
-					<li class="treeview">
-		                <a href="#"> <i class="fa  fa-cube"></i><span>APP管理</span> <i class="fa fa-angle-left pull-right"></i> </a>
-		                <ul class="treeview-menu">
-		                	<#if auth.hasPermission("appHotAd.indexManager")>
-		                    	<li><a href="appHotAd/" class="J_menuItem"><i class="fa fa-circle-o"></i>首页管理</a></li>
-		                    </#if>
-		                    <!-- <#if auth.hasPermission("app.startup")>
-		                    	<li><a href="appStartupHomepage/" class="J_menuItem"><i class="fa fa-circle-o"></i>启动页管理</a></li>
-		                    </#if> -->
-		                </ul>
-					</li>
-                </#if>
-                
-                <#if auth.hasPermission("kdActivity")>  
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa  fa-map-signs"></i> 
-                        <span>酷袋专享管理</span> 
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </a>
-                    <ul class="treeview-menu">
-                    	<#if auth.hasPermission("kd.gp")>  
-                        	<li><a href="groupPurchase/" class="J_menuItem"><i class="fa fa-circle-o"></i>团购管理</a></li>
-                        </#if>
-                        <#if auth.hasPermission("kd.bargain")>  
-                        	<li><a href="kdBargain/" class="J_menuItem"><i class="fa fa-circle-o"></i>24小时管理</a></li>
-                        </#if>
-                        <#if auth.hasPermission("kd.pWelfare")>  
-                        	<li><a href="coolbag/charity/" class="J_menuItem"><i class="fa fa-circle-o"></i>公益管理</a></li>
-                        </#if>
-                    </ul>
-				</li>
-				 </#if>
 				
 				<#if auth.hasPermission("authority")>
                  <li class="treeview">
                     <a href="#">
                         <i class="fa   fa-cubes"></i> 
-                        <span>权限管理 </span> 
+                        <span>General </span> 
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
                    		<#if auth.hasPermission("authority.user")>
-                        <li><a href="user/" class="J_menuItem"><i class="fa fa-circle-o"></i>用户管理</a></li>
+                        <li><a href="user/" class="J_menuItem"><i class="fa fa-circle-o"></i>Users Managemt</a></li>
                         </#if>
                         <#if auth.hasPermission("authority.role")>
-                        <li><a href="role/" class="J_menuItem"><i class="fa fa-circle-o"></i>角色管理</a></li>
+                        <li><a href="role/" class="J_menuItem"><i class="fa fa-circle-o"></i>Roles Managemt</a></li>
                         </#if>
                     </ul>
 				</li>
 				</#if>
-				
-				<#if auth.hasPermission("member")>
-					<li class="treeview">
-		                <a href="#"> <i class="fa  fa-cube"></i><span>平台用户管理</span> <i class="fa fa-angle-left pull-right"></i> </a>
-		                <ul class="treeview-menu">
-		                	<#if auth.hasPermission("member.manager")>
-		                    	<li><a href="member/" class="J_menuItem"><i class="fa fa-circle-o"></i>平台用户管理</a></li>
-		                    </#if>
-		                </ul>
-					</li>
-                </#if>
-				
-				<#if auth.hasPermission("setting")>
-                 <li class="treeview">
-                    <a href="#">
-                        <i class="fa   fa-gears"></i> 
-                        <span>系统设置 </span> 
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </a>
-                    <ul class="treeview-menu">
-                   		<!-- <#if auth.hasPermission("setting.regionCity")>
-                        <li><a href="regionCity/" class="J_menuItem"><i class="fa fa-circle-o "></i>开放城市管理</a></li>
-                        </#if> -->
-                        <#if auth.hasPermission("setting.messageModel")>
-                        <li><a href="messageModel/" class="J_menuItem"><i class="fa fa-circle-o"></i>消息模板</a></li>
-                        </#if>
-                        <!-- <#if auth.hasPermission("setting.paraSetting")>
-                        <li><a href="paraSetting/" class="J_menuItem"><i class="fa fa-circle-o "></i>参数设置</a></li>
-                        </#if> -->
-                    </ul>
-				</li>
-				</#if>
-				
               </ul>
             </section>
             <!-- /.sidebar -->
@@ -342,29 +118,29 @@
                     </button>
                     <nav class="page-tabs J_menuTabs">
                         <div class="page-tabs-content">
-                            <a href="javascript:;" class="active J_menuTab" data-id="/admin/web/main/index">首页</a>
+                            <a href="javascript:;" class="active J_menuTab" data-id="/admin/web/main/index">Index</a>
                         </div>
                     </nav>
                     <button class="roll-nav roll-right J_tabRight"><i class="fa fa-forward"></i>
                     </button>
                     <div class="btn-group roll-nav roll-right">
-                        <button class="dropdown J_tabClose" data-toggle="dropdown">关闭操作<span class="caret"></span>
+                        <button class="dropdown J_tabClose" data-toggle="dropdown">Close Opration<span class="caret"></span>
 
                         </button>
                         <ul role="menu" class="dropdown-menu dropdown-menu-right">
-                        	<li class="J_tabShowActive"><a>定位当前选项卡</a>
+                        	<li class="J_tabShowActive"><a>Locate the current TAB</a>
                             </li>
                         	<li class="divider"></li>
-                            <li class="J_tabRefreshActive"><a>刷新当前选项卡</a>
+                            <li class="J_tabRefreshActive"><a>Refresh the current TAB</a>
                             </li>
                             <li class="divider"></li>
-                            <li class="J_tabCloseAll"><a>关闭全部选项卡</a>
+                            <li class="J_tabCloseAll"><a>Close all tabs</a>
                             </li>
-                            <li class="J_tabCloseOther"><a>关闭其他选项卡</a>
+                            <li class="J_tabCloseOther"><a>Close the other TAB</a>
                             </li>
                         </ul>
                     </div>
-                    <a  href="javascript:;"   class="roll-nav roll-right logout J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+                    <a  href="javascript:;"   class="roll-nav roll-right logout J_tabExit"><i class="fa fa fa-sign-out"></i> logout</a>
                 </div>
                 
                 <div class=" J_mainContent" id="content-main">

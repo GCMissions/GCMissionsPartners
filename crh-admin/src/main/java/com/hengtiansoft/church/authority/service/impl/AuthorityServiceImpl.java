@@ -8,17 +8,17 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.hengtiansoft.church.dao.SFunctionInfoDao;
+import com.hengtiansoft.church.dao.SRoleInfoDao;
+import com.hengtiansoft.church.dao.SUserDao;
+import com.hengtiansoft.church.entity.SFunctionInfoEntity;
+import com.hengtiansoft.church.entity.SUserEntity;
+import com.hengtiansoft.church.enums.StatusEnum;
 import com.hengtiansoft.common.authority.domain.FunctionInfo;
 import com.hengtiansoft.common.authority.domain.RoleInfo;
 import com.hengtiansoft.common.authority.domain.UserInfo;
 import com.hengtiansoft.common.authority.service.AuthorityService;
 import com.hengtiansoft.common.util.EncryptUtil;
-import com.hengtiansoft.wrw.dao.SFunctionInfoDao;
-import com.hengtiansoft.wrw.dao.SRoleInfoDao;
-import com.hengtiansoft.wrw.dao.SUserDao;
-import com.hengtiansoft.wrw.entity.SFunctionInfoEntity;
-import com.hengtiansoft.wrw.entity.SUserEntity;
-import com.hengtiansoft.wrw.enums.StatusEnum;
 
 @Service
 public class AuthorityServiceImpl implements AuthorityService {

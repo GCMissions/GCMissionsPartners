@@ -5,8 +5,8 @@ import java.util.List;
 import com.hengtiansoft.church.authority.dto.SUserSaveAndUpdateDto;
 import com.hengtiansoft.church.authority.dto.SUserSearchDto;
 import com.hengtiansoft.church.authority.dto.SUserUpdateDto;
+import com.hengtiansoft.church.entity.SRoleInfoEntity;
 import com.hengtiansoft.common.dto.ResultDto;
-import com.hengtiansoft.wrw.entity.SRoleInfoEntity;
 
 /**
  * 
