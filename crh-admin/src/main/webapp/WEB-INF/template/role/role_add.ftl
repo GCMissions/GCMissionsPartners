@@ -11,8 +11,8 @@
      <div class="content-wrapper page-content-wrapper">
 		<section class="content-header">
 	         <ol class="breadcrumb">
-	           <li><i class="fa fa-dashboard"></i> 角色管理</li>
-            	<li class="active"> 添加角色</li>
+	           <li><i class="fa fa-dashboard"></i> Role Managemt</li>
+            	<li class="active"> Add Roles</li>
 	         </ol>
       	</section>
 		<!-- Main content -->
@@ -25,15 +25,15 @@
 							<div class="box-body form-horizontal addEditTpl">
 								<div class="form-group row">
 								  	<label class="col-sm-4 control-label">
-								  		<span class="requiredField">*</span>角色名称
+								  		<span class="requiredField">*</span>Role Name
 								  	</label>
 								  	<div class="col-sm-5">
-								    	<input type="text" class="form-control" name="role" placeholder="请输入角色名称"
-							        		data-rule-required="true" data-msg-required="请输入名称" data-rule-rolename="true">
+								    	<input type="text" class="form-control" name="role" placeholder="Enter a role name"
+							        		data-rule-required="true" data-msg-required="Please Enter The Role Name" data-rule-rolename="true">
 								  	</div>
 								</div>
 								<div class="form-group row">
-									<label class="col-sm-4 control-label">角色描述</label>
+									<label class="col-sm-4 control-label">Role Description</label>
 									<div class="col-sm-8">
 										<textarea id="editor" name="description" class="form-control"></textarea>
 									</div>
@@ -43,7 +43,7 @@
 									<div class="form-group row">
 										<label class="col-sm-4 control-label">${functionList.nodeName}</label>
 										<label class="col-sm-4">
-											<input type="checkbox" name="functionIds" value="${functionList.id}" id=checkAll_${functionList.id}>全选
+											<input type="checkbox" name="functionIds" value="${functionList.id}" id=checkAll_${functionList.id}>All
 										</label>
 										<div class="col-sm-6 child">
 											<#list functionList.childrenList as childList>	
@@ -58,8 +58,8 @@
 							</div>
 							
 							<div class="col-sm-12 text-center">
-	        		            <button class="btn btn-primary submitMainForm" type="button">保存</button>
-	        		            <button type="button" class="btn btn-default backPage">取消</button>
+	        		            <button class="btn btn-primary submitMainForm" type="button">Save</button>
+	        		            <button type="button" class="btn btn-default backPage">Cancel</button>
     		               </div>	
 						</form>
 					

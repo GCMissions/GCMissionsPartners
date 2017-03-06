@@ -51,11 +51,11 @@ $(function(){
 							align: 'center',
 							checkbox: false, 
 							formatter:function(value,row,index){  
-								var handleField = '<a  title="修改" class="editItem" data-id="'+row.roleId+'" href="edit/'+row.roleId+'">' 
+								var handleField = '<a  title="Editor" class="editItem" data-id="'+row.roleId+'" href="edit/'+row.roleId+'">' 
 											+'<i class="fa fa-edit"  style="font-size:20px;margin-right: 4%;"></i></a>'
-											+'<a  title="查看" class="detailItem" data-id="'+row.roleId+'" href="detail/'+row.roleId+'">' 
+											+'<a  title="Check" class="detailItem" data-id="'+row.roleId+'" href="detail/'+row.roleId+'">' 
 											+'<i class="fa fa-eye"  style="font-size:20px;margin-right: 4%;"></i></a>'
-											+'<a  title="删除" class="removeItem" data-id="'+row.roleId+'">'
+											+'<a  title="Delete" class="removeItem" data-id="'+row.roleId+'">'
 											+'<i class="fa fa-trash"  style="font-size:20px"></i></a>';
 								return handleField;
 							} 
@@ -70,20 +70,20 @@ $(function(){
 				that.$dataList.on("click", "a.removeItem", function() {
 					var id = this.getAttribute('data-id');
 					that.dialog =  BootstrapDialog.show({
-		                title: '删除角色',
+		                title: 'Delete Role',
 		                type : BootstrapDialog.TYPE_WARNING,
 		                message: message('admin.dialog.deleteConfirm'),
 		                draggable: true,
 		                size : BootstrapDialog.SIZE_SMALL,
 		                buttons: [{
-		                    label: '确认删除',
+		                    label: 'Confirm the deletion',
 		                    cssClass: 'btn-primary saveAddEditTpl',
 		                    action: function(dialog) {
 		                    	dialog.close();
 		                        that.doRemove(that, id);
 		                    }
 		                }, {
-		                    label: '取消',
+		                    label: 'Cancel',
 		                    action: function(dialog) {
 		                        dialog.close();
 		                    }

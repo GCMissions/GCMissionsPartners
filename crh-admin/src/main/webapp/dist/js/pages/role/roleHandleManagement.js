@@ -102,7 +102,7 @@ $(function(){
 	        	 })
 	        	 .fail(function(result) {
 	        		 $(window).loadingInfo({
-	        	 		text : "保存失败",
+	        	 		text : "Save Failed",
 	        	 		type : "error",
 	        	 		callBack : function() {
 	        	 		}

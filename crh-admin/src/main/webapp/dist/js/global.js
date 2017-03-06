@@ -657,8 +657,8 @@ $(function () {
 
 //===================================================================
 var messages = {
-	"admin.message.success": "操作成功",
-	"admin.message.error": "操作错误",
+	"admin.message.success": "Operation Is Successful",
+	"admin.message.error": "Operating Error",
 	"admin.dialog.ok": "确&nbsp;&nbsp;定",
 	"admin.dialog.cancel": "取&nbsp;&nbsp;消",
 	"admin.dialog.deleteConfirm": "Are you sure you want to delete?",

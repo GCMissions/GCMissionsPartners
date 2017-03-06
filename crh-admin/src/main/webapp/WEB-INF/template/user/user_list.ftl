@@ -132,7 +132,7 @@
 	<!-- 
 	<div class="form-group row">
 		<label class="col-sm-4 control-label" for="type-select">Status</label>
-		<div class="col-sm-3">
+		<div class="col-sm-5">
 			<select class="form-control" name="status" value="{{dto.status}}">
 					<option value="Enable" {{if dto.status == '启用' }}selected{{/if}}> Enable </option>
 					<option value="Disable" {{if dto.status == '禁用' }}selected{{/if}}> Disable </option>
@@ -155,42 +155,27 @@
 <form id="addEditForm" method="post" class="form-horizontal">
 <div class="box-body form-horizontal addEditTpl">
 	<div class="form-group row">
-	  <label class="col-sm-4 control-label" ><span class="requiredField">*</span>用户名</label>
+	  <label class="col-sm-4 control-label" ><span class="requiredField">*</span>Username</label>
 	  <div class="col-sm-8">
-	    <input type="text" class="form-control" name="loginId" placeholder="请输入用户名"
-        	data-rule-required="true" data-msg-required="请输入用户名" data-rule-userName="true">
+	    <input type="text" class="form-control" name="loginId" placeholder="Please enter your Username"
+        	data-rule-required="true" data-msg-required="Please enter your Username" data-rule-userName="true">
 	  </div>
 	</div>
 	<div class="form-group row">
-	  <label class="col-sm-4 control-label"><span class="requiredField">*</span>姓名</label>
+	  <label class="col-sm-4 control-label"><span class="requiredField">*</span>Email</label>
 	  <div class="col-sm-8">
-	    <input type="text" class="form-control" name="userName" placeholder="请输入姓名"
-        	required data-msg-required="请输入姓名" data-rule-uname="true">
-	  </div>
-	</div>
-	<div class="form-group row">
-	  <label class="col-sm-4 control-label"><span class="requiredField">*</span>邮箱</label>
-	  <div class="col-sm-8">
-	    <input type="text" class="form-control" name="email" placeholder="请输入邮箱"
-	  			required data-msg-required = "请输入邮箱" 
+	    <input type="text" class="form-control" name="email" placeholder="Please enter your Email"
+	  			required data-msg-required = "Please enter your Email" 
 	  			 data-rule-isEmail="true">
 	  </div>
 	</div>
 	<div class="form-group row">
-		<label class="col-sm-4 control-label"><span class="requiredField">*</span>手机号</label>
-	  	<div class="col-sm-8">
-	  		<input type="text" class="form-control" name="phone" placeholder="请输入手机号"
-	  			required data-msg-required = "请输入手机号" maxlength="11"
-	  			data-rule-isMobile="true">
-	  	</div>
-	</div>
-	<div class="form-group row">
-		<label class="col-sm-4 control-label">角色</label>
+		<label class="col-sm-4 control-label">role</label>
 		<div class="col-sm-8">
 			{{each data}}	
 				{{if $value.status == '1'}}
 					<label class="role_checkbox"><input type="checkbox" class="flat-red" value="{{$value.roleId}}"
-						name="roleIds" required data-msg-required = "至少选择一个角色"> 
+						name="roleIds" required data-msg-required = "Select at least one role"> 
 						{{$value.role}}</label>
 				{{/if}}
 			{{/each}}
@@ -198,17 +183,17 @@
 		</div>
     </div>	
 	<div class="form-group row">
-		<label class="col-sm-4 control-label">状态</label>
-		<div class="col-sm-3">
+		<label class="col-sm-4 control-label">Status</label>
+		<div class="col-sm-5">
 			  <select class="form-control" name="status">
-				<option value="启用"> 启用 </option>
-				<option value="禁用"> 禁用 </option>
+				<option value="启用"> Enable </option>
+				<option value="禁用"> Disable </option>
 			  </select>
 		</div>
     </div>
 	<div class="form-group row">
 		<label class="col-sm-4 control-label"></label>
-		<div class="col-sm-8" style='color:red;'>密码默认为手机号后六位
+		<div class="col-sm-8" style='color:red;'>The default password is 123456
 		</div>
     </div>
 </div>

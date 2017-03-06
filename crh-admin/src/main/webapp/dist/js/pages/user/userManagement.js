@@ -229,29 +229,6 @@ $(function(){
 	    			$(window).loadingInfo("error", message("admin.message.error"))
 	    		});
 	        },
-	        /*unlock : function(that, id) {
-	        	$.ajax(
-	            { 
-	        		type         : 'POST',
-					url          : urlPrefix + this.unlockURL.template({id: id}),
-					dataType     : 'json',
-					contentType  : 'application/json',
-	    		})
-	    		.done(function(result) {
-	    			if(result.code == "ACK"){
-	    				$(window).loadingInfo({
-	    					type : "success", 
-	    					text: message("admin.message.success"),
-	    					callBack : function() {
-	    						that.bootTable.refresh(); 
-	    					}
-	    				});
-	    			}
-	    		})
-	    		.fail(function(result) {
-	    			$(window).loadingInfo("error", message("admin.message.error"))
-	    		});
-	        },*/
 			
 			save : function($btn) {
 				
