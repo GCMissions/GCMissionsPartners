@@ -5,8 +5,8 @@
      <div class="content-wrapper page-content-wrapper">
 		<section class="content-header">
 	         <ol class="breadcrumb">
-	           <li><i class="fa fa-dashboard"></i> 角色管理</li>
-            	<li class="active">查看角色</li>
+	           <li><i class="fa fa-dashboard"></i> Role Managemt</li>
+            	<li class="active">Check The Role</li>
 	         </ol>
       	</section>
 		<!-- Main content -->
@@ -19,7 +19,7 @@
 							<div class="box-body form-horizontal addEditTpl">
 								<div class="form-group row">
 								  	<label class="col-sm-4 control-label">
-								  		<span class="requiredField">*</span>角色名称
+								  		<span class="requiredField">*</span>Role Name
 								  	</label>
 								  	<div class="col-sm-5">
 								    	<input type="text" class="form-control" name="role" value="${roleInfo.role}" disabled>
@@ -27,7 +27,7 @@
 								</div>
 								<#if roleInfo.description>
 								<div class="form-group row">
-									<label class="col-sm-4 control-label">角色描述</label>
+									<label class="col-sm-4 control-label">Role Description</label>
 									<div class="col-sm-8">
 										<textarea id="editor1" name="description" class="form-control" disabled> ${roleInfo.description} </textarea>
 									</div>
@@ -55,7 +55,7 @@
 								</#list>
 							</div>
 							<div class="col-sm-12 text-center">
-	        		            <button type="button" class="btn btn-success backPage"><i class="fa fa-backward"> 返回 </i></button>
+	        		            <button type="button" class="btn btn-success backPage"><i class="fa fa-backward"> Return </i></button>
     		               </div>	
 						</form>
 					
