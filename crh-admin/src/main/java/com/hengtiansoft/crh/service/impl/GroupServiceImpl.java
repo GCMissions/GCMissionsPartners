@@ -43,19 +43,23 @@ public class GroupServiceImpl implements GroupService {
             List<CountryDto> countryDtoList = new ArrayList<CountryDto>();
             for (CountryEntity country : countryList) {
                 CountryDto cDto = new CountryDto();
-                cDto.setName(country.getCountryName());
                 List<PartnersEntity> partnerList = partnerDao.getAllPartnersByRegionIdAndCountryId(region.getId(), country.getId());
-                List<PartnerDto> partnerDtoList = new ArrayList<PartnerDto>();
-                for (PartnersEntity partner : partnerList) {
-                    PartnerDto pDto = new PartnerDto();
-                    pDto.setName(partner.getMission());
-                    pDto.setTitle(partner.getPartnerName());
-                    pDto.setImgSrc(partner.getImage());
-                    pDto.setContent(partner.getIntroduce());
-                    partnerDtoList.add(pDto);
+                if (partnerList.isEmpty()) {
+                    continue;
+                } else {
+                    List<PartnerDto> partnerDtoList = new ArrayList<PartnerDto>();
+                    for (PartnersEntity partner : partnerList) {
+                        PartnerDto pDto = new PartnerDto();
+                        pDto.setName(partner.getMission());
+                        pDto.setTitle(partner.getPartnerName());
+                        pDto.setImgSrc(partner.getImage());
+                        pDto.setContent(partner.getIntroduce());
+                        partnerDtoList.add(pDto);
+                    }
+                    cDto.setName(country.getCountryName());
+                    cDto.setItem(partnerDtoList);
+                    countryDtoList.add(cDto);
                 }
-                cDto.setItem(partnerDtoList);
-                countryDtoList.add(cDto);
             }
             rDto.setName(region.getRegionName());
             rDto.setColor(region.getColor());
