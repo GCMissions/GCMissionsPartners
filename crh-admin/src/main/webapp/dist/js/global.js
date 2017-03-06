@@ -661,7 +661,7 @@ var messages = {
 	"admin.message.error": "操作错误",
 	"admin.dialog.ok": "确&nbsp;&nbsp;定",
 	"admin.dialog.cancel": "取&nbsp;&nbsp;消",
-	"admin.dialog.deleteConfirm": "您确定要删除吗？",
+	"admin.dialog.deleteConfirm": "Are you sure you want to delete?",
 	"admin.dialog.clearConfirm": "您确定要清空吗？",
 	"admin.browser.title": "选择文件",
 	"admin.browser.upload": "本地上传",

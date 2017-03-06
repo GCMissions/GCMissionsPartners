@@ -87,8 +87,4 @@
 			</list>
 		</property>
 	</bean>
-	<!-- add JpushService -->
-	<bean class="com.hengtiansoft.common.jpush.service.JpushService" init-method="init">
-		<property name="jpuhSwitch" value="${Jpush.Switch}" />
-	</bean>
 </beans>

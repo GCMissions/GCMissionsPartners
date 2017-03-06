@@ -109,17 +109,17 @@ $(function(){
 					.done(function(response){
 							if(response.code == "ACK"){
 								that.dialog =  BootstrapDialog.show({
-									title: '添加用户',
+									title: 'Add User',
 									message: $(template('addEditTpl',response)),
 									draggable: true,
 									buttons: [{
-										label: '保存',
+										label: 'Save',
 										cssClass: 'btn-primary saveAddEditTpl',
 										action: function(dialog, e) {
 											that.save($(e.target));
 										}
 									}, {
-										label: '取消',
+										label: 'Cancel',
 										action: function(dialog) {
 											dialog.close();
 										}
@@ -133,20 +133,20 @@ $(function(){
 				that.$dataList.on("click", "a.removeItem", function() {
 					var	id = this.getAttribute('data-id');
 					that.dialog =  BootstrapDialog.show({
-		                title: '删除用户',
+		                title: 'Delete User',
 		                type : BootstrapDialog.TYPE_WARNING,
 		                message: message('admin.dialog.deleteConfirm'),
 		                draggable: true,
 		                size : BootstrapDialog.SIZE_SMALL,
 		                buttons: [{
-		                    label: '确认删除',
+		                    label: 'Confirm the deletion',
 		                    cssClass: 'btn-primary saveAddEditTpl',
 		                    action: function(dialog) {
 		                    	dialog.close();
 		                        that.doRemove(that, id);
 		                    }
 		                	}, {
-		                    label: '取消',
+		                    label: 'Cancel',
 		                    action: function(dialog) {
 		                        dialog.close();
 		                    }
@@ -178,17 +178,17 @@ $(function(){
 					.done(function(response){
 						if(response.code == "ACK"){
 							that.dialog =  BootstrapDialog.show({
-								title: '修改用户',
+								title: 'Editor User',
 								message: $(template('editTpl',response.data)),
 								draggable: true,
 								buttons: [{
-									label: '保存',
+									label: 'Save',
 									cssClass: 'btn-primary saveAddEditTpl',
 									action: function(dialog, e) {
 										that.save($(e.target));
 									}
 								}, {
-									label: '取消',
+									label: 'Cancel',
 									action: function(dialog) {
 										dialog.close();
 									}
@@ -286,7 +286,7 @@ $(function(){
 		        	 })
 		        	 .fail(function(result) {
 		        		 $form.loadingInfo({
-		        	 		text : "保存失败",
+		        	 		text : "Save failed",
 		        	 		type : "error",
 		        	 		callBack : function() {
 		        	 			//that.dialog.close();
