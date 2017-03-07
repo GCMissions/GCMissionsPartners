@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "S_USER_ROLE")
+@Table(name = "USER_ROLE")
 public class SUserRoleEntity implements Serializable {
 
     private static final long serialVersionUID = -956226285010852902L;

@@ -8,7 +8,7 @@ import javax.persistence.Table;
 import com.hengtiansoft.common.authority.domain.FunctionInfo;
 
 @Entity
-@Table(name = "S_FUNCTION_INFO")
+@Table(name = "FUNCTION_INFO")
 public class SFunctionInfoEntity extends FunctionInfo {
 
     private static final long serialVersionUID = 576156438847300078L;

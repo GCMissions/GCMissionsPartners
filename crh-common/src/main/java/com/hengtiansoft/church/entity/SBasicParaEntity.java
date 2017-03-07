@@ -33,7 +33,7 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
  * @author yigesong
  */
 @Entity
-@Table(name = "S_BASIC_PARA")
+@Table(name = "BASIC_PARA")
 public class SBasicParaEntity implements Serializable {
 
     private static final long serialVersionUID = 5539412050363360728L;

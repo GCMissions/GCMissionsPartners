@@ -14,11 +14,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.hengtiansoft.church.common.constants.OprationTypeConstants;
 import com.hengtiansoft.church.common.util.QueryUtil;
 import com.hengtiansoft.church.dao.CountryDao;
+import com.hengtiansoft.church.dao.CountryRegionRefDao;
 import com.hengtiansoft.church.dao.RegionDao;
+import com.hengtiansoft.church.entity.CountryEntity;
+import com.hengtiansoft.church.entity.CountryRegionRefEntity;
 import com.hengtiansoft.church.entity.RegionEntity;
 import com.hengtiansoft.church.enums.StatusEnum;
+import com.hengtiansoft.church.region.dto.RegionDetailDto;
 import com.hengtiansoft.church.region.dto.RegionListDto;
 import com.hengtiansoft.church.region.dto.RegionSaveDto;
 import com.hengtiansoft.church.region.dto.RegionSearchDto;
@@ -39,6 +44,8 @@ public class RegionServiceImpl implements RegionService {
     private EntityManager entityManager;
     @Autowired
     private CountryDao countryDao;
+    @Autowired
+    private CountryRegionRefDao countryRegionRefDao;
     
     @SuppressWarnings("unchecked")
     @Override
@@ -92,19 +99,71 @@ public class RegionServiceImpl implements RegionService {
     }
 
     @Override
-    public RegionSaveDto regionDetail(Long id) {
-        RegionSaveDto dto = new RegionSaveDto();
+    public RegionDetailDto regionDetail(Long id) {
+        RegionDetailDto dto = new RegionDetailDto();
         RegionEntity region = regionDao.findOne(id);
-        dto.setId(region.getId());
+        dto.setId(id);
         dto.setRegionName(region.getRegionName());
         dto.setColor(region.getColor());
-        
-        return null;
+        List<CountryEntity> haveCountryList = countryDao.findAllCountryByGroupId(id);
+        dto.setHaveCountryList(haveCountryList);
+        List<CountryEntity> notHaveCountryList = countryDao.findAll();
+        notHaveCountryList.remove(haveCountryList);
+        dto.setNotHaveCountryList(notHaveCountryList);
+        return dto;
     }
 
     @Override
     @Transactional
     public ResultDto<?> saveRegion(RegionSaveDto dto) {
-        return null;
+        UserInfo userInfo = AuthorityContext.getCurrentUser();
+        Long userId = 0L;
+        if (userInfo != null) {
+            userId = userInfo.getUserId();
+        }
+        RegionEntity region = null;
+        Date date = new Date();
+        if (OprationTypeConstants.SAVE_OPRATION.equals(dto.getType())) {
+            region = new RegionEntity();
+            region.setRegionName(dto.getRegionName());
+            region.setColor(dto.getColor());
+            region.setDelFlag(StatusEnum.NORMAL.getCode());
+            region.setCreateDate(date);
+            region.setCreateId(userId);
+            Long regionId = regionDao.save(region).getId();
+            List<CountryRegionRefEntity> saveRfEntities = new ArrayList<CountryRegionRefEntity>();
+            for (Long countryId : dto.getCountryIdList()) {
+                CountryRegionRefEntity crEntity = new CountryRegionRefEntity();
+                crEntity.setCountyId(countryId);
+                crEntity.setRegionId(regionId);
+                crEntity.setDelFlag(StatusEnum.NORMAL.getCode());
+                saveRfEntities.add(crEntity);
+            }
+            countryRegionRefDao.save(saveRfEntities);
+        } else {
+            Long regionId = dto.getId();
+            region = regionDao.findOne(regionId);
+            region.setRegionName(dto.getRegionName());
+            region.setColor(dto.getColor());
+            region.setModifyDate(date);
+            region.setModifyId(userId);
+            regionDao.save(region);
+            countryRegionRefDao.initCountryRegionRef(regionId);
+            List<CountryRegionRefEntity> saveRfEntities = new ArrayList<CountryRegionRefEntity>();
+            for (Long countryId : dto.getCountryIdList()) {
+                CountryRegionRefEntity crEntity = new CountryRegionRefEntity();
+                crEntity.setCountyId(countryId);
+                crEntity.setRegionId(regionId);
+                crEntity.setDelFlag(StatusEnum.NORMAL.getCode());
+                saveRfEntities.add(crEntity);
+            }
+            countryRegionRefDao.save(saveRfEntities);
+        }
+        return ResultDtoFactory.toAck("Save Success!", null);
+    }
+
+    @Override
+    public List<CountryEntity> findNoRegionCountries() {
+        return countryDao.findNoRegionCountries();
     }
 }

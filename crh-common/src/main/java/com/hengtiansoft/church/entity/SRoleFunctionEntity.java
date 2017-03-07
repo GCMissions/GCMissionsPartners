@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "S_ROLE_FUNCTION")
+@Table(name = "ROLE_FUNCTION")
 public class SRoleFunctionEntity implements Serializable {
 
     private static final long serialVersionUID = 8561162353851084908L;

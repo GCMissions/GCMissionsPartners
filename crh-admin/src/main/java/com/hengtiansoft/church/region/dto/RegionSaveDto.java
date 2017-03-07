@@ -1,7 +1,6 @@
 package com.hengtiansoft.church.region.dto;
 
 import java.io.Serializable;
-import java.util.List;
 
 public class RegionSaveDto implements Serializable {
 
@@ -13,7 +12,9 @@ public class RegionSaveDto implements Serializable {
     
     private String color;
     
-    private List<Long> countryIdList;
+    private Long[] countryIdList;
+    
+    private String type;
 
     public Long getId() {
         return id;
@@ -39,11 +40,19 @@ public class RegionSaveDto implements Serializable {
         this.color = color;
     }
 
-    public List<Long> getCountryIdList() {
+    public Long[] getCountryIdList() {
         return countryIdList;
     }
 
-    public void setCountryIdList(List<Long> countryIdList) {
+    public void setCountryIdList(Long[] countryIdList) {
         this.countryIdList = countryIdList;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

@@ -32,7 +32,7 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
  * @author yigesong
  */
 @Entity
-@Table(name = "S_BASIC_TYPE")
+@Table(name = "BASIC_TYPE")
 public class SBasicTypeEntity implements Serializable {
 
     private static final long serialVersionUID = 2520657043127683443L;

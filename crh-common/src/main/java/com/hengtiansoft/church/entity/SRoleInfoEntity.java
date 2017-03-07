@@ -12,7 +12,7 @@ import javax.persistence.Table;
 import com.hengtiansoft.common.authority.domain.RoleInfo;
 
 @Entity
-@Table(name = "S_ROLE_INFO")
+@Table(name = "ROLE_INFO")
 public class SRoleInfoEntity extends RoleInfo {
 
     private static final long serialVersionUID = -1103125478926092255L;

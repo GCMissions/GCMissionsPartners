@@ -32,6 +32,9 @@ public class PartnersEntity extends BaseEntity {
     @Column(name = "C_R_REF_ID")
     private Long cRRefId;
     
+    @Column(name = "ADDRESS")
+    private String address;
+    
     @Column(name = "INTRODUCE")
     private String introduce;
     
@@ -76,6 +79,14 @@ public class PartnersEntity extends BaseEntity {
 
     public void setcRRefId(Long cRRefId) {
         this.cRRefId = cRRefId;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getIntroduce() {

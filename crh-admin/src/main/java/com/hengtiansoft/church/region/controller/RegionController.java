@@ -41,7 +41,13 @@ public class RegionController {
     
     @RequestMapping(value = "/view/{id}", method = RequestMethod.GET)
     public String view(@PathVariable Long id, Model model) {
-        model.addAttribute("region", regionService.regionDetail(id));
+        if (id == 0L) {
+            model.addAttribute("type", "0");
+            model.addAttribute("countries", regionService.findNoRegionCountries());
+        } else {
+            model.addAttribute("type", "1");
+            model.addAttribute("region", regionService.regionDetail(id));
+        }
         return "region/region_detail";
     }
     

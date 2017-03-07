@@ -17,7 +17,7 @@ import com.hengtiansoft.common.authority.domain.UserInfo;
 *
  */
 @Entity
-@Table(name = "S_USER")
+@Table(name = "USER")
 public class SUserEntity extends UserInfo {
 
     private static final long serialVersionUID = -2241064570931700134L;
