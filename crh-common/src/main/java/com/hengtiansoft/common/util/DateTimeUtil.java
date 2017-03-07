@@ -63,6 +63,8 @@ public abstract class DateTimeUtil {
     public final static String SIMPLE_M_D_H_M_S   = "yyyy-M-d HH:mm:ss";
     
     public final static String YYYY_M_D           = "yyyy-M-d";
+    
+    public final static String FOREIGN_FORMAT     = "MM-dd-yyyy HH:mm";
 
     /**
      * 时间转换Date to String

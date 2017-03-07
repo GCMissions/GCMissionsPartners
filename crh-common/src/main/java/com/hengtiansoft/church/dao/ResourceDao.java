@@ -13,4 +13,10 @@ public interface ResourceDao extends JpaRepository<ResourceEntity, Long>,
 
     @Query(value = "select * from resource where del_flag = '1' order by sort", nativeQuery = true)
     List<ResourceEntity> findAllBySort();
+    
+    @Query(value = "select * from resource where del_flag = '1' order by sort desc", nativeQuery = true)
+    ResourceEntity findLastSortEntity();
+    
+    @Query(value = "select * from resource where del_flag = '1' and sort = ?1 order by id desc limit 1", nativeQuery = true)
+    ResourceEntity findBySort(String sort);
 }
