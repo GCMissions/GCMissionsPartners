@@ -56,7 +56,7 @@ public class GroupServiceImpl implements GroupService {
                         pDto.setContent(partner.getIntroduce());
                         partnerDtoList.add(pDto);
                     }
-                    cDto.setName(country.getCountryName());
+                    cDto.setName(country.getCountrySimpleName());
                     cDto.setItem(partnerDtoList);
                     countryDtoList.add(cDto);
                 }

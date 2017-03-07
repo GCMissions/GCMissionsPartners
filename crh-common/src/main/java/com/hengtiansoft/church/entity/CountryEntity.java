@@ -20,6 +20,9 @@ public class CountryEntity extends BaseEntity {
     @Column(name = "ID")
     private Long id;
     
+    @Column(name = "COUNTRY_SIMPLE_NAME")
+    private String countrySimpleName;
+    
     @Column(name = "COUNTRY_NAME")
     private String countryName;
     
@@ -32,6 +35,14 @@ public class CountryEntity extends BaseEntity {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getCountrySimpleName() {
+        return countrySimpleName;
+    }
+
+    public void setCountrySimpleName(String countrySimpleName) {
+        this.countrySimpleName = countrySimpleName;
     }
 
     public String getCountryName() {

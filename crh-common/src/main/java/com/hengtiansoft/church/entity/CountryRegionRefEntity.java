@@ -25,6 +25,9 @@ public class CountryRegionRefEntity implements Serializable {
     
     @Column(name = "REGION_ID")
     private Long regionId;
+    
+    @Column(name = "DEL_FLAG")
+    private String delFlag;
 
     public Long getId() {
         return id;
@@ -48,5 +51,13 @@ public class CountryRegionRefEntity implements Serializable {
 
     public void setRegionId(Long regionId) {
         this.regionId = regionId;
+    }
+
+    public String getDelFlag() {
+        return delFlag;
+    }
+
+    public void setDelFlag(String delFlag) {
+        this.delFlag = delFlag;
     }
 }

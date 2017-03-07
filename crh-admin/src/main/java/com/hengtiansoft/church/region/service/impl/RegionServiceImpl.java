@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.hengtiansoft.church.common.util.QueryUtil;
+import com.hengtiansoft.church.dao.CountryDao;
 import com.hengtiansoft.church.dao.RegionDao;
 import com.hengtiansoft.church.entity.RegionEntity;
 import com.hengtiansoft.church.enums.StatusEnum;
@@ -36,6 +37,8 @@ public class RegionServiceImpl implements RegionService {
     private RegionDao regionDao;
     @Autowired
     private EntityManager entityManager;
+    @Autowired
+    private CountryDao countryDao;
     
     @SuppressWarnings("unchecked")
     @Override
@@ -90,6 +93,12 @@ public class RegionServiceImpl implements RegionService {
 
     @Override
     public RegionSaveDto regionDetail(Long id) {
+        RegionSaveDto dto = new RegionSaveDto();
+        RegionEntity region = regionDao.findOne(id);
+        dto.setId(region.getId());
+        dto.setRegionName(region.getRegionName());
+        dto.setColor(region.getColor());
+        
         return null;
     }
 
