@@ -2,6 +2,7 @@ package com.hengtiansoft.church.slides.service.impl;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,11 +12,22 @@ import javax.persistence.Query;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.hengtiansoft.church.common.constants.OprationTypeConstants;
+import com.hengtiansoft.church.common.constants.SortConstants;
 import com.hengtiansoft.church.common.util.QueryUtil;
+import com.hengtiansoft.church.dao.SlidesDao;
+import com.hengtiansoft.church.entity.SlidesEntity;
+import com.hengtiansoft.church.enums.StatusEnum;
 import com.hengtiansoft.church.slides.dto.SlidesListDto;
+import com.hengtiansoft.church.slides.dto.SlidesSaveDto;
 import com.hengtiansoft.church.slides.dto.SlidesSearchDto;
 import com.hengtiansoft.church.slides.service.SlidesService;
+import com.hengtiansoft.common.authority.AuthorityContext;
+import com.hengtiansoft.common.authority.domain.UserInfo;
+import com.hengtiansoft.common.dto.ResultDto;
+import com.hengtiansoft.common.dto.ResultDtoFactory;
 import com.hengtiansoft.common.util.BasicUtil;
 
 @Service
@@ -23,6 +35,8 @@ public class SlidesServiceImpl implements SlidesService {
     
     @Autowired
     private EntityManager entityManager;
+    @Autowired
+    private SlidesDao slidesDao;
 
     @SuppressWarnings("unchecked")
     @Override
@@ -54,7 +68,91 @@ public class SlidesServiceImpl implements SlidesService {
             dto.setId(BasicUtil.objToLong(obj[0]));
             dto.setImage(BasicUtil.objToString(obj[1]));
             dto.setDescription(BasicUtil.objToString(obj[2]));
+            dto.setDisplayed(BasicUtil.objToString(obj[3]));
+            slideList.add(dto);
         }
         return slideList;
+    }
+
+    @Override
+    @Transactional
+    public ResultDto<?> deleteSlide(Long id) {
+        UserInfo userInfo = AuthorityContext.getCurrentUser();
+        Long userId = 0L;
+        if (userInfo != null) {
+            userId = userInfo.getUserId();
+        }
+        SlidesEntity slide = slidesDao.findOne(id);
+        slide.setDelFlag(StatusEnum.DELETE.getCode());
+        slide.setModifyId(userId);
+        slide.setModifyDate(new Date());
+        slidesDao.save(slide);
+        return ResultDtoFactory.toAck(" Delete Success!", null);
+    }
+
+    @Override
+    public SlidesListDto slideDetail(Long id) {
+        SlidesListDto dto = new SlidesListDto();
+        SlidesEntity entity = slidesDao.findOne(id);
+        dto.setIndex(entity.getSort());
+        dto.setImage(entity.getImage());
+        dto.setDescription(entity.getDescription());
+        dto.setDisplayed(entity.getDisplay());
+        return dto;
+    }
+
+    @Override
+    @Transactional
+    public ResultDto<?> saveSlides(SlidesSaveDto dto) {
+        SlidesEntity slide = null;
+        UserInfo userInfo = AuthorityContext.getCurrentUser();
+        Long userId = 0L;
+        if (userInfo != null) {
+            userId = userInfo.getUserId();
+        }
+        if (OprationTypeConstants.SAVE_OPRATION.equals(dto.getType())) {
+            // Save
+            slide = new SlidesEntity();
+            slide.setCreateDate(new Date());
+            slide.setCreateId(userId);
+            slide.setDelFlag(StatusEnum.NORMAL.getCode());
+            SlidesEntity lastSortSlide = slidesDao.findLastSortEntity();
+            if (lastSortSlide == null) {
+                slide.setSort(SortConstants.FIRST_SORT);
+            } else {
+                slide.setSort(Integer.parseInt(lastSortSlide.getSort()) + 1 + "");
+            }
+        } else {
+            // Editor
+            slide = slidesDao.findOne(dto.getId());
+            slide.setModifyDate(new Date());
+            slide.setModifyId(userId);
+        }
+        slide.setDescription(dto.getDescription());
+        slide.setDisplay(dto.getDisplay());
+        slide.setImage(dto.getImage());
+        slidesDao.save(slide);
+        return ResultDtoFactory.toAck("Operation is successful!", null);
+    }
+
+    @Override
+    @Transactional
+    public ResultDto<?> adjustSort(Long id, String type) {
+        SlidesEntity originSlide = slidesDao.findOne(id);
+        Integer originSort = Integer.parseInt(originSlide.getSort());
+        SlidesEntity nextSlide = null;
+        if (OprationTypeConstants.UP_SORT.equals(type)) {
+            // up sort
+            nextSlide = slidesDao.findBySort(originSort - 1 + "");
+            originSlide.setSort(originSort + 1 + "");
+        } else {
+            // down sort
+            nextSlide = slidesDao.findBySort(originSort + 1 + "");
+            originSlide.setSort(originSort - 1 + "");
+        }
+        slidesDao.save(originSlide);
+        nextSlide.setSort(originSort.toString());
+        slidesDao.save(nextSlide);
+        return ResultDtoFactory.toAck("Success!", null);
     }
 }

@@ -1,4 +1,4 @@
-package com.hengtiansoft.church.slides.controller;
+package com.hengtiansoft.church.resource.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,51 +9,51 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.hengtiansoft.church.slides.dto.SlidesSaveDto;
-import com.hengtiansoft.church.slides.dto.SlidesSearchDto;
-import com.hengtiansoft.church.slides.service.SlidesService;
+import com.hengtiansoft.church.resource.dto.ResourceSaveDto;
+import com.hengtiansoft.church.resource.dto.ResourceSearchDto;
+import com.hengtiansoft.church.resource.service.ResourceService;
 import com.hengtiansoft.common.dto.ResultDto;
 
+@RequestMapping(value = "/resource")
 @Controller
-@RequestMapping(value = "/slides")
-public class SlidesController {
+public class ResourceController {
     
     @Autowired
-    private SlidesService slidesService;
+    private ResourceService resourceService;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String index(Model model) {
-        return "slides/slides_list";
+    public String index() {
+        return "resource/resource_list";
     }
     
     @RequestMapping(value = "/list", method = RequestMethod.POST)
     @ResponseBody
-    public SlidesSearchDto slideList(@RequestBody SlidesSearchDto dto) {
-        slidesService.getSlidesList(dto);
+    public ResourceSearchDto resourceList(ResourceSearchDto dto) {
+        resourceService.searchResource(dto);
         return dto;
     }
     
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public ResultDto<?> deleteSlide(@PathVariable Long id) {
-        return slidesService.deleteSlide(id);
+    public ResultDto<?> deleteResource(@PathVariable Long id) {
+        return resourceService.deleteResource(id);
     }
     
     @RequestMapping(value = "/view/{id}", method = RequestMethod.GET)
     public String view(@PathVariable Long id, Model model) {
-        model.addAttribute("slide", slidesService.slideDetail(id));
-        return "slides/slides_detail";
+        model.addAttribute("resource", resourceService.resourceDetail(id));
+        return "resource/resource_detail";
     }
     
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     @ResponseBody
-    public ResultDto<?> saveSlides(@RequestBody SlidesSaveDto dto) {
-        return slidesService.saveSlides(dto);
+    public ResultDto<?> saveResource(@RequestBody ResourceSaveDto dto) {
+        return resourceService.saveResource(dto);
     }
     
     @RequestMapping(value = "/sort/{id}/{type}", method = RequestMethod.GET)
     @ResponseBody
     public ResultDto<?> adjustSort(@PathVariable Long id, @PathVariable String type) {
-        return slidesService.adjustSort(id, type);
+        return resourceService.adjustSort(id, type);
     }
 }
