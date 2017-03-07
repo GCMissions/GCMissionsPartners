@@ -4,7 +4,7 @@ import com.hengtiansoft.church.partner.dto.PartnerSaveDto;
 import com.hengtiansoft.church.partner.dto.PartnerSearchDto;
 import com.hengtiansoft.common.dto.ResultDto;
 
-public interface PartnerService {
+public interface PartnerAdminService {
 
     void searchPartner(PartnerSearchDto dto);
     

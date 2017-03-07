@@ -23,7 +23,7 @@ import com.hengtiansoft.church.enums.StatusEnum;
 import com.hengtiansoft.church.resource.dto.ResourceListDto;
 import com.hengtiansoft.church.resource.dto.ResourceSaveDto;
 import com.hengtiansoft.church.resource.dto.ResourceSearchDto;
-import com.hengtiansoft.church.resource.service.ResourceService;
+import com.hengtiansoft.church.resource.service.ResourceAdminService;
 import com.hengtiansoft.common.authority.AuthorityContext;
 import com.hengtiansoft.common.authority.domain.UserInfo;
 import com.hengtiansoft.common.dto.ResultDto;
@@ -31,7 +31,7 @@ import com.hengtiansoft.common.dto.ResultDtoFactory;
 import com.hengtiansoft.common.util.BasicUtil;
 
 @Service
-public class ResourceServiceImpl implements ResourceService {
+public class ResourceAdminServiceImpl implements ResourceAdminService {
     
     @Autowired
     private ResourceDao resourceDao;

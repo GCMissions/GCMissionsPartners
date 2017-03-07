@@ -11,15 +11,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hengtiansoft.church.slides.dto.SlidesSaveDto;
 import com.hengtiansoft.church.slides.dto.SlidesSearchDto;
-import com.hengtiansoft.church.slides.service.SlidesService;
+import com.hengtiansoft.church.slides.service.SlidesAdminService;
 import com.hengtiansoft.common.dto.ResultDto;
 
 @Controller
 @RequestMapping(value = "/slides")
-public class SlidesController {
+public class SlidesAdminController {
     
     @Autowired
-    private SlidesService slidesService;
+    private SlidesAdminService slidesService;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(Model model) {
@@ -41,7 +41,9 @@ public class SlidesController {
     
     @RequestMapping(value = "/view/{id}", method = RequestMethod.GET)
     public String view(@PathVariable Long id, Model model) {
-        model.addAttribute("slide", slidesService.slideDetail(id));
+        if (id != 0L) {
+            model.addAttribute("slide", slidesService.slideDetail(id));
+        }
         return "slides/slides_detail";
     }
     

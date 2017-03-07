@@ -76,11 +76,11 @@
                   </a>
                   <ul class="dropdown-menu   user-actions">
                    
-                    <li><a href="javascript:;" class="changeProfile" data-loginid="${userDto.id}" >个人资料</a></li>
+                    <li><a href="javascript:;" class="changeProfile" data-loginid="${userDto.id}" >Personal Data</a></li>
                     
                     <li class="divider"></li>
                     
-                    <li><a href="javascript:;" class="logout">安全退出</a></li>
+                    <li><a href="javascript:;" class="logout">Safety Exit</a></li>
                   </ul>
                 </div>
               </div> 
@@ -98,10 +98,10 @@
                     </a>
                     <ul class="treeview-menu">
                    		<#if auth.hasPermission("authority.user")>
-                        <li><a href="user/" class="J_menuItem"><i class="fa fa-circle-o"></i>Users Managemt</a></li>
+                        <li><a href="user/" class="J_menuItem"><i class="fa fa-circle-o"></i>Users Management</a></li>
                         </#if>
                         <#if auth.hasPermission("authority.role")>
-                        <li><a href="role/" class="J_menuItem"><i class="fa fa-circle-o"></i>Roles Managemt</a></li>
+                        <li><a href="role/" class="J_menuItem"><i class="fa fa-circle-o"></i>Roles Management</a></li>
                         </#if>
                     </ul>
 				</li>

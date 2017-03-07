@@ -5,7 +5,7 @@ import com.hengtiansoft.church.resource.dto.ResourceSaveDto;
 import com.hengtiansoft.church.resource.dto.ResourceSearchDto;
 import com.hengtiansoft.common.dto.ResultDto;
 
-public interface ResourceService {
+public interface ResourceAdminService {
 
     void searchResource(ResourceSearchDto dto);
 

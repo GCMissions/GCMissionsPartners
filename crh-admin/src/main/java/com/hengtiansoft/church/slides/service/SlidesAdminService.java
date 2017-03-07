@@ -5,7 +5,7 @@ import com.hengtiansoft.church.slides.dto.SlidesSaveDto;
 import com.hengtiansoft.church.slides.dto.SlidesSearchDto;
 import com.hengtiansoft.common.dto.ResultDto;
 
-public interface SlidesService {
+public interface SlidesAdminService {
 
     void getSlidesList(SlidesSearchDto dto);
     

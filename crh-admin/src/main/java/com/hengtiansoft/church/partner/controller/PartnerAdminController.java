@@ -10,15 +10,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hengtiansoft.church.partner.dto.PartnerSaveDto;
 import com.hengtiansoft.church.partner.dto.PartnerSearchDto;
-import com.hengtiansoft.church.partner.service.PartnerService;
+import com.hengtiansoft.church.partner.service.PartnerAdminService;
 import com.hengtiansoft.common.dto.ResultDto;
 
 @RequestMapping(value = "/partner")
 @Controller
-public class PartnerController {
+public class PartnerAdminController {
     
     @Autowired
-    private PartnerService partnerService;
+    private PartnerAdminService partnerService;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index() {

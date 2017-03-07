@@ -26,7 +26,7 @@ import com.hengtiansoft.church.enums.StatusEnum;
 import com.hengtiansoft.church.partner.dto.PartnerListDto;
 import com.hengtiansoft.church.partner.dto.PartnerSaveDto;
 import com.hengtiansoft.church.partner.dto.PartnerSearchDto;
-import com.hengtiansoft.church.partner.service.PartnerService;
+import com.hengtiansoft.church.partner.service.PartnerAdminService;
 import com.hengtiansoft.common.authority.AuthorityContext;
 import com.hengtiansoft.common.authority.domain.UserInfo;
 import com.hengtiansoft.common.dto.ResultDto;
@@ -34,7 +34,7 @@ import com.hengtiansoft.common.dto.ResultDtoFactory;
 import com.hengtiansoft.common.util.BasicUtil;
 
 @Service
-public class PartnerServiceImpl implements PartnerService {
+public class PartnerAdminServiceImpl implements PartnerAdminService {
     
     @Autowired
     private PartnerDao partnerDao;

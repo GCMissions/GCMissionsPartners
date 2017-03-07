@@ -8,7 +8,7 @@ import com.hengtiansoft.church.region.dto.RegionSaveDto;
 import com.hengtiansoft.church.region.dto.RegionSearchDto;
 import com.hengtiansoft.common.dto.ResultDto;
 
-public interface RegionService {
+public interface RegionAdminService {
 
     void searchRegion(RegionSearchDto dto);
     

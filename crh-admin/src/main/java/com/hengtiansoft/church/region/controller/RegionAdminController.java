@@ -11,15 +11,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hengtiansoft.church.region.dto.RegionSaveDto;
 import com.hengtiansoft.church.region.dto.RegionSearchDto;
-import com.hengtiansoft.church.region.service.RegionService;
+import com.hengtiansoft.church.region.service.RegionAdminService;
 import com.hengtiansoft.common.dto.ResultDto;
 
 @RequestMapping(value = "/region")
 @Controller
-public class RegionController {
+public class RegionAdminController {
 
     @Autowired
-    private RegionService regionService;
+    private RegionAdminService regionService;
     
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index() {

@@ -23,7 +23,7 @@ import com.hengtiansoft.church.enums.StatusEnum;
 import com.hengtiansoft.church.slides.dto.SlidesListDto;
 import com.hengtiansoft.church.slides.dto.SlidesSaveDto;
 import com.hengtiansoft.church.slides.dto.SlidesSearchDto;
-import com.hengtiansoft.church.slides.service.SlidesService;
+import com.hengtiansoft.church.slides.service.SlidesAdminService;
 import com.hengtiansoft.common.authority.AuthorityContext;
 import com.hengtiansoft.common.authority.domain.UserInfo;
 import com.hengtiansoft.common.dto.ResultDto;
@@ -31,7 +31,7 @@ import com.hengtiansoft.common.dto.ResultDtoFactory;
 import com.hengtiansoft.common.util.BasicUtil;
 
 @Service
-public class SlidesServiceImpl implements SlidesService {
+public class SlidesAdminServiceImpl implements SlidesAdminService {
     
     @Autowired
     private EntityManager entityManager;
@@ -68,7 +68,13 @@ public class SlidesServiceImpl implements SlidesService {
             dto.setId(BasicUtil.objToLong(obj[0]));
             dto.setImage(BasicUtil.objToString(obj[1]));
             dto.setDescription(BasicUtil.objToString(obj[2]));
-            dto.setDisplayed(BasicUtil.objToString(obj[3]));
+            String displayed = BasicUtil.objToString(obj[3]);
+            if (StatusEnum.NORMAL.getCode().equals(displayed)) {
+                dto.setDisplayed("Displayed");
+            } else {
+                dto.setDisplayed("Hidden");
+            }
+            dto.setIndex(BasicUtil.objToString(obj[4]));
             slideList.add(dto);
         }
         return slideList;
@@ -87,6 +93,7 @@ public class SlidesServiceImpl implements SlidesService {
         slide.setModifyId(userId);
         slide.setModifyDate(new Date());
         slidesDao.save(slide);
+        slidesDao.updateSort(slide.getSort());
         return ResultDtoFactory.toAck(" Delete Success!", null);
     }
 

@@ -11,15 +11,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hengtiansoft.church.resource.dto.ResourceSaveDto;
 import com.hengtiansoft.church.resource.dto.ResourceSearchDto;
-import com.hengtiansoft.church.resource.service.ResourceService;
+import com.hengtiansoft.church.resource.service.ResourceAdminService;
 import com.hengtiansoft.common.dto.ResultDto;
 
 @RequestMapping(value = "/resource")
 @Controller
-public class ResourceController {
+public class ResourceAdminController {
     
     @Autowired
-    private ResourceService resourceService;
+    private ResourceAdminService resourceService;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index() {

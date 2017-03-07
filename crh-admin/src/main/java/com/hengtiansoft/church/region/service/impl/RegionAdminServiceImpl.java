@@ -27,7 +27,7 @@ import com.hengtiansoft.church.region.dto.RegionDetailDto;
 import com.hengtiansoft.church.region.dto.RegionListDto;
 import com.hengtiansoft.church.region.dto.RegionSaveDto;
 import com.hengtiansoft.church.region.dto.RegionSearchDto;
-import com.hengtiansoft.church.region.service.RegionService;
+import com.hengtiansoft.church.region.service.RegionAdminService;
 import com.hengtiansoft.common.authority.AuthorityContext;
 import com.hengtiansoft.common.authority.domain.UserInfo;
 import com.hengtiansoft.common.dto.ResultDto;
@@ -36,7 +36,7 @@ import com.hengtiansoft.common.util.BasicUtil;
 import com.hengtiansoft.common.util.DateTimeUtil;
 
 @Service
-public class RegionServiceImpl implements RegionService {
+public class RegionAdminServiceImpl implements RegionAdminService {
 
     @Autowired
     private RegionDao regionDao;
