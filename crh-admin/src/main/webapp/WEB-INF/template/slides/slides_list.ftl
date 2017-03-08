@@ -1,5 +1,7 @@
 <#assign headComponents = ["bootTable","bootDialog"] >
 <#include "/header.ftl" />
+<link rel="stylesheet"
+	href="${uiBase}/css/pages/slides/slides_list.css?v=${resourceVersion}">
 <style>
 	label.role_checkbox {
    		font-weight: 500;
@@ -39,6 +41,16 @@
                     </div>
                     <div class="box-body">
                       <table id="dataList" class="table table-bordered table-hover" >
+                      <thead>
+                        	<!-- <th field="brand_id" width=70><div class="datagrid-header-check"><input type="checkbox"></div></th> -->
+                        	<th>Order</th>
+                            <th>Slide</th>
+                            <th>Description</th>
+                        	<th>Displayed/Hidden</th>
+                            <th>Action</th>
+                        </thead>
+                        <tbody>
+                        </tbody>
                       </table>
                     </div>
                 </div>

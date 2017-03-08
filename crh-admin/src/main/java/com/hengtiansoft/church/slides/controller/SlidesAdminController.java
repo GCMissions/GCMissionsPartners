@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hengtiansoft.church.slides.dto.SlidesSaveDto;
 import com.hengtiansoft.church.slides.dto.SlidesSearchDto;
+import com.hengtiansoft.church.slides.dto.SlidesSortDto;
 import com.hengtiansoft.church.slides.service.SlidesAdminService;
 import com.hengtiansoft.common.dto.ResultDto;
 
@@ -33,9 +34,9 @@ public class SlidesAdminController {
         return dto;
     }
     
-    @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
     @ResponseBody
-    public ResultDto<?> deleteSlide(@PathVariable Long id) {
+    public ResultDto<?> deleteSlide(Long id) {
         return slidesService.deleteSlide(id);
     }
     
@@ -43,7 +44,9 @@ public class SlidesAdminController {
     public String view(@PathVariable Long id, Model model) {
         if (id != 0L) {
             model.addAttribute("slide", slidesService.slideDetail(id));
+            model.addAttribute("showType", "1");
         }
+        model.addAttribute("showType", "0");
         return "slides/slides_detail";
     }
     
@@ -53,9 +56,9 @@ public class SlidesAdminController {
         return slidesService.saveSlides(dto);
     }
     
-    @RequestMapping(value = "/sort/{id}/{type}", method = RequestMethod.GET)
+    @RequestMapping(value = "/sort", method = RequestMethod.POST)
     @ResponseBody
-    public ResultDto<?> adjustSort(@PathVariable Long id, @PathVariable String type) {
-        return slidesService.adjustSort(id, type);
+    public ResultDto<?> adjustSort(@RequestBody SlidesSortDto dto) {
+        return slidesService.adjustSort(dto.getId(), dto.getType());
     }
 }

@@ -21,9 +21,9 @@ public interface SRoleInfoDao extends JpaRepository<SRoleInfoEntity, Long>,JpaSp
     @Query("select r from SRoleInfoEntity r where r.id > 3")
 	List<SRoleInfoEntity> findAllByID();
     
-    @Query(value = "select * from s_role_info where role = ?1 order by role_id desc limit 1", nativeQuery = true)
+    @Query(value = "select * from role_info where role = ?1 order by role_id desc limit 1", nativeQuery = true)
     SRoleInfoEntity findByRole(String role);
 
-    @Query(value = "select r.* from s_role_info r where r.STATUS = '1' ",nativeQuery = true)
+    @Query(value = "select r.* from role_info r where r.STATUS = '1' ",nativeQuery = true)
     List<SRoleInfoEntity> findAllByStatus();
 }

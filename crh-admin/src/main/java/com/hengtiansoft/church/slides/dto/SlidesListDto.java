@@ -15,6 +15,8 @@ public class SlidesListDto implements Serializable {
     private String description;
     
     private String displayed;
+    
+    private String totalRecords;
 
     public Long getId() {
         return id;
@@ -54,5 +56,13 @@ public class SlidesListDto implements Serializable {
 
     public void setDisplayed(String displayed) {
         this.displayed = displayed;
+    }
+
+    public String getTotalRecords() {
+        return totalRecords;
+    }
+
+    public void setTotalRecords(String totalRecords) {
+        this.totalRecords = totalRecords;
     }
 }

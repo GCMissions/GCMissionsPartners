@@ -64,8 +64,8 @@ public class SUserServiceImpl implements SUserService {
         StringBuilder sbSql = new StringBuilder();
         StringBuilder countSql = new StringBuilder();
         StringBuilder paramSql = new StringBuilder();
-        sbSql.append("select s.* from s_user s left join s_user_role r on r.USER_ID=s.ID where 1=1 and s.ORG_ID ="+SystemConst.PLATFORM_USER_ORG_ID + " and  s.STATUS != "+StatusEnum.REMOVED.getCode());
-        countSql.append("select count(1) from (select s.* from s_user s left join s_user_role r on r.USER_ID=s.ID where 1=1 and s.ORG_ID ="+SystemConst.PLATFORM_USER_ORG_ID + " and s.STATUS != "+StatusEnum.REMOVED.getCode());
+        sbSql.append("select s.* from user s left join user_role r on r.USER_ID=s.ID where 1=1 and s.ORG_ID ="+SystemConst.PLATFORM_USER_ORG_ID + " and  s.STATUS != "+StatusEnum.REMOVED.getCode());
+        countSql.append("select count(1) from (select s.* from user s left join user_role r on r.USER_ID=s.ID where 1=1 and s.ORG_ID ="+SystemConst.PLATFORM_USER_ORG_ID + " and s.STATUS != "+StatusEnum.REMOVED.getCode());
         if (!WRWUtil.isEmpty(dto.getUserName())) {
             paramSql.append(" and s.USER_NAME like :userName");
             param.put("userName", "%" + dto.getUserName() + "%");

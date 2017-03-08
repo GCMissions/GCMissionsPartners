@@ -79,7 +79,7 @@ public interface SUserDao extends JpaRepository<SUserEntity, Long>, JpaSpecifica
     SUserEntity findOneByOrgId(Long orgId);
     
     @Modifying
-    @Query(value = "update s_user set status = '3' where org_id = ?1", nativeQuery = true)
+    @Query(value = "update user set status = '3' where org_id = ?1", nativeQuery = true)
     void deleteUser(Long orgId);
 
 }

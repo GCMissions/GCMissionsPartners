@@ -75,6 +75,7 @@ public class SlidesAdminServiceImpl implements SlidesAdminService {
                 dto.setDisplayed("Hidden");
             }
             dto.setIndex(BasicUtil.objToString(obj[4]));
+            dto.setTotalRecords(list.size() + "");
             slideList.add(dto);
         }
         return slideList;
@@ -151,11 +152,11 @@ public class SlidesAdminServiceImpl implements SlidesAdminService {
         if (OprationTypeConstants.UP_SORT.equals(type)) {
             // up sort
             nextSlide = slidesDao.findBySort(originSort - 1 + "");
-            originSlide.setSort(originSort + 1 + "");
+            originSlide.setSort(originSort - 1 + "");
         } else {
             // down sort
             nextSlide = slidesDao.findBySort(originSort + 1 + "");
-            originSlide.setSort(originSort - 1 + "");
+            originSlide.setSort(originSort + 1 + "");
         }
         slidesDao.save(originSlide);
         nextSlide.setSort(originSort.toString());
