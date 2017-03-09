@@ -44,9 +44,11 @@ public class SlidesAdminController {
     public String view(@PathVariable Long id, Model model) {
         if (id != 0L) {
             model.addAttribute("slide", slidesService.slideDetail(id));
+            model.addAttribute("id", id);
             model.addAttribute("showType", "1");
+        } else {
+            model.addAttribute("showType", "0");
         }
-        model.addAttribute("showType", "0");
         return "slides/slides_detail";
     }
     

@@ -15,7 +15,7 @@ public interface SlidesDao extends JpaRepository<SlidesEntity, Long>,
     @Query(value = "select * from slides where del_flag = '1' order by sort", nativeQuery = true)
     List<SlidesEntity> findAllAndSort();
     
-    @Query(value = "select * from slides where del_flag = '1' order by sort desc", nativeQuery = true)
+    @Query(value = "select * from slides where del_flag = '1' order by sort desc limit 1", nativeQuery = true)
     SlidesEntity findLastSortEntity();
     
     @Query(value = "select * from slides where del_flag = '1' and sort = ?1 order by id desc limit 1", nativeQuery = true)

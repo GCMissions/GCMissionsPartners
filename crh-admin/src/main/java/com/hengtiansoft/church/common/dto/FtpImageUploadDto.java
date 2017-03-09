@@ -2,7 +2,7 @@ package com.hengtiansoft.church.common.dto;
 
 import java.io.Serializable;
 
-public class OssImageUploadDto implements Serializable{
+public class FtpImageUploadDto implements Serializable{
 
     /**
     * Variables Name: serialVersionUID

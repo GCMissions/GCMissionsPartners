@@ -384,6 +384,13 @@
   			<artifactId>bcprov</artifactId>
   			<version>1.0</version>
 		</dependency>
+		
+		<!-- ftp -->
+		<dependency>
+			<groupId>com.hengtiansoft.standard</groupId>
+			<artifactId>std_oss</artifactId>
+			<version>0.0.3-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 
