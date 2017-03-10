@@ -1,5 +1,5 @@
 .login-page {
-	background: url(../img/login_bg.jpg) 0 0 transparent no-repeat;background-size:cover;
+	background: url(../img/login_bg.png) 0 0 transparent no-repeat;background-size:cover;
 	background-attachment:fixed;
 	-moz-background-size:cover;-webkit-background-size:cover;
 }
@@ -7,20 +7,25 @@
 	width : 510px;
 	height :760px;
 	position: absolute;
-	top : 80px;
+	top :200px;
 	right :200px;
 	z-index:1
 }
 
 .login-page .right_body {
 	width : 508px;
-	height:703px;
+	height:370px;
 	float:right;
-	
-	background: url(../img/login_white_bg.png) 0 0 transparent no-repeat;
+	background-color:#8CA1FA;
 	z-index:2
 }
-
+.login_top{
+	text-align:center;
+	height:80px;
+	line-height:80px;
+	font-size:18px;
+	color:#fff;
+}
 @media (max-width: 767px) {
 	.login-page .right_body {
 		width : 100%;
@@ -38,8 +43,7 @@
 	}
 }
 ul.login_area {
-	margin-top:310px;
-	padding:0 35px;
+	padding:40px 35px 0 35px;
 	background: #fff;
 	margin-bottom: 0;
 }
@@ -93,11 +97,10 @@ input:-webkit-autofill {
 	padding-left:0;
 }
 .login_area button {
-	background-color:#81b826;
+	background-color:#4663E1;
 	width:100%; height:60px;border: none;
 	line-height:60px;color:#fff;
 	font-size:24px;
-	border-radius:10px;
 }
 .login_area label {
 	font-weight: normal

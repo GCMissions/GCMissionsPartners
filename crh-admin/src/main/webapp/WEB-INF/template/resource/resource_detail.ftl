@@ -23,8 +23,8 @@
        <!-- Content Header (Page header) -->
         <section class="content-header">
           <ol class="breadcrumb">
-            <li><i class="fa fa-dashboard"></i> Partner Slides</li>
-          	<li><#if showType == "0">Add Slide<#else>Edit Slide</#if></li>
+            <li><i class="fa fa-dashboard"></i> Resource</li>
+          	<li><#if showType == "0">Add New Resource<#else>Edit Resource</#if></li>
           </ol>
         </section>
         
@@ -34,34 +34,34 @@
                 <div class="box box-primary">
                     <div class="form-horizontal search-group" id="search-area" >
                     	<div class="box-body">
-                    	<input type="hidden" id="slideId" value="${id}">
+                    	<input type="hidden" id="resourceId" value="${id}">
                     		<div class="col-sm-12">
-                    			<label><#if showType == "0">Add New Slide<#else>Edit Slide</#if></label>
+                    			<label><#if showType == "0">Add New Resource<#else>Edit Resource</#if></label>
                     		</div>
                     		<#if showType == "1">
                     		<div class="col-sm-12">
                     			<label class="col-sm-2"><span class="requiredField">*</span>Order:</label>
-                    			<label class="col-sm-3">${slide.index}</label>
+                    			<label class="col-sm-3">${resource.index}</label>
                     		</div>
                     		</#if>
                     		<div class="col-sm-12">
-                    			<label class="col-sm-3"><span class="requiredField">*</span>Slide:</label>
+                    			<label class="col-sm-3"><span class="requiredField">*</span>Icon:</label>
                     			<div class="adspic-list col-sm-3">
 									<ul>
-										<li class="adspic-upload " id="slide_upload">
+										<li class="adspic-upload " id="resource_upload">
 											<div class="upload-thumb">
 												<#if showType == "0">
 												<img src="${base}/dist/img/default_goods_image_240.gif"
-													id="slide_img">
+													id="resource_img">
 												<#else>
-												<img src="${slide.image}"
-													id="slide_img">
+												<img src="${resource.image}"
+													id="resource_img">
 												</#if>
 											</div>
 											<div class="upload-btn">
 												<a href="javascript:void(0);"> <span><input
 														type="file" hidefocus="true" size="1" class="input-file"
-														name="file" id="slide"
+														name="file" id="resource"
 														accept=".jpg,.png,.gif"></span>
 													<p>
 														<i class="fa fa-fw fa-upload"></i>upload
@@ -73,23 +73,19 @@
 								</div>
                     		</div>
                     		<div class="col-sm-12">
-                    			<label class="col-sm-3">Description:</label>
-                    		</div>
-                    		<div class="col-sm-12">
-                    			<textarea rows="3" class="form-control col-sm-12" id="desc"><#if showType == "1">${slide.description}</#if></textarea>
+                    			<label class="col-sm-2"><span class="requiredField">*</span>Link:</label>
+                    			<#if showType == "0">
+                    			<input type="text" id="link" class="col-sm-12 form-control" style="width: 300px;"/>
+                    			<#else>
+                    			<input type="text" id="link" class="col-sm-12 form-control" value="${resource.link}" style="width: 300px;"/>
+                    			</#if>
                     		</div>
                     		<div class="col-sm-12" id="radio_box">
+                    			<label class="col-sm-2"><span class="requiredField">*</span>Title:</label>
                     			<#if showType == "0">
-                    			<input type="radio" class="col-sm-1 raidoItem" style="margin-top: 11px;" name="display" checked="true" value="display"/><label class="col-sm-1">Display</label>
-                    			<input type="radio" class="col-sm-1 raidoItem" style="margin-top: 11px;" name="display" value="hide"/><label class="col-sm-1">Hide</label>
+                    			<input type="text" id="title" class="col-sm-12 form-control" style="width: 300px;"/>
                     			<#else>
-                    				<#if slide.displayed == "1">
-                    				<input type="radio" class="col-sm-1 raidoItem" style="margin-top: 11px;" name="display" checked="true" value="display"/><label class="col-sm-1">Display</label>
-                    				<input type="radio" class="col-sm-1 raidoItem" style="margin-top: 11px;" name="display" value="hide"/><label class="col-sm-1">Hide</label>
-                    				<#else>
-                    				<input type="radio" class="col-sm-1 raidoItem" style="margin-top: 11px;" name="display" value="display"/><label class="col-sm-1">Display</label>
-                    				<input type="radio" class="col-sm-1 raidoItem" style="margin-top: 11px;" name="display" checked="true" value="hide"/><label class="col-sm-1">Hide</label>
-                    				</#if>
+                    			<input type="text" id="title" class="col-sm-12 form-control" value="${resource.title}" style="width: 300px;"/>
                     			</#if>
                     		</div>
                     		<div class="col-sm-6" style="margin-top: 20px;">
@@ -116,6 +112,6 @@
 </body>
 <#include "/footer.ftl" />
 
-<script type="text/javascript" src="${uiBase}js/pages/slides/slides_detail.js?v=${resourceVersion}"></script>
+<script type="text/javascript" src="${uiBase}js/pages/resource/resource_detail.js?v=${resourceVersion}"></script>
 <script type="text/javascript"
 	src="${uiBase}/vendor/ajaxfileupload/ajaxfileupload.js"></script>

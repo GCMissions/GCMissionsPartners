@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hengtiansoft.church.resource.dto.ResourceSaveDto;
 import com.hengtiansoft.church.resource.dto.ResourceSearchDto;
+import com.hengtiansoft.church.resource.dto.ResourceSortDto;
 import com.hengtiansoft.church.resource.service.ResourceAdminService;
 import com.hengtiansoft.common.dto.ResultDto;
 
@@ -28,20 +29,26 @@ public class ResourceAdminController {
     
     @RequestMapping(value = "/list", method = RequestMethod.POST)
     @ResponseBody
-    public ResourceSearchDto resourceList(ResourceSearchDto dto) {
+    public ResourceSearchDto resourceList(@RequestBody ResourceSearchDto dto) {
         resourceService.searchResource(dto);
         return dto;
     }
     
-    @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
     @ResponseBody
-    public ResultDto<?> deleteResource(@PathVariable Long id) {
+    public ResultDto<?> deleteResource(Long id) {
         return resourceService.deleteResource(id);
     }
     
     @RequestMapping(value = "/view/{id}", method = RequestMethod.GET)
     public String view(@PathVariable Long id, Model model) {
-        model.addAttribute("resource", resourceService.resourceDetail(id));
+        if (id != 0L) {
+            model.addAttribute("resource", resourceService.resourceDetail(id));
+            model.addAttribute("id", id);
+            model.addAttribute("showType", "1");
+        } else {
+            model.addAttribute("showType", "0");
+        }
         return "resource/resource_detail";
     }
     
@@ -51,9 +58,9 @@ public class ResourceAdminController {
         return resourceService.saveResource(dto);
     }
     
-    @RequestMapping(value = "/sort/{id}/{type}", method = RequestMethod.GET)
+    @RequestMapping(value = "/sort", method = RequestMethod.POST)
     @ResponseBody
-    public ResultDto<?> adjustSort(@PathVariable Long id, @PathVariable String type) {
-        return resourceService.adjustSort(id, type);
+    public ResultDto<?> adjustSort(@RequestBody ResourceSortDto dto) {
+        return resourceService.adjustSort(dto.getId(), dto.getType());
     }
 }

@@ -65,18 +65,18 @@ public class LoginController {
         SUserEntity userInfo = userDao.findByLoginId(loginDto.getLoginId());
 
         if (userInfo == null || StatusEnum.REMOVED.getCode().equals(userInfo.getStatus())) {
-            return ResultDtoFactory.toNack("用户名不存在", null);
+            return ResultDtoFactory.toNack("User Name does not exist", null);
         }else if(!StatusEnum.NORMAL.getCode().equals(userInfo.getStatus())){
-            return ResultDtoFactory.toNack("用户被锁定", null);
+            return ResultDtoFactory.toNack("The user is locked", null);
         }
         
         Integer pwdErrorTimes = userInfo.getPwdErrorTimes() == null ? 0 : userInfo.getPwdErrorTimes();
         if (pwdErrorTimes > 0) {
             if (StringUtils.isEmpty(loginDto.getCaptcha())) {
-                return ResultDtoFactory.toNack("需要输入验证码", pwdErrorTimes);
+                return ResultDtoFactory.toNack("Need to enter a Captcha", pwdErrorTimes);
             }
             if (!kaptchaSupport.validateCaptcha(loginDto.getCaptcha(), loginDto.getKey())) {
-                return ResultDtoFactory.toNack("验证码错误", "0");
+                return ResultDtoFactory.toNack("Captcha error", "0");
             }
         }
         try {
@@ -85,14 +85,14 @@ public class LoginController {
         } catch (UnknownAccountException e) {
             userInfo.setPwdErrorTimes(++pwdErrorTimes);
             userDao.save(userInfo);
-            return ResultDtoFactory.toNack("用户名不存在", 1);
+            return ResultDtoFactory.toNack("User Name does not exist", 1);
         } catch (CredentialsException e) {
             userInfo.setPwdErrorTimes(++pwdErrorTimes);
             if(pwdErrorTimes >= 5){
                 userInfo.setStatus(StatusEnum.UNENABLED.getCode());
             }
             userDao.save(userInfo);
-            return ResultDtoFactory.toNack("用户名或密码错误", 1);
+            return ResultDtoFactory.toNack("The User Name or Password error", 1);
         }
         AuthorityContext.setTokenCookie(response, null);
         if (pwdErrorTimes > 0) {
@@ -100,7 +100,7 @@ public class LoginController {
             userInfoNew.setPwdErrorTimes(0);
             userDao.save(userInfoNew);
         }
-        return ResultDtoFactory.toAck("登陆成功", loginDto);
+        return ResultDtoFactory.toAck("Login success", loginDto);
     }
 
     /**
@@ -127,7 +127,7 @@ public class LoginController {
     @ResponseBody
     public ResultDto<String> logout(HttpServletResponse response) {
         AuthorityContext.logout(response, null);
-        return ResultDtoFactory.toAck("登出成功");
+        return ResultDtoFactory.toAck("Logout success");
     }
 
 }

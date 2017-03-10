@@ -32,7 +32,7 @@ import com.hengtiansoft.common.exception.DisplayableError;
  */
 public enum EErrorCode implements DisplayableError {
     
-    SUCCESS("0", "操作成功!"),
+    SUCCESS("0", "Success!"),
 
 
     // 1000开始的 入参错误 （如非空字段为空，参数不合法）
@@ -41,15 +41,14 @@ public enum EErrorCode implements DisplayableError {
     PARA_ATTR_NAME_IS_NULL("1001", "属性名称不能为空，请重新输入!"),
     PARA_ATTR_VALUE_IS_NULL("1002", "属性值不能为空,请至少填写一个!"),
     
-    USER_NAME_VALUE_IS_NULL("1003","姓名不能为空,请重新输入!"),
-    LOGIN_ID_VALUE_IS_NULL("1004","用户名不能为空,请重新输入!"),
+    LOGIN_ID_VALUE_IS_NULL("1004","User Name can't be empty!"),
     PHONE_VALUE_IS_NULL("1005","手机号码不能为空,请重新输入!"),
-    USER_ROLE_VALUE_IS_NULL("1006","角色不能为空,请至少选择一个角色!"),
+    USER_ROLE_VALUE_IS_NULL("1006","Select at least one role!"),
     
-    ROLE_NAME_VALUE_IS_NULL("1007","角色名称不能为空,请输入角色名!"),
-    ROLE_NAME_TOO_LONG("1008","角色名称过长，请输入不多于6个字的名称！"),
-    ROLE_FUNCTION_IS_NULL("1009","请至少选择一个权限!"),
-    ROLE_DESC_TOO_LONG("1010","描述过长，请输入不多于20个字的名称!"),
+    ROLE_NAME_VALUE_IS_NULL("1007","Role name cannot be empty. Please enter a role name!"),
+    ROLE_NAME_TOO_LONG("1008","Role name is too long, please type in the name of not more than six words!"),
+    ROLE_FUNCTION_IS_NULL("1009","Please select at least one permission!"),
+    ROLE_DESC_TOO_LONG("1010","Description is too long, please enter the name of not more than 20 words!"),
 
     // 2000开始 数据实体类错误（如实体找不到）
     ENTITY_MEMBER_NOT_EXIST("2000", "客户不存在"), 
@@ -72,10 +71,10 @@ public enum EErrorCode implements DisplayableError {
     ENTITY_ATTR_ATTR_NOT_EXIST("2062", "属性值不存在"),
     ENTITY_ATTR_ATTR_IS_EXIST("2063", "属性值不能有重复,请重新输入!"),
     
-    ENTITY_USER_IS_EXIST("2100","用户已存在,请重新输入!"),
-    ENTITY_USER_NOT_EXIST("2101","用户不存在"),
+    ENTITY_USER_IS_EXIST("2100","User already exists!"),
+    ENTITY_USER_NOT_EXIST("2101","The user does not exist"),
     
-    ENTITY_ROLE_IS_EXIST("2200","角色名称已存在，请重新输入！"),
+    ENTITY_ROLE_IS_EXIST("2200","Role name already exists. Please enter again"),
     ENTITY_ROLE_NOT_EXIST("2201","角色不存在"),
 
     ENTITY_COUPON_CONFIG_NOT_EXIST("2110", "优惠券配置不存在"),
@@ -105,18 +104,18 @@ public enum EErrorCode implements DisplayableError {
     BIZ_BRAND_IS_USING("3003", "品牌被类型使用,无法删除!"),
     BIZ_ORGSON_IS_USING("3003", "有关联组织关系，不能被删除!"),
     
-    USER_DELETE_IS_USING("3004","该账户为当前登录账户,无法删除!"),
+    USER_DELETE_IS_USING("3004","This account is currently logged in account, can't delete!"),
     USER_UPDATE_IS_USE("3005","更新失败,当前用户为登录用户,请去个人资料中进行修改!"),
-    SYSTEM_USER_NOT_DELETE("3006","该账户为系统账户,无法删除!"),
+    SYSTEM_USER_NOT_DELETE("3006","The account for the system to delete!"),
     USER_UPDATE_NOT_USING("3007","更新失败，修改的不是当前登录用户"),
     
-    ROLE_SYSTEM_NOT_DELETE("3008","该角色为系统角色，无法操作注销！"),
-    ROLE_DELETE_IS_USING("3009","该角色已绑定账户，无法操作注销，请先解除绑定关系！"),
+    ROLE_SYSTEM_NOT_DELETE("3008","The role for a system role to logout operation!"),
+    ROLE_DELETE_IS_USING("3009","The role has been binding account to logout operation, please remove the binding relationship!"),
     BIZ_HAS_ORDER("3010", "有未完成的订单，不能被删除!"),
     BIZ_HAS_CONFIG("3011", "有相同配置不能重复添加!"),
     BIZ_ATTRVALUE_HAS_USING("3012", "属性值被应用，不能被删除！"),
     BIZ_COUPON_HAS_USING("3013", "优惠券被充值配置引用，不能被删除！"),
-    EMAIL_VALUE_IS_NULL("3014","邮箱地址不能为空,请重新输入!"),
+    EMAIL_VALUE_IS_NULL("3014","Email can't be empty!"),
 
 
     

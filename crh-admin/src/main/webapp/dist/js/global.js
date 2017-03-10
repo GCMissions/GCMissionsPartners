@@ -19,20 +19,9 @@ $.GLOBAL.config = {
     ossUploadNewUrl : urlPrefix + "main/ossUploadImage/{{source}}",//文件名重新生成（不包含中文）
     ossUploadUrlList : urlPrefix + "main/ossAddImageList/{{source}}",
     uploadSourcesMap :{
-    	product : 10,      //吾儿网平台系统商品
-    	brand   : 11,      //吾儿网平台系统品牌
-        ad      : 12,      //吾儿网平台系统广告
-        fproduct: 13,      //吾儿网平台系统楼层商品 
-        ueditor : 14,      //ueeditor
-        appmessageImg:15,  //App消息图片
-        group	:16,	   //团购图片
-        appmessage : 20,    //吾儿网平台系统APP消息
-        coolbag : 21, //吾儿酷袋图片
-        myActivity : 22, // 我的活动图片
-        imageMaterial : 23, //我的素材库图片
-        kdAdvertise : 24, // 酷袋广告位图片
-        kdProduct : 25, // 酷袋商品
-        appStartup:26//app启动页
+    	slides : 10,
+    	resource : 11,
+    	partner : 12
     },
     //qrcode 
 	qrcodes : {

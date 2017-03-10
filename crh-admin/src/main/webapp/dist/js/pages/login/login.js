@@ -19,13 +19,13 @@ var loginApp = {
 			},
 			messages : {
 				"loginId" : {
-					required : "请输入用户名！ "
+					required : "Please enter the User Name! "
 				},
 				"password" : {
-					required : "请输入密码！"
+					required : "Please enter the Password!"
 				},
 				"captcha" : {
-					required : "请输入验证码！"
+					required : "Please enter the Captcha"
 				},
 			}
 			
@@ -69,7 +69,7 @@ var loginApp = {
 		var that = this;
 		if($('#loginForm').validate().form()) {
 			var data = $('#loginForm').frmSerialize();
-            $(".loginButton").attr("disabled",true).text("正在登录..."); 
+            $(".loginButton").attr("disabled",true).text("Is the login..."); 
             data.password =  $.md5(data.password);
             that.saveUserInfo();
             
@@ -90,7 +90,7 @@ var loginApp = {
         	 		$('#verifyCodeLi').addClass('hide');
         	 		$('#loginForm').loadingInfo({
                         type : "success",
-                        text : "登录成功",
+                        text : "Login success",
                         timeouts : 1500,
                         callBack : function() {
                             window.location.href= $.GLOBAL.config.mainUrl;
@@ -107,7 +107,7 @@ var loginApp = {
                 		},
                 		message:{
                 			"captcha" : {
-            					required : "请输入验证码！"
+            					required : "Please enter the Captcha"
             				}
                 		}
                 	});
@@ -121,7 +121,7 @@ var loginApp = {
 		     
         	 })
              .always(function() {
-                 $(".loginButton").attr("disabled",false).text("登录"); 
+                 $(".loginButton").attr("disabled",false).text("Login"); 
                  that.changeCaptcha();
              })
         	 .fail(function(result) {

@@ -15,6 +15,8 @@ public class ResourceListDto implements Serializable {
     private String link;
     
     private String title;
+    
+    private String totalRecords;
 
     public Long getId() {
         return id;
@@ -54,5 +56,13 @@ public class ResourceListDto implements Serializable {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getTotalRecords() {
+        return totalRecords;
+    }
+
+    public void setTotalRecords(String totalRecords) {
+        this.totalRecords = totalRecords;
     }
 }

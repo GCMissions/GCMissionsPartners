@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "country_group_ref")
+@Table(name = "country_region_ref")
 public class CountryRegionRefEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
