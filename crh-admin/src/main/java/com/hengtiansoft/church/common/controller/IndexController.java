@@ -57,7 +57,7 @@ public class IndexController implements ServletContextAware {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView main(Model model) throws Exception {
         SUserSaveAndUpdateDto dto = sUserService.findById(AuthorityContext.getCurrentUser().getUserId());
-        model.addAttribute("userName", dto.getUserName());
+        model.addAttribute("userName", dto.getLoginId());
         model.addAttribute("userDto", dto);
         return new ModelAndView("main");
     }
