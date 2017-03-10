@@ -70,6 +70,7 @@ public class ResourceAdminServiceImpl implements ResourceAdminService {
             dto.setLink(BasicUtil.objToString(obj[2]));
             dto.setTitle(BasicUtil.objToString(obj[3]));
             dto.setIndex(BasicUtil.objToString(obj[4]));
+            dto.setTotalRecords(list.size() + "");
             resourceList.add(dto);
         }
         return resourceList;
@@ -88,6 +89,7 @@ public class ResourceAdminServiceImpl implements ResourceAdminService {
         resource.setModifyId(userId);
         resource.setModifyDate(new Date());
         resourceDao.save(resource);
+        resourceDao.updateSort(resource.getSort());
         return ResultDtoFactory.toAck("Delete Success!", null);
     }
 
@@ -112,11 +114,11 @@ public class ResourceAdminServiceImpl implements ResourceAdminService {
         if (OprationTypeConstants.UP_SORT.equals(type)) {
             // up sort
             nextResource = resourceDao.findBySort(originSort - 1 + "");
-            originResource.setSort(originSort + 1 + "");
+            originResource.setSort(originSort - 1 + "");
         } else {
             // down sort
             nextResource = resourceDao.findBySort(originSort + 1 + "");
-            originResource.setSort(originSort - 1 + "");
+            originResource.setSort(originSort + 1 + "");
         }
         resourceDao.save(originResource);
         nextResource.setSort(originSort.toString());

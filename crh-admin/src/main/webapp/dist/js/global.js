@@ -19,7 +19,9 @@ $.GLOBAL.config = {
     ossUploadNewUrl : urlPrefix + "main/ossUploadImage/{{source}}",//文件名重新生成（不包含中文）
     ossUploadUrlList : urlPrefix + "main/ossAddImageList/{{source}}",
     uploadSourcesMap :{
-    	slides : 10
+    	slides : 10,
+    	resource : 11,
+    	partner : 12
     },
     //qrcode 
 	qrcodes : {

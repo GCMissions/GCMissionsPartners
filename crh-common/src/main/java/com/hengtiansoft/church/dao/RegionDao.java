@@ -13,4 +13,7 @@ public interface RegionDao extends JpaRepository<RegionEntity, Long>,
 
     @Query(value = "select * from region where del_flag = ?1 order by create_date desc,id desc", nativeQuery = true)
     List<RegionEntity> findByDelFlagAndSort(String delFlag);
+    
+    @Query(value = "select * from region where del_flag = ?1 and id != ?2 order by create_date desc,id desc", nativeQuery = true)
+    List<RegionEntity> findAllRegionNotEqId(String delFlag, Long id);
 }

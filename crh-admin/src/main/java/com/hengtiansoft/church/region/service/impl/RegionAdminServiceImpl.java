@@ -56,6 +56,15 @@ public class RegionAdminServiceImpl implements RegionAdminService {
         StringBuilder sql = new StringBuilder(
                 " select id,region_name,create_date from region where 1=1 ");
         countSql.append(" select count(1) from ( ").append(sql);
+        if (!BasicUtil.isEmpty(dto.getRegionName())) {
+            String msg = dto.getRegionName().trim();
+            char escape = '\\';
+            msg = msg.replace("\\", escape + "\\");
+            msg = msg.replace("%", escape + "%");
+            msg = msg.replace("_", escape + "_");
+            conditionSql.append(" AND REPLACE(region_name,' ','') LIKE REPLACE(:regionName,' ','') ");
+            param.put("regionName", "%" + msg + "%");
+        }
         conditionSql.append(" and del_flag = '1' order by create_date desc,id desc ");
         Query query = entityManager.createNativeQuery(sql.append(conditionSql).toString());
         QueryUtil.processParamForQuery(query, param);
@@ -107,9 +116,7 @@ public class RegionAdminServiceImpl implements RegionAdminService {
         dto.setColor(region.getColor());
         List<CountryEntity> haveCountryList = countryDao.findAllCountryByGroupId(id);
         dto.setHaveCountryList(haveCountryList);
-        List<CountryEntity> notHaveCountryList = countryDao.findAll();
-        notHaveCountryList.remove(haveCountryList);
-        dto.setNotHaveCountryList(notHaveCountryList);
+        dto.setNotHaveCountryList(countryDao.findNoRegionCountries());
         return dto;
     }
 

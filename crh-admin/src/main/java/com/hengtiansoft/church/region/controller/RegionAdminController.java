@@ -28,24 +28,24 @@ public class RegionAdminController {
     
     @RequestMapping(value = "/list", method = RequestMethod.POST)
     @ResponseBody
-    public RegionSearchDto list(RegionSearchDto dto) {
+    public RegionSearchDto list(@RequestBody RegionSearchDto dto) {
         regionService.searchRegion(dto);
         return dto;
     }
     
-    @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
     @ResponseBody
-    public ResultDto<?> deleteRegion(@PathVariable Long id) {
+    public ResultDto<?> deleteRegion(Long id) {
         return regionService.deleteRegion(id);
     }
     
     @RequestMapping(value = "/view/{id}", method = RequestMethod.GET)
     public String view(@PathVariable Long id, Model model) {
         if (id == 0L) {
-            model.addAttribute("type", "0");
+            model.addAttribute("showType", "0");
             model.addAttribute("countries", regionService.findNoRegionCountries());
         } else {
-            model.addAttribute("type", "1");
+            model.addAttribute("showType", "1");
             model.addAttribute("region", regionService.regionDetail(id));
         }
         return "region/region_detail";

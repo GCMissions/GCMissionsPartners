@@ -34,7 +34,7 @@ import com.hengtiansoft.standard.FileOperator;
 public class IndexController implements ServletContextAware {
     private static Logger LOGGER  = LoggerFactory.getLogger(IndexController.class);
 
-    @Value("${common.file.server}")
+    @Value("${ftp.server.base}")
     private String              imgPath;
 
     @Autowired
@@ -86,12 +86,11 @@ public class IndexController implements ServletContextAware {
     @RequestMapping(value = "/ossAddImage/{source}", method = RequestMethod.POST)
     @ResponseBody
     public ResultDto<FtpImageUploadDto> ossAddImage(@RequestBody MultipartFile file, @PathVariable("source") String source) {
-        //　校验文件大小
         String url = "";
         String key = "";
         try {
             String suffix = StringUtils.substringAfterLast(file.getOriginalFilename(), ".");
-            key = fileOperator.uploadFile(file.getInputStream(), UUID.randomUUID().toString()+"."+suffix, "church_dev");
+            key = fileOperator.uploadFile(file.getInputStream(), UUID.randomUUID().toString()+"."+suffix, imgPath);
         } catch (Exception e) {
             LOGGER.error("upload failed!{}", e);
         } 

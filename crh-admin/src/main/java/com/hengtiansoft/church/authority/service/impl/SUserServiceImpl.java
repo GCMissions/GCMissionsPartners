@@ -117,13 +117,6 @@ public class SUserServiceImpl implements SUserService {
     @Transactional(value = "jpaTransactionManager")
     public ResultDto<String> save(SUserSaveAndUpdateDto dto) {
         SUserEntity entity = new SUserEntity();
-        // 验证
-        if (WRWUtil.isEmpty(dto.getUserName())) {
-            throw new WRWException(EErrorCode.USER_NAME_VALUE_IS_NULL);
-        } else {
-            entity.setUserName(dto.getUserName());
-        }
-
         if (WRWUtil.isEmpty(dto.getLoginId())) {
             throw new WRWException(EErrorCode.LOGIN_ID_VALUE_IS_NULL);
         } else {
@@ -133,11 +126,6 @@ public class SUserServiceImpl implements SUserService {
                 throw new WRWException(EErrorCode.ENTITY_USER_IS_EXIST);
             }
             entity.setLoginId(dto.getLoginId());
-        }
-        if (WRWUtil.isEmpty(dto.getPhone())) {
-            throw new WRWException(EErrorCode.PHONE_VALUE_IS_NULL);
-        } else {
-            entity.setPhone(dto.getPhone());
         }
         if (WRWUtil.isEmpty(dto.getEmail())) {
             throw new WRWException(EErrorCode.EMAIL_VALUE_IS_NULL);
@@ -155,8 +143,7 @@ public class SUserServiceImpl implements SUserService {
         if (!WRWUtil.isEmpty(dto.getPassword())) {
             myPwd = dto.getPassword();
         } else {
-            String phone = entity.getPhone();
-            myPwd = phone.substring(phone.length() - 6, phone.length());
+            myPwd = "123456";
         }
         String onePassword = EncryptUtil.encryptMd5(myPwd);
         String password2 = EncryptUtil.encryptMd5(onePassword, dto.getLoginId());
@@ -185,17 +172,7 @@ public class SUserServiceImpl implements SUserService {
     @Override
     @Transactional(value = "jpaTransactionManager")
     public ResultDto<String> update(SUserUpdateDto dto) {
-        // 判断是否是当前用户,
-        if (dto.getId().equals(AuthorityContext.getCurrentUser().getUserId())) {
-            throw new WRWException(EErrorCode.USER_UPDATE_IS_USE);
-        }
         SUserEntity entity = sUserDao.findOne(dto.getId());
-        // 验证
-        if (WRWUtil.isEmpty(dto.getUserName())) {
-            throw new WRWException(EErrorCode.USER_NAME_VALUE_IS_NULL);
-        } else {
-            entity.setUserName(dto.getUserName());
-        }
         if (WRWUtil.isEmpty(dto.getPhone())) {
             throw new WRWException(EErrorCode.LOGIN_ID_VALUE_IS_NULL);
         } else {
@@ -305,11 +282,6 @@ public class SUserServiceImpl implements SUserService {
         SUserEntity entity = sUserDao.findOne(dto.getId());
         // 验证 ,只有平台（orgId=0）才做手机号姓名验证
         if (entity.getOrgId().equals(0L)) {
-            if (WRWUtil.isEmpty(dto.getUserName())) {
-                throw new WRWException(EErrorCode.USER_NAME_VALUE_IS_NULL);
-            } else {
-                entity.setUserName(dto.getUserName());
-            }
             if (WRWUtil.isEmpty(dto.getPhone())) {
                 throw new WRWException(EErrorCode.PHONE_VALUE_IS_NULL);
             } else {

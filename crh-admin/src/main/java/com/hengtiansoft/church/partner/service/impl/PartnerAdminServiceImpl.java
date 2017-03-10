@@ -20,12 +20,15 @@ import com.hengtiansoft.church.dao.CountryDao;
 import com.hengtiansoft.church.dao.CountryRegionRefDao;
 import com.hengtiansoft.church.dao.PartnerDao;
 import com.hengtiansoft.church.dao.RegionDao;
+import com.hengtiansoft.church.entity.CountryEntity;
 import com.hengtiansoft.church.entity.CountryRegionRefEntity;
 import com.hengtiansoft.church.entity.PartnersEntity;
+import com.hengtiansoft.church.entity.RegionEntity;
 import com.hengtiansoft.church.enums.StatusEnum;
 import com.hengtiansoft.church.partner.dto.PartnerListDto;
 import com.hengtiansoft.church.partner.dto.PartnerSaveDto;
 import com.hengtiansoft.church.partner.dto.PartnerSearchDto;
+import com.hengtiansoft.church.partner.dto.RegionAndCountryDto;
 import com.hengtiansoft.church.partner.service.PartnerAdminService;
 import com.hengtiansoft.common.authority.AuthorityContext;
 import com.hengtiansoft.common.authority.domain.UserInfo;
@@ -54,7 +57,7 @@ public class PartnerAdminServiceImpl implements PartnerAdminService {
         StringBuilder conditionSql = new StringBuilder("");
         StringBuilder countSql = new StringBuilder("");
         StringBuilder sql = new StringBuilder(
-                " select id,partner_name,mission,c_r_ref_id from partner where 1=1 ");
+                " select id,partner_name,mission,c_r_ref_id from partners where 1=1 ");
         countSql.append(" select count(1) from ( ").append(sql);
         conditionSql.append(" and del_flag = '1' order by create_date desc,id desc ");
         Query query = entityManager.createNativeQuery(sql.append(conditionSql).toString());
@@ -95,8 +98,14 @@ public class PartnerAdminServiceImpl implements PartnerAdminService {
         dto.setMission(partner.getMission());
         Long cRRefId = partner.getcRRefId();
         CountryRegionRefEntity entity = countryRegionRefDao.findOne(cRRefId);
-        dto.setCountryName(countryDao.findOne(entity.getCountyId()).getCountryName());
-        dto.setRegionName(regionDao.findOne(entity.getRegionId()).getRegionName());
+        CountryEntity country = countryDao.findOne(entity.getCountyId());
+        RegionEntity region = regionDao.findOne(entity.getRegionId());
+        dto.setCountryName(country.getCountryName());
+        dto.setRegionName(region.getRegionName());
+        dto.setCountryId(country.getId());
+        dto.setRegionId(region.getId());
+        dto.setRegionList(regionDao.findAllRegionNotEqId(StatusEnum.NORMAL.getCode(), region.getId()));
+        dto.setCountryList(countryDao.findAllCountryByGroupIdAndNotEqId(region.getId(), country.getId()));
         dto.setAddress(partner.getAddress());
         dto.setImage(partner.getImage());
         dto.setIntroduce(partner.getIntroduce());
@@ -148,5 +157,21 @@ public class PartnerAdminServiceImpl implements PartnerAdminService {
         partner.setcRRefId(entity.getId());
         partnerDao.save(partner);
         return ResultDtoFactory.toAck("Save Success!", null);
+    }
+
+    @Override
+    public RegionAndCountryDto getAllRegion() {
+        RegionAndCountryDto dto = new RegionAndCountryDto();
+        List<RegionEntity> regionList = regionDao.findByDelFlagAndSort(StatusEnum.NORMAL.getCode());
+        if (!regionList.isEmpty()) {
+            dto.setRegionList(regionList);
+            dto.setCountryList(countryDao.findAllCountryByGroupId(regionList.get(0).getId()));
+        }
+        return dto;
+    }
+
+    @Override
+    public ResultDto<List<CountryEntity>> getCountry(Long regionId) {
+        return ResultDtoFactory.toAck("", countryDao.findAllCountryByGroupId(regionId));
     }
 }

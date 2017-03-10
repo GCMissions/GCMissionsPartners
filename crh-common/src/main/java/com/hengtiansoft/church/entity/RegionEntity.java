@@ -10,7 +10,7 @@ import javax.persistence.Table;
 import com.hengtiansoft.common.domain.BaseEntity;
 
 @Entity
-@Table(name = "group")
+@Table(name = "region")
 public class RegionEntity extends BaseEntity {
 
     private static final long serialVersionUID = 1L;

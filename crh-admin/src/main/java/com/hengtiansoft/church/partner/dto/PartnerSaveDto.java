@@ -1,6 +1,10 @@
 package com.hengtiansoft.church.partner.dto;
 
 import java.io.Serializable;
+import java.util.List;
+
+import com.hengtiansoft.church.entity.CountryEntity;
+import com.hengtiansoft.church.entity.RegionEntity;
 
 public class PartnerSaveDto implements Serializable {
 
@@ -27,6 +31,10 @@ public class PartnerSaveDto implements Serializable {
     private String introduce;
     
     private String type;
+    
+    private List<RegionEntity> regionList;
+    
+    private List<CountryEntity> countryList;
 
     public Long getId() {
         return id;
@@ -114,5 +122,21 @@ public class PartnerSaveDto implements Serializable {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public List<RegionEntity> getRegionList() {
+        return regionList;
+    }
+
+    public void setRegionList(List<RegionEntity> regionList) {
+        this.regionList = regionList;
+    }
+
+    public List<CountryEntity> getCountryList() {
+        return countryList;
+    }
+
+    public void setCountryList(List<CountryEntity> countryList) {
+        this.countryList = countryList;
     }
 }

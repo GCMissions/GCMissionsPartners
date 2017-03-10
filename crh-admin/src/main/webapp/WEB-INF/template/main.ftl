@@ -38,14 +38,6 @@
 <body class="hold-transition skin-red sidebar-mini" style="overflow-y:hidden">
     <div class="wrapper">
         <header class="main-header">
-            <!-- Logo -->
-            <a href="javascript:;" class="logo">
-              <!-- mini logo for sidebar mini 50x50 pixels -->
-              <span class="logo-mini"><img src="${uiBase}img/wrw-round.png" title="${systemName}"  width=40></span>
-              <!-- logo for regular state and mobile devices -->
-              <span class="logo-lg"><img src="${uiBase}img/wrw_log.png" title="${systemName}" width=150 ></span>
-            </a>
-           
             <nav class="navbar navbar-static-top" role="navigation">
               <!-- Sidebar toggle button-->
               <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
@@ -75,11 +67,6 @@
 	               </a> -->
                   </a>
                   <ul class="dropdown-menu   user-actions">
-                   
-                    <li><a href="javascript:;" class="changeProfile" data-loginid="${userDto.id}" >Personal Data</a></li>
-                    
-                    <li class="divider"></li>
-                    
                     <li><a href="javascript:;" class="logout">Safety Exit</a></li>
                   </ul>
                 </div>
@@ -102,6 +89,66 @@
                         </#if>
                         <#if auth.hasPermission("authority.role")>
                         <li><a href="role/" class="J_menuItem"><i class="fa fa-circle-o"></i>Roles Management</a></li>
+                        </#if>
+                    </ul>
+				</li>
+				</#if>
+				
+				<#if auth.hasPermission("slides")>
+                 <li class="treeview">
+                    <a href="#">
+                        <i class="fa   fa-cubes"></i> 
+                        <span>Partner Slides </span> 
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                   		<#if auth.hasPermission("slides.show")>
+                        <li><a href="slides/" class="J_menuItem"><i class="fa fa-circle-o"></i>Slides Management</a></li>
+                        </#if>
+                    </ul>
+				</li>
+				</#if>
+				
+				<#if auth.hasPermission("partners")>
+                 <li class="treeview">
+                    <a href="#">
+                        <i class="fa   fa-cubes"></i> 
+                        <span>Partners </span> 
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                   		<#if auth.hasPermission("partners.show")>
+                        <li><a href="partner/" class="J_menuItem"><i class="fa fa-circle-o"></i>Partners Management</a></li>
+                        </#if>
+                    </ul>
+				</li>
+				</#if>
+				
+				<#if auth.hasPermission("resource")>
+                 <li class="treeview">
+                    <a href="#">
+                        <i class="fa   fa-cubes"></i> 
+                        <span>Resource </span> 
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                   		<#if auth.hasPermission("resource.show")>
+                        <li><a href="resource/" class="J_menuItem"><i class="fa fa-circle-o"></i>Resource Management</a></li>
+                        </#if>
+                    </ul>
+				</li>
+				</#if>
+				
+				<#if auth.hasPermission("region")>
+                 <li class="treeview">
+                    <a href="#">
+                        <i class="fa   fa-cubes"></i> 
+                        <span>Region </span> 
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                   		<#if auth.hasPermission("region.show")>
+                        <li><a href="region/" class="J_menuItem"><i class="fa fa-circle-o"></i>Region Management</a></li>
                         </#if>
                     </ul>
 				</li>
@@ -160,7 +207,6 @@
     </div> <!--- wrapper -->
 </body>
 <script type="text/html" id="mainFooterTpl">
-	Copyright &copy;2016 中国幼儿在线·吾儿网   版权所有
 </script>
 <script type="text/javascript">
 /* window.overTimeOrderInterval = ${overTimeOrderInterval};
@@ -191,62 +237,6 @@ window.newOrderInterval = ${newOrderInterval};
   
 <script type="text/javascript" src="${uiBase}vendor/jquery.qrcode.min.js"></script>
   
-<script id="myQrcodeTpl" type="text/html">
-<div class="box-body form-horizontal addEditTpl">
- 	<div class="form-group row">
-		<label class="col-sm-3 control-label">二维码内容</label>
-		<div class="col-sm-8">
-		  <p class="form-control-static">
-             {{qrText}}
-           </p>
-			
-		</div>
-	</div>  
-	<div class="form-group row">
-		<label class="col-sm-3 control-label">我的二维码</label>
-		<div class="col-sm-8">
-			<div id="defaultQrcode">
-				
-			</div>
-			<div id="otherQrcode" class="hide">
-				
-			</div>
-			<div>
-			    <p class="form-control-static" style="color:#363535">
-	            	（二维码边长(厘米)：{{sideWidth}}<br> 建议扫描距离(米)：{{scanWidth}}<br>像素(px)：{{width}} * {{height}}）
-	            </p>
-				<button type=button  class="btn btn-success dlNormal"><i class="fa fa-download"></i> 下载</button>
-				<button type=button  class="btn btn-success moreSizeQrcode"><i class="fa fa-bars"></i> 更多尺寸</button>
-			</div>
-		</div>
-	</div>
-	<div class="form-group row hide otherSizeList"  >
-		<table class="table" cellspacing="0">
-            <thead class="thead">
-                <tr>
-                    <th class="table_cell">二维码边长(厘米)</th>
-                    <th class="table_cell">建议扫描距离(米)</th>
-                    <th class="table_cell">像素(px)</th>
-                    <th class="table_cell no_extra"></th>
-                </tr>
-            </thead>
-            <tbody class="tbody">
-			{{each qrcodes as item i}}
-                <tr>
-                    <td class="table_cell"> {{item.sideWidth}} </td>
-                    <td class="table_cell"> {{item.scanWidth}} </td>
-                    <td class="table_cell"> {{item.width}} * {{item.height}} </td>
-                    <td class="table_cell"> <a class="btn btn-default downloadBtn" href="javascript:;" data-width="{{item.width}}"  data-height="{{item.height}}"><i class="fa fa-download"></i> 下载</a> </td>
-                </tr>
-                
-			{{/each}}               
-                
-            </tbody>
-        </table>
-	</div>
-</div>
-	
-</script>
 </#if>
 
 <script id="changeProfileTpl" type="text/html">
@@ -255,61 +245,33 @@ window.newOrderInterval = ${newOrderInterval};
 <div class="box-body form-horizontal addEditTpl">
  	  <div class="callout callout-info " >
        
-        <p>密码不改请留空．</p>
+        <p>Password is not to leave blank.</p>
       </div>
       
-    <div class="form-group row">
-	  <label class="col-sm-4 control-label"><span class="requiredField">*</span>姓名</label>
-	  <div class="col-sm-8">
-		<input type="hidden" name="id" value={{dto.id}}>
-		 <#if (userDto.orgId>0) >
-		  <p class="form-control-static">
-		 	{{dto.userName}}
-		 	 </p>
-		 <#else>
-	    <input type="text" class="form-control" name="userName" placeholder="请输入姓名"
-        	required data-msg-required="请输入姓名"  value="{{dto.userName}}">
-         </#if>
-	  </div>
-	</div>
 	<div class="form-group row">
-	  <label class="col-sm-4 control-label" >用户名</label>
+	  <label class="col-sm-4 control-label" >User Name</label>
 	  <div class="col-sm-8">
 	  <p class="form-control-static">
 		 {{dto.loginId}}
 		 </p>
 	  </div>
 	</div>
-	<div class="form-group row">
-		<label class="col-sm-4 control-label" style="text-align:right;"><span class="requiredField">*</span>联系电话</label>
-	  	<div class="col-sm-8">
-	  	 <#if (userDto.orgId>0) >
-	  	 <p class="form-control-static">
-	  	 {{dto.phone}}
-	  	  </p>
-	  	 <#else>
-	  		<input type="text" class="form-control" name="phone" placeholder="请输入联系电话"
-	  			required data-msg-required = "请输入联系电话"
-	  			data-rule-isPhone="true" value="{{dto.phone}}" >
-	  	</#if>		
-	  	</div>
-	</div>
 
 	<div class="form-group row">
-		<label class="col-sm-4 control-label" style="text-align:right;">密码</label>
+		<label class="col-sm-4 control-label" style="text-align:right;">Password</label>
 	  	<div class="col-sm-8">
-	  		<input type="password" class="form-control" name="password" id="password"  data-msg-required="请输入密码">
+	  		<input type="password" class="form-control" name="password" id="password"  data-msg-required="Password">
 	  	</div>
 	</div>
 	<div class="form-group row">
-		<label class="col-sm-4 control-label" style="text-align:right;">确认密码</label>
+		<label class="col-sm-4 control-label" style="text-align:right;">Confirm Password</label>
 	  	<div class="col-sm-8">
-	  		<input type="password" class="form-control" data-rule-equalTo="#password" data-msg-equalTo="密码不一致">
+	  		<input type="password" class="form-control" data-rule-equalTo="#password" data-msg-equalTo="Passwords don't match">
 	  	</div>
 	</div>
 	
 	<div class="form-group row">
-		<label class="col-sm-4 control-label" style="text-align:right;">角色</label>
+		<label class="col-sm-4 control-label" style="text-align:right;">Role</label>
 		<div class="col-sm-8">
 		<p class="form-control-static">
 			{{each list}}
@@ -319,7 +281,7 @@ window.newOrderInterval = ${newOrderInterval};
 		</div>
     </div>	
 	<div class="form-group row">
-		<label class="col-sm-4 control-label" style="text-align:right;">状态</label>
+		<label class="col-sm-4 control-label" style="text-align:right;">Status</label>
 		<div class="col-sm-3">
 		 	<p class="form-control-static">
 				{{dto.status}}
@@ -330,7 +292,7 @@ window.newOrderInterval = ${newOrderInterval};
 </form>
 {{else}}
 <p class="form-control-static">
-账号被禁用，您无法修改资料．
+The account is disabled, you cannot modify data．
 </p>
 {{/if}}
 </script>

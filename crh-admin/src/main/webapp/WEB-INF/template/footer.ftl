@@ -1,6 +1,6 @@
 <script type="text/javascript">
 	var fileUrlPrefix = "${file}";
-	var systemName    = "${systemName}";
+	var systemName    = "Church";
 	var urlPrefix     = "${urlPrefix}";
 	var uiBase        = "${uiBase}";
 </script>
