@@ -90,6 +90,7 @@
 	<div class="form-group row">
 	  <label class="col-sm-4 control-label" ><span class="requiredField">*</span>Username</label>
 	  <div class="col-sm-8">
+		<input type="hidden" name="id" value={{dto.id}}>
 	    <input type="text" class="form-control" name="loginId" placeholder="Please enter your Username"
         	data-rule-required="true" data-msg-required="Please enter your Username" value="{{dto.loginId}}" disabled>
 	  </div>
