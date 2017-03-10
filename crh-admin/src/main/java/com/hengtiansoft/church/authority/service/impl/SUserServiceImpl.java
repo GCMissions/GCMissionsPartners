@@ -173,11 +173,6 @@ public class SUserServiceImpl implements SUserService {
     @Transactional(value = "jpaTransactionManager")
     public ResultDto<String> update(SUserUpdateDto dto) {
         SUserEntity entity = sUserDao.findOne(dto.getId());
-        if (WRWUtil.isEmpty(dto.getPhone())) {
-            throw new WRWException(EErrorCode.LOGIN_ID_VALUE_IS_NULL);
-        } else {
-            entity.setPhone(dto.getPhone());
-        }
         if (!"on".equals(dto.getLockUser())) {
             entity.setStatus(StatusEnum.NORMAL.getCode());
         }
@@ -190,6 +185,12 @@ public class SUserServiceImpl implements SUserService {
             }
         }
 
+        if (!WRWUtil.isEmpty(dto.getEmail())) {
+            entity.setEmail(dto.getEmail());
+        } else {
+            throw new WRWException(EErrorCode.EMAIL_VALUE_IS_NULL);
+        }
+        
         if (dto.getRoleIds() == null || dto.getRoleIds().size() == 0) {
             throw new WRWException(EErrorCode.USER_ROLE_VALUE_IS_NULL);
         }

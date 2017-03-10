@@ -25,7 +25,6 @@ public class SUserEntity extends UserInfo {
     @Column(name = "ORG_ID")
     private Long              orgId;
 
-    @NotBlank
     @Column(name = "USER_NAME")
     private String            userName;
 
