@@ -464,13 +464,13 @@ $(document).ajaxError(function(event, xhr, settings, thrownError ) {
         } else{ 
             
             BootstrapDialog.show({
-                title: '操作错误！',
+                title: 'Opration Error!',
                 type : BootstrapDialog.TYPE_WARNING,
-                message: error.message,
+                message: "Abnormal server",
                 draggable: true,
                 size : BootstrapDialog.SIZE_SMALL,
                 buttons: [{
-                    label: '确认',
+                    label: 'Ok',
                     cssClass: 'btn-primary saveAddEditTpl',
                     action: function(dialog) {
                         dialog.close();
