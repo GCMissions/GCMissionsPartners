@@ -65,8 +65,6 @@
 					<property name="properties">
 						<props>
 							<prop key="cacheName">MEMCACHED_FOR_SMS</prop>
-							<!-- 在Memcached上做短信验证码缓存,使用2分钟 -->
-							<!-- 1800 = 60 * 15 -->
 							<prop key="expiration">1800</prop>
 						</props>
 					</property>
@@ -75,15 +73,6 @@
 					<property name="properties">
 						<props>
 							<prop key="cacheName">ORDERCACHE</prop>
-							<prop key="expiration">86400</prop>
-						</props>
-					</property>
-				</bean>
-				<!-- 首页热门推荐 -->
-				<bean class="com.hengtiansoft.common.xmemcached.CacheConfiguration">
-					<property name="properties">
-						<props>
-							<prop key="cacheName">welyHotCache</prop>
 							<prop key="expiration">86400</prop>
 						</props>
 					</property>

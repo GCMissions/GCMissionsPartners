@@ -65,7 +65,6 @@ public class SRoleInfoServiceImpl implements SRoleInfoService {
                 // 查询出状态为启用的角色
                 predicates.add(cb.equal(root.<String> get("status"), StatusEnum.NORMAL.getCode()));
                 // 查询出角色ID大于平台角色ID的角色
-//                predicates.add(cb.ge(root.<Long> get("roleId"), SystemConst.PLATFORM_ROLE_ID));
                 Predicate predicate = cb.and(predicates.toArray(new Predicate[predicates.size()]));
                 query.where(predicate);
                 return query.getRestriction();
