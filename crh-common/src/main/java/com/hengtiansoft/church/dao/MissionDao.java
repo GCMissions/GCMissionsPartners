@@ -11,6 +11,6 @@ import com.hengtiansoft.church.entity.MissionEntity;
 public interface MissionDao extends JpaRepository<MissionEntity, Long>,
     JpaSpecificationExecutor<MissionEntity>{
 
-    @Query(value = "select * from mission where del_flag = ?1 order id", nativeQuery = true)
+    @Query(value = "select * from mission where del_flag = ?1 order by id", nativeQuery = true)
     List<MissionEntity> findByDelFlag(String delFlag);
 }
