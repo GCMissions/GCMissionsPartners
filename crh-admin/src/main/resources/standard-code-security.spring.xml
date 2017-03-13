@@ -29,6 +29,7 @@
 		<property name="filterChainDefinitions">
 			<value>
 				<!-- /=authc -->
+				/web/mission/**=anon
 				/web/slide/**=anon
 				/web/resource/**=anon
 				/web/partner/**=anon
