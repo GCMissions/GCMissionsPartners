@@ -34,6 +34,7 @@ import com.hengtiansoft.common.dto.ResultDto;
 import com.hengtiansoft.common.dto.ResultDtoFactory;
 import com.hengtiansoft.common.enumeration.EErrorCode;
 import com.hengtiansoft.common.exception.WRWException;
+import com.hengtiansoft.common.util.BasicUtil;
 import com.hengtiansoft.common.util.DateTimeUtil;
 import com.hengtiansoft.common.util.EncryptUtil;
 import com.hengtiansoft.common.util.WRWUtil;
@@ -58,14 +59,15 @@ public class SUserServiceImpl implements SUserService {
     @Autowired
     private EntityManager entityManager;
 
+    @SuppressWarnings("unchecked")
     @Override
     public void search(final SUserSearchDto dto) {
         Map<String, Object> param = new HashMap<String, Object>();
         StringBuilder sbSql = new StringBuilder();
         StringBuilder countSql = new StringBuilder();
         StringBuilder paramSql = new StringBuilder();
-        sbSql.append("select s.* from user s left join user_role r on r.USER_ID=s.ID where 1=1 and s.ORG_ID ="+SystemConst.PLATFORM_USER_ORG_ID + " and  s.STATUS != "+StatusEnum.REMOVED.getCode());
-        countSql.append("select count(1) from (select s.* from user s left join user_role r on r.USER_ID=s.ID where 1=1 and s.ORG_ID ="+SystemConst.PLATFORM_USER_ORG_ID + " and s.STATUS != "+StatusEnum.REMOVED.getCode());
+        sbSql.append("select s.ID,s.login_id,s.email,s.status,s.create_date,ro.ROLE from user s left join user_role r on r.USER_ID=s.ID left join role_info ro on r.ROLE_ID=ro.ROLE_ID where 1=1 and s.ORG_ID ="+SystemConst.PLATFORM_USER_ORG_ID + " and  s.STATUS != "+StatusEnum.REMOVED.getCode());
+        countSql.append("select count(1) from (select s.ID,s.login_id,s.email,s.status,s.create_date,ro.ROLE from user s left join user_role r on r.USER_ID=s.ID left join role_info ro on r.ROLE_ID=ro.ROLE_ID where 1=1 and s.ORG_ID ="+SystemConst.PLATFORM_USER_ORG_ID + " and  s.STATUS != "+StatusEnum.REMOVED.getCode());
         if (!WRWUtil.isEmpty(dto.getUserName())) {
             paramSql.append(" and s.USER_NAME like :userName");
             param.put("userName", "%" + dto.getUserName() + "%");
@@ -90,7 +92,7 @@ public class SUserServiceImpl implements SUserService {
         sbSql.append(paramSql.toString()).append(" group by s.ID order by s.CREATE_DATE desc");
         countSql.append(paramSql.toString() + " group by s.ID ) p" );
 
-        Query query = entityManager.createNativeQuery(sbSql.toString(), SUserEntity.class);
+        Query query = entityManager.createNativeQuery(sbSql.toString());
         QueryUtil.processParamForQuery(query, param);
         Query countQuery = entityManager.createNativeQuery(countSql.toString());
         QueryUtil.processParamForQuery(countQuery, param);
@@ -101,13 +103,16 @@ public class SUserServiceImpl implements SUserService {
         QueryUtil.buildPagingDto(dto, totalRecord.longValue(), buildUserDtos(query.getResultList()));
     }
 
-    private List<SUserDto> buildUserDtos(List<SUserEntity> content) {
+    private List<SUserDto> buildUserDtos(List<Object[]> content) {
         List<SUserDto> list = new ArrayList<SUserDto>();
-        for (SUserEntity entity : content) {
-            SUserDto dto = ConverterService.convert(entity, new SUserDto());
-            dto.setId(entity.getUserId());
-            dto.setCreateTime(DateTimeUtil.parseDateToString(entity.getCreateDate(), DateTimeUtil.SIMPLE_FMT_MINUTE));
-            dto.setStatus(StatusEnum.getTextByCode(entity.getStatus()));
+        for (Object[] obj : content) {
+            SUserDto dto = new SUserDto();
+            dto.setLoginId(BasicUtil.objToString(obj[1]));
+            dto.setEmail(BasicUtil.objToString(obj[2]));
+            dto.setRole(BasicUtil.objToString(obj[5]));
+            dto.setId(BasicUtil.objToLong(obj[0]));
+            dto.setCreateTime(DateTimeUtil.parseDateToString((Date) obj[4], DateTimeUtil.SIMPLE_FMT_MINUTE));
+            dto.setStatus(StatusEnum.getTextByCode(BasicUtil.objToString(obj[3])));
             list.add(dto);
         }
         return list;

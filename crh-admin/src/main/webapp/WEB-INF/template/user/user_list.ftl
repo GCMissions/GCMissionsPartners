@@ -37,6 +37,7 @@
                     		 	<input id="text-input" name="loginId" class="form-control col-sm-3" type="text">
                     		 	<label class="col-sm-1 control-label" style="margin-left: 2%;">Email：</label>
 					           	<input id="text-input" name="email" class="form-control col-sm-3" type="text">
+					           	<label class="col-sm-1 control-label">Role：</label>
 					           	<div class="col-sm-3" style="margin-left: 3%;">
                     		 		<select class="selectpicker form-control productBrand " id="roleId" title="roles" > 
                                     	<option value="">All</option>
@@ -64,6 +65,7 @@
                         	<th>No.</th>
                             <th>Username</th>
                         	<th>Email</th>
+                        	<th>Role</th>
                             <th>Create Time</th>
                             <th>Action</th>
                         </thead>
