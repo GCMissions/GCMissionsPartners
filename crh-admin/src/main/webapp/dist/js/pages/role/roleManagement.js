@@ -51,12 +51,9 @@ $(function(){
 							align: 'center',
 							checkbox: false, 
 							formatter:function(value,row,index){  
-								var handleField = '<a  title="Editor" class="editItem" data-id="'+row.roleId+'" href="edit/'+row.roleId+'">' 
-											+'<i class="fa fa-edit"  style="font-size:20px;margin-right: 4%;"></i></a>'
-											+'<a  title="Check" class="detailItem" data-id="'+row.roleId+'" href="detail/'+row.roleId+'">' 
-											+'<i class="fa fa-eye"  style="font-size:20px;margin-right: 4%;"></i></a>'
-											+'<a  title="Delete" class="removeItem" data-id="'+row.roleId+'">'
-											+'<i class="fa fa-trash"  style="font-size:20px"></i></a>';
+								var handleField = '<a  title="Editor" class="editItem" data-id="'+row.roleId+'" href="edit/'+row.roleId+'" style="margin-right: 4%;">Edit</a>'
+											+'<a  title="Check" class="detailItem" data-id="'+row.roleId+'" href="detail/'+row.roleId+'" style="margin-right: 4%;">View</a>'
+											+'<a  title="Delete" class="removeItem" data-id="'+row.roleId+'">Delete</a>';
 								return handleField;
 							} 
 						}
