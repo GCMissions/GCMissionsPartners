@@ -23,4 +23,8 @@ public interface CountryRegionRefDao extends JpaRepository<CountryRegionRefEntit
     
     @Query(value = "select * from country_region_ref where country_id = ?1 and region_id = ?2 order by id desc limit 1", nativeQuery = true)
     CountryRegionRefEntity findByCountyIdWithRegionId(Long countryId, Long regionId);
+    
+    @Modifying
+    @Query(value = "update country_region_ref set del_flag = '0' where region_id = ?1", nativeQuery = true)
+    void updateDelFlag(Long regionId);
 }

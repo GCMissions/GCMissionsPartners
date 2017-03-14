@@ -104,6 +104,7 @@ public class RegionAdminServiceImpl implements RegionAdminService {
         region.setModifyId(userId);
         region.setModifyDate(new Date());
         regionDao.save(region);
+        countryRegionRefDao.updateDelFlag(id);
         return ResultDtoFactory.toAck("Delete Success!", null);
     }
 
