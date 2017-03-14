@@ -7,13 +7,19 @@ $(function(){
 			initEvents : function(){
 				$("#add").click(function(){
 					var select = document.getElementById("leftCountry");
+					var selectOptions = [];
 				    for(i=0;i<select.length;i++){
 				        if(select.options[i].selected){
 				        	var id = select.options[i].value;
 				        	var text = select.options[i].text;
-				            $("#leftCountry option[value=" + id + "]").remove();
+				        	selectOptions.push(i);
 				            $("#rightCountry").append("<option value=" + id + ">" + text + "</option>");
 				        }
+				    }
+				    for (var i = selectOptions.length - 1; i >= 0; i--) {
+				    	var id = select.options[selectOptions[i]].value;
+			        	var text = select.options[selectOptions[i]].text;
+				    	$("#leftCountry option[value=" + id + "]").remove();
 				    }
 				});
 				
@@ -29,13 +35,19 @@ $(function(){
 				
 				$("#delete").click(function(){
 					var select = document.getElementById("rightCountry");
+					var selectOptions = [];
 				    for(i=0;i<select.length;i++){
 				        if(select.options[i].selected){
 				        	var id = select.options[i].value;
 				        	var text = select.options[i].text;
-				            $("#rightCountry option[value=" + id + "]").remove();
+				        	selectOptions.push(i);
 				            $("#leftCountry").append("<option value=" + id + ">" + text + "</option>");
 				        }
+				    }
+				    for (var i = selectOptions.length - 1; i >= 0; i--) {
+				    	var id = select.options[selectOptions[i]].value;
+			        	var text = select.options[selectOptions[i]].text;
+				    	$("#rightCountry option[value=" + id + "]").remove();
 				    }
 				});
 
