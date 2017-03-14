@@ -113,7 +113,7 @@ $(function(){
 			    	});
 				});
 				
-				$("#dataList").on('click','.UpItem',function(){
+				$("#dataList").on('click','.upItem',function(){
 					var id = $(this).data("id");
 					var dataParam = {
 							"id":id,
