@@ -34,7 +34,7 @@
 	     		</li>
 	     		<li>
 	     			<label>
-	     				<input type=checkbox value="1" name="isRememberUsername" class="rememberme" id="isRememberUsername"> save the password
+	     				<input type=checkbox value="1" name="isRememberUsername" class="rememberme" id="isRememberUsername"> save the Username
 	     			</label>
 	     		</li>
 	     		<li style="margin-bottom:30px;">
