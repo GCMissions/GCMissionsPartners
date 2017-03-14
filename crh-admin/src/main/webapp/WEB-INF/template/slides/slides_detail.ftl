@@ -64,7 +64,7 @@
 														name="file" id="slide"
 														accept=".jpg,.png,.gif"></span>
 													<p>
-														<i class="fa fa-fw fa-upload"></i>upload
+														<i class="fa fa-fw fa-upload" style="margin-right: 0px;"></i>upload
 													</p>
 												</a>
 											</div>
