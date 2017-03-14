@@ -53,6 +53,10 @@ $(function(){
 							align: 'center'
 						} ,
 						{
+							field: 'role',
+							align: 'center'
+						} ,
+						{
 							field: 'createTime',
 							align: 'center'
 						} ,

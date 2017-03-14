@@ -32,6 +32,8 @@ public class SUserDto implements Serializable {
     private String            status;
 
     private String            createTime;
+    
+    private String            role;
 
     public Long getId() {
         return id;
@@ -95,6 +97,14 @@ public class SUserDto implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
 }
