@@ -74,6 +74,7 @@ $(function(){
 						"partnerName" : partnerName,
 						"mission" : mission,
 						"regionId" : regionId,
+						"address" : address,
 						"countryId" : countryId,
 						"image" : image,
 						"introduce" : introduce,
@@ -126,6 +127,7 @@ $(function(){
 						"mission" : mission,
 						"regionId" : regionId,
 						"countryId" : countryId,
+						"address" : address,
 						"image" : image,
 						"introduce" : introduce,
 						"type" : type

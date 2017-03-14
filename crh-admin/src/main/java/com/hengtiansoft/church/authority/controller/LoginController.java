@@ -92,7 +92,7 @@ public class LoginController {
                 userInfo.setStatus(StatusEnum.UNENABLED.getCode());
             }
             userDao.save(userInfo);
-            return ResultDtoFactory.toNack("The User Name or Password error", 1);
+            return ResultDtoFactory.toNack("The user name or password error", 1);
         }
         AuthorityContext.setTokenCookie(response, null);
         if (pwdErrorTimes > 0) {

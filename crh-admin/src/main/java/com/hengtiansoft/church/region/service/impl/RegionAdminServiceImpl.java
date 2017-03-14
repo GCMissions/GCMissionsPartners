@@ -94,6 +94,10 @@ public class RegionAdminServiceImpl implements RegionAdminService {
     @Override
     @Transactional
     public ResultDto<?> deleteRegion(Long id) {
+        List<CountryRegionRefEntity> ref = countryRegionRefDao.findByRegionIdAndDelFlag(id, StatusEnum.NORMAL.getCode());
+        if (!ref.isEmpty()) {
+            return ResultDtoFactory.toNack("Please terminate the relations with countries", null);
+        }
         UserInfo userInfo = AuthorityContext.getCurrentUser();
         Long userId = 0L;
         if (userInfo != null) {
@@ -104,6 +108,7 @@ public class RegionAdminServiceImpl implements RegionAdminService {
         region.setModifyId(userId);
         region.setModifyDate(new Date());
         regionDao.save(region);
+        countryRegionRefDao.updateDelFlag(id);
         return ResultDtoFactory.toAck("Delete Success!", null);
     }
 
@@ -155,16 +160,39 @@ public class RegionAdminServiceImpl implements RegionAdminService {
             region.setModifyDate(date);
             region.setModifyId(userId);
             regionDao.save(region);
-            countryRegionRefDao.initCountryRegionRef(regionId);
+            List<CountryRegionRefEntity> regionRefList = countryRegionRefDao.findByRegionIdAndDelFlag(regionId, StatusEnum.NORMAL.getCode());
+            List<Long> countryList = new ArrayList<Long>();
+            List<Long> removeCountryIdList = new ArrayList<Long>();
+            List<Long> newCountryList = new ArrayList<Long>();
+            for (CountryRegionRefEntity ref : regionRefList) {
+                countryList.add(ref.getCountyId());
+            }
             List<CountryRegionRefEntity> saveRfEntities = new ArrayList<CountryRegionRefEntity>();
             for (Long countryId : dto.getCountryIdList()) {
-                CountryRegionRefEntity crEntity = new CountryRegionRefEntity();
-                crEntity.setCountyId(countryId);
-                crEntity.setRegionId(regionId);
-                crEntity.setDelFlag(StatusEnum.NORMAL.getCode());
-                saveRfEntities.add(crEntity);
+                newCountryList.add(countryId);
+                if (!countryList.contains(countryId)) {
+                    CountryRegionRefEntity countryRegionRef = countryRegionRefDao.findByCountyIdWithRegionId(countryId, regionId);
+                    if (countryRegionRef != null) {
+                        countryRegionRef.setDelFlag(StatusEnum.NORMAL.getCode());
+                        countryRegionRefDao.save(countryRegionRef);
+                    } else {
+                        CountryRegionRefEntity crEntity = new CountryRegionRefEntity();
+                        crEntity.setCountyId(countryId);
+                        crEntity.setRegionId(regionId);
+                        crEntity.setDelFlag(StatusEnum.NORMAL.getCode());
+                        saveRfEntities.add(crEntity);
+                    }
+                }
+            }
+            for (Long countryId : countryList) {
+                if (!newCountryList.contains(countryId)) {
+                    removeCountryIdList.add(countryId);
+                }
             }
             countryRegionRefDao.save(saveRfEntities);
+            if (!removeCountryIdList.isEmpty()) {
+                countryRegionRefDao.initCountryRegionRef(regionId, removeCountryIdList);
+            }
         }
         return ResultDtoFactory.toAck("Save Success!", null);
     }

@@ -50,7 +50,7 @@ public class GroupServiceImpl implements GroupService {
                     List<PartnerDto> partnerDtoList = new ArrayList<PartnerDto>();
                     for (PartnersEntity partner : partnerList) {
                         PartnerDto pDto = new PartnerDto();
-                        pDto.setName(partner.getMission());
+                        pDto.setName(partner.getPartnerName());
                         pDto.setTitle(partner.getPartnerName());
                         pDto.setImgSrc(partner.getImage());
                         pDto.setContent(partner.getIntroduce());
