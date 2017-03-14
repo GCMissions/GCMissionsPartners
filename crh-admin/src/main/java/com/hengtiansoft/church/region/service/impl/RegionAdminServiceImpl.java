@@ -94,6 +94,10 @@ public class RegionAdminServiceImpl implements RegionAdminService {
     @Override
     @Transactional
     public ResultDto<?> deleteRegion(Long id) {
+        List<CountryRegionRefEntity> ref = countryRegionRefDao.findByRegionIdAndDelFlag(id, StatusEnum.NORMAL.getCode());
+        if (!ref.isEmpty()) {
+            return ResultDtoFactory.toNack("Please terminate the relations with countries", null);
+        }
         UserInfo userInfo = AuthorityContext.getCurrentUser();
         Long userId = 0L;
         if (userInfo != null) {
