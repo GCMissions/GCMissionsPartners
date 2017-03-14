@@ -21,7 +21,7 @@
        <!-- Content Header (Page header) -->
         <section class="content-header">
           <ol class="breadcrumb">
-            <li><i class="fa fa-dashboard"></i> Partners</li>
+            <li><img src="${uiBase}img/partner.png"> Partners</li>
           	<li>Partners Management</li>
           </ol>
         </section>

@@ -38,6 +38,10 @@
 <body class="hold-transition skin-red sidebar-mini" style="overflow-y:hidden">
     <div class="wrapper">
         <header class="main-header">
+            <a href="javascript:;" class="logo">
+              <span class="logo-lg"><img src="${uiBase}img/Church_logo.png" title="Church" width=150 ></span>
+            </a>
+            
             <nav class="navbar navbar-static-top" role="navigation">
               <!-- Sidebar toggle button-->
               <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
@@ -45,7 +49,6 @@
               </a>
               <div class="navbar-custom-menu"> 
                 <ul class="nav navbar-nav">
-                    <!--<li><a href="">${systemName}商城</a></li> --> 
                 </ul>
               </div>
             </nav>
@@ -79,7 +82,7 @@
 				<#if auth.hasPermission("authority")>
                  <li class="treeview">
                     <a href="#">
-                        <i class="fa   fa-cubes"></i> 
+                        <img src="${uiBase}img/generral1-2.png">
                         <span>General </span> 
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
@@ -97,7 +100,7 @@
 				<#if auth.hasPermission("slides")>
                  <li class="treeview">
                     <a href="#">
-                        <i class="fa   fa-cubes"></i> 
+                        <img src="${uiBase}img/partner-slides-2.png">
                         <span>Partner Slides </span> 
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
@@ -112,7 +115,7 @@
 				<#if auth.hasPermission("partners")>
                  <li class="treeview">
                     <a href="#">
-                        <i class="fa   fa-cubes"></i> 
+                        <img src="${uiBase}img/partner-2.png"> 
                         <span>Partners </span> 
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
@@ -127,7 +130,7 @@
 				<#if auth.hasPermission("resource")>
                  <li class="treeview">
                     <a href="#">
-                        <i class="fa   fa-cubes"></i> 
+                        <img src="${uiBase}img/resourse-2.png">  
                         <span>Resource </span> 
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>

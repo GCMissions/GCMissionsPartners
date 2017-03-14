@@ -23,7 +23,7 @@
        <!-- Content Header (Page header) -->
         <section class="content-header">
           <ol class="breadcrumb">
-            <li><i class="fa fa-dashboard"></i> Partner Slides</li>
+            <li><img src="${uiBase}img/partner-slides.png"> Partner Slides</li>
           	<li>Slides Management</li>
           </ol>
         </section>

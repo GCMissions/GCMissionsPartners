@@ -14,7 +14,7 @@ public interface CountryDao extends JpaRepository<CountryEntity, Long>,
     @Query(value = "select c.* from country c left join country_region_ref gr on c.ID = gr.COUNTRY_ID where gr.REGION_ID = ?1 and c.del_flag = '1' and gr.del_flag = '1' order by c.country_name", nativeQuery = true)
     List<CountryEntity> findAllCountryByGroupId(Long groupId);
     
-    @Query(value = "select c.* from country c left join country_region_ref cr on c.ID = cr.COUNTRY_ID where c.DEL_FLAG = '1' and (cr.ID is null or cr.DEL_FLAG = '0') order by c.country_name", nativeQuery = true)
+    @Query(value = "select c.* from country c left join country_region_ref cr on c.ID = cr.COUNTRY_ID where c.DEL_FLAG = '1' and (cr.ID is null or cr.DEL_FLAG = '0') group by c.id order by c.country_name", nativeQuery = true)
     List<CountryEntity> findNoRegionCountries();
     
     @Query(value = "select c.* from country c left join country_region_ref gr on c.ID = gr.COUNTRY_ID where gr.REGION_ID = ?1 and c.id != ?2 and c.del_flag = '1' and gr.del_flag = '1' order by c.country_name", nativeQuery = true)
