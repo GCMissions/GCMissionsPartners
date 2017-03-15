@@ -66,8 +66,8 @@ $(function(){
 							checkbox: false, 
 							formatter:function(value,row,index){  
 								var handleField;
-								handleField = '<a  title="Editor" class="editItem" data-id="'+row.id+'" style="margin-right: 4%;">Edit</a>'
-								+'<a  title="Delete" class="removeItem" data-id="'+row.id+'">Delete</a>';
+								handleField = '<a  title="Editor" class="editItem" href="javascript:void(0)" data-id="'+row.id+'" style="margin-right: 4%;">Edit</a>'
+								+'<a  title="Delete" class="removeItem" href="javascript:void(0)" data-id="'+row.id+'">Delete</a>';
 								return handleField;
 							} 
 						}

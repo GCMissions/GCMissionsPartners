@@ -67,7 +67,7 @@ public class LoginController {
         if (userInfo == null || StatusEnum.REMOVED.getCode().equals(userInfo.getStatus())) {
             return ResultDtoFactory.toNack("User Name does not exist", null);
         }else if(!StatusEnum.NORMAL.getCode().equals(userInfo.getStatus())){
-            return ResultDtoFactory.toNack("The user is locked", null);
+            return ResultDtoFactory.toNack("Your account has been locked，please contact the Administrator for help", null);
         }
         
         Integer pwdErrorTimes = userInfo.getPwdErrorTimes() == null ? 0 : userInfo.getPwdErrorTimes();

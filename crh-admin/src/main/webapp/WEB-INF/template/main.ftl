@@ -145,7 +145,7 @@
 				<#if auth.hasPermission("region")>
                  <li class="treeview">
                     <a href="#">
-                        <i class="fa   fa-cubes"></i> 
+                        <img src="${uiBase}img/region2.png">  
                         <span>Region </span> 
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>

@@ -116,6 +116,7 @@ public enum EErrorCode implements DisplayableError {
     BIZ_ATTRVALUE_HAS_USING("3012", "属性值被应用，不能被删除！"),
     BIZ_COUPON_HAS_USING("3013", "优惠券被充值配置引用，不能被删除！"),
     EMAIL_VALUE_IS_NULL("3014","Email can't be empty!"),
+    EMAIL_VALUE_IS_EXIST("3015","Email has been occupied!"),
 
 
     

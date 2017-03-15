@@ -66,7 +66,7 @@ public class SUserServiceImpl implements SUserService {
         StringBuilder sbSql = new StringBuilder();
         StringBuilder countSql = new StringBuilder();
         StringBuilder paramSql = new StringBuilder();
-        sbSql.append("select s.ID,s.login_id,s.email,s.status,s.create_date,ro.ROLE from user s left join user_role r on r.USER_ID=s.ID left join role_info ro on r.ROLE_ID=ro.ROLE_ID where 1=1 and s.ORG_ID ="+SystemConst.PLATFORM_USER_ORG_ID + " and  s.STATUS != "+StatusEnum.REMOVED.getCode());
+        sbSql.append("select s.ID,s.login_id,s.email,s.status,s.create_date,group_concat(ro.ROLE separator '#&#') from user s left join user_role r on r.USER_ID=s.ID left join role_info ro on r.ROLE_ID=ro.ROLE_ID where 1=1 and s.ORG_ID ="+SystemConst.PLATFORM_USER_ORG_ID + " and  s.STATUS != "+StatusEnum.REMOVED.getCode());
         countSql.append("select count(1) from (select s.ID,s.login_id,s.email,s.status,s.create_date,ro.ROLE from user s left join user_role r on r.USER_ID=s.ID left join role_info ro on r.ROLE_ID=ro.ROLE_ID where 1=1 and s.ORG_ID ="+SystemConst.PLATFORM_USER_ORG_ID + " and  s.STATUS != "+StatusEnum.REMOVED.getCode());
         if (!WRWUtil.isEmpty(dto.getUserName())) {
             paramSql.append(" and s.USER_NAME like :userName");
@@ -109,7 +109,17 @@ public class SUserServiceImpl implements SUserService {
             SUserDto dto = new SUserDto();
             dto.setLoginId(BasicUtil.objToString(obj[1]));
             dto.setEmail(BasicUtil.objToString(obj[2]));
-            dto.setRole(BasicUtil.objToString(obj[5]));
+            String roles = BasicUtil.objToString(obj[5]);
+            String[] roleList = roles.split("#&#");
+            String role = "";
+            for (int i = 0; i < roleList.length; i++) {
+                if (i == roleList.length - 1) {
+                    role += roleList[i];
+                } else {
+                    role += roleList[i] + ",";
+                }
+            }
+            dto.setRole(role);
             dto.setId(BasicUtil.objToLong(obj[0]));
             dto.setCreateTime(DateTimeUtil.parseDateToString((Date) obj[4], DateTimeUtil.SIMPLE_FMT_MINUTE));
             dto.setStatus(StatusEnum.getTextByCode(BasicUtil.objToString(obj[3])));
@@ -135,7 +145,12 @@ public class SUserServiceImpl implements SUserService {
         if (WRWUtil.isEmpty(dto.getEmail())) {
             throw new WRWException(EErrorCode.EMAIL_VALUE_IS_NULL);
         } else {
-            entity.setEmail(dto.getEmail());
+            List<SUserEntity> userList = sUserDao.findByEmailAndNotEqStatus(dto.getEmail(), StatusEnum.REMOVED.getCode());
+            if (!userList.isEmpty()) {
+                throw new WRWException(EErrorCode.EMAIL_VALUE_IS_EXIST);
+            } else {
+                entity.setEmail(dto.getEmail());
+            }
         }
         if (!WRWUtil.isEmpty(dto.getRemark())) {
             entity.setRemark(dto.getRemark());
