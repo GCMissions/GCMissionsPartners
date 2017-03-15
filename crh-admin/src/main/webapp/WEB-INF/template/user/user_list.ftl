@@ -132,25 +132,12 @@
 				<label id="roleIds-error" class="fieldError" for="roleIds" style="float: right;"></label>
 		</div>
     </div>	
-	<!-- 
 	<div class="form-group row">
-		<label class="col-sm-4 control-label" for="type-select">Status</label>
-		<div class="col-sm-5">
-			<select class="form-control" name="status" value="{{dto.status}}">
-					<option value="Enable" {{if dto.status == '启用' }}selected{{/if}}> Enable </option>
-					<option value="Disable" {{if dto.status == '禁用' }}selected{{/if}}> Disable </option>
-			</select>
+	<label class="col-sm-4 control-label" for="type-select"></label>
+		<div class="col-sm-4">
+			<label class="role_checkbox"><input name="unlock" type="hidden" value="1"/><input type="checkbox" class="flat-red" {{if dto.status == '禁用' }}checked{{else}}disabled{{/if}} name="lockUser" />Unlock</label>
 		</div>
-    </div>
-    -->
-    <#if auth.hasPermission("authority.unlock")>
-	    <div class="form-group row">
-	    	<label class="col-sm-4 control-label" for="type-select"></label>
-			<div class="col-sm-4">
-				<label class="role_checkbox"><input name="unlock" type="hidden" value="1"/><input type="checkbox" class="flat-red" {{if dto.status == '禁用' }}checked{{else}}disabled{{/if}} name="lockUser" />Unlock</label>
-			</div>
-	    </div>
-	</#if>
+	</div>
 </div>
 </form>
 </script>
