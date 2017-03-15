@@ -135,7 +135,7 @@
 	<div class="form-group row">
 	<label class="col-sm-4 control-label" for="type-select"></label>
 		<div class="col-sm-4">
-			<label class="role_checkbox"><input name="unlock" type="hidden" value="1"/><input type="checkbox" class="flat-red" {{if dto.status == '禁用' }}checked{{else}}disabled{{/if}} name="lockUser" />Unlock</label>
+			<label class="role_checkbox"><input name="unlock" type="hidden" value="1"/><input type="checkbox" class="flat-red" {{if dto.status == '禁用' }}checked{{else}}disabled{{/if}} name="lockUser" />Locked</label>
 		</div>
 	</div>
 </div>
