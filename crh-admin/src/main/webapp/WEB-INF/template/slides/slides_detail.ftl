@@ -72,6 +72,9 @@
 									</ul>
 								</div>
                     		</div>
+                    		<div class="col-sm-12" style="text-align: center;">
+                    			<label class="col-sm-9" style="color: red;">Images suggest ratio 2:1,suggested below 5M size</label>
+                    		</div>
                     		<div class="col-sm-12">
                     			<label class="col-sm-3">Description:</label>
                     		</div>

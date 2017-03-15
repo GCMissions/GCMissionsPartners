@@ -21,7 +21,7 @@
        <!-- Content Header (Page header) -->
         <section class="content-header">
           <ol class="breadcrumb">
-            <li><i class="fa fa-dashboard"></i> Region</li>
+            <li><img src="${uiBase}img/region.png"> Region</li>
           	<li>Region Management</li>
           </ol>
         </section>

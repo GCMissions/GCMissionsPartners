@@ -82,4 +82,6 @@ public interface SUserDao extends JpaRepository<SUserEntity, Long>, JpaSpecifica
     @Query(value = "update user set status = '3' where org_id = ?1", nativeQuery = true)
     void deleteUser(Long orgId);
 
+    @Query(value = "select * from user where email = ?1 and status != ?2", nativeQuery = true)
+    List<SUserEntity> findByEmailAndNotEqStatus(String email, String status);
 }

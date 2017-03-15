@@ -193,41 +193,41 @@ $(function() {
 			//var mobile = /^(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/;
  			var tel = /^\d{3,4}-?\d{7,8}$/;
 			return this.optional(element) || tel.test(value);
-		}, "请正确填写电话号码");
+		}, "Please fill in the right number");
 	
 		jQuery.validator.addMethod("price", function(value, element) {         
 			return this.optional(element) || /^\d+(\.\d{1,2})?$/.test(value.trim());         
-		}, "格式错误(小数位最多二位)");     
+		}, "Format error (small digital at most two)");     
 		
 		jQuery.validator.addMethod("isMobile", function(value, element) {
 			  var length = value.length;
 			  var mobile = /^1[0-9]{10}$/;
 			  return this.optional(element) || (length == 11 && mobile.test(value));
-		}, "请正确填写手机号码");
+		}, "Please fill in the mobile phone number correctly");
 		
 		jQuery.validator.addMethod("userName", function(value, element) {
 			  var userName =  /^[0-9A-Za-z\u4E00-\u9FA5a-zA-Z]{2,20}$/;
 			  return this.optional(element) || (userName.test(value));
-		}, "用户名格式错误");
+		}, "The user name format error");
 		
 		jQuery.validator.addMethod("uname", function(value, element) {
 			  var userName =  /^[\u4E00-\u9FA5a-zA-Z]{2,10}$/;
 			  return this.optional(element) || (userName.test(value));
-		}, "用户名格式错误");
+		}, "The user name format error");
 		
 		jQuery.validator.addMethod("rolename", function(value, element) {
 			  var roleName =  /^[\u4E00-\u9FA5a-zA-Z]{2,20}$/;
 			  return this.optional(element) || (roleName.test(value));
-		}, "角色名格式错误");
+		}, "Role name format error");
 		
 		jQuery.validator.addMethod("isEmail", function(value, element) {
 			  return this.optional(element) || /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/.test(value);
-		}, "请正确填写邮箱");
+		}, "Please fill in the email correctly");
 		
 		jQuery.validator.addMethod("isPwd", function(value, element) {
 			 var isPwd = /^[A-Za-z0-9]{6,12}$/;
 			 return this.optional(element) || (isPwd.test(value));
-		}, "密码必须是字母或者数字6至12位");
+		}, "Password must be 6 to 12 letters or Numbers");
 	}
 	
 
