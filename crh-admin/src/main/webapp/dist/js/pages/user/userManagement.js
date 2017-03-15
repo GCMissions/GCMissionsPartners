@@ -66,10 +66,8 @@ $(function(){
 							checkbox: false, 
 							formatter:function(value,row,index){  
 								var handleField;
-								handleField = '<a  title="Editor" class="editItem" data-id="'+row.id+'">' 
-								+'<i class="fa fa-edit"  style="font-size:20px;margin-right: 4%;"></i></a>'
-								+'<a  title="Delete" class="removeItem" data-id="'+row.id+'">'
-								+'<i class="fa fa-trash"  style="font-size:20px"></i></a>';
+								handleField = '<a  title="Editor" class="editItem" data-id="'+row.id+'" style="margin-right: 4%;">Edit</a>'
+								+'<a  title="Delete" class="removeItem" data-id="'+row.id+'">Delete</a>';
 								return handleField;
 							} 
 						}

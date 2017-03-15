@@ -23,7 +23,7 @@
        <!-- Content Header (Page header) -->
         <section class="content-header">
           <ol class="breadcrumb">
-            <li><i class="fa fa-dashboard"></i> Resource</li>
+            <li><img src="${uiBase}img/resourse.png">  Resource</li>
           	<li>Resource Management</li>
           </ol>
         </section>

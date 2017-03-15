@@ -21,7 +21,7 @@
        <!-- Content Header (Page header) -->
         <section class="content-header">
           <ol class="breadcrumb">
-            <li><i class="fa fa-dashboard"></i> General</li>
+            <li><img src="${uiBase}img/generral1.png"> General</li>
           	<li>Users Managemt</li>
           </ol>
         </section>

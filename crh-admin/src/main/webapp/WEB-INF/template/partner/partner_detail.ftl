@@ -23,7 +23,7 @@
        <!-- Content Header (Page header) -->
         <section class="content-header">
           <ol class="breadcrumb">
-            <li><i class="fa fa-dashboard"></i> Partner</li>
+            <li><img src="${uiBase}img/partner.png"> Partner</li>
           	<li><#if showType == "0">Add New Partner<#elseif showType == "1">View Partner<#else>Edit Partner</#if></li>
           </ol>
         </section>
