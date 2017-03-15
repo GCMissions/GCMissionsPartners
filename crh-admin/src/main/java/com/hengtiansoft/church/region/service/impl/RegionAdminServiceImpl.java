@@ -18,9 +18,11 @@ import com.hengtiansoft.church.common.constants.OprationTypeConstants;
 import com.hengtiansoft.church.common.util.QueryUtil;
 import com.hengtiansoft.church.dao.CountryDao;
 import com.hengtiansoft.church.dao.CountryRegionRefDao;
+import com.hengtiansoft.church.dao.PartnerDao;
 import com.hengtiansoft.church.dao.RegionDao;
 import com.hengtiansoft.church.entity.CountryEntity;
 import com.hengtiansoft.church.entity.CountryRegionRefEntity;
+import com.hengtiansoft.church.entity.PartnersEntity;
 import com.hengtiansoft.church.entity.RegionEntity;
 import com.hengtiansoft.church.enums.StatusEnum;
 import com.hengtiansoft.church.region.dto.RegionDetailDto;
@@ -46,6 +48,8 @@ public class RegionAdminServiceImpl implements RegionAdminService {
     private CountryDao countryDao;
     @Autowired
     private CountryRegionRefDao countryRegionRefDao;
+    @Autowired
+    private PartnerDao partnerDao;
     
     @SuppressWarnings("unchecked")
     @Override
@@ -94,9 +98,9 @@ public class RegionAdminServiceImpl implements RegionAdminService {
     @Override
     @Transactional
     public ResultDto<?> deleteRegion(Long id) {
-        List<CountryRegionRefEntity> ref = countryRegionRefDao.findByRegionIdAndDelFlag(id, StatusEnum.NORMAL.getCode());
-        if (!ref.isEmpty()) {
-            return ResultDtoFactory.toNack("Please terminate the relations with countries", null);
+        List<PartnersEntity> partnerList = partnerDao.findPartnerByRegionId(id);
+        if (!partnerList.isEmpty()) {
+            return ResultDtoFactory.toNack("Please terminate the relations with partners!", null);
         }
         UserInfo userInfo = AuthorityContext.getCurrentUser();
         Long userId = 0L;
