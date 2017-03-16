@@ -74,7 +74,7 @@ public enum EErrorCode implements DisplayableError {
     ENTITY_USER_IS_EXIST("2100","User already exists!"),
     ENTITY_USER_NOT_EXIST("2101","The user does not exist"),
     
-    ENTITY_ROLE_IS_EXIST("2200","Role name already exists. Please enter again"),
+    ENTITY_ROLE_IS_EXIST("2200","Role name already exists. Please try again"),
     ENTITY_ROLE_NOT_EXIST("2201","角色不存在"),
 
     ENTITY_COUPON_CONFIG_NOT_EXIST("2110", "优惠券配置不存在"),
@@ -110,13 +110,13 @@ public enum EErrorCode implements DisplayableError {
     USER_UPDATE_NOT_USING("3007","更新失败，修改的不是当前登录用户"),
     
     ROLE_SYSTEM_NOT_DELETE("3008","The role for a system role to logout operation!"),
-    ROLE_DELETE_IS_USING("3009","The role has been binding account to logout operation, please remove the binding relationship!"),
+    ROLE_DELETE_IS_USING("3009","Please remove the related user accounts before deleting it!"),
     BIZ_HAS_ORDER("3010", "有未完成的订单，不能被删除!"),
     BIZ_HAS_CONFIG("3011", "有相同配置不能重复添加!"),
     BIZ_ATTRVALUE_HAS_USING("3012", "属性值被应用，不能被删除！"),
     BIZ_COUPON_HAS_USING("3013", "优惠券被充值配置引用，不能被删除！"),
     EMAIL_VALUE_IS_NULL("3014","Email can't be empty!"),
-    EMAIL_VALUE_IS_EXIST("3015","Email has been occupied!"),
+    EMAIL_VALUE_IS_EXIST("3015","Email has been registered!"),
 
 
     

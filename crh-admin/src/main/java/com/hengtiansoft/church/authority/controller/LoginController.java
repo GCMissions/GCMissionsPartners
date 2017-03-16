@@ -73,10 +73,10 @@ public class LoginController {
         Integer pwdErrorTimes = userInfo.getPwdErrorTimes() == null ? 0 : userInfo.getPwdErrorTimes();
         if (pwdErrorTimes > 0) {
             if (StringUtils.isEmpty(loginDto.getCaptcha())) {
-                return ResultDtoFactory.toNack("Need to enter a Captcha", pwdErrorTimes);
+                return ResultDtoFactory.toNack("Please enter the Captcha", pwdErrorTimes);
             }
             if (!kaptchaSupport.validateCaptcha(loginDto.getCaptcha(), loginDto.getKey())) {
-                return ResultDtoFactory.toNack("Captcha error", "0");
+                return ResultDtoFactory.toNack("Captcha is incorrect, please try again ", "0");
             }
         }
         try {
@@ -85,7 +85,7 @@ public class LoginController {
         } catch (UnknownAccountException e) {
             userInfo.setPwdErrorTimes(++pwdErrorTimes);
             userDao.save(userInfo);
-            return ResultDtoFactory.toNack("User Name does not exist", 1);
+            return ResultDtoFactory.toNack("Please check the user name", 1);
         } catch (CredentialsException e) {
             userInfo.setPwdErrorTimes(++pwdErrorTimes);
             if(pwdErrorTimes >= 5){

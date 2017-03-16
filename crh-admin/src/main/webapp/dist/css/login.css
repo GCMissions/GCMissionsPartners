@@ -4,7 +4,7 @@
 	-moz-background-size:cover;-webkit-background-size:cover;
 }
 .login-page .wrapper {
-	width : 510px;
+	width :610px;
 	height :760px;
 	position: absolute;
 	top :200px;
@@ -13,7 +13,7 @@
 }
 
 .login-page .right_body {
-	width : 508px;
+	width : 608px;
 	height:370px;
 	float:right;
 	background-color:#8CA1FA;

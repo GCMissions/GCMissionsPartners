@@ -46,11 +46,11 @@ $(function(){
 					this.dialog =  BootstrapDialog.show({
 		                title: 'Delete Region',
 		                type : BootstrapDialog.TYPE_WARNING,
-		                message: message('admin.dialog.deleteConfirm'),
+		                message: 'Confirm to delete the region?',
 		                draggable: true,
 		                size : BootstrapDialog.SIZE_SMALL,
 		                buttons: [{
-		                    label: 'Confirm the deletion',
+		                    label: 'Confirm',
 		                    cssClass: 'btn-primary saveAddEditTpl',
 		                    action: function(dialog) {
 		                    	dialog.close();

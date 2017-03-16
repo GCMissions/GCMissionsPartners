@@ -646,7 +646,7 @@ $(function () {
 
 //===================================================================
 var messages = {
-	"admin.message.success": "Operation Is Successful",
+	"admin.message.success": "Success",
 	"admin.message.error": "Operating Error",
 	"admin.dialog.ok": "确&nbsp;&nbsp;定",
 	"admin.dialog.cancel": "取&nbsp;&nbsp;消",

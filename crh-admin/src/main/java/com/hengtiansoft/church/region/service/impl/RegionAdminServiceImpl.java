@@ -100,7 +100,7 @@ public class RegionAdminServiceImpl implements RegionAdminService {
     public ResultDto<?> deleteRegion(Long id) {
         List<PartnersEntity> partnerList = partnerDao.findPartnerByRegionId(id);
         if (!partnerList.isEmpty()) {
-            return ResultDtoFactory.toNack("Please terminate the relations with partners!", null);
+            return ResultDtoFactory.toNack("Cannot delete a region that is still associated with partners. Need to remove the association before deleting it!", null);
         }
         UserInfo userInfo = AuthorityContext.getCurrentUser();
         Long userId = 0L;
@@ -158,12 +158,7 @@ public class RegionAdminServiceImpl implements RegionAdminService {
             countryRegionRefDao.save(saveRfEntities);
         } else {
             Long regionId = dto.getId();
-            region = regionDao.findOne(regionId);
-            region.setRegionName(dto.getRegionName());
-            region.setColor(dto.getColor());
-            region.setModifyDate(date);
-            region.setModifyId(userId);
-            regionDao.save(region);
+            // 需要先判断需要删除的国家是否还绑定了partner
             List<CountryRegionRefEntity> regionRefList = countryRegionRefDao.findByRegionIdAndDelFlag(regionId, StatusEnum.NORMAL.getCode());
             List<Long> countryList = new ArrayList<Long>();
             List<Long> removeCountryIdList = new ArrayList<Long>();
@@ -171,9 +166,29 @@ public class RegionAdminServiceImpl implements RegionAdminService {
             for (CountryRegionRefEntity ref : regionRefList) {
                 countryList.add(ref.getCountyId());
             }
-            List<CountryRegionRefEntity> saveRfEntities = new ArrayList<CountryRegionRefEntity>();
             for (Long countryId : dto.getCountryIdList()) {
                 newCountryList.add(countryId);
+            }
+            for (Long countryId : countryList) {
+                if (!newCountryList.contains(countryId)) {
+                    removeCountryIdList.add(countryId);
+                }
+            }
+            if (!removeCountryIdList.isEmpty()) {
+                for (Long countryId : removeCountryIdList) {
+                    if (partnerDao.findByRegionIdAndCountryId(regionId, countryId) != null) {
+                        return ResultDtoFactory.toNack("Cannot delete a country that is still associated with partners. Need to remove the association before deleting it!", null);
+                    }
+                }
+            }
+            region = regionDao.findOne(regionId);
+            region.setRegionName(dto.getRegionName());
+            region.setColor(dto.getColor());
+            region.setModifyDate(date);
+            region.setModifyId(userId);
+            regionDao.save(region);
+            List<CountryRegionRefEntity> saveRfEntities = new ArrayList<CountryRegionRefEntity>();
+            for (Long countryId : dto.getCountryIdList()) {
                 if (!countryList.contains(countryId)) {
                     CountryRegionRefEntity countryRegionRef = countryRegionRefDao.findByCountyIdWithRegionId(countryId, regionId);
                     if (countryRegionRef != null) {
@@ -186,11 +201,6 @@ public class RegionAdminServiceImpl implements RegionAdminService {
                         crEntity.setDelFlag(StatusEnum.NORMAL.getCode());
                         saveRfEntities.add(crEntity);
                     }
-                }
-            }
-            for (Long countryId : countryList) {
-                if (!newCountryList.contains(countryId)) {
-                    removeCountryIdList.add(countryId);
                 }
             }
             countryRegionRefDao.save(saveRfEntities);

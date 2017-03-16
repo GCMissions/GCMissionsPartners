@@ -16,4 +16,7 @@ public interface PartnerDao extends JpaRepository<PartnersEntity, Long>,
     
     @Query(value = "select * from partners p where p.C_R_REF_ID in (select id from country_region_ref where region_id = ?1 and del_flag = '1') and del_flag = '1'", nativeQuery = true)
     List<PartnersEntity> findPartnerByRegionId(Long regionId);
+    
+    @Query(value = "select * from partners p where p.C_R_REF_ID = (select id from country_region_ref where region_id = ?1 and country_id = ?2 and del_flag = '1') and p.DEL_FLAG = '1'", nativeQuery = true)
+    PartnersEntity findByRegionIdAndCountryId(Long regionId, Long countryId);
 }

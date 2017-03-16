@@ -66,7 +66,7 @@ $(function(){
 							checkbox: false, 
 							formatter:function(value,row,index){  
 								var handleField;
-								handleField = '<a  title="Editor" class="editItem" href="javascript:void(0)" data-id="'+row.id+'" style="margin-right: 4%;">Edit</a>'
+								handleField = '<a  title="Edit" class="editItem" href="javascript:void(0)" data-id="'+row.id+'" style="margin-right: 4%;">Edit</a>'
 								+'<a  title="Delete" class="removeItem" href="javascript:void(0)" data-id="'+row.id+'">Delete</a>';
 								return handleField;
 							} 
@@ -137,11 +137,11 @@ $(function(){
 					that.dialog =  BootstrapDialog.show({
 		                title: 'Delete User',
 		                type : BootstrapDialog.TYPE_WARNING,
-		                message: message('admin.dialog.deleteConfirm'),
+		                message: 'Confirm to delete the user?',
 		                draggable: true,
 		                size : BootstrapDialog.SIZE_SMALL,
 		                buttons: [{
-		                    label: 'Confirm the deletion',
+		                    label: 'Confirm',
 		                    cssClass: 'btn-primary saveAddEditTpl',
 		                    action: function(dialog) {
 		                    	dialog.close();
@@ -180,7 +180,7 @@ $(function(){
 					.done(function(response){
 						if(response.code == "ACK"){
 							that.dialog =  BootstrapDialog.show({
-								title: 'Editor User',
+								title: 'Edit User',
 								message: $(template('editTpl',response.data)),
 								draggable: true,
 								buttons: [{

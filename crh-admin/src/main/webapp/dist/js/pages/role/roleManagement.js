@@ -69,11 +69,11 @@ $(function(){
 					that.dialog =  BootstrapDialog.show({
 		                title: 'Delete Role',
 		                type : BootstrapDialog.TYPE_WARNING,
-		                message: message('admin.dialog.deleteConfirm'),
+		                message: 'Confirm to delete the role?',
 		                draggable: true,
 		                size : BootstrapDialog.SIZE_SMALL,
 		                buttons: [{
-		                    label: 'Confirm the deletion',
+		                    label: 'Confirm',
 		                    cssClass: 'btn-primary saveAddEditTpl',
 		                    action: function(dialog) {
 		                    	dialog.close();

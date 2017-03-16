@@ -263,6 +263,10 @@
 
 			themedCSS = $.extend({}, $.blockUI.defaults.themedCSS, opts.themedCSS || {});
 			msg = msg === undefined ? opts.message : msg;
+			
+			if (msg.indexOf("class='error'")) {
+				msg = msg.replace("class='error'","class='error' style='white-space:normal;width:200px;'");
+			}
 
 			// remove the current block (if there is one)
 			if (full && pageBlock)
