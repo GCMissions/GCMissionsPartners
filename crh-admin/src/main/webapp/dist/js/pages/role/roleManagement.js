@@ -53,7 +53,7 @@ $(function(){
 							formatter:function(value,row,index){  
 								var handleField = '<a  title="Editor" class="editItem" data-id="'+row.roleId+'" href="edit/'+row.roleId+'" style="margin-right: 4%;">Edit</a>'
 											+'<a  title="Check" class="detailItem" data-id="'+row.roleId+'" href="detail/'+row.roleId+'" style="margin-right: 4%;">View</a>'
-											+'<a  title="Delete" class="removeItem" data-id="'+row.roleId+'">Delete</a>';
+											+'<a  title="Delete" href="javascript:void(0)" class="removeItem" data-id="'+row.roleId+'">Delete</a>';
 								return handleField;
 							} 
 						}
