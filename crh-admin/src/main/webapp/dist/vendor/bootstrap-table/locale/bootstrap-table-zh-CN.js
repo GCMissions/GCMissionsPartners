@@ -19,7 +19,7 @@
             return 'Search';
         },
         formatNoMatches: function () {
-            return 'No match is found';
+            return 'No result found';
         },
         formatPaginationSwitch: function () {
             return 'Show/hide the paging';

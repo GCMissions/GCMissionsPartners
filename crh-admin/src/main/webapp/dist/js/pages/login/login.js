@@ -99,24 +99,7 @@ var loginApp = {
                 }else {
                 	$('#verifyCodeLi').show();
                 	$('#verifyCodeLi').removeClass('hide');
-                	$('#loginForm').validate({
-                		rules:{
-                			"captcha" : {
-                				required : false
-                				}
-                		},
-                		message:{
-                			"captcha" : {
-            					required : "Please enter the Captcha"
-            				}
-                		}
-                	});
-                    /*
-                    $('#loginForm').loadingInfo({
-                        type : "error",
-                        text : result.message
-                    });
-                    */
+                	$('#loginForm').loadingInfo("warn", result.message);
                 }
 		     
         	 })

@@ -12,7 +12,7 @@
 		<section class="content-header">
 	         <ol class="breadcrumb">
 	           <li><i class="fa fa-dashboard"></i> Role Managemt</li>
-            	<li class="active">Editor Role</li>
+            	<li class="active">Edit Role</li>
 	         </ol>
       	</section>
 		<!-- Main content -->

@@ -49,11 +49,11 @@ $(function(){
 					this.dialog =  BootstrapDialog.show({
 		                title: 'Delete Partner',
 		                type : BootstrapDialog.TYPE_WARNING,
-		                message: message('admin.dialog.deleteConfirm'),
+		                message: 'Confirm to delete the partner?',
 		                draggable: true,
 		                size : BootstrapDialog.SIZE_SMALL,
 		                buttons: [{
-		                    label: 'Confirm the deletion',
+		                    label: 'Confirm',
 		                    cssClass: 'btn-primary saveAddEditTpl',
 		                    action: function(dialog) {
 		                    	dialog.close();

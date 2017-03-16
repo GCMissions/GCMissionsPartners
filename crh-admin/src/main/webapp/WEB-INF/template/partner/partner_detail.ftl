@@ -137,7 +137,7 @@
 								</div>
                     		</div>
                     		<div class="col-sm-12" style="text-align: center;">
-                    			<label class="col-sm-9" style="color: red;">Images suggest ratio 4:3,suggested below 5M size</label>
+                    			<span class="col-sm-9" style="color: red;">suggest ratio 4:3 and size < 5M </span>
                     		</div>
                     		<div class="col-sm-12">
                     			<label class="col-sm-3"><#if showType != "1"><span class="requiredField">*</span></#if>Introduce:</label>
