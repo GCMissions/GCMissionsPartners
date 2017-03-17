@@ -121,7 +121,7 @@ $(function(){
 											that.save($(e.target));
 										}
 									}, {
-										label: 'Return',
+										label: 'Cancel',
 										action: function(dialog) {
 											dialog.close();
 										}
@@ -190,7 +190,7 @@ $(function(){
 										that.save($(e.target));
 									}
 								}, {
-									label: 'Return',
+									label: 'Cancel',
 									action: function(dialog) {
 										dialog.close();
 									}

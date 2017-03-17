@@ -93,7 +93,7 @@
                     		</div>
                     		<div class="col-sm-6" style="margin-top: 20px;">
 								<div class="col-sm-6 col-sm-offset-5">
-									<button class="btn  btn-default backPage" id="back" > Return</button>
+									<button class="btn  btn-default backPage" id="back" > Cancel</button>
 									<#if showType == "0">
 									<button  class="btn  btn-primary" id="add" style="font-weight:100">Save</button>
 									<#else>

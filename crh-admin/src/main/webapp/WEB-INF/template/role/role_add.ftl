@@ -59,7 +59,7 @@
 							
 							<div class="col-sm-12 text-center">
 	        		            <button class="btn btn-primary submitMainForm" type="button">Save</button>
-	        		            <button type="button" class="btn btn-default backPage">Return</button>
+	        		            <button type="button" class="btn btn-default backPage">Cancel</button>
     		               </div>	
 						</form>
 					

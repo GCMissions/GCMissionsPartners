@@ -154,12 +154,12 @@
                     		<div class="col-sm-6" style="margin-top: 20px;">
 								<div class="col-sm-6 col-sm-offset-5">
 									<#if showType == "0">
-									<button class="btn  btn-default backPage" id="back" > Return</button>
+									<button class="btn  btn-default backPage" id="back" > Cancel</button>
 									<button  class="btn  btn-primary" id="add" style="font-weight:100">Save</button>
 									<#elseif showType == "1">
-									<button class="btn  btn-default backPage" id="back" >  Return</button>
+									<button class="btn  btn-primary backPage" id="back" >  Return</button>
 									<#else>
-									<button class="btn  btn-default backPage" id="back" > Return</button>
+									<button class="btn  btn-default backPage" id="back" >  Cancel</button>
 									<button  class="btn  btn-primary" id="edit" style="font-weight:100">Save</button>
 									</#if>
 								</div>
