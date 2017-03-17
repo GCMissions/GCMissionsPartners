@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="renderer" content="webkit"> 
-<link rel="shortcut icon" href="${uiBase}img/favicon.ico" /> 
+<link rel="shortcut icon" href="${uiBase}img/bitbug_favicon-3.ico" /> 
 <link type="image/x-icon" href="" rel="bookmark" />
 <meta content="width=device-width,height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 <#--<meta name="viewport" content="width=device-width, height=device-height, initial-scale=.7, minimum-scale=.5, maximum-scale=2.0, user-scalable=no">-->

@@ -30,11 +30,11 @@
 	                   		 <div class="form-group">
 	                   		 	<label class="control-label col-sm-2">Role Name:</label>
 					           	<input id="text-input" name="role" class="form-control col-sm-5" type="text">
-	                   		 </div>
-	                   		 <div class="form-group">   
-	                   		 	<label class="col-sm-2 control-label">
+					           	<label class="col-sm-2 control-label">
 	                   		 		<button type="button" id="searchBtn" class="btn btn-primary" style="margin-left: 2%;"><i class="fa fa-search"></i> Search</button>
 	                   		 	</label>
+	                   		 </div>
+	                   		 <div class="form-group">   
 					            <label class="col-sm-2 control-label">
 					                <button type="button" class="btn btn-default reloadPage"><i class="fa  fa-refresh"></i> Refresh</button> 
 					            </label>   
