@@ -65,7 +65,7 @@ public class LoginController {
         SUserEntity userInfo = userDao.findByLoginId(loginDto.getLoginId());
 
         if (userInfo == null || StatusEnum.REMOVED.getCode().equals(userInfo.getStatus())) {
-            return ResultDtoFactory.toNack("User Name does not exist", null);
+            return ResultDtoFactory.toNack("Please check the user name", null);
         }else if(!StatusEnum.NORMAL.getCode().equals(userInfo.getStatus())){
             return ResultDtoFactory.toNack("Your account has been locked，please contact the Administrator for help", null);
         }

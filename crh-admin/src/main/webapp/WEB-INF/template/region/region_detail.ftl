@@ -66,10 +66,10 @@
                     				</#if>
                     			</select>
                     			<div class="col-sm-2">
-                    				<button  class="btn  btn-success" id="add" style="font-weight:150;margin-top: 120%;margin-left: 10%;text-align: center;">Add</button>
-                    				<button  class="btn  btn-success" id="addAll" style="font-weight:100;margin-top: 40%;margin-left: 10%;text-align: center;">Add All</button>
-                    				<button  class="btn  btn-success" id="delete" style="font-weight:100;margin-top: 40%;margin-left: 10%;text-align: center;">Delete</button>
-                    				<button  class="btn  btn-success" id="deleteAll" style="font-weight:100;margin-top: 40%;margin-left: 10%;text-align: center;">Delete All</button>
+                    				<button  class="btn  btn-default" id="add" style="font-weight:150;margin-top: 120%;margin-left: 10%;text-align: center;">Add</button>
+                    				<button  class="btn  btn-default" id="addAll" style="font-weight:100;margin-top: 40%;margin-left: 10%;text-align: center;">Add All</button>
+                    				<button  class="btn  btn-default" id="delete" style="font-weight:100;margin-top: 40%;margin-left: 10%;text-align: center;">Delete</button>
+                    				<button  class="btn  btn-default" id="deleteAll" style="font-weight:100;margin-top: 40%;margin-left: 10%;text-align: center;">Delete All</button>
                     			</div>
                     			<select class="col-sm-4 form-control" size="30" multiple="" style="width: 25%;" id="rightCountry">
                     				<#if showType == "1">
@@ -81,11 +81,11 @@
                     		</div>
                     		<div class="col-sm-12" style="margin-top: 40px;">
 								<div class="col-sm-6 col-sm-offset-5">
-									<button class="btn  btn-success backPage" id="back" ><i class="fa fa-backward"></i> Cancel</button>
+									<button class="btn  btn-default backPage" id="back" > Return</button>
 									<#if showType == "0">
-									<button  class="btn  btn-success" id="save" style="font-weight:100">Save</button>
+									<button  class="btn  btn-primary" id="save" style="font-weight:100">Save</button>
 									<#else>
-									<button  class="btn  btn-success" id="edit" style="font-weight:100">Save</button>
+									<button  class="btn  btn-primary" id="edit" style="font-weight:100">Save</button>
 									</#if>
 								</div>
 							</div>

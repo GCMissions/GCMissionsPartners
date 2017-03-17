@@ -100,7 +100,7 @@ public class RegionAdminServiceImpl implements RegionAdminService {
     public ResultDto<?> deleteRegion(Long id) {
         List<PartnersEntity> partnerList = partnerDao.findPartnerByRegionId(id);
         if (!partnerList.isEmpty()) {
-            return ResultDtoFactory.toNack("Cannot delete a region that is still associated with partners. Need to remove the association before deleting it!", null);
+            return ResultDtoFactory.toNack("Please remove the related partners before deleting it!", null);
         }
         UserInfo userInfo = AuthorityContext.getCurrentUser();
         Long userId = 0L;
@@ -177,7 +177,7 @@ public class RegionAdminServiceImpl implements RegionAdminService {
             if (!removeCountryIdList.isEmpty()) {
                 for (Long countryId : removeCountryIdList) {
                     if (partnerDao.findByRegionIdAndCountryId(regionId, countryId) != null) {
-                        return ResultDtoFactory.toNack("Cannot delete a country that is still associated with partners. Need to remove the association before deleting it!", null);
+                        return ResultDtoFactory.toNack("Please remove the related partners before deleting it!", null);
                     }
                 }
             }

@@ -19,16 +19,16 @@ $(function(){
 						return queryObj;
 					},
 					columns: [{
-                		width: '20%',
+                		width: '5%',
                 		formatter:function(value,row,index){  
                         	return index+1; 
                         }
 					} ,{
 						field: 'regionName',
-						width: '20%'
+						width: '30%'
 					} , {
 						field: 'createTime',
-						width: '20%'
+						width: '25%'
 					} , {
 						field: 'id',
 						width: '20%',
@@ -76,8 +76,6 @@ $(function(){
 						success : function(msg){
 							if (msg.code == "ACK") {
 								freshTable();
-							} else {
-								$("body").loadingInfo("warn", msg.message);
 							}
 						}
 			    	});

@@ -15,13 +15,13 @@ $(function(){
 						
 					},
 					columns: [{
-                		width: '10%',
+                		width: '5%',
                 		formatter: function(value,row,index){
                 			return index+1;
                 		}
 					} ,{
 						field: 'partnerName',
-						width: '20%'
+						width: '25%'
 					} , {
 						field: 'mission',
 						width: '20%'

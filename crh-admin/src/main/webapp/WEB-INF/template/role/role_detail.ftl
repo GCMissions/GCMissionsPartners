@@ -55,7 +55,7 @@
 								</#list>
 							</div>
 							<div class="col-sm-12 text-center">
-	        		            <button type="button" class="btn btn-success backPage"><i class="fa fa-backward"> Return </i></button>
+	        		            <button type="button" class="btn btn-default backPage">Return </i></button>
     		               </div>	
 						</form>
 					

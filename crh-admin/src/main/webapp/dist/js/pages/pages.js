@@ -208,21 +208,21 @@ $(function() {
 		jQuery.validator.addMethod("userName", function(value, element) {
 			  var userName =  /^[0-9A-Za-z\u4E00-\u9FA5a-zA-Z]{2,20}$/;
 			  return this.optional(element) || (userName.test(value));
-		}, "The user name format error");
+		}, "The format of user name is incorrect");
 		
 		jQuery.validator.addMethod("uname", function(value, element) {
 			  var userName =  /^[\u4E00-\u9FA5a-zA-Z]{2,10}$/;
 			  return this.optional(element) || (userName.test(value));
-		}, "The user name format error");
+		}, "The format of user name is incorrect");
 		
 		jQuery.validator.addMethod("rolename", function(value, element) {
 			  var roleName =  /^[\u4E00-\u9FA5a-zA-Z]{2,20}$/;
 			  return this.optional(element) || (roleName.test(value));
-		}, "Role name format error");
+		}, "The format of role name is incorrect");
 		
 		jQuery.validator.addMethod("isEmail", function(value, element) {
 			  return this.optional(element) || /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/.test(value);
-		}, "Please fill in the email correctly");
+		}, "The format of Email is incorrect");
 		
 		jQuery.validator.addMethod("isPwd", function(value, element) {
 			 var isPwd = /^[A-Za-z0-9]{6,12}$/;

@@ -16,7 +16,7 @@ $(function(){
 					},
 					columns: [{
 						field: 'index',
-                		width: '20%'
+                		width: '5%'
 					} ,{
 						field: 'image',
 						width: '20%',
@@ -27,10 +27,10 @@ $(function(){
 						}
 					} , {
 						field: 'link',
-						width: '20%'
+						width: '30%'
 					} , {
 						field: 'title',
-						width: '20%'
+						width: '25%'
 					}, {
 						field: 'id',
 						width: '20%',

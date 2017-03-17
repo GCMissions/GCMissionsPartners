@@ -32,13 +32,13 @@
                 <div class="box box-primary">
                     <div class="form-horizontal search-group" id="search-area" >
                     	<div class="box-body">
-                    		 <div class="form-group">
+                    		 <div class="col-sm-12">
                     		 	<label class="col-sm-2 control-label">Username：</label>
-                    		 	<input id="text-input" name="loginId" class="form-control col-sm-3" type="text">
+                    		 	<input id="text-input" name="loginId" class="form-control col-sm-2" type="text">
                     		 	<label class="col-sm-1 control-label" style="margin-left: 2%;">Email：</label>
-					           	<input id="text-input" name="email" class="form-control col-sm-3" type="text">
+					           	<input id="text-input" name="email" class="form-control col-sm-2" type="text">
 					           	<label class="col-sm-1 control-label">Role：</label>
-					           	<div class="col-sm-3" style="margin-left: 3%;">
+					           	<div class="col-sm-2" style="margin-left: -2%;">
                     		 		<select class="selectpicker form-control productBrand " id="roleId" title="roles" > 
                                     	<option value="">All</option>
                                         <#list listRoles as item>
@@ -46,12 +46,10 @@
                                         </#list>
 									</select>
                     		 	</div>
+					            <button type="button" id="searchBtn" class="btn btn-primary" style="margin-left: 4%;"><i class="fa fa-search"></i> Search</button> 
                     		 </div>
-                    		 <div class="form-group">   
-					            <label class="col-sm-2 control-label">   
-					                <button type="button" id="searchBtn" class="btn btn-primary"><i class="fa fa-search"></i> Search</button> 
-					            </label>
-					            <label class="col-sm-1 control-label">
+                    		 <div class="form-group" style="margin-top: 6%;">   
+					            <label class="col-sm-2 control-label">
 					                <button type="button" class="btn btn-default addItem"><i class="fa fa-plus"></i> Add</button>                                  
 					            </label>                            
 					        </div>
