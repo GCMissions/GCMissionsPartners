@@ -265,7 +265,7 @@
 			msg = msg === undefined ? opts.message : msg;
 			
 			if (msg.indexOf("class='error'")) {
-				msg = msg.replace("class='error'","class='error' style='white-space:normal;width:200px;'");
+				msg = msg.replace("class='error'","class='error' style='word-wrap:break-word;word-break: normal;'");
 			}
 
 			// remove the current block (if there is one)
