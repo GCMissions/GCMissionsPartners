@@ -132,8 +132,6 @@ $(function(){
 						success : function(msg){
 							if (msg.code == "ACK") {
 								window.location.href=urlPrefix+"region/";
-							} else {
-								$("body").loadingInfo("warn", msg.message);
 							}
 						}
 			    	});
