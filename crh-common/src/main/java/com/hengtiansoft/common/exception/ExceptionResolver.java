@@ -66,7 +66,7 @@ public class ExceptionResolver implements HandlerExceptionResolver {
         if (WebUtil.isAjaxRequest(request)) {
             if (ex instanceof AuthorizationException) {
                 LOGGER.debug("AuthorizationException handled (non-ajax style):", ex);
-                setResult(response, HttpServletResponse.SC_UNAUTHORIZED, ResultDtoFactory.toUnauthorized("访问拒绝【未授权】" + ex.getMessage()));
+                setResult(response, HttpServletResponse.SC_UNAUTHORIZED, ResultDtoFactory.toUnauthorized("Please login again!" + ex.getMessage()));
             } else if (ex instanceof MaxUploadSizeExceededException) {
                 LOGGER.debug("MaxUploadSizeExceededException handled (non-ajax style):", ex);
                 setResult(response, HttpServletResponse.SC_OK, ResultDtoFactory.toNack("文件大小必须小于2M，请重新上传"));

@@ -431,13 +431,13 @@ $(document).ajaxError(function(event, xhr, settings, thrownError ) {
         var error = $.parseJSON(xhr.responseText);
         if(error.code === 'UNAUTHORIZED' ){
             BootstrapDialog.show({
-                title: '对不起，您无此操作权限！',
+                title: 'Opration Error!',
                 type : BootstrapDialog.TYPE_WARNING,
                 message: error.message,
                 draggable: true,
                 size : BootstrapDialog.SIZE_SMALL,
                 buttons: [{
-                    label: '确认',
+                    label: 'Ok',
                     cssClass: 'btn-primary saveAddEditTpl',
                     action: function(dialog) {
                         dialog.close();

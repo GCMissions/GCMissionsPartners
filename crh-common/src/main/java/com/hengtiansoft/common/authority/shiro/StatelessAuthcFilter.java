@@ -71,7 +71,7 @@ public class StatelessAuthcFilter extends AccessControlFilter {
         HttpServletResponse httpResponse = (HttpServletResponse) response;
         httpResponse.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
         ObjectMapper mapper = WebUtil.getObjectMapper();
-        String json = mapper.writeValueAsString(ResultDtoFactory.toUnauthorized("访问拒绝【未授权】"));
+        String json = mapper.writeValueAsString(ResultDtoFactory.toUnauthorized("Please login again!"));
         LOGGER.info("权限验证失败");
         httpResponse.getOutputStream().write(json.getBytes("UTF-8"));
     }
