@@ -389,7 +389,7 @@
 		<dependency>
 			<groupId>com.hengtiansoft.standard</groupId>
 			<artifactId>std_oss</artifactId>
-			<version>0.0.3-SNAPSHOT</version>
+			<version>0.0.6-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 
