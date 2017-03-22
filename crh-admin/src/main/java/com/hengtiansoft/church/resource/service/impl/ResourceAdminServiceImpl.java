@@ -129,6 +129,9 @@ public class ResourceAdminServiceImpl implements ResourceAdminService {
     @Override
     @Transactional
     public ResultDto<?> saveResource(ResourceSaveDto dto) {
+        if (!dto.getLink().contains("http://") && !dto.getLink().contains("https://")) {
+            return ResultDtoFactory.toNack("The URL format is incorrect, please check it again.(e.g, http://www.google.com or https://www.google.com)", null);
+        }
         ResourceEntity resource = null;
         UserInfo userInfo = AuthorityContext.getCurrentUser();
         Long userId = 0L;
