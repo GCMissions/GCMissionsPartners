@@ -78,8 +78,6 @@ $(function(){
 						success : function(msg){
 							if (msg.code == "ACK") {
 								window.location.href=urlPrefix+"resource/";
-							} else {
-								$("body").loadingInfo("warn", msg.message);
 							}
 						}
 			    	});
