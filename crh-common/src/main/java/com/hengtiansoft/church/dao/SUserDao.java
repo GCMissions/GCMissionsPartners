@@ -55,7 +55,7 @@ public interface SUserDao extends JpaRepository<SUserEntity, Long>, JpaSpecifica
     * @param loginId
     * @return
      */
-    @Query("select count(t) from SUserEntity t where t.loginId =?1")
+    @Query("select count(t) from SUserEntity t where t.loginId =?1 and t.status = '1'")
     int findbyLoginIdAndOrgId(String loginId);
 
     /**
