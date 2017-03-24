@@ -75,7 +75,7 @@
                     		<div class="col-sm-12" style="text-align: center;">
                     			<span class="col-sm-9" style="color: red;">suggest ratio 2:1 and size < 5M </span>
                     		</div>
-                    		<div class="col-sm-12">
+                    		<div class="col-sm-12" style="margin-top: 3%;">
                     			<label class="col-sm-2"><span class="requiredField">*</span>Link:</label>
                     			<#if showType == "0">
                     			<input type="text" id="link" class="col-sm-12 form-control" style="width: 300px;"/>
