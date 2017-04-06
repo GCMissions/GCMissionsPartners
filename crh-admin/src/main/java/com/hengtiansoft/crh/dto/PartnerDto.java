@@ -6,12 +6,16 @@ public class PartnerDto implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    // partner Name
     private String name;
     
+    // partner Icon
     private String imgSrc;
     
+    // partner Title
     private String title;
     
+    // partner Description
     private String content;
 
     public String getName() {

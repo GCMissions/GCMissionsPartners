@@ -7,10 +7,13 @@ public class RegionDto implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    // region Name
     private String name;
     
+    // region Color
     private String color;
     
+    // region Countries
     private List<CountryDto> item;
     
     public String getName() {

@@ -7,8 +7,10 @@ public class CountryDto implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    // country Name
     private String name;
     
+    // country Partners
     private List<PartnerDto> item;
 
     public String getName() {
