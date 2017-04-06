@@ -110,7 +110,7 @@
 	  	</div>
 	</div>
 	<div class="form-group row">
-		<label class="col-sm-4 control-label"><span class="requiredField">*</span>Cofirm Password</label>
+		<label class="col-sm-4 control-label"><span class="requiredField">*</span>Confirm Password</label>
 	  	<div class="col-sm-8">
 	  		<input type="password" class="form-control" data-rule-equalTo="#password" data-msg-equalTo="Passwords don't match" data-rule-isPwd="true">
 	  	</div>
