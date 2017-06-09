@@ -140,8 +140,8 @@ $(function(){
 					var size =  $('#dataList').bootstrapTable('getOptions').pageSize;
 					var record =  $('#dataList').bootstrapTable('getOptions').totalRows;
 					var total =  $('#dataList').bootstrapTable('getOptions').totalPages
-					if(num == total && (record - 1)%size == 0){
-						num = num-1;
+					if(num == total && (record - 1)%size == 0&&num>1){
+						 num = num-1;
 						 $('#dataList').bootstrapTable('refresh', {query: {currentPage:num}});
 					}else{
 						 $('#dataList').bootstrapTable('refresh', {query: {currentPage:num}});
