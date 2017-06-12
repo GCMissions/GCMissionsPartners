@@ -24,6 +24,7 @@ import com.hengtiansoft.church.authority.dto.SUserSaveAndUpdateDto;
 import com.hengtiansoft.church.authority.service.SUserService;
 import com.hengtiansoft.church.common.dto.FtpImageUploadDto;
 import com.hengtiansoft.church.dao.SBasicParaDao;
+import com.hengtiansoft.church.util.FtpUtil;
 import com.hengtiansoft.common.authority.AuthorityContext;
 import com.hengtiansoft.common.dto.ResultDto;
 import com.hengtiansoft.common.dto.ResultDtoFactory;
@@ -86,20 +87,23 @@ public class IndexController implements ServletContextAware {
     @RequestMapping(value = "/ossAddImage/{source}", method = RequestMethod.POST)
     @ResponseBody
     public ResultDto<FtpImageUploadDto> ossAddImage(@RequestBody MultipartFile file, @PathVariable("source") String source) {
-        String url = "";
-        String key = "";
+        String fileName = "";
         try {
             String suffix = StringUtils.substringAfterLast(file.getOriginalFilename(), ".");
-            key = fileOperator.uploadFile(file.getInputStream(), UUID.randomUUID().toString()+"."+suffix, imgPath);
+            fileName = UUID.randomUUID().toString()+"."+suffix;
+            if(FtpUtil.open()){
+                FtpUtil.upload(file.getInputStream(), fileName, imgPath);
+            }else{
+                return ResultDtoFactory.toNack("get connection fail!");   
+            }
         } catch (Exception e) {
             LOGGER.error("upload failed!{}", e);
         } 
-        
+        String key = imgPath+"/"+fileName;
         FtpImageUploadDto dto = new FtpImageUploadDto();
         if (StringUtils.isNotBlank(key)) {
             dto.setKey(key);
-            url = fileOperator.getUrl(key);
-            dto.setUrl(url);
+            dto.setUrl(FtpUtil.getUrl(key));
             return ResultDtoFactory.toAck("", dto);
         } 
         return ResultDtoFactory.toNack("upload failed!");

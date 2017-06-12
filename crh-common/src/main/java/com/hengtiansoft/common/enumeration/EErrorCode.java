@@ -128,6 +128,9 @@ public enum EErrorCode implements DisplayableError {
     TECH_DATA_NOT_EXIST("TECH0002"), 
     TECH_DATA_INVALID("TECH0003"), 
     TECH_OPTIMISTIC_LOCK("TECH0004"),
+    //file prase exception
+    FILE_PARSE_EXCEPTION("FILE PARSE EXCEPTION!"),
+    
 
     NULL("", "");
 
