@@ -3,6 +3,6 @@
  */
 /**
  * @author zhisongliu
- * 权限管理。
+ * authority management.
  */
 package com.hengtiansoft.church.authority;

@@ -22,7 +22,7 @@ import javax.persistence.MappedSuperclass;
 
 /**
  * Class Name: BaseEntity
- * Description: 基础Entity
+ * Description: basic Entity
  * 
  * @author chengminmiao
  */

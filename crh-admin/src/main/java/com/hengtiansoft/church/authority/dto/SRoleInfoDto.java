@@ -4,7 +4,7 @@ import java.io.Serializable;
 /**
  * 
 * Class Name: SRoleInfoDto
-* Description: 角色信息DTO
+* Description: ROLE DATA DTO
 * @author zhisongliu
 *
  */

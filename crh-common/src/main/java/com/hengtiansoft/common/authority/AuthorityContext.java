@@ -41,7 +41,7 @@ import com.hengtiansoft.common.util.CookieUtils;
 import com.hengtiansoft.common.util.web.WebUtil;
 
 /**
- * Class Name: AuthorityContext Description: 权限容器
+ * Class Name: AuthorityContext Description: Permission container
  * 
  * @author jialiangli
  *
@@ -53,7 +53,7 @@ public class AuthorityContext {
     private final static ThreadLocal<UserInfo> UESR_INFO = new ThreadLocal<>();
 
     /**
-     * Description: 获取当前用户的基本信息。
+     * Description: Gets the basic information of the current user.
      * 
      * @return
      */
@@ -62,7 +62,7 @@ public class AuthorityContext {
     }
 
     /**
-     * Description: 设置当前用户的基本信息。
+     * Description: set the basic information of the current user.
      * 
      * @return
      */
@@ -75,7 +75,7 @@ public class AuthorityContext {
     }
 
     /**
-     * Description: 获得当前用户Token
+     * Description:Gets the token of the current user.
      *
      * @return
      */
@@ -89,7 +89,7 @@ public class AuthorityContext {
     }
 
     /**
-     * Description: 登录验证该用户名, 登陆登陆成功后会创建新的会话。
+     * Description:Login to verify the user name, login and landing will create a new session.
      * 
      * @param userId
      * @param password
@@ -113,7 +113,7 @@ public class AuthorityContext {
     }
 
     /**
-     * Description: 把token设置到cookie中
+     * Description: Set the token to the cookie
      *
      * @param response
      * @param cookieDomain
@@ -123,7 +123,7 @@ public class AuthorityContext {
     }
 
     /**
-     * Description: 验证当前用户是否拥有该权限。
+     * Description: Verify that the current user has this permission.
      *
      * @param permission
      * @return
@@ -134,7 +134,7 @@ public class AuthorityContext {
     }
 
     /**
-     * Description: 验证当前用户是否拥有所有以下权限。
+     * Description: Verify that the current user has all of the following permissions. The
      *
      * @param permissions
      * @return
@@ -145,7 +145,7 @@ public class AuthorityContext {
     }
 
     /**
-     * Description: 验证当前用户是否拥有以下任意一个权限
+     * Description: Verify that the current user has any of the following permissions
      *
      * @param permissions
      * @return
@@ -164,7 +164,7 @@ public class AuthorityContext {
     }
 
     /**
-     * 检查是否有权限，若无则抛出异常。
+     * Check if there is permission, if nothing else throws an exception.
      *
      * @see org.apache.shiro.subject.Subject#checkPermission(String permission)
      * @param permission
@@ -179,7 +179,7 @@ public class AuthorityContext {
     }
 
     /**
-     * Description: 验证当前用户是否属于以下所有角色。请通过权限而不是角色做判断，比如hasPermission。
+     * Description: Verify that the current user belongs to all of the following roles. Please judge by permission rather than role, such as hasPermission.
      *
      * @param roles
      * @return
@@ -190,7 +190,7 @@ public class AuthorityContext {
     }
 
     /**
-     * Description: 验证当前用户是否属于以下任意一个角色。请通过权限而不是角色做判断，比如hasPermission。
+     * Description: Verify that the current user belongs to any of the following roles. Please judge by permission rather than role, such as hasPermission.
      *
      * @param roleNames
      * @return
@@ -209,7 +209,7 @@ public class AuthorityContext {
     }
 
     /**
-     * Description: 清除指定用户的授权信息缓存。
+     * Description: Clear the authorization information cache for the specified user.
      *
      * @param userId
      */
@@ -219,7 +219,7 @@ public class AuthorityContext {
     }
 
     /**
-     * Description: 清除指定用户的认证信息缓存。
+     * Description: Clears the authentication information cache for the specified user.
      *
      * @param userId
      */
@@ -229,7 +229,7 @@ public class AuthorityContext {
     }
 
     /**
-     * Description: 获得静态资源地址
+     * Description: Get static resource address
      *
      * @param userId
      */
@@ -239,7 +239,7 @@ public class AuthorityContext {
     }
 
     /**
-     * Description: 获得FTP地址
+     * Description: Get FTPaddress
      *
      * @return
      */
@@ -258,7 +258,7 @@ public class AuthorityContext {
     }
 
     /**
-     * Description: 清除指定用户的个人信息缓存。
+     * Description: Clear the user's personal information cache.
      *
      * @param userId
      */
@@ -268,7 +268,7 @@ public class AuthorityContext {
     }
 
     /**
-     * Description: 注销登陆
+     * Description: logout
      *
      * @param token
      */
@@ -284,7 +284,7 @@ public class AuthorityContext {
     }
 
     /**
-     * Description: 获得URL权限
+     * Description:Get URL permissions
      *
      * @param url
      * @return

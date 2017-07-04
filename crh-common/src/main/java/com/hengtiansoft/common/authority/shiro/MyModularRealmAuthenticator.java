@@ -32,9 +32,9 @@ import org.slf4j.LoggerFactory;
 
 /**
 * Class Name: ModularRealmAuthenticator
-* Description: 重写ModularRealmAuthenticator，改为短路方式。
-*              如果认证方式为FirstSuccessfulStrategy，
-*              则直接返回第一个验证成功的，不再继续验证后面的
+* Description: Rewrite ModularRealmAuthenticator to short circuit mode.
+* If the authentication method is FirstSuccessfulStrategy,
+* Is directly returned to the first validation is successful, no longer continue to verify the back of the
 * @author jialiangli
 *
 */
@@ -74,7 +74,7 @@ public class MyModularRealmAuthenticator extends ModularRealmAuthenticator {
 
                 aggregate = strategy.afterAttempt(realm, token, info, aggregate, t);
 
-                // 如果认证方式为FirstSuccessfulStrategy， 则直接返回第一个验证成功的，不再继续验证后面的
+                //If the authentication method is FirstSuccessfulStrategy, then return directly to the first verification is successful, no longer continue to verify the back
                 if (strategy.getClass() == FirstSuccessfulStrategy.class && aggregate != null && !CollectionUtils.isEmpty(aggregate.getPrincipals())) {
                     return aggregate;
                 }

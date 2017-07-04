@@ -54,19 +54,19 @@ public class ResultHandler {
     public Object handlerRequestMapping(final ProceedingJoinPoint joinPoint) throws Throwable {
         final Method method = ((MethodSignature) joinPoint.getSignature()).getMethod();
         String requestUrl = getMappingUrl(method);
-        // 判断用户是否有权限范围该接口
+        // Determine whether the user has permission to range the interface
         if (!hasPermission(requestUrl)) {
-            throw new AuthorizationException("无权限访问该资源");
+            throw new AuthorizationException("No access to the resource");
         }
-        // 初始化参数
+        // Initialize parameters
         String token = AuthorityContext.getCurrentToken();
         if (token != null) {
-            LOGGER.debug("设置当前用户缓存");
+            LOGGER.debug("Set the current user cache");
             AuthorityContext.setCurrentUser();
         }
-        // 如果返回为页面，则为页面添加参数
+        // If you return to a page, add a parameter to the page
         if (String.class.equals(method.getReturnType()) || ModelAndView.class.equals(method.getReturnType())) {
-            LOGGER.debug("设置页面参数");
+            LOGGER.debug("Set the page parameters");
             HttpServletRequest request = WebUtil.getThreadRequest();
             AuthorityContext ac = new AuthorityContext();
             request.setAttribute("auth", ac);
@@ -75,14 +75,14 @@ public class ResultHandler {
             request.setAttribute("ftpPath", AuthorityContext.getFtpPath());
             request.setAttribute("uin", AuthorityContext.getQqPath());
             if (AppConfigUtil.isDevEnv()) {
-                LOGGER.debug("开发环境，静态资源为本机");
+                LOGGER.debug("Development environment, static resources for the machine");
                 request.setAttribute("staticPath", request.getContextPath());
             } else {
-                LOGGER.debug("非开发环境，静态资源为静态资源服务器");
+                LOGGER.debug("Non-development environment, static resources for the static resource server");
                 request.setAttribute("staticPath", AuthorityContext.getStaticPath());
             }
         }
-        // 执行方法
+        // Implementation method
         return joinPoint.proceed();
     }
 

@@ -4,7 +4,7 @@ import com.hengtiansoft.common.dto.PagingDto;
 
 /**
  * Class Name: SRoleInfoSearchDto
- * Description: 角色搜索DTO
+ * Description: ROLE RESEARCH DTO
  * 
  * @author zhisongliu
  */

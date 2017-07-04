@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * 
 * Class Name: SRoleInfoSaveAndUpdateDto
-* Description: 角色新增或编辑DTO
+* Description: ROLE ADD OR EDIT DTO
 * @author zhisongliu
 *
  */

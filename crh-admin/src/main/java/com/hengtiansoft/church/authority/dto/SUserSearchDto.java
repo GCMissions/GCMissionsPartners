@@ -4,7 +4,7 @@ import com.hengtiansoft.common.dto.PagingDto;
 
 /**
  * Class Name: SUserSearchDto
- * Description: 账户搜索DTO
+ * Description: ACCOUNT RESRARCHDTO
  * 
  * @author zhisongliu
  */

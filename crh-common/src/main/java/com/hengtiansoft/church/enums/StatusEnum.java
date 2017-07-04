@@ -2,7 +2,7 @@ package com.hengtiansoft.church.enums;
 
 
 public enum StatusEnum {
-    NORMAL("1", "启用"), DELETE("0", "禁用"),UNENABLED("2","禁用"),REMOVED("3","已删除");
+    NORMAL("1", "Enabled"), DELETE("0", "Disabled"),UNENABLED("2","Disabled"),REMOVED("3","deleted");
 
     private String code;
 

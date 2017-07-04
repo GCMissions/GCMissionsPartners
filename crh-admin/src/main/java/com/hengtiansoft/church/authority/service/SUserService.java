@@ -11,7 +11,7 @@ import com.hengtiansoft.common.dto.ResultDto;
 /**
  * 
 * Class Name: SUserService
-* Description: 用户业务
+* Description: User business
 * @author zhisongliu
 *
  */
@@ -24,7 +24,7 @@ import com.hengtiansoft.common.dto.ResultDto;
 public interface SUserService {
     /**
      * 
-    * Description: 搜索
+    * Description: RESEARCH
     *
     * @param dto
      */
@@ -32,7 +32,7 @@ public interface SUserService {
 
     /**
      * 
-    * Description: 用户保存
+    * Description: USER SAVE
     *
     * @param dto
     * @return
@@ -41,7 +41,7 @@ public interface SUserService {
 
     /**
      * 
-    * Description: 个人资料更新（当前用户）
+    * Description: THE CURRENT USER DATE UDDATE
     *
     * @param dto
     * @return
@@ -50,7 +50,7 @@ public interface SUserService {
 
     /**
      * 
-    * Description: 用户更新
+    * Description: USER UPDATE
     *
     * @param dto
     * @return
@@ -59,7 +59,7 @@ public interface SUserService {
 
     /**
      * 
-    * Description: 查询出所有的角色
+    * Description: FIND ALL ROLES
     *
     * @return
      */
@@ -67,7 +67,7 @@ public interface SUserService {
 
     /**
      * 
-    * Description: 通过ID来查找出用户信息
+    * Description: FIDN USERS MESSAGE BY ID
     *
     * @param id
     * @return
@@ -76,7 +76,7 @@ public interface SUserService {
     
     
     /**
-    * Description: 查询用户拥有的角色
+    * Description: FIDN USER'S ROLES
     *
     * @param id
     * @return
@@ -85,7 +85,7 @@ public interface SUserService {
 
     /**
      * 
-    * Description: 删除账户
+    * Description: DELETE USER
     *
     * @param ids
     * @return
@@ -94,7 +94,7 @@ public interface SUserService {
 
     /**
      * 
-    * Description: 重置密码
+    * Description: RESET PASSWORD 
     *
     * @param loginId
     * @return

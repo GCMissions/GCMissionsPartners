@@ -8,7 +8,7 @@
         initColorSelector();
     };
 
-    /* 初始化tab标签 */
+    /* Initialize the tab tag */
     function initTabs(){
         var tabs = $G('tabHeads').children;
         for (var i = 0; i < tabs.length; i++) {
@@ -31,7 +31,7 @@
         }
     }
 
-    /* 初始化颜色设置 */
+    /* Initialize the color settings */
     function initColorSelector () {
         var obj = editor.queryCommandValue('background');
         if (obj) {
@@ -73,12 +73,12 @@
         initColorPicker();
     }
 
-    /* 初始化颜色选择器 */
+    /* Initialize the color selector */
     function initColorPicker() {
         var me = editor,
             cp = $G("colorPicker");
 
-        /* 生成颜色选择器ui对象 */
+        /* Generates a color selector ui object */
         var popup = new UE.ui.Popup({
             content: new UE.ui.ColorPicker({
                 noColorText: me.getLang("clearColor"),
@@ -99,7 +99,7 @@
             }
         });
 
-        /* 设置颜色选择器 */
+        /* Set the color picker*/
         domUtils.on(cp, "click", function () {
             popup.showAnchor(this);
         });
@@ -112,12 +112,12 @@
         });
     }
 
-    /* 初始化在线图片列表 */
+    /* Initialize the online image list */
     function initImagePanel() {
         onlineImage = onlineImage || new OnlineImage('imageList');
     }
 
-    /* 更新背景色设置面板 */
+    /* Update the background color settings panel */
     function updateFormState (radio, color, url, align, x, y) {
         var nocolorRadio = $G('nocolorRadio'),
             coloredRadio = $G('coloredRadio');
@@ -154,7 +154,7 @@
         $G('custom').style.display = coloredRadio.checked && $G('url').value && $G('repeatType').value == 'self' ? '':'none';
     }
 
-    /* 更新背景颜色 */
+    /* Update the background color*/
     function updateBackground () {
         if ($G('coloredRadio').checked) {
             var color = domUtils.getStyle($G("colorPicker"), "background-color"),
@@ -180,7 +180,7 @@
     }
 
 
-    /* 在线图片 */
+    /* Online picture */
     function OnlineImage(target) {
         this.container = utils.isString(target) ? document.getElementById(target) : target;
         this.init();
@@ -190,7 +190,7 @@
             this.reset();
             this.initEvents();
         },
-        /* 初始化容器 */
+        /* Initialize the container*/
         initContainer: function () {
             this.container.innerHTML = '';
             this.list = document.createElement('ul');
@@ -203,18 +203,18 @@
             this.list.appendChild(this.clearFloat);
             this.container.appendChild(this.list);
         },
-        /* 初始化滚动事件,滚动到地步自动拉取数据 */
+        /*Initialize the scrolling event, scroll to the point automatically pull the data */
         initEvents: function () {
             var _this = this;
 
-            /* 滚动拉取图片 */
+            /* Scroll the picture */
             domUtils.on($G('imageList'), 'scroll', function(e){
                 var panel = this;
                 if (panel.scrollHeight - (panel.offsetHeight + panel.scrollTop) < 10) {
                     _this.getImageData();
                 }
             });
-            /* 选中图片 */
+            /* Select the image*/
             domUtils.on(this.container, 'click', function (e) {
                 var target = e.target || e.srcElement,
                     li = target.parentNode,
@@ -234,24 +234,24 @@
                 }
             });
         },
-        /* 初始化第一次的数据 */
+        /*Initialize the first data*/
         initData: function () {
 
-            /* 拉取数据需要使用的值 */
+            /* Pull the data to be used */
             this.state = 0;
             this.listSize = editor.getOpt('imageManagerListSize');
             this.listIndex = 0;
             this.listEnd = false;
 
-            /* 第一次拉取数据 */
+            /* First pull the data */
             this.getImageData();
         },
-        /* 重置界面 */
+        /* Reset  interface*/
         reset: function() {
             this.initContainer();
             this.initData();
         },
-        /* 向后台拉取图片列表数据 */
+        /*Pull the image list data back to the background */
         getImageData: function () {
             var _this = this;
 
@@ -294,7 +294,7 @@
                 });
             }
         },
-        /* 添加图片到列表界面上 */
+        /* Add a picture to the list interface*/
         pushData: function (list) {
             var i, item, img, icon, _this = this,
                 urlPrefix = editor.getOpt('imageManagerUrlPrefix');
@@ -320,7 +320,7 @@
                 }
             }
         },
-        /* 改变图片大小 */
+        /* Change the image size*/
         scale: function (img, w, h, type) {
             var ow = img.width,
                 oh = img.height;

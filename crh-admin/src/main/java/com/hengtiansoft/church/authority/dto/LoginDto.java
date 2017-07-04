@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * 
 * Class Name: LoginDto
-* Description: 登录DTO
+* Description: login DTO
 * @author zhisongliu
 *
  */

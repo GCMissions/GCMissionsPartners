@@ -18,7 +18,7 @@
  */
 /**
  * Class Name: package-info
- * Description: 权限相关模块
+ * Description: Authority related module
  * @author jialiangli
  *
  */

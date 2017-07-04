@@ -56,10 +56,10 @@ public abstract class AbstractExceptionHandler {
 
     public ResultDto<?> buildErrorDto(final Exception ex, final Object handler, final String formId) {
         if (StringUtils.isEmpty(formId)) {
-            return ResultDtoFactory.toCommonError("未传入formId!");
+            return ResultDtoFactory.toCommonError("Don't income formId!");
         } else {
             ResultDto<List<ValidationResultDto>> error = new ResultDto<List<ValidationResultDto>>();
-            error.setMessage("验证出错！");
+            error.setMessage("Verification error！");
             error.setData(new ArrayList<ValidationResultDto>());
             error.setCode(ResultCode.VALIDATION_ERROR);
             setValidationErrorData(ex, handler, formId, error);

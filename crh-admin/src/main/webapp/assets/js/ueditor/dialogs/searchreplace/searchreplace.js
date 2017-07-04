@@ -2,27 +2,27 @@
  * Created with JetBrains PhpStorm.
  * User: xuheng
  * Date: 12-9-26
- * Time: 下午12:29
+ * Time: 12:29PM
  * To change this template use File | Settings | File Templates.
  */
 
-//清空上次查选的痕迹
+//Clear the last traces of the search
 editor.firstForSR = 0;
 editor.currentRangeForSR = null;
-//给tab注册切换事件
+//Register the switching event to the tab
 /**
- * tab点击处理事件
+ * Tab click to process the event
  * @param tabHeads
  * @param tabBodys
  * @param obj
  */
 function clickHandler( tabHeads,tabBodys,obj ) {
-    //head样式更改
+    //hea's style change
     for ( var k = 0, len = tabHeads.length; k < len; k++ ) {
         tabHeads[k].className = "";
     }
     obj.className = "focus";
-    //body显隐
+    //body show and hidden 
     var tabSrc = obj.getAttribute( "tabSrc" );
     for ( var j = 0, length = tabBodys.length; j < length; j++ ) {
         var body = tabBodys[j],
@@ -37,8 +37,8 @@ function clickHandler( tabHeads,tabBodys,obj ) {
 }
 
 /**
- * TAB切换
- * @param tabParentId  tab的父节点ID或者对象本身
+ * TAB Switch
+ * @param tabParentId  The parent node ID of the tab or the object itself
  */
 function switchTab( tabParentId ) {
     var tabElements = $G( tabParentId ).children,
@@ -57,11 +57,11 @@ $G('searchtab').onmousedown = function(){
     $G('search-msg').innerHTML = '';
     $G('replace-msg').innerHTML = ''
 }
-//是否区分大小写
+//Whether it is case sensitive
 function getMatchCase(id) {
     return $G(id).checked ? true : false;
 }
-//查找
+//research
 $G("nextFindBtn").onclick = function (txt, dir, mcase) {
     var findtxt = $G("findtxt").value, obj;
     if (!findtxt) {
@@ -118,7 +118,7 @@ $G("preReplaceBtn").onclick = function (txt, dir, mcase) {
     };
     frCommond(obj);
 };
-//替换
+//switch
 $G("repalceBtn").onclick = function () {
     var findtxt = $G("findtxt1").value.replace(/^\s|\s$/g, ""), obj,
         replacetxt = $G("replacetxt").value.replace(/^\s|\s$/g, "");
@@ -136,7 +136,7 @@ $G("repalceBtn").onclick = function () {
     };
     frCommond(obj);
 };
-//全部替换
+//switch all 
 $G("repalceAllBtn").onclick = function () {
     var findtxt = $G("findtxt1").value.replace(/^\s|\s$/g, ""), obj,
         replacetxt = $G("replacetxt").value.replace(/^\s|\s$/g, "");
@@ -157,7 +157,7 @@ $G("repalceAllBtn").onclick = function () {
         $G('replace-msg').innerHTML = lang.countMsg.replace("{#count}", num);
     }
 };
-//执行
+//execute
 var frCommond = function (obj) {
     return editor.execCommand("searchreplace", obj);
 };

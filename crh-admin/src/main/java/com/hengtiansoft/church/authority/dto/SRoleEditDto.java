@@ -8,7 +8,7 @@ import com.hengtiansoft.church.authority.constant.TreeNodeBean;
 /**
  * 
 * Class Name: SRoleEditDto
-* Description: 角色编辑DTO
+* Description: ROLE EDIT DTO
 * @author zhisongliu
 *
  */

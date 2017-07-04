@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * 
 * Class Name: SUserSaveAndUpdateDto
-* Description: 账户新增或编辑DTO
+* Description: ACCOUNT ADD OR EDIT DTO
 * @author zhisongliu
 *
  */

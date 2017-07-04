@@ -31,7 +31,7 @@ import com.hengtiansoft.common.authority.domain.UserInfo;
 import com.hengtiansoft.common.xmemcached.constant.CacheType;
 
 /**
- * Class Name: AuthorityService Description: 权限验证Service
+ * Class Name: AuthorityService Description: Permission Validation Service
  * 
  * @author jialiangli
  *
@@ -39,7 +39,7 @@ import com.hengtiansoft.common.xmemcached.constant.CacheType;
 public interface AuthorityService {
 
     /**
-     * Description: 根据Token获得用户信息
+     * Description: Obtain user information based on Token
      *
      * @param token
      * @return
@@ -48,7 +48,7 @@ public interface AuthorityService {
     public UserInfo findUserInfoByToken(String token);
 
     /**
-     * Description: 验证登陆信息
+     * Description: Verify login information
      *
      * @param loginId
      * @param password
@@ -57,7 +57,7 @@ public interface AuthorityService {
     public UserInfo authcUser(String loginId, String password);
 
     /**
-     * Description: 获得用户登录信息
+     * Description: Get logined user's information
      *
      * @param userInfo
      * @return
@@ -65,14 +65,14 @@ public interface AuthorityService {
     public String getToken(UserInfo userInfo);
 
     /**
-     * Description: 设置登录信息
+     * Description: Set the login information
      *
      * @param userInfo
      */
     public void setLoginInfo(UserInfo userInfo, String token);
 
     /**
-     * Description: 清除用户token
+     * Description: clear user's token
      *
      * @param userId
      */
@@ -80,7 +80,7 @@ public interface AuthorityService {
     public void clearToken(Long userId);
 
     /**
-     * Description: 根据Token获得用户角色信息
+     * Description: Obtain user role information based on Token
      *
      * @param token
      * @return
@@ -88,7 +88,7 @@ public interface AuthorityService {
     public List<RoleInfo> findRoleInfosByUserId(Long userId);
 
     /**
-     * Description: 根据角色获得相关权限
+     * Description: According to the role of access to relevant authority
      *
      * @param roleIds
      * @return
@@ -96,7 +96,7 @@ public interface AuthorityService {
     public List<FunctionInfo> findFunctionsByRoleIds(Iterable<Long> roleIds);
 
     /**
-     * Description: 获得权限
+     * Description: get perssion
      *
      * @return
      */
@@ -105,7 +105,7 @@ public interface AuthorityService {
     Map<String, FunctionInfo> getFunctions();
 
     /**
-     * Description: 清除指定用户的个人信息缓存。
+     * Description: Clear the user's personal information cache.
      *
      * @param userId
      */
@@ -113,7 +113,7 @@ public interface AuthorityService {
     void clearUserInfoCache(String token);
 
     /**
-     * Description: 清除指定用户的认证信息缓存。
+     * Description: Clears the authentication information cache for the specified user.
      *
      * @param userId
      */
@@ -121,7 +121,7 @@ public interface AuthorityService {
     void clearAuthcCache(String token);
 
     /**
-     * Description: 清除指定用户的授权信息缓存。
+     * Description: Clear the authorization information cache for the specified user.
      *
      * @param userId
      */
@@ -129,7 +129,7 @@ public interface AuthorityService {
     void clearAuthzCache(String token);
 
     /**
-     * Description: 获得静态资源地址
+     * Description: Get static resource address
      *
      * @return
      */
@@ -137,7 +137,7 @@ public interface AuthorityService {
     String getStaticPath();
 
     /**
-     * Description: 获得图片资源地址
+     * Description: Get the image resource address
      *
      * @return
      */
@@ -146,7 +146,7 @@ public interface AuthorityService {
     
     
     /**
-     * Description: 获得Qq地址
+     * Description: get qq address 
      *
      * @return
      */

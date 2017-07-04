@@ -41,7 +41,7 @@ import com.hengtiansoft.common.authority.service.AuthorityService;
 import com.hengtiansoft.common.xmemcached.constant.CacheType;
 
 /**
- * Class Name: StatelessAuthImpl Description: 权限认证实现
+ * Class Name: StatelessAuthImpl Description: Authority authentication implementation
  * 
  * @author jialiangli
  *
@@ -57,7 +57,7 @@ public class StatelessAuthcImpl {
     public SimpleAuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
         SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
         UserInfo userInfo = (UserInfo) principals.getPrimaryPrincipal();
-        // 获得该用户的全部角色
+        // Get all the user's role
         List<RoleInfo> roleInfos = authorityService.findRoleInfosByUserId(userInfo.getUserId());
         if (roleInfos != null) {
             Set<String> roles = new HashSet<String>();
@@ -67,7 +67,7 @@ public class StatelessAuthcImpl {
                 roles.add(roleInfo.getRole());
                 roleIds.add(roleInfo.getRoleId());
             }
-            // 获得该用户的全部权限
+            // Get all the user's permissions
             if (!roleIds.isEmpty()) {
                 List<FunctionInfo> functionInfos = authorityService.findFunctionsByRoleIds(roleIds);
                 if (functionInfos != null) {
@@ -91,25 +91,25 @@ public class StatelessAuthcImpl {
             tokenStr = (String) token.getPrincipal();
             userInfo = authorityService.findUserInfoByToken(tokenStr);
             if (userInfo == null) {
-                throw new ExpiredCredentialsException("Token[" + tokenStr + "]不正确或已失效");
+                throw new ExpiredCredentialsException("Token[" + tokenStr + "]Incorrect or invalid");
             }
         } else if (token instanceof UsernamePasswordToken) {
             String loginId = ((UsernamePasswordToken) token).getUsername();
             String password = String.valueOf(((UsernamePasswordToken) token).getPassword());
             userInfo = authorityService.authcUser(loginId, password);
             if (userInfo != null) {
-                // 清除该用户当前的Token缓存
+                // Clear the user's current Token cache
                 tokenStr = authorityService.getToken(userInfo);
                 if (tokenStr != null) {
                     AuthorityContext.clearUserInfoCache(tokenStr);
                     AuthorityContext.clearAuthzCache(tokenStr);
                     AuthorityContext.clearAuthcCache(tokenStr);
                 }
-                // 设置新的token
+                // Set new token
                 tokenStr = getRandomToken();
                 authorityService.setLoginInfo(userInfo, tokenStr);
             } else {
-                throw new IncorrectCredentialsException("用户[" + loginId + "]认证失败");
+                throw new IncorrectCredentialsException("user [" + loginId + "]fail to Authenticate");
             }
         }
         if (userInfo != null) {
@@ -120,7 +120,7 @@ public class StatelessAuthcImpl {
     }
 
     /**
-     * Description: 获得一个随机数作为Token
+     * Description: Get a random number as a token
      *
      * @return
      */

@@ -20,7 +20,7 @@ package com.hengtiansoft.church;
 
 /**
  * Class Name: ResultMsgConst
- * Description: 业务处理消息
+ * Description: Business processing message
  * @author zhongyidong
  *
  */

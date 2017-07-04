@@ -62,9 +62,9 @@ public class SRoleInfoServiceImpl implements SRoleInfoService {
                 if (!WRWUtil.isEmpty(dto.getRole())) {
                     predicates.add(cb.like(root.<String> get("role"), "%" + dto.getRole() + "%"));
                 }
-                // 查询出状态为启用的角色
+                // FIDN ALL ROLES which are useful
                 predicates.add(cb.equal(root.<String> get("status"), StatusEnum.NORMAL.getCode()));
-                // 查询出角色ID大于平台角色ID的角色
+                //Query the role ID is larger than the role of the platform role ID
                 Predicate predicate = cb.and(predicates.toArray(new Predicate[predicates.size()]));
                 query.where(predicate);
                 return query.getRestriction();
@@ -91,7 +91,7 @@ public class SRoleInfoServiceImpl implements SRoleInfoService {
 
     @Override
     public List<TreeNodeBean> getFunctionTree(String functionId) {
-        // 默认根节点为0
+        // The default root node is 0
         if (WRWUtil.isEmpty(functionId)) {
             functionId = SystemConst.TREE_ROOT_ID;
         }
@@ -127,7 +127,7 @@ public class SRoleInfoServiceImpl implements SRoleInfoService {
             throw new WRWException(EErrorCode.ROLE_NAME_TOO_LONG);
         }
         int count = sRoleInfoDao.findByRoleAndStatus(roleName, StatusEnum.NORMAL.getCode());
-        if (count > 0) {// 不为空，说明数据表中有这个角色名
+        if (count > 0) {// Not empty, indicating the role name in the data table
             throw new WRWException(EErrorCode.ENTITY_ROLE_IS_EXIST);
         }
         List<Long> functionIds = dto.getFunctionIds();
@@ -144,14 +144,14 @@ public class SRoleInfoServiceImpl implements SRoleInfoService {
 
         entity.setCreateDate(new Date());
         entity.setStatus(StatusEnum.NORMAL.getCode());
-        // 保存角色
+        // save role
         sRoleInfoDao.save(entity);
 
-        // 从functionIds中分离出不是左侧菜单栏的值
+        // Separates values from the left menu bar from the functionIds
         List<Long> listChildrens = new ArrayList<Long>();
 
         List<SFunctionInfoEntity> parents = sFunctionInfoDao.findByFunctionIdIn(functionIds);
-        // 获取functionIds中父节点的Id
+        // get functionId's parent node's id
         List<SRoleFunctionEntity> resultList = new ArrayList<SRoleFunctionEntity>();
         for (SFunctionInfoEntity info : parents) {
             if (info.getParentId() == SystemConst.ROLE_FUNCTION_PARENT_ID) {
@@ -167,7 +167,7 @@ public class SRoleInfoServiceImpl implements SRoleInfoService {
             sRoleFunctionDao.save(resultList);
         }
         List<SRoleFunctionEntity> resultChildrens = new ArrayList<SRoleFunctionEntity>();
-        // 获取子节点
+        // Get child nodes
         for (Long functionId : listChildrens) {
             SRoleFunctionEntity SRoleFunctionEntity = new SRoleFunctionEntity();
             SRoleFunctionEntity.setFunctionId(functionId);
@@ -206,7 +206,7 @@ public class SRoleInfoServiceImpl implements SRoleInfoService {
         if (!WRWUtil.isEmpty(roleName)) {
             if (!roleName.equals(info.getRole())) {
                 int count = sRoleInfoDao.findByRoleAndStatus(roleName, StatusEnum.NORMAL.getCode());
-                if (count > 0) {// 不为空，说明数据表中有这个角色名
+                if (count > 0) {// Not empty, indicating the role name in the data table
                     throw new WRWException(EErrorCode.ENTITY_ROLE_IS_EXIST);
                 }
             }
@@ -222,11 +222,11 @@ public class SRoleInfoServiceImpl implements SRoleInfoService {
 
         sRoleFunctionDao.deleteByRoleId(dto.getRoleId());
 
-        // 从functionIds中分离出不是左侧菜单栏的值
+        // Separates values from the left menu bar from the functionIds
         List<Long> listChildrens = new ArrayList<Long>();
 
         List<SFunctionInfoEntity> parents = sFunctionInfoDao.findByFunctionIdIn(functionIds);
-        // 获取functionIds中父节点的Id
+        // get functionId's parent node's id
         List<SRoleFunctionEntity> resultList = new ArrayList<SRoleFunctionEntity>();
         for (SFunctionInfoEntity functionInfo : parents) {
             if (functionInfo.getParentId() == SystemConst.ROLE_FUNCTION_PARENT_ID) {
@@ -243,7 +243,7 @@ public class SRoleInfoServiceImpl implements SRoleInfoService {
         }
 
         List<SRoleFunctionEntity> resultChildrens = new ArrayList<SRoleFunctionEntity>();
-        // 获取子节点
+        //get child's node
         for (Long functionId : listChildrens) {
 
             SRoleFunctionEntity SRoleFunctionEntity = new SRoleFunctionEntity();
@@ -258,7 +258,7 @@ public class SRoleInfoServiceImpl implements SRoleInfoService {
     @Override
     @Transactional(value = "jpaTransactionManager")
     public ResultDto<String> delete(Long id) {
-        // 系统角色无法删除
+        // can't delete System's role
         if (SystemConst.PLATFORM_ROLE_ID.equals(id)) {
             throw new WRWException(EErrorCode.ROLE_SYSTEM_NOT_DELETE);
         }

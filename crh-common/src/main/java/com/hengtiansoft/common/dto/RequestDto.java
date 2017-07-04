@@ -6,7 +6,7 @@ public class RequestDto implements Serializable{
     
     /**
     * Variables Name: token
-    * Description: 登陆验证token，请求经token验证通过后才能进入方法体
+    * Description:Login authentication token, request token authentication before passing into the method body
     * Value Description: TODO
     */
     private String token ;

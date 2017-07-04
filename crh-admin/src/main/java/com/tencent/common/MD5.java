@@ -16,11 +16,11 @@ public class MD5 {
     private static final String[] hexDigits = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f" };
 
     /**
-     * 转换字节数组为16进制字串
+     * Convert byte array to 16 hexadecimal string
      * 
      * @param b
-     *            字节数组
-     * @return 16进制字串
+     *         Byte array
+     * @return 16 hexadecimal string
      */
     public static String byteArrayToHexString(byte[] b) {
         StringBuilder resultSb = new StringBuilder();
@@ -31,11 +31,11 @@ public class MD5 {
     }
 
     /**
-     * 转换byte到16进制
+     *Convert byte to 16 Decimal
      * 
      * @param b
-     *            要转换的byte
-     * @return 16进制格式
+     *            Byte to convert
+     * @return    16 hexadecimal string
      */
     private static String byteToHexString(byte b) {
         int n = b;
@@ -48,11 +48,11 @@ public class MD5 {
     }
 
     /**
-     * MD5编码
+     * MD5 code 
      * 
-     * @param origin
-     *            原始字符串
-     * @return 经过MD5加密之后的结果
+     * @param original 
+     *           original Strign 
+     * @return the result After MD5 encryption 
      */
     public static String MD5Encode(String origin) {
         String resultString = null;

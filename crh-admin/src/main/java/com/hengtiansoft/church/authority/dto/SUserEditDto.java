@@ -7,7 +7,7 @@ import com.hengtiansoft.church.entity.SRoleInfoEntity;
 
 /**
  * Class Name: SUserEditDto
- * Description: 账户编辑DTO
+ * Description: ACCOUNT EDIT DTO
  * 
  * @author zhisongliu
  */

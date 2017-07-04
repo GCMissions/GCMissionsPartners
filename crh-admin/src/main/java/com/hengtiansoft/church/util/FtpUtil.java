@@ -33,8 +33,8 @@ public class FtpUtil {
     }
     
     /**
-     * 连接服务器
-     * @return 连接成功与否 true:成功， false:失败
+     * connect service
+     * @return  true:success， false:fail
      */
     public static boolean open() {
         if (ftpClient != null && ftpClient.isConnected()) {
@@ -42,16 +42,16 @@ public class FtpUtil {
         }
         try {
             ftpClient = new FTPClient();
-            // 连接
+            // connect
             ftpClient.connect(ip, port);
             ftpClient.login(userName, userPassword);
-            // 检测连接是否成功
+            // test whether it's sucessful to connect
             int reply = ftpClient.getReplyCode();
             if (!FTPReply.isPositiveCompletion(reply)) {
                 close();
                 System.exit(1);
             }
-            ftpClient.setFileType(FTP.BINARY_FILE_TYPE); // 设置上传模式.binally  or ascii
+            ftpClient.setFileType(FTP.BINARY_FILE_TYPE); // Set the upload mode.binally  or ascii
             return true;
         } catch (Exception ex) {
             close();
@@ -60,10 +60,10 @@ public class FtpUtil {
     }
     
     /**
-     * 上传文件到FTP服务器
-     * @param localDirectoryAndFileName 本地文件目录和文件名
-     * @param ftpFileName 上传到服务器的文件名
-     * @param ftpDirectory FTP目录如:/path1/pathb2/,如果目录不存在会自动创建目录
+     * Upload files to the FTP server
+     * @param localDirectoryAndFileName:   Local file directory and file name
+     * @param ftpFileName:                 The name of the file uploaded to the server
+     * @param ftpDirectory:                The FTP directory, such as /path1/pathb2/, automatically creates a directory if the directory does not exist
      * @return
      */
     public static boolean upload(InputStream fis, String ftpFileName, String ftpDirectory) {
@@ -73,13 +73,13 @@ public class FtpUtil {
         boolean flag = false;
         if (ftpClient != null) {
             try {
-                //创建目录(不存在时才创建)
+                //Create directory (not created when not present)
                 mkDir(ftpDirectory);
                 ftpClient.setBufferSize(100000);
                 ftpClient.setControlEncoding("UTF-8");
-                // 设置文件类型（二进制）
+                // Set file type (binary)
                 ftpClient.setFileType(FTPClient.BINARY_FILE_TYPE);
-                // 上传
+                // upload
                 flag = ftpClient.storeFile(new String(ftpFileName.getBytes(), "iso-8859-1"), fis);
             } catch (Exception e) {
                 close();
@@ -97,8 +97,8 @@ public class FtpUtil {
     }
     
     /**
-     * 循环创建目录，并且创建完目录后，设置工作目录为当前创建的目录下
-     * @param ftpPath 需要创建的目录
+     * After you create the directory and create the directory, set the work directory to the directory you are currently creating
+     * @param ftpPath :the directory that need to create
      * @return
      */
     public static boolean mkDir(String ftpPath) {
@@ -106,7 +106,7 @@ public class FtpUtil {
             return false;
         }
         try {
-            // 将路径中的斜杠统一
+            // Unify the slashes in the path
             char[] chars = ftpPath.toCharArray();
             StringBuffer sbStr = new StringBuffer(256);
             for (int i = 0; i < chars.length; i++) {
@@ -118,11 +118,11 @@ public class FtpUtil {
             }
             ftpPath = sbStr.toString();
             if (ftpPath.indexOf('/') == -1) {
-                // 只有一层目录
+                // Only one layer of directory
                 ftpClient.makeDirectory(new String(ftpPath.getBytes(), "iso-8859-1"));
                 ftpClient.changeWorkingDirectory(new String(ftpPath.getBytes(), "iso-8859-1"));
             } else {
-                // 多层目录循环创建
+                // Multilevel directory loop creation
                 String[] paths = ftpPath.split("/");
                 for (int i = 0; i < paths.length; i++) {
                     ftpClient.makeDirectory(new String(paths[i].getBytes(), "iso-8859-1"));
@@ -137,7 +137,7 @@ public class FtpUtil {
     }
     
     /**
-     * 获取url
+     *get url
     * Description: TODO
     *
     * @param key
@@ -149,7 +149,7 @@ public class FtpUtil {
     
     
     /**
-     * 关闭链接
+     * close connect
      */
     public static void close() {
         try {

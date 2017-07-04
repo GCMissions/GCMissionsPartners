@@ -20,7 +20,7 @@ import java.util.List;
 
 /**
  * Class Name: TreeNodeBean
- * Description: 节点树
+ * Description: Node tree
  * 
  * @author zhisongliu
  */

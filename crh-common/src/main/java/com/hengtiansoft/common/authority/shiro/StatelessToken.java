@@ -4,7 +4,7 @@ import org.apache.shiro.authc.AuthenticationToken;
 
 /**
 * Class Name: StatelessToken
-* Description: 无状态Token
+* Description: no status Token
 * @author jialiangli
 *
 */

@@ -16,7 +16,7 @@ $.GLOBAL.config = {
     editUserPostUrl  : urlPrefix +  'user/selfEdit',       //post --> saveData
     uploadUrl : urlPrefix + "main/addImage/{{source}}", //source  uploadSourcesMap.product
     ossUploadUrl : urlPrefix + "main/ossAddImage/{{source}}",
-    ossUploadNewUrl : urlPrefix + "main/ossUploadImage/{{source}}",//文件名重新生成（不包含中文）
+    ossUploadNewUrl : urlPrefix + "main/ossUploadImage/{{source}}",//File name re generation (excluding Chinese)
     ossUploadUrlList : urlPrefix + "main/ossAddImageList/{{source}}",
     uploadSourcesMap :{
     	slides : 10,
@@ -25,7 +25,7 @@ $.GLOBAL.config = {
     },
     //qrcode 
 	qrcodes : {
-		qrText : "http://www.wuliangye.com/qrcode{{orgId}}", //@TODO  //商家的二维码内容,现有变量{{loginId}}, {{orgId}}, {{userName}}
+		qrText : "http://www.wuliangye.com/qrcode{{orgId}}", //@TODO  //Merchant two-dimensional code contents, existing variables{{loginId}}, {{orgId}}, {{userName}}
 		defaultConfig : {
 			sideWidth: "8", //cm
 			scanWidth : "0.5",//m
@@ -54,11 +54,11 @@ $.GLOBAL.config = {
 		]
 	},
 	
-    newOrderTips : window.newOrderTips, //开启新订单提醒
-    newOrderInterval : window.newOrderInterval, //多久检测一次新订单 单位:秒
+    newOrderTips : window.newOrderTips, //Open a new order reminder
+    newOrderInterval : window.newOrderInterval, //How long to detect a new order unit: second
     newOrderCookieName : "wlyadmin_LastCheckOrder",
-	overTimeOrderTips : window.overTimeOrderTips,         //是否开启 超时订单提醒
-	overTimeOrderInterval : window.overTimeOrderInterval, //多久检测一次超时订单 单位:秒
+	overTimeOrderTips : window.overTimeOrderTips,         //Whether to open a timeout order reminder
+	overTimeOrderInterval : window.overTimeOrderInterval, //How long to detect a timeout order unit: second
     overTimeOrderCookieName : "wlyadmin_LastCheckOverTimeOrder",
     UEToolBars : {
     	full :  [[
@@ -74,7 +74,7 @@ $.GLOBAL.config = {
 	        'inserttable', 'deletetable', 'insertparagraphbeforetable', 'insertrow', 'deleterow', 'insertcol', 'deletecol', 'mergecells', 'mergeright', 'mergedown', 'splittocells', 'splittorows', 'splittocols', 'charts', '|',
 	        'print', 'preview', 'searchreplace', 'help', 'drafts'
 	    ]],
-	    //@TODO 定义一个精简版
+	    //@TODO Define a streamlined version
 	    base : [['undo', 'redo','bold', 'italic', 'underline', 'paragraph', 'fontfamily', 'fontsize']]
     },
     defaultGoodsImg  :  uiBase + "img/default_goods_image_240.gif",
@@ -171,7 +171,7 @@ $.GLOBAL.utils = {
 $.GLOBAL.utils.url = (function (window, document, undefined) {
     return {
         /**
-         * 函数描述：获取URL参数
+         * Function Description: Get the URL parameter
          *
          * @param  {string} url
          * @return {object} Object
@@ -190,9 +190,9 @@ $.GLOBAL.utils.url = (function (window, document, undefined) {
         },
 
         /**
-         * 函数描述：获取URL中指定参数值
-         * @param name {String} 参数名称
-         * @returns {String}  参数值
+         * Function Description: Get the specified Parameter value in the URL
+         * @param name {String} Parameter name
+         * @returns {String}  Parameter value
          */
         getQueryString: function (name) {
             var reg = new RegExp("(^|&)@name=([^&]*)(&|$)".replace("@name", name), "i"),
@@ -340,7 +340,7 @@ bootTableApp.prototype.init = function() {
     	 
         var settings = $.extend({
             type : "success",
-            text : "操作中...",
+            text : "operating...",
             callBack : $.noop,
             timeouts : 2000
         }, options);
@@ -390,15 +390,15 @@ bootTableApp.prototype.init = function() {
     'use strict';
 	$.fn.saving = function(text) {
 		this.data("orginaltext", this.text());
-		text = text || this.text()+"中..." || "保存中...";
+		text = text || this.text()+"ing..." || "saving...";
 		return this.prop('disabled', true).text(text);
 	};
 	$.fn.saved = function(text) {
-		text = text || this.data('orginaltext') || "保存";
+		text = text || this.data('orginaltext') || "save";
 		return this.prop('disabled', false).text(text);
 	};
 }(jQuery));
-//令牌
+//token
 $.ajaxSetup ({
 	cache: false //close AJAX cache
 });
@@ -447,13 +447,13 @@ $(document).ajaxError(function(event, xhr, settings, thrownError ) {
             });
         } else  if( error.code === 'SESSION_TIME_OUT'){
             BootstrapDialog.show({
-                title: '登录已过期',
+                title: 'Login has expired',
                 type : BootstrapDialog.TYPE_WARNING,
                 message: error.message,
                 draggable: true,
                 size : BootstrapDialog.SIZE_SMALL,
                 buttons: [{
-                    label: '确认',
+                    label: 'sure',
                     cssClass: 'btn-primary saveAddEditTpl',
                     action: function(dialog) {
                         dialog.close();
@@ -483,13 +483,13 @@ $(document).ajaxError(function(event, xhr, settings, thrownError ) {
     }catch(Error){
        
         BootstrapDialog.show({
-            title: '请稍后重试！',
+            title: 'Please try again later!',
             type : BootstrapDialog.TYPE_WARNING,
-            message: '服务器繁忙请稍候再试' || '未知错误',
+            message: 'Please wait while the server is busy' || 'unknown mistake',
             draggable: true,
             size : BootstrapDialog.SIZE_SMALL,
             buttons: [{
-                label: '确认',
+                label: 'sure',
                 cssClass: 'btn-primary saveAddEditTpl',
                 action: function(dialog) {
                     dialog.close();
@@ -538,7 +538,7 @@ $(document).ajaxSuccess(function(event, xhr, settings) {
                     
                 	$loadingObject.loadingInfo({
                         type : "error",
-                        text : result.message || "权限不足" ,
+                        text : result.message || "Insufficient permissions" ,
                         timeouts : 5000
                         
                     });
@@ -547,7 +547,7 @@ $(document).ajaxSuccess(function(event, xhr, settings) {
                 	
                 	$loadingObject.loadingInfo({
                         type : "error",
-                        text : result.message || "数据(参数)错误",
+                        text : result.message || "Data (parameter) error",
                         timeouts : 5000
                         
                     });
@@ -555,33 +555,6 @@ $(document).ajaxSuccess(function(event, xhr, settings) {
             }
         }
     }catch(Error){
-    	
-    	
-        /*
-         *有Erorr发生
-        $('body').find('.ajax-backdrop').remove();
-        popup({
-            title: '请稍后重试',
-            msg:  '服务器繁忙请稍候再试' || '未知错误'
-        });
-        
-        BootstrapDialog.show({
-            title: '请稍后重试！',
-            type : BootstrapDialog.TYPE_WARNING,
-            message: '服务器繁忙请稍候再试' || '未知错误',
-            draggable: true,
-            size : BootstrapDialog.SIZE_SMALL,
-            buttons: [{
-                label: '确认',
-                cssClass: 'btn-primary ',
-                action: function(dialog) {
-                    dialog.close();
-                   
-                }
-            }]
-        });
-        console.log(Error);
-        */
     	console.log(Error);
     }
 });
@@ -593,14 +566,14 @@ $(document).ajaxComplete(function(event, request, settings) {
 	var sysStatus = request.getResponseHeader("sysStatus");
 	var resJson = request.responseJSON || {};
 	if (loginStatus == "accessDenied" ) { //|| resJson.code == "SESSION_TIME_OUT"
-		//$.message("warn", "登录超时，请重新登录");
-		$(window).loadingInfo('error', '登录超时，请重新登录');
+		//$.message("warn", "Login timeout, please log in again");
+		$(window).loadingInfo('error', 'Login timeout, please log in again');
 		setTimeout(function() {
 			$.GLOBAL.utils.getWindow().location.reload(true);
 		}, 2000);
 	} else if (loginStatus == "unauthorized") { // || resJson.code == "UNAUTHORIZED"
-		//$.message("warn", "对不起，您无此操作权限！");
-		$('body').loadingInfo('error', '对不起，您无此操作权限！');
+		//$.message("warn", "Sorry, you do not have this permission!");
+		$('body').loadingInfo('error', 'Sorry, you do not have this permission!');
 		
 	} else if (tokenStatus == "accessDenied") {
 		var token = getCookie("token");
@@ -612,8 +585,6 @@ $(document).ajaxComplete(function(event, request, settings) {
 			$.ajax(settings);
 		}
 	} else if (sysStatus == "500" || /5[\d]{2}/.test(request.status)) {
-		//$.message("warn", "操作错误");
-		//$('body').loadingInfo('error', '操作错误！');
 	}
 });
 
@@ -648,48 +619,48 @@ $(function () {
 var messages = {
 	"admin.message.success": "Success",
 	"admin.message.error": "Operating Error",
-	"admin.dialog.ok": "确&nbsp;&nbsp;定",
-	"admin.dialog.cancel": "取&nbsp;&nbsp;消",
+	"admin.dialog.ok": "sure",
+	"admin.dialog.cancel": "cancle",
 	"admin.dialog.deleteConfirm": "Are you sure you want to delete?",
-	"admin.dialog.clearConfirm": "您确定要清空吗？",
-	"admin.browser.title": "选择文件",
-	"admin.browser.upload": "本地上传",
-	"admin.browser.parent": "上级目录",
-	"admin.browser.orderType": "排序方式",
-	"admin.browser.name": "名称",
-	"admin.browser.size": "大小",
-	"admin.browser.type": "类型",
-	"admin.browser.select": "选择文件",
-	"admin.upload.sizeInvalid": "上传文件大小超出限制",
-	"admin.upload.typeInvalid": "上传文件格式不正确",
-	"admin.upload.invalid": "上传文件格式或大小不正确",
-	"admin.validate.required": "必填",
-	"admin.validate.email": "E-mail格式错误",
-	"admin.validate.url": "网址格式错误",
-	"admin.validate.date": "日期格式错误",
-	"admin.validate.dateISO": "日期格式错误",
-	"admin.validate.pointcard": "信用卡格式错误",
-	"admin.validate.number": "只允许输入数字",
-	"admin.validate.digits": "只允许输入零或正整数",
-	"admin.validate.minlength": "长度不允许小于{0}",
-	"admin.validate.maxlength": "长度不允许大于{0}",
-	"admin.validate.rangelength": "长度必须在{0}-{1}之间",
-	"admin.validate.min": "不允许小于{0}",
-	"admin.validate.max": "不允许大于{0}",
-	"admin.validate.range": "必须在{0}-{1}之间",
-	"admin.validate.accept": "输入后缀错误",
-	"admin.validate.equalTo": "两次输入不一致",
-	"admin.validate.remote": "输入错误",
-	"admin.validate.integer": "只允许输入整数",
-	"admin.validate.positive": "只允许输入正数",
-	"admin.validate.negative": "只允许输入负数",
-	"admin.validate.decimal": "数值超出了允许范围",
-	"admin.validate.pattern": "格式错误",
-	"admin.validate.extension": "文件格式错误",
-	"admin.dialog.editConfirm":"点击确定后该组织将无法添加下级组织，是否确定?",
+	"admin.dialog.clearConfirm": "Are you sure you want to clear it?？",
+	"admin.browser.title": "Select a document please",
+	"admin.browser.upload": "Local Upload",
+	"admin.browser.parent": "Parent directory",
+	"admin.browser.orderType": "The way to sort",
+	"admin.browser.name": "name",
+	"admin.browser.size": "size",
+	"admin.browser.type": "type",
+	"admin.browser.select": "Select a document",
+	"admin.upload.sizeInvalid": "The upload file size exceeds the limit",
+	"admin.upload.typeInvalid": "The upload file is not formatted correctly",
+	"admin.upload.invalid": "The upload file format or size is incorrect",
+	"admin.validate.required": "Required",
+	"admin.validate.email": "E-mail is malformed",
+	"admin.validate.url": "The URL is malformed",
+	"admin.validate.date": "Date format error",
+	"admin.validate.dateISO": "Date format error",
+	"admin.validate.pointcard": "Credit card is malformed",
+	"admin.validate.number": "Only number",
+	"admin.validate.digits": "Only zero or positive integers",
+	"admin.validate.minlength": "Length is not allowed to be less than 0",
+	"admin.validate.maxlength": "Length is not allowed to be greater than 0",
+	"admin.validate.rangelength": "The length must be between 0 and 1",
+	"admin.validate.min": "Not allowed less than 0",
+	"admin.validate.max": "Not allowed to be greater than 0",
+	"admin.validate.range": "Must be between0 and 1",
+	"admin.validate.accept": "The input suffix is incorrect",
+	"admin.validate.equalTo": "Two input inconsistencies",
+	"admin.validate.remote": "input error",
+	"admin.validate.integer": "Only integers",
+	"admin.validate.positive": "Only positive numbers",
+	"admin.validate.negative": "Only negative numbers",
+	"admin.validate.decimal": "out of range",
+	"admin.validate.pattern": "wrong format",
+	"admin.validate.extension": "The file is malformed",
+	"admin.dialog.editConfirm":"Click OK after the organization will not be able to add the subordinate organization, is it OK?",
 };
 
-// 多语言
+// multi-language
 function message(code) {
 	if (code != null) {
 		var content = messages[code] != null ? messages[code] : code;
@@ -711,7 +682,7 @@ function message(code) {
 	}
 }   
 /*cookie*/
-//添加Cookie
+//add Cookie
 function addCookie(name, value, options) {
 	if (arguments.length > 1 && name != null) {
 		if (options == null) {
@@ -729,7 +700,7 @@ function addCookie(name, value, options) {
 	}
 }
 
-// 获取Cookie
+// remove Cookie
 function getCookie(name) {
 	if (name != null) {
 		var value = new RegExp("(?:^|; )" + encodeURIComponent(String(name)) + "=([^;]*)").exec(document.cookie);
@@ -737,7 +708,7 @@ function getCookie(name) {
 	}
 }
 
-// 移除Cookie
+// removeCookie
 function removeCookie(name, options) {
 	addCookie(name, null, options);
 }
@@ -746,10 +717,10 @@ function removeCookie(name, options) {
 
 
 /**
- * iTsai WebTools(Web开发工具集)
+ * iTsai WebTools(Web development toolset)
  * 
  * @author Chihpeng Tsai(470597142@qq.com)
- * @description 表单处理工具.
+ * @description Form processing tools.
  */
  
 (function() {
@@ -758,12 +729,12 @@ function removeCookie(name, options) {
  
 iTsai.form = {
     toString : function() {
-        return 'iTsai.form - 表单处理工具';
+        return 'iTsai.form - Form processing tools';
     },
     /**
-     * 获取单选框值,如果有表单就在表单内查询,否则在全文查询
+     * Set the box value, if there is a form in the form of inquiries, or in the full text query
      * 
-     * @param{String}name radio名称
+     * @param{String}name: radio's name
      * @param{$()} frm jQuery object
      * @returns
      */
@@ -773,9 +744,9 @@ iTsai.form = {
         return $('input[name="' + name + '"]:checked').val();
     },
     /**
-     * 设置单选框值,如果有表单就在表单内查询,否则在全文查询
+     * Set the box value, if there is a form in the form of inquiries, or in the full text query
      * 
-     * @param{String}name radio名称
+     * @param{String}name: radio's name
      * @param{String} value
      * @param{$()} frm
      * @returns
@@ -789,10 +760,10 @@ iTsai.form = {
                 'checked', true);
     },
     /**
-     * 设置select下拉框的值
+     * Set the value of the select drop-down box
      * 
-     * @param{String} selectId 下拉框id号
-     * @param{String/Number} value 值
+     * @param{String} selectId: drop-down box's id number
+     * @param{String/Number} value 
      * @param{$()} form jQuery object
      * @returns
      */
@@ -804,11 +775,11 @@ iTsai.form = {
                 'selected', true);
     },
     /**
-     * 在id区域内执行回车提交数据<br>
-     * 实际处理中应该将提交按键放在id区域外,避免重复提交
+     * Execute carriage return data in the id area<br>
+     * In actual processing, the submit button should be placed outside the id area to avoid duplicate submission
      * 
-     * @param{String} id 被绑定对象的ID号
-     * @param{Function} fn 要选择的函数
+     * @param{String} id binded object's ID number
+     * @param{Function} fn selected function
      * @returns {Boolean}
      */
     bindingEnterKey : function(id, fn) {
@@ -820,12 +791,12 @@ iTsai.form = {
         });
     },
     /**
-     * 将输入控件集合序列化成对象<br>
-     * 名称或编号作为键，value属性作为值
+     * The input control collection is serialized into object<br>
+     * Name or number as the key, the value attribute as the value
      * 
      * @param {Array}
-     *            inputs input/select/textarea的对象集合
-     * @return {object} json 对象 {key:value,...}
+     *            inputs input/select/textarea的object集合
+     * @return {object} json object {key:value,...}
      */
     _serializeInputs : function(inputs) {
         var json = {};
@@ -843,12 +814,12 @@ iTsai.form = {
             var name = input.attr('name');
             var value = null;
  
-            // 判断输入框是否已经序列化过
+            // To determine whether the input box has been serialized
             if (input.hasClass('_isSerialized')) {
                 continue;
             }
  
-            // input输入标签
+            // input tag 
             if (tagName == 'INPUT' && type) {
                 switch (type) {
                 case 'checkbox': {
@@ -870,18 +841,18 @@ iTsai.form = {
                 }
                 }
             } else {
-                // 非input输入标签，如：select,textarea
+                // Non-input input tag，such as：select,textarea
                 value = input.val();
             }
  
             json[name || id] = $.trim(value);
-            // 清除序列化标记
+            //Clear the serialization flag
             input.removeClass('_isSerialized');
         }
         return json;
     },
     /**
-     * 将值填充到输入标签里面
+     * Fill the value into the input tag
      * 
      * @param{Array} inputs 输入标签集合
      * @param{String/Number} value 值
@@ -894,7 +865,7 @@ iTsai.form = {
  
         for ( var i = inputs.length - 1; i >= 0; i--) {
             var input = $(inputs[i]);
-            // 判断输入框是否已经序列化过
+            // To determine whether the input box has been serialized
             if (input.hasClass('_isSerialized')) {
                 continue;
             }
@@ -933,11 +904,11 @@ iTsai.form = {
         return this;
     },
     /**
-     * 在分组中查找 fieldset (如：fieldset="user")开头的数据域<br>
+     * Find the data field starting with fieldset in groups<br>
      * 
      * @param {Array}
-     *            groups 输入框分组容器集合
-     * @return {Object} json 对象 {key:value,...}
+     *            groups Input box grouping container collection
+     * @return {Object} json object {key:value,...}
      */
     _serializeGroups : function(groups) {
         var json = {};
@@ -954,25 +925,25 @@ iTsai.form = {
             var inputs = group
                     .find('input[type!=button][type!=reset][type!=submit],select,textarea');
             json[key] = this._serializeInputs(inputs);
-            // 添加序列化标记
+            // Adding serialization Tags
             inputs.addClass('_isSerialized');
         }
         return json;
     },
     /**
-     * 序列化表单值,结果以key/value形式返回key为表单对象名称(name||id),value为其值.<br>
-     * HTML格式：<br>
-     * 1).表单容器：通常是一个form表单（如果不存在就以body为父容器），里面包含输入标签和子容器;<br>
-     * 2).子容器（也可以没有）：必须包括属性fieldset="XXX" div标签，里面包含输入标签和子容器。<br>
-     * 序列化后将生成以XXX为主键的json对象.如果子容器存在嵌套则以fieldset为主键生成不同分组的json对象.<br>
-     * 3).输入标签：输入标签为input类型标签（包括：'checkbox','color','date','datetime','datetime-local',<br>
+     * To serialize form values, the result is returned as key/value in form key, form object name (name||id), and value as its value.<br>
+     * HTML format：<br>
+     * 1).Form: the container is usually a form form (if it does not exist in the body container, which contains the father) input label and sub container;<br>
+     * 2).The child container (or not): it must include the attribute fieldset=, XXX, div tag, which contains input tags and sub containers。<br>
+     * After serialization, jsonobject. will be generated with XXX as the primary key. If the child container is nested, then the jsonobject of the different groupings is generated with fieldset as the primary key.<br>
+     * 3).Enter the label: enter the label as input type label(ncluding：'checkbox','color','date','datetime','datetime-local',<br>
      * 'email','file','hidden','month','number','password','radio','range
      * ','reset','search','submit',<br>
      * 'tel','text','time ','url','week'）.
-     * 而'button','reset','submit','image'会被过虑掉.
+     * and 'button','reset','submit','image'Will be filtered out.
      * 
-     * @param{$()} frm jQuery表单对象
-     * @returns {Object} json对象 最多包含两层结构
+     * @param{$()} frm jQuery form object
+     * @returns {Object} jsonobject At most two layers are included
      */
     serialize : function(frm) {
         var json = {};
@@ -994,11 +965,11 @@ iTsai.form = {
         return json;
     },
     /**
-     * 填充表单内容：将json数据形式数据填充到表单内，只解析单层json结构
+     * Fill in the form content: populate the form with JSON data form data and parse only a single layer JSON structure
      * 
-     * @param{$()} frm jQuery表单对象（或其它容器标签对象，如：div）
-     * @param{Object} json 序列化好的json数据对象，最多只包含两层嵌套
-     * @returns {Object} iTsai.form 对象
+     * @param{$()} frm jQuery  Form objects (or other container tagged objects, such as: DIV)
+     * @param{Object} json A serialized JSON data object contains at most two nested layers
+     * @returns {Object} iTsai.form object
      */
     deserializeSimple : function(frm, json) {
         frm = frm || $('body');
@@ -1014,11 +985,11 @@ iTsai.form = {
         return this;
     },
     /**
-     * 获取合法的输入标签
+     * Gets the valid input tag
      * 
      * @param {$()}
-     *            container 标签容器
-     * @returns {[]} inputs jQuery对象数组
+     *            container Label container
+     * @returns {[]} inputs jQueryobject array
      */
     _filterInputs : function(container) {
         var inputs = $(container
@@ -1026,11 +997,11 @@ iTsai.form = {
         return inputs;
     },
     /**
-     * 查找符合条件的输入标签
+     * Find qualified input Tags
      * 
-     * @param{Array} inputs jQueery输入标签数组
-     * @param{String} key 查询关键字
-     * @returns{Array} input 标签数组
+     * @param{Array} inputs jQueery Enter tag array
+     * @param{String} key   Query keywords
+     * @returns{Array} input  tag array
      */
     _findInputs : function(inputs, key) {
         var input = $(inputs.filter('input[name=' + key + '],input[id=' + key
@@ -1039,11 +1010,11 @@ iTsai.form = {
         return input;
     },
     /**
-     * 填充表单内容：将json数据形式数据填充到表单内，最多解析两层json结构
+     * Fill in the form content: populate the form with JSON data form data, and parse the two - layer JSON structure at most
      * 
-     * @param{$()} frm jQuery表单对象（或其它容器标签对象，如：div）
-     * @param{Object} json 序列化好的json数据对象，最多只包含两层嵌套
-     * @returns {Object} iTsai.form 对象
+     * @param{$()} frm jQuery Form objects (or other container tagged objects, such as: DIV)
+     * @param{Object} json A serialized JSON data object contains at most two nested layers
+     * @returns {Object} iTsai.form object
      */
     deserialize : function(frm, json) {
         frm = frm || $('body');
@@ -1051,12 +1022,12 @@ iTsai.form = {
             return this;
         }
  
-        // 缓存json第一层数据对象
+        // Cache JSON first layer data object
         var objects = {};
-        // 缓存json嵌套层数据（第二层），将首先被赋值，以避免覆盖
+        // Caching JSON nested layer data (second layers) will be assigned first to avoid coverage
         var groups = {};
  
-        // 数据分组
+        // Data grouping
         for ( var key in json) {
             var value = json[key];
             if (typeof value == 'object' && !$.isArray(value)) {
@@ -1070,7 +1041,7 @@ iTsai.form = {
         var _filterInputs = this._filterInputs;
         var _findInputs = this._findInputs;
  
-        // 填充嵌套层数据
+        // Fill in nested layer data
         for ( var key in groups) {
             var json = groups[key];
             var div = frm.find('div[fieldset="' + key + '"]');
@@ -1088,7 +1059,7 @@ iTsai.form = {
             }
         }
  
-        // 填充第一层数据
+        // Fill the first layer data
         var inputs = _filterInputs(frm);
         for ( var key in objects) {
             var value = objects[key];
@@ -1145,12 +1116,12 @@ $.dropDownMenu = function(options){
 	$.extend(setting, options.setting, options.initData);
 	setting.callback.onClick = onClick;
 
-	// 点击节点自动check此节点
+	// Click the node to automatically check this node
 	function onClick(e, treeId, treeNode) {
 		var keys = this._z.data.getSettings()[treeId].data.key;
 		$nameInput.val(treeNode[keys.name]);
 		$idInput.val(treeNode[keys.id]);
-		$idInput.add($nameInput).change(); // 添加change事件，所以这个输入框可以进行valid验证 或 其他验证
+		$idInput.add($nameInput).change(); // Add the change event, so this input box can be valid validated or otherwise validated
 		onBodyDown(null, false);
 	}
 	
@@ -1159,7 +1130,7 @@ $.dropDownMenu = function(options){
 	$("body").bind("mousedown", onBodyDown);
 	
 	function onBodyDown(event, show){
-		// 不根据event,强制打开，关闭
+		// Not according to event, force to open and close
 		if (show != null && typeof show == "boolean") {
 			if (show) {
 				$ztree.parent().slideDown("fast");
@@ -1168,10 +1139,10 @@ $.dropDownMenu = function(options){
 			}
 			return;
 		}
-		// 根据event，打开关闭
+		// According to event, turn on and off
 		if (event.target.id == $nameInput.attr("id") 
 				|| ($(event.target).hasClass("arrow") && $(event.target).siblings("#" + $nameInput.attr("id")).size() > 0)) {
-			// 如果是点击输入框 和 对应的 arrow 按钮，自动切换打开关闭状态
+			// If you click on the input box and the corresponding arrow button, automatically switch the open and close state
 			if ($ztree.parent().is(":hidden")) {
 				$ztree.parent().slideDown("fast");
 			} else {
@@ -1179,7 +1150,7 @@ $.dropDownMenu = function(options){
 			}
 		} else if (event.target.id != $ztree.parent().attr("id") 
 				&& $(event.target).parents("#" + $ztree.parent().attr("id")).size() == 0) {
-			// 如果是点击除 显示框 以外的任何地方，关闭下拉框
+			// If you click anywhere except the display box, close the drop down box
 			if (!$ztree.parent().is(":hidden"))
 				$ztree.parent().fadeOut("fast");
 		}

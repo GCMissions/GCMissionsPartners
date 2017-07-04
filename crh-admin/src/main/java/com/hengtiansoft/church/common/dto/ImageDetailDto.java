@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * 
 * Class Name: ImageDetailDto
-* Description: 多图上传返回参数
+* Description: a return parameter of many pictures to upload 
 * @author zhisongliu
 *
  */

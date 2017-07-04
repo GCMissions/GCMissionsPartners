@@ -3,7 +3,6 @@ div{margin:0;padding:0;font-family:"微软雅黑";color:#989898;}
 ul,li,a{border:none; list-style-type:none;text-decoration:none;}
 img{border:none;}
 
-/* 页面头 */
 .home{margin:0 auto;height:100px;}
 .logo{float:left;height:100px;}
 .logo a{float:left;padding:29px 15px 32px 95px;}
@@ -11,7 +10,6 @@ img{border:none;}
 .header{float:right;line-height:100px;height:100px;padding-right:8%;}
 .header span a{color:#666666;padding:0 14px;font-size:16px;}
 
-/* 登录 */
 .banner{width: 100%;margin:0;height:599px;position:relative;}
 .banner .img_bg{width:100%;height:100%;position:absolute;top:0;left:0;z-index:-1}
 .banner .img_bg img{width:100%;height:100%;}

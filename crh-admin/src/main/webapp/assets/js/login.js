@@ -7,7 +7,7 @@ var Loginer={
 			$("#login_btn").click(function(){
 				self.login();
 			});
-			$("#login_btn").attr("disabled",false).val("确定"); 
+			$("#login_btn").attr("disabled",false).val("sure"); 
 			
 			$(document).keydown(function(event){
 				if(event.keyCode==13){
@@ -35,16 +35,16 @@ var Loginer={
 		},
 		login:function(){
 			if($("#username").val().length==0){
-				alert("用户名不能为空");
+				alert("User name cannot be empty.");
 				return; 
 			}if($("#password").val().length==0){
-				alert("密码不能为空");
+				alert("password cannot be empty.");
 				return; 
 			} if($("#valid_code").val().length==0){
-				alert("验证码不能为空");
+				alert("Verification Code cannot be empty.");
 				return; 
 			} 
-			$("#login_btn").attr("disabled",true).val("正在登录..."); 
+			$("#login_btn").attr("disabled",true).val("logining..."); 
 		 
 			var options = {
 					url : "./index.php?action=login",
@@ -60,13 +60,13 @@ var Loginer={
 							}
 							location.href=url;
 						}else{
-							$("#login_btn").attr("disabled",false).val("确定"); 
+							$("#login_btn").attr("disabled",false).val("sure"); 
 							 alert(result.message);
 						}
 					},
 					error : function(e) {
-						$("#login_btn").attr("disabled",false).val("确定"); 
-						alert("出现错误 ，请重试");
+						$("#login_btn").attr("disabled",false).val("sure"); 
+						alert("error,try again");
 					}
 				};
 

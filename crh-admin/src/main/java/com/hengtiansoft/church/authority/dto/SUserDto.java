@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 /**
  * Class Name: SUserDto
- * Description: 账户信息DTO
+ * Description: ACCOUNT MESSAGE DTO
  * 
  * @author zhisongliu
  */

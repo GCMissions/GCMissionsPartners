@@ -1005,7 +1005,7 @@ if (typeof(SyntaxHighlighter) == 'undefined') var SyntaxHighlighter = function()
                 // carry over ID
                 if ((target.id || '') != '')
                     element.id = target.id;
-                //by zhanyi 去掉多余的外围div
+                //by zhanyi Remove the extra peripheral div
                 var tmp = element.firstChild.firstChild;
                 tmp.className = element.firstChild.className;
 

@@ -12,7 +12,7 @@ import com.hengtiansoft.common.authority.domain.UserInfo;
 /**
  * 
 * Class Name: SUserEntity
-* Description: 用户信息表
+* Description:User information table
 * @author chengchaoyin
 *
  */

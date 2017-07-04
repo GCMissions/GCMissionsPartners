@@ -69,7 +69,7 @@ public class ExceptionResolver implements HandlerExceptionResolver {
                 setResult(response, HttpServletResponse.SC_UNAUTHORIZED, ResultDtoFactory.toUnauthorized("Please login again!" + ex.getMessage()));
             } else if (ex instanceof MaxUploadSizeExceededException) {
                 LOGGER.debug("MaxUploadSizeExceededException handled (non-ajax style):", ex);
-                setResult(response, HttpServletResponse.SC_OK, ResultDtoFactory.toNack("文件大小必须小于2M，请重新上传"));
+                setResult(response, HttpServletResponse.SC_OK, ResultDtoFactory.toNack("File size must be less than 2M, please re-upload "));
             } else if (ex instanceof BizServiceException) {
                 LOGGER.debug("BizServiceException handled (non-ajax style):", ex);
                 setResult(response, HttpServletResponse.SC_OK, ResultDtoFactory.toBusinessError(ex.getMessage()));
@@ -78,7 +78,7 @@ public class ExceptionResolver implements HandlerExceptionResolver {
                 setResult(response, HttpServletResponse.SC_OK, ResultDtoFactory.toNack(ex.getMessage()));
             } else {
                 LOGGER.error("Exception handled (non-ajax style):", ex);
-                setResult(response, HttpServletResponse.SC_INTERNAL_SERVER_ERROR, ResultDtoFactory.toNack("服务器异常"));
+                setResult(response, HttpServletResponse.SC_INTERNAL_SERVER_ERROR, ResultDtoFactory.toNack("Server exception"));
             }
         } else {
             if (ex instanceof AuthorizationException) {

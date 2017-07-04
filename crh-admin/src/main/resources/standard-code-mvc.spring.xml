@@ -77,7 +77,7 @@
 		location="classpath:app-config.properties, classpath:env/env-var.properties"
 		ignore-unresolvable="true" />
 
-	<!-- 配置freeMarker的模板路径 -->
+	<!-- configure freeMarker's path -->
 	<bean id="freemarkerConfigurer"
 		class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
 		<property name="templateLoaderPath" value="/WEB-INF/template/" />
@@ -96,7 +96,7 @@
 		</property>
 		<property name="freemarkerVariables">
 			<map>
-				<entry key="systemName" value="吾儿网" />
+				<entry key="systemName" value="church" />
 				<entry key="base" value="#{servletContext.contextPath}" />
 				<entry key="uiBase" value="#{servletContext.contextPath}/dist/" />
 				<entry key="urlPrefix" value="#{servletContext.contextPath}/web/" />
@@ -108,12 +108,12 @@
 			</map>
 		</property>	
 	</bean>
-	<!-- freemarker视图解析器 -->
+	<!-- freemarker's view resolver -->
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
 		<property name="suffix" value=".ftl" />
 		<property name="contentType" value="text/html;charset=UTF-8" />
-		<!-- 此变量值为pageContext.request, 页面使用方法：rc.contextPath -->
+		<!-- this variable is pageContext.request, the way to use：rc.contextPath -->
 		<property name="requestContextAttribute" value="rc" />
 	</bean>
 

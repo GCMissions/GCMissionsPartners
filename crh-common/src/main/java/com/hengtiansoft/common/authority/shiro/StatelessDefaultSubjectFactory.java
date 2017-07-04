@@ -5,7 +5,7 @@ import org.apache.shiro.subject.SubjectContext;
 import org.apache.shiro.web.mgt.DefaultWebSubjectFactory;
 
 /**
- * Class Name: StatelessDefaultSubjectFactory Description: Subject工厂类。不使用session
+ * Class Name: StatelessDefaultSubjectFactory Description: Subject Factory class。cant't use session
  * 
  * @author jialiangli
  *
@@ -13,7 +13,7 @@ import org.apache.shiro.web.mgt.DefaultWebSubjectFactory;
 public class StatelessDefaultSubjectFactory extends DefaultWebSubjectFactory {
     @Override
     public Subject createSubject(SubjectContext context) {
-        // 不创建session
+        // don't create session
         context.setSessionCreationEnabled(false);
         return super.createSubject(context);
     }

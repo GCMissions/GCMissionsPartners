@@ -31,14 +31,14 @@ var dom = UE.dom = {};
 
 // core/browser.js
 /**
- * 浏览器判断模块
+ * Browser judgment module
  * @file
  * @module UE.browser
  * @since 1.2.6.1
  */
 
 /**
- * 提供浏览器检测的模块
+ * Provide modules for browser detection
  * @unfile
  * @module UE.browser
  */
@@ -47,55 +47,55 @@ var browser = UE.browser = function(){
         opera = window.opera,
         browser = {
         /**
-         * @property {boolean} ie 检测当前浏览器是否为IE
+         * @property {boolean} ie: Detects whether the current browser is IE
          * @example
          * ```javascript
          * if ( UE.browser.ie ) {
-         *     console.log( '当前浏览器是IE' );
+         *     console.log( 'The current browser is IE' );
          * }
          * ```
          */
         ie		:  /(msie\s|trident.*rv:)([\w.]+)/.test(agent),
 
         /**
-         * @property {boolean} opera 检测当前浏览器是否为Opera
+         * @property {boolean} opera: Detects whether the current browser is Opera
          * @example
          * ```javascript
          * if ( UE.browser.opera ) {
-         *     console.log( '当前浏览器是Opera' );
+         *     console.log( 'The current browser isOpera' );
          * }
          * ```
          */
         opera	: ( !!opera && opera.version ),
 
         /**
-         * @property {boolean} webkit 检测当前浏览器是否是webkit内核的浏览器
+         * @property {boolean} webkit Detects The current browser whether is is webkit's Kernel of the browser
          * @example
          * ```javascript
          * if ( UE.browser.webkit ) {
-         *     console.log( '当前浏览器是webkit内核浏览器' );
+         *     console.log( 'The current browser iswebkitKernel of the browser' );
          * }
          * ```
          */
         webkit	: ( agent.indexOf( ' applewebkit/' ) > -1 ),
 
         /**
-         * @property {boolean} mac 检测当前浏览器是否是运行在mac平台下
+         * @property {boolean} mac Detects The current browser whether runs under the mac platform
          * @example
          * ```javascript
          * if ( UE.browser.mac ) {
-         *     console.log( '当前浏览器运行在mac平台下' );
+         *     console.log( 'The current browser runs under the mac platform' );
          * }
          * ```
          */
         mac	: ( agent.indexOf( 'macintosh' ) > -1 ),
 
         /**
-         * @property {boolean} quirks 检测当前浏览器是否处于“怪异模式”下
+         * @property {boolean} quirks Detects whether The current browser running in "weird mode".
          * @example
          * ```javascript
          * if ( UE.browser.quirks ) {
-         *     console.log( '当前浏览器运行处于“怪异模式”' );
+         *     console.log( 'The current browser is running in "weird mode" ' );
          * }
          * ```
          */
@@ -103,11 +103,11 @@ var browser = UE.browser = function(){
     };
 
     /**
-    * @property {boolean} gecko 检测当前浏览器内核是否是gecko内核
+    * @property {boolean} gecko Detects whether the current browserthe kernel is a gecko kernel
     * @example
     * ```javascript
     * if ( UE.browser.gecko ) {
-    *     console.log( '当前浏览器内核是gecko内核' );
+    *     console.log( 'the current browserthe kernel is a gecko kernel' );
     * }
     * ```
     */
@@ -132,63 +132,44 @@ var browser = UE.browser = function(){
 
         browser.ie11Compat = document.documentMode == 11;
         /**
-         * @property { boolean } ie9Compat 检测浏览器模式是否为 IE9 兼容模式
-         * @warning 如果浏览器不是IE， 则该值为undefined
+         * @property { boolean } ie9:Compat Detects browser's mode is IE9 compatibility mode
+         * @warning if not， the value is undefined
          * @example
          * ```javascript
          * if ( UE.browser.ie9Compat ) {
-         *     console.log( '当前浏览器运行在IE9兼容模式下' );
+         *     console.log( 'the current browser run in IE9 compatibility mode' );
          * }
          * ```
          */
         browser.ie9Compat = document.documentMode == 9;
 
         /**
-         * @property { boolean } ie8 检测浏览器是否是IE8浏览器
-         * @warning 如果浏览器不是IE， 则该值为undefined
+         * @property { boolean } ie8: Detect whether the current browser id IE8
+         * @warning if not ， the value is undefined
          * @example
-         * ```javascript
-         * if ( UE.browser.ie8 ) {
-         *     console.log( '当前浏览器是IE8浏览器' );
-         * }
-         * ```
          */
         browser.ie8 = !!document.documentMode;
 
         /**
-         * @property { boolean } ie8Compat 检测浏览器模式是否为 IE8 兼容模式
-         * @warning 如果浏览器不是IE， 则该值为undefined
+         * @property { boolean } ie8:Compat Detects whether browser's mode is IE8compatibility mode
+         * @warning if not ， the value is undefined
          * @example
-         * ```javascript
-         * if ( UE.browser.ie8Compat ) {
-         *     console.log( '当前浏览器运行在IE8兼容模式下' );
-         * }
          * ```
          */
         browser.ie8Compat = document.documentMode == 8;
 
         /**
-         * @property { boolean } ie7Compat 检测浏览器模式是否为 IE7 兼容模式
-         * @warning 如果浏览器不是IE， 则该值为undefined
+         * @property { boolean } ie7:Compat Detects whether browser's mode is IE7 compatibility mode
+         * @warning if not，the value is undefined
          * @example
-         * ```javascript
-         * if ( UE.browser.ie7Compat ) {
-         *     console.log( '当前浏览器运行在IE7兼容模式下' );
-         * }
-         * ```
          */
         browser.ie7Compat = ( ( version == 7 && !document.documentMode )
                 || document.documentMode == 7 );
 
         /**
-         * @property { boolean } ie6Compat 检测浏览器模式是否为 IE6 模式 或者怪异模式
-         * @warning 如果浏览器不是IE， 则该值为undefined
+         * @property { boolean } ie6:Compat Detects whether browser's mode is IE6 compatibility mode orWeird mode
+         * @warning if not，the value is undefined
          * @example
-         * ```javascript
-         * if ( UE.browser.ie6Compat ) {
-         *     console.log( '当前浏览器运行在IE6模式或者怪异模式下' );
-         * }
-         * ```
          */
         browser.ie6Compat = ( version < 7 || browser.quirks );
 
@@ -213,28 +194,18 @@ var browser = UE.browser = function(){
     }
 
     /**
-     * @property { Number } chrome 检测当前浏览器是否为Chrome, 如果是，则返回Chrome的大版本号
-     * @warning 如果浏览器不是chrome， 则该值为undefined
+     * @property { Number } chrome Detects whether The current browser isChrome, if it's true，returns the major version of Chrome
+     * @warning if not，the value is undefined
      * @example
-     * ```javascript
-     * if ( UE.browser.chrome ) {
-     *     console.log( '当前浏览器是Chrome' );
-     * }
-     * ```
      */
     if (/chrome\/(\d+\.\d)/i.test(agent)) {
         browser.chrome = + RegExp['\x241'];
     }
 
     /**
-     * @property { Number } safari 检测当前浏览器是否为Safari, 如果是，则返回Safari的大版本号
-     * @warning 如果浏览器不是safari， 则该值为undefined
+     * @property { Number } safari Detects whether the current browser Safari, if it's true，returns the major version of Safari
+     * @warning if not ，the value isundefined
      * @example
-     * ```javascript
-     * if ( UE.browser.safari ) {
-     *     console.log( '当前浏览器是Safari' );
-     * }
-     * ```
      */
     if(/(\d+\.\d)?(?:\.\d)?\s+safari\/?(\d+\.\d+)?/i.test(agent) && !/chrome/i.test(agent)){
     	browser.safari = + (RegExp['\x241'] || RegExp['\x242']);
@@ -250,28 +221,23 @@ var browser = UE.browser = function(){
         version = parseFloat( agent.match( / applewebkit\/(\d+)/ )[1] );
 
     /**
-     * @property { Number } version 检测当前浏览器版本号
+     * @property { Number } version Detectsthe current browserversion number
      * @remind
      * <ul>
-     *     <li>IE系列返回值为5,6,7,8,9,10等</li>
-     *     <li>gecko系列会返回10900，158900等</li>
-     *     <li>webkit系列会返回其build号 (如 522等)</li>
+     *     <li>IE series return value of 5,6,7,8,9,10 and so on</li>
+     *     <li>Gecko series will return 10900,158900 and so on</li>
+     *     <li>The webkit series will return its build number (eg 522, etc.)</li>
      * </ul>
      * @example
      * ```javascript
-     * console.log( '当前浏览器版本号是： ' + UE.browser.version );
+     * console.log( 'the current browserversion number is ： ' + UE.browser.version );
      * ```
      */
     browser.version = version;
 
     /**
-     * @property { boolean } isCompatible 检测当前浏览器是否能够与UEditor良好兼容
+     * @property { boolean } isCompatible: Detects whether the current browser isWhether  can be compatible with UEditor
      * @example
-     * ```javascript
-     * if ( UE.browser.isCompatible ) {
-     *     console.log( '浏览器与UEditor能够良好兼容' );
-     * }
-     * ```
      */
     browser.isCompatible =
         !browser.mobile && (
@@ -283,7 +249,7 @@ var browser = UE.browser = function(){
         false );
     return browser;
 }();
-//快捷方式
+//A shortcut
 var ie = browser.ie,
     webkit = browser.webkit,
     gecko = browser.gecko,
@@ -291,14 +257,14 @@ var ie = browser.ie,
 
 // core/utils.js
 /**
- * 工具函数包
+ * Tool function package
  * @file
  * @module UE.utils
  * @since 1.2.6.1
  */
 
 /**
- * UEditor封装使用的静态工具函数
+ * UEditorEncapsulate the static tool functions used
  * @module UE.utils
  * @unfile
  */
@@ -306,10 +272,10 @@ var ie = browser.ie,
 var utils = UE.utils = {
 
     /**
-     * 用给定的迭代器遍历对象
+     * The object is traversed with a given iterator
      * @method each
-     * @param { Object } obj 需要遍历的对象
-     * @param { Function } iterator 迭代器， 该方法接受两个参数， 第一个参数是当前所处理的value， 第二个参数是当前遍历对象的key
+     * @param { Object } obj:the object tha need to traverse 
+     * @param { Function } iterator, The method accepts two parameters, the first argument is the value currently being processed, the second argument is the key of the current traversing object
      * @example
      * ```javascript
      * var demoObj = {
@@ -327,10 +293,10 @@ var utils = UE.utils = {
      */
 
     /**
-     * 用给定的迭代器遍历数组或类数组对象
+     * Trees an array or class array object with a given iterator
      * @method each
-     * @param { Array } array 需要遍历的数组或者类数组
-     * @param { Function } iterator 迭代器， 该方法接受两个参数， 第一个参数是当前所处理的value， 第二个参数是当前遍历对象的key
+     * @param { Array } array :Need to traverse the array or class array
+     * @param { Function } iterator The method accepts two parameters, the first argument is the value currently being processed, the second argument is the key of the current traversing object
      * @example
      * ```javascript
      * var divs = document.getElmentByTagNames( "div" );
@@ -361,10 +327,10 @@ var utils = UE.utils = {
     },
 
     /**
-     * 以给定对象作为原型创建一个新对象
+     * Creates a new object with the given object as a prototype
      * @method makeInstance
-     * @param { Object } protoObject 该对象将作为新创建对象的原型
-     * @return { Object } 新的对象， 该对象的原型是给定的protoObject对象
+     * @param { Object } protoObject :The object will be the original image of the newly created object
+     * @return { Object } The new object, the prototype of the object is the given protoObject objec
      * @example
      * ```javascript
      *
@@ -384,13 +350,13 @@ var utils = UE.utils = {
     },
 
     /**
-     * 将source对象中的属性扩展到target对象上
+     * Extend the properties in the source object to the target object
      * @method extend
-     * @remind 该方法将强制把source对象上的属性复制到target对象上
+     * @remind This method will force the properties on the source object to be copied to the target object
      * @see UE.utils.extend(Object,Object,Boolean)
-     * @param { Object } target 目标对象， 新的属性将附加到该对象上
-     * @param { Object } source 源对象， 该对象的属性会被附加到target对象上
-     * @return { Object } 返回target对象
+     * @param { Object } target， The new attribute is attached to the object
+     * @param { Object } source， The object's properties are appended to the target object
+     * @return { Object } Returns the target object
      * @example
      * ```javascript
      *
@@ -406,13 +372,13 @@ var utils = UE.utils = {
      */
 
     /**
-     * 将source对象中的属性扩展到target对象上， 根据指定的isKeepTarget值决定是否保留目标对象中与
-     * 源对象属性名相同的属性值。
-     * @method extend
-     * @param { Object } target 目标对象， 新的属性将附加到该对象上
-     * @param { Object } source 源对象， 该对象的属性会被附加到target对象上
-     * @param { Boolean } isKeepTarget 是否保留目标对象中与源对象中属性名相同的属性
-     * @return { Object } 返回target对象
+     * Extend the attributes in the source object to the target object and decide whether to keep objects in the target object based on the specified isKeepTarget value
+     * The same attribute value for the source object attribute name.
+     * @method extend
+     * @param {Object} target The target object, the new attribute will be attached to the object
+     * @param {Object} source The source object whose properties are attached to the target object
+     * @param {Boolean} isKeepTarget Whether to keep the same object in the target object as the attribute name in the source object
+     * @return {Object} Returns the target object
      * @example
      * ```javascript
      *
@@ -438,14 +404,14 @@ var utils = UE.utils = {
     },
 
     /**
-     * 将给定的多个对象的属性复制到目标对象target上
-     * @method extend2
-     * @remind 该方法将强制把源对象上的属性复制到target对象上
-     * @remind 该方法支持两个及以上的参数， 从第二个参数开始， 其属性都会被复制到第一个参数上。 如果遇到同名的属性，
-     *          将会覆盖掉之前的值。
-     * @param { Object } target 目标对象， 新的属性将附加到该对象上
-     * @param { Object... } source 源对象， 支持多个对象， 该对象的属性会被附加到target对象上
-     * @return { Object } 返回target对象
+     * Copy the attributes of the given multiple objects to the target object target
+     * @method extend2
+     * @remind This method forces the properties on the source object to be copied to the target object
+     * @remind This method supports two or more parameters, starting from the second argument, its attributes will be copied to the first parameter. If you encounter the same name of the property,
+     * Will overwrite the previous value.
+     * @param {Object} target The target object, the new attribute will be attached to the object
+     * @param {Object ...} source source object that supports multiple objects whose properties are appended to the target object
+     * @return {Object} Returns the target object
      * @example
      * ```javascript
      *
@@ -474,34 +440,14 @@ var utils = UE.utils = {
     },
 
     /**
-     * 模拟继承机制， 使得subClass继承自superClass
-     * @method inherits
-     * @param { Object } subClass 子类对象
-     * @param { Object } superClass 超类对象
-     * @warning 该方法只能让subClass继承超类的原型， subClass对象自身的属性和方法不会被继承
-     * @return { Object } 继承superClass后的子类对象
+     *The simulation inheritance mechanism allows subClass to inherit from superClass
+     * @method inherits
+     * @param {Object} subClass Subclass object
+     * @param {Object} superClass superclass object
+     * @warning This method only allows subClass to inherit the superclass of the prototype, subClass object's own properties and methods will not be inherited
+     * @return {Object} Subclass object after inheriting superClass
      * @example
-     * ```javascript
-     * function SuperClass(){
-     *     this.name = "小李";
-     * }
-     *
-     * SuperClass.prototype = {
-     *     hello:function(str){
-     *         console.log(this.name + str);
-     *     }
-     * }
-     *
-     * function SubClass(){
-     *     this.name = "小张";
-     * }
-     *
-     * UE.utils.inherits(SubClass,SuperClass);
-     *
-     * var sub = new SubClass();
-     * //output: '小张早上好!
-     * sub.hello("早上好!");
-     * ```
+     * ```javasc
      */
     inherits:function (subClass, superClass) {
         var oldP = subClass.prototype,
@@ -512,12 +458,12 @@ var utils = UE.utils = {
     },
 
     /**
-     * 用指定的context对象作为函数fn的上下文
-     * @method bind
-     * @param { Function } fn 需要绑定上下文的函数对象
-     * @param { Object } content 函数fn新的上下文对象
-     * @return { Function } 一个新的函数， 该函数作为原始函数fn的代理， 将完成fn的上下文调换工作。
-     * @example
+     * Use the specified context object as the context of the function fn
+     * @method bind
+     * @param {Function} fn The function object that needs to bind the context
+     * @param {Object} content function fn new context object
+     * @return {Function} A new function, the function as the original function fn proxy, will complete the fn context swap work.
+     * @example
      * ```javascript
      *
      * var name = 'window',
@@ -544,13 +490,13 @@ var utils = UE.utils = {
     },
 
     /**
-     * 创建延迟指定时间后执行的函数fn
-     * @method defer
-     * @param { Function } fn 需要延迟执行的函数对象
-     * @param { int } delay 延迟的时间， 单位是毫秒
-     * @warning 该方法的时间控制是不精确的，仅仅只能保证函数的执行是在给定的时间之后，
-     *           而不能保证刚好到达延迟时间时执行。
-     * @return { Function } 目标函数fn的代理函数， 只有执行该函数才能起到延时效果
+     * Creates a function fn that is executed after the specified time has elapsed
+     * @method defer
+     * @param {Function} fn Function object that needs to be deferred
+     * @param {int} delay The delay time in milliseconds
+     * @warning The time control of the method is imprecise, only to ensure that the function is executed after a given time,
+     * And can not guarantee that the delay time is reached.
+     * @return {Function} The objective function fn proxy function, only the implementation of the function to play a delay effect
      * @example
      * ```javascript
      * var start = 0;
@@ -562,35 +508,22 @@ var utils = UE.utils = {
      * var testDefer = UE.utils.defer( test, 1000 );
      * //
      * start = new Date();
-     * //output: (大约在1000毫秒之后输出) 1000
+     * //output:  1000
      * testDefer();
      * ```
      */
 
     /**
-     * 创建延迟指定时间后执行的函数fn, 如果在延迟时间内再次执行该方法， 将会根据指定的exclusion的值，
-     * 决定是否取消前一次函数的执行， 如果exclusion的值为true， 则取消执行，反之，将继续执行前一个方法。
-     * @method defer
-     * @param { Function } fn 需要延迟执行的函数对象
-     * @param { int } delay 延迟的时间， 单位是毫秒
-     * @param { Boolean } exclusion 如果在延迟时间内再次执行该函数，该值将决定是否取消执行前一次函数的执行，
-     *                     值为true表示取消执行， 反之则将在执行前一次函数之后才执行本次函数调用。
-     * @warning 该方法的时间控制是不精确的，仅仅只能保证函数的执行是在给定的时间之后，
-     *           而不能保证刚好到达延迟时间时执行。
-     * @return { Function } 目标函数fn的代理函数， 只有执行该函数才能起到延时效果
+     * Create a function fn that is executed after the specified time is delayed. If the method is executed again within the delay time, it will be based on the value of the specified exclusion,
+     * Decide whether to cancel the previous function execution, if the exclusion value is true, then cancel the implementation, and vice versa, will continue to implement the previous method.
+     * @method defer
+     * @param {Function} fn Function object that needs to be deferred
+     * @param {int} delay The delay time in milliseconds
+     * @param {Boolean} exclusion If the function is executed again within the delay time, the value will determine whether to cancel the execution of the previous function,A value of true indicates that the execution is canceled, otherwise the function call is executed after the previous function is executed.
+     * @warning The time control of the method is imprecise, only to ensure that the function is executed after a given time,
+     * And can not guarantee that the delay time is reached.
+     * @return {Function} The objective function fn proxy function, only the implementation of the function to play a delay effect
      * @example
-     * ```javascript
-     *
-     * function test(){
-     *     console.log(1);
-     * }
-     *
-     * var testDefer = UE.utils.defer( test, 1000, true );
-     *
-     * //output: (两次调用仅有一次输出) 1
-     * testDefer();
-     * testDefer();
-     * ```
      */
     defer:function (fn, delay, exclusion) {
         var timerID;
@@ -603,12 +536,12 @@ var utils = UE.utils = {
     },
 
     /**
-     * 获取元素item在数组array中首次出现的位置, 如果未找到item， 则返回-1
-     * @method indexOf
-     * @remind 该方法的匹配过程使用的是恒等“===”
-     * @param { Array } array 需要查找的数组对象
-     * @param { * } item 需要在目标数组中查找的值
-     * @return { int } 返回item在目标数组array中首次出现的位置， 如果在数组中未找到item， 则返回-1
+     * Get the first occurrence of the element item in the array array, or -1 if no item is found
+     * @method indexOf
+     * @remind the matching process of the method using the constant "==="
+     * @param {Array} array The array object that needs to be looked up
+     * @param {*} item The value to be found in the target array
+     * @return {int} returns the first occurrence of the item in the array of target arrays, or -1 if no item is found in the array
      * @example
      * ```javascript
      * var item = 1,
@@ -620,14 +553,14 @@ var utils = UE.utils = {
      */
 
     /**
-     * 获取元素item数组array中首次出现的位置, 如果未找到item， 则返回-1。通过start的值可以指定搜索的起始位置。
-     * @method indexOf
-     * @remind 该方法的匹配过程使用的是恒等“===”
-     * @param { Array } array 需要查找的数组对象
-     * @param { * } item 需要在目标数组中查找的值
-     * @param { int } start 搜索的起始位置
-     * @return { int } 返回item在目标数组array中的start位置之后首次出现的位置， 如果在数组中未找到item， 则返回-1
-     * @example
+     * Get the first occurrence of the array of elements in the array array, or -1 if no item is found. The start of the search can be specified by the value of start.
+     * @method indexOf
+     * @remind the matching process of the method using the constant "==="
+     * @param {Array} array The array object that needs to be looked up
+     * @param {*} item The value to be found in the target array
+     * @param {int} start The starting position of the search
+     * @return {int} Returns the position where the item first appears after the start position in the target array array, or -1 if no item is found in the array
+     * @example
      * ```javascript
      * var item = 1,
      *     arr = [ 3, 4, 6, 8, 1, 2, 8, 3, 2, 1, 1, 4 ];
@@ -649,11 +582,11 @@ var utils = UE.utils = {
     },
 
     /**
-     * 移除数组array中所有的元素item
-     * @method removeItem
-     * @param { Array } array 要移除元素的目标数组
-     * @param { * } item 将要被移除的元素
-     * @remind 该方法的匹配过程使用的是恒等“===”
+     *Removes all the element items in the array array
+     * @method removeItem
+     * @param {Array} array The target array to remove the element
+     * @param {*} item The element to be removed
+     * @remind the matching process of the method using the constant "==="
      * @example
      * ```javascript
      * var arr = [ 4, 5, 7, 1, 3, 4, 6 ];
@@ -674,10 +607,10 @@ var utils = UE.utils = {
     },
 
     /**
-     * 删除字符串str的首尾空格
-     * @method trim
-     * @param { String } str 需要删除首尾空格的字符串
-     * @return { String } 删除了首尾的空格后的字符串
+     * Delete the leading and trailing spaces of the string str
+     * @method trim
+     * @param {String} str need to delete the leading and trailing spaces
+     * @return {String} Removes the string after the end of the space
      * @example
      * ```javascript
      *
@@ -699,11 +632,11 @@ var utils = UE.utils = {
     },
 
     /**
-     * 将字符串str以','分隔成数组后，将该数组转换成哈希对象， 其生成的hash对象的key为数组中的元素， value为1
-     * @method listToMap
-     * @warning 该方法在生成的hash对象中，会为每一个key同时生成一个另一个全大写的key。
-     * @param { String } str 该字符串将被以','分割为数组， 然后进行转化
-     * @return { Object } 转化之后的hash对象
+     * The string str to ',' divided into an array, the array will be converted to a hash object, the hash object generated by the key for the array of elements, the value of 1
+     * @method listToMap
+     * @warning The method in the generated hash object, for each key at the same time to generate another full capitalization of the key.
+     * @param {String} str The string will be divided into an array by ',' and then converted
+     * @return {Object} The hash object after conversion
      * @example
      * ```javascript
      *
@@ -714,11 +647,11 @@ var utils = UE.utils = {
      */
 
     /**
-     * 将字符串数组转换成哈希对象， 其生成的hash对象的key为数组中的元素， value为1
-     * @method listToMap
-     * @warning 该方法在生成的hash对象中，会为每一个key同时生成一个另一个全大写的key。
-     * @param { Array } arr 字符串数组
-     * @return { Object } 转化之后的hash对象
+     * The string array into a hash object, the hash object generated by the key for the array of elements, the value of 1
+      * @method listToMap
+      * @warning The method in the generated hash object, for each key at the same time to generate another full capitalization of the key.
+      * @param {Array} arr string array
+      * @return {Object} The hash object after conversion
      * @example
      * ```javascript
      *
@@ -737,10 +670,10 @@ var utils = UE.utils = {
     },
 
     /**
-     * 将str中的html符号转义,将转义“'，&，<，"，>”五个字符
-     * @method unhtml
-     * @param { String } str 需要转义的字符串
-     * @return { String } 转义后的字符串
+     *Will html in the html symbol escaped, will escape "", &, <, "," five characters
+     * @method unhtml
+     * @param {String} str need to escape the string
+     * @return {String} Escape the string
      * @example
      * ```javascript
      * var html = '<body>&</body>';
@@ -768,11 +701,11 @@ var utils = UE.utils = {
     },
 
     /**
-     * 将str中的转义字符还原成html字符
-     * @see UE.utils.unhtml(String);
-     * @method html
-     * @param { String } str 需要逆转义的字符串
-     * @return { String } 逆转义后的字符串
+     * Restore the escaped characters in str to html characters
+     * @See UE.utils.unhtml (String);
+     * @method html
+     * @param {String} str need to reverse the escape of the string
+     * @return {String} reverses the string after the escape
      * @example
      * ```javascript
      *
@@ -797,10 +730,10 @@ var utils = UE.utils = {
     },
 
     /**
-     * 将css样式转换为驼峰的形式
-     * @method cssStyleToDomStyle
-     * @param { String } cssName 需要转换的css样式名
-     * @return { String } 转换成驼峰形式后的css样式名
+     * Convert css style to hump form
+     * @method cssStyleToDomStyle
+     * @param {String} cssName The css style name to convert
+     * @return {String} The css style name is converted to a hump form
      * @example
      * ```javascript
      *
@@ -824,32 +757,16 @@ var utils = UE.utils = {
         };
     }(),
 
-    /**
-     * 动态加载文件到doc中
-     * @method loadFile
-     * @param { DomDocument } document 需要加载资源文件的文档对象
-     * @param { Object } options 加载资源文件的属性集合， 取值请参考代码示例
-     * @example
-     * ```javascript
-     *
-     * UE.utils.loadFile( document, {
-     *     src:"test.js",
-     *     tag:"script",
-     *     type:"text/javascript",
-     *     defer:"defer"
-     * } );
-     *
-     * ```
-     */
+    
 
     /**
-     * 动态加载文件到doc中，加载成功后执行的回调函数fn
-     * @method loadFile
-     * @param { DomDocument } document 需要加载资源文件的文档对象
-     * @param { Object } options 加载资源文件的属性集合， 该集合支持的值是script标签和style标签支持的所有属性。
-     * @param { Function } fn 资源文件加载成功之后执行的回调
-     * @warning 对于在同一个文档中多次加载同一URL的文件， 该方法会在第一次加载之后缓存该请求，
-     *           在此之后的所有同一URL的请求， 将会直接触发回调。
+     * Dynamically load the file into doc, and the callback function fn after the load is executed successfully
+     * @method loadFile
+     * @param {DomDocument} document The document object that needs to load the resource file
+     * @param {Object} options Loads a collection of properties for a resource file that supports all the attributes supported by the script tag and the style tag.
+     * @param {Function} fn The callback performed after the resource file was loaded successfully
+     * @warning For a file that loads the same URL multiple times in the same document, the method caches the request after the first load,
+     * After all the requests for the same URL will trigger the callback directly.
      * @example
      * ```javascript
      *
@@ -859,7 +776,7 @@ var utils = UE.utils = {
      *     type:"text/javascript",
      *     defer:"defer"
      * }, function () {
-     *     console.log('加载成功');
+     *     console.log('success');
      * } );
      *
      * ```
@@ -932,12 +849,12 @@ var utils = UE.utils = {
     }(),
 
     /**
-     * 判断obj对象是否为空
-     * @method isEmptyObject
-     * @param { * } obj 需要判断的对象
-     * @remind 如果判断的对象是NULL， 将直接返回true， 如果是数组且为空， 返回true， 如果是字符串， 且字符串为空，
-     *          返回true， 如果是普通对象， 且该对象没有任何实例属性， 返回true
-     * @return { Boolean } 对象是否为空
+     * Determines whether the obj object is empty
+     * @method isEmptyObject
+     * @param {*} obj need to judge the object
+     * @remind If the object is NULL, it will return true true, if it's true array is empty, returns true, if it's true string, and the string is empty,
+     * Returns true, if it's true normal object, and the object does not have any instance properties, returns true
+     * @return {Boolean} whether the object is empty
      * @example
      * ```javascript
      *
@@ -969,9 +886,9 @@ var utils = UE.utils = {
     },
 
     /**
-     * 把rgb格式的颜色值转换成16进制格式
-     * @method fixColor
-     * @param { String } rgb格式的颜色值
+     * The rgb format color values into hexadecimal format
+     * @method fixColor
+     * @param {String} The color value of the rgb format
      * @param { String }
      * @example
      * rgb(255,255,255)  => "#ffffff"
@@ -991,10 +908,10 @@ var utils = UE.utils = {
         return  value;
     },
     /**
-     * 只针对border,padding,margin做了处理，因为性能问题
+     * Only for the border, padding, margin done because of performance problems
      * @public
      * @function
-     * @param {String}    val style字符串
+     * @param {String}    val style String
      */
     optCss:function (val) {
         var padding, margin, border;
@@ -1042,18 +959,18 @@ var utils = UE.utils = {
     },
 
     /**
-     * 克隆对象
-     * @method clone
-     * @param { Object } source 源对象
-     * @return { Object } source的一个副本
+     * Clone object
+      * @method clone
+      * @param {Object} source source object
+      * @return {Object} A copy of source
      */
 
     /**
-     * 深度克隆对象，将source的属性克隆到target对象， 会覆盖target重名的属性。
-     * @method clone
-     * @param { Object } source 源对象
-     * @param { Object } target 目标对象
-     * @return { Object } 附加了source对象所有属性的target对象
+     * Deep clone the object, the source attribute cloned to the target object, will override the target name of the property.
+      * @method clone
+      * @param {Object} source source object
+      * @param {Object} target target object
+      * @return {Object} The target object with all the attributes of the source object
      */
     clone:function (source, target) {
         var tmp;
@@ -1073,10 +990,10 @@ var utils = UE.utils = {
     },
 
     /**
-     * 把cm／pt为单位的值转换为px为单位的值
-     * @method transUnitToPx
-     * @param { String } 待转换的带单位的字符串
-     * @return { String } 转换为px为计量单位的值的字符串
+     * Converts the value of cm / pt to the value in px
+     * @method transUnitToPx
+     * @param {String} The string with the unit to be converted
+     * @return {String} Converts the string to px as the unit of measure
      * @example
      * ```javascript
      *
@@ -1108,10 +1025,10 @@ var utils = UE.utils = {
     },
 
     /**
-     * 在dom树ready之后执行给定的回调函数
-     * @method domReady
-     * @remind 如果在执行该方法的时候， dom树已经ready， 那么回调函数将立刻执行
-     * @param { Function } fn dom树ready之后的回调函数
+     *Execute the given callback function after the dom tree is ready
+     * @method domReady
+     * @remind If the implementation of the method, the dom tree has been ready, then the callback function will be executed immediately
+     * @param {Function} fn dom Call function after tree ready
      * @example
      * ```javascript
      *
@@ -1128,7 +1045,7 @@ var utils = UE.utils = {
         var fnArr = [];
 
         function doReady(doc) {
-            //确保onready只执行一次
+            //Make sure only on once executed
             doc.isReady = true;
             for (var ci; ci = fnArr.pop(); ci()) {
             }
@@ -1171,19 +1088,19 @@ var utils = UE.utils = {
     }(),
 
     /**
-     * 动态添加css样式
-     * @method cssRule
-     * @param { String } 节点名称
-     * @grammar UE.utils.cssRule('添加的样式的节点名称',['样式'，'放到哪个document上'])
-     * @grammar UE.utils.cssRule('body','body{background:#ccc}') => null  //给body添加背景颜色
-     * @grammar UE.utils.cssRule('body') =>样式的字符串  //取得key值为body的样式的内容,如果没有找到key值先关的样式将返回空，例如刚才那个背景颜色，将返回 body{background:#ccc}
-     * @grammar UE.utils.cssRule('body',document) => 返回指定key的样式，并且指定是哪个document
-     * @grammar UE.utils.cssRule('body','') =>null //清空给定的key值的背景颜色
+     *Dynamically add css style
+     * @method cssRule
+     * @param {String} The node name
+     * @grammar UE.utils.cssRule ('added style of node name', ['style', 'on which document]])
+     * @grammar UE.utils.cssRule ('body', 'body {background {#cc}') => null // Add background color to body
+     * @grammar UE.utils.cssRule ('body') => style string // get the key value for the body of the style of the content, if not found key value first off the style will return empty, for example, just that background color, Will return body {background: #ccc}
+     * @grammar UE.utils.cssRule ('body', document) => returns the specified key style, and specify which document
+     * @grammar UE.utils.cssRule ('body', '') => null // Empty the background color of the given key value
      */
     cssRule:browser.ie && browser.version != 11 ? function (key, style, doc) {
         var indexList, index;
         if(style === undefined || style && style.nodeType && style.nodeType == 9){
-            //获取样式
+            //Get style
             doc = style && style.nodeType && style.nodeType == 9 ? style : (doc || document);
             indexList = doc.indexList || (doc.indexList = {});
             index = indexList[key];
@@ -1195,7 +1112,7 @@ var utils = UE.utils = {
         doc = doc || document;
         indexList = doc.indexList || (doc.indexList = {});
         index = indexList[key];
-        //清除样式
+        //remove style
         if(style === ''){
             if(index!== undefined){
                 doc.styleSheets[index].cssText = '';
@@ -1205,7 +1122,7 @@ var utils = UE.utils = {
             return false;
         }
 
-        //添加样式
+        //add style
         if(index!== undefined){
             sheetStyle =  doc.styleSheets[index];
         }else{
@@ -1216,7 +1133,7 @@ var utils = UE.utils = {
     }: function (key, style, doc) {
         var head, node;
         if(style === undefined || style && style.nodeType && style.nodeType == 9){
-            //获取样式
+            //get style
             doc = style && style.nodeType && style.nodeType == 9 ? style : (doc || document);
             node = doc.getElementById(key);
             return node ? node.innerHTML : undefined;
@@ -1224,7 +1141,7 @@ var utils = UE.utils = {
         doc = doc || document;
         node = doc.getElementById(key);
 
-        //清除样式
+        //remove style
         if(style === ''){
             if(node){
                 node.parentNode.removeChild(node);
@@ -1233,7 +1150,7 @@ var utils = UE.utils = {
             return false;
         }
 
-        //添加样式
+        //add style
         if(node){
             node.innerHTML = style;
         }else{
@@ -1259,13 +1176,13 @@ var utils = UE.utils = {
     serializeParam:function (json) {
         var strArr = [];
         for (var i in json) {
-            //忽略默认的几个参数
+            //Ignore several default parameters
             if(i=="method" || i=="timeout" || i=="async") continue;
-            //传递过来的对象和函数不在提交之列
+            //Passed objects and functions are not submitted
             if (!((typeof json[i]).toLowerCase() == "function" || (typeof json[i]).toLowerCase() == "object")) {
                 strArr.push( encodeURIComponent(i) + "="+encodeURIComponent(json[i]) );
             } else if (utils.isArray(json[i])) {
-                //支持传数组内容
+                //Support the contents of the group
                 for(var j = 0; j < json[i].length; j++) {
                     strArr.push( encodeURIComponent(i) + "[]="+encodeURIComponent(json[i][j]) );
                 }
@@ -1437,46 +1354,46 @@ var utils = UE.utils = {
 
 };
 /**
- * 判断给定的对象是否是字符串
- * @method isString
- * @param { * } object 需要判断的对象
- * @return { Boolean } 给定的对象是否是字符串
- */
+ * Determines whether the given object is a string
+ * @method isString
+ * @param {*} object needs to judge the object
+ * @return {Boolean} Whether the given object is a string
+ */
 
 /**
- * 判断给定的对象是否是数组
- * @method isArray
- * @param { * } object 需要判断的对象
- * @return { Boolean } 给定的对象是否是数组
- */
+ * Determines whether the given object is an array
+ * @method isArray
+ * @param {*} object needs to judge the object
+ * @return {Boolean} Whether the given object is an array
+ */
 
 /**
- * 判断给定的对象是否是一个Function
- * @method isFunction
- * @param { * } object 需要判断的对象
- * @return { Boolean } 给定的对象是否是Function
- */
+ * Determines whether the given object is a Function
+ * @method isFunction
+ * @param {*} object needs to judge the object
+ * @return {Boolean} Whether the given object is Function
+ */
 
 /**
- * 判断给定的对象是否是Number
- * @method isNumber
- * @param { * } object 需要判断的对象
- * @return { Boolean } 给定的对象是否是Number
- */
+ * Determines whether the given object is a Number
+ * @method isNumber
+ * @param {*} object needs to judge the object
+ * @return {Boolean} Whether the given object is a Number
+ */
 
 /**
- * 判断给定的对象是否是一个正则表达式
- * @method isRegExp
- * @param { * } object 需要判断的对象
- * @return { Boolean } 给定的对象是否是正则表达式
- */
+ * Determines whether the given object is a regular expression
+ * @method isRegExp
+ * @param {*} object needs to judge the object
+ * @return {Boolean} Whether the given object is a regular expression
+ */
 
 /**
- * 判断给定的对象是否是一个普通对象
- * @method isObject
- * @param { * } object 需要判断的对象
- * @return { Boolean } 给定的对象是否是普通对象
- */
+ * Determines whether the given object is a normal object
+ * @method isObject
+ * @param {*} object needs to judge the object
+ * @return {Boolean} Whether the given object is a normal object
+ */
 utils.each(['String', 'Function', 'Array', 'Number', 'RegExp', 'Object', 'Date'], function (v) {
     UE.utils['is' + v] = function (obj) {
         return Object.prototype.toString.apply(obj) == '[object ' + v + ']';
@@ -1485,7 +1402,7 @@ utils.each(['String', 'Function', 'Array', 'Number', 'RegExp', 'Object', 'Date']
 
 // core/EventBase.js
 /**
- * UE采用的事件基类
+ * UE uses the event base class
  * @file
  * @module UE
  * @class EventBase
@@ -1493,41 +1410,41 @@ utils.each(['String', 'Function', 'Array', 'Number', 'RegExp', 'Object', 'Date']
  */
 
 /**
- * UEditor公用空间，UEditor所有的功能都挂载在该空间下
- * @unfile
- * @module UE
- */
+  * UEditor public space, UEditor all the features are mounted in the space
+  * @unfile
+  * @module UE
+  */
 
 /**
- * UE采用的事件基类，继承此类的对应类将获取addListener,removeListener,fireEvent方法。
- * 在UE中，Editor以及所有ui实例都继承了该类，故可以在对应的ui对象以及editor对象上使用上述方法。
- * @unfile
- * @module UE
- * @class EventBase
- */
+  * UE uses the event base class, inheritance of such a corresponding class will get addListener, removeListener, fireEvent method.
+  * In the UE, the Editor and all instances of ui inherit the class, so you can use the above method on the corresponding ui object and the editor object.
+  * @unfile
+  * @module UE
+  * @class EventBase
+  */
 
 /**
- * 通过此构造器，子类可以继承EventBase获取事件监听的方法
- * @constructor
- * @example
- * ```javascript
- * UE.EventBase.call(editor);
- * ```
- */
+  * Through this constructor, subclasses can inherit the EventBase to get the method of event monitoring
+  * @constructor
+  * @example
+  * `` `Javascript
+  * UE.EventBase.call (editor);
+  `` ``
+  */
 var EventBase = UE.EventBase = function () {};
 
 EventBase.prototype = {
 
     /**
-     * 注册事件监听器
-     * @method addListener
-     * @param { String } types 监听的事件名称，同时监听多个事件使用空格分隔
-     * @param { Function } fn 监听的事件被触发时，会执行该回调函数
-     * @waining 事件被触发时，监听的函数假如返回的值恒等于true，回调函数的队列中后面的函数将不执行
+     * Register event listener
+     * @method addListener
+     * @param {String} types Listen to event names while listening to multiple events using spaces
+     * @param {Function} fn When the listening event is triggered, the callback function is executed
+     * The @waining event is triggered when the function of the listener is not true if the returned value is equal to true, the function in the queue of the callback function
      * @example
      * ```javascript
      * editor.addListener('selectionchange',function(){
-     *      console.log("选区已经变化！");
+     *      console.log("The constituency has changed！");
      * })
      * editor.addListener('beforegetcontent aftergetcontent',function(type){
      *         if(type == 'beforegetcontent'){
@@ -1535,7 +1452,7 @@ EventBase.prototype = {
      *         }else{
      *             //do something
      *         }
-     *         console.log(this.getContent) // this是注册的事件的编辑器实例
+     *         console.log(this.getContent) // This is an instance of the editor for the registered event
      * })
      * ```
      * @see UE.EventBase:fireEvent(String)
@@ -1556,11 +1473,10 @@ EventBase.prototype = {
     trigger:function(){
         return this.fireEvent.apply(this,arguments);
     },
-    /**
-     * 移除事件监听器
-     * @method removeListener
-     * @param { String } types 移除的事件名称，同时移除多个事件使用空格分隔
-     * @param { Function } fn 移除监听事件的函数引用
+    /** Remove event listener
+     * @method removeListener
+     * @param {String} types Remove event names while removing multiple events using space separations
+     * @param {Function} fn Removes function references for listening events
      * @example
      * ```javascript
      * //changeCallback为方法体
@@ -1575,37 +1491,37 @@ EventBase.prototype = {
     },
 
     /**
-     * 触发事件
-     * @method fireEvent
-     * @param { String } types 触发的事件名称，同时触发多个事件使用空格分隔
-     * @remind 该方法会触发addListener
-     * @return { * } 返回触发事件的队列中，最后执行的回调函数的返回值
-     * @example
-     * ```javascript
-     * editor.fireEvent("selectionchange");
-     * ```
-     */
+         * trigger event
+         * @method fireEvent
+         * @param {String} types Trigger the event name while triggering multiple events using space-separated
+         * @remind This method triggers addListener
+         * @return {*} Returns the return value of the last callback function in the queue that triggered the event
+         * @example
+         * `` `Javascript
+         * Editor.fireEvent ("selectionchange");
+         `` ``
+         */
 
-    /**
-     * 触发事件
-     * @method fireEvent
-     * @param { String } types 触发的事件名称，同时触发多个事件使用空格分隔
-     * @param { *... } options 可选参数，可以传入一个或多个参数，会传给事件触发的回调函数
-     * @return { * } 返回触发事件的队列中，最后执行的回调函数的返回值
-     * @example
-     * ```javascript
-     *
-     * editor.addListener( "selectionchange", function ( type, arg1, arg2 ) {
-     *
-     *     console.log( arg1 + " " + arg2 );
-     *
-     * } );
-     *
-     * //触发selectionchange事件， 会执行上面的事件监听器
-     * //output: Hello World
-     * editor.fireEvent("selectionchange", "Hello", "World");
-     * ```
-     */
+        /**
+         * trigger event
+         * @method fireEvent
+         * @param {String} types Trigger the event name while triggering multiple events using space-separated
+         * @param {* ...} options Optional parameters, you can pass in one or more parameters, will be passed to the event triggered callback function
+         * @return {*} Returns the return value of the last callback function in the queue that triggered the event
+         * @example
+         * `` `Javascript
+         *
+         * Editor.addListener ("selectionchange", function (type, arg1, arg2) {
+         *
+         * Console.log (arg1 + "" + arg2);
+         *
+         *});
+         *
+         * // triggers the selectionchange event to execute the event listener above
+         * // output: Hello World
+         * Editor.fireEvent ("selectionchange", "Hello", "World");
+         `` ``
+         */
     fireEvent:function () {
         var types = arguments[0];
         types = utils.trim(types).split(' ');
@@ -1633,17 +1549,17 @@ EventBase.prototype = {
     }
 };
 /**
- * 获得对象所拥有监听类型的所有监听器
- * @unfile
- * @module UE
- * @since 1.2.6.1
- * @method getListener
- * @public
- * @param { Object } obj  查询监听器的对象
- * @param { String } type 事件类型
- * @param { Boolean } force  为true且当前所有type类型的侦听器不存在时，创建一个空监听器数组
- * @return { Array } 监听器数组
- */
+  * Obtain all listeners with the type of listening that the object has
+  * @unfile
+  * @module UE
+  * @since 1.2.6.1
+  * @method getListener
+  * @public
+  * @param {Object} obj Query the object of the listener
+  * @param {String} type The event type
+  * @param {Boolean} force is true and a list of empty listeners is created when all of the current type list listeners do not exist
+  * @return {Array} Listener array
+  */
 function getListener(obj, type, force) {
     var allListeners;
     type = type.toLowerCase();
@@ -1658,7 +1574,7 @@ function getListener(obj, type, force) {
 ///import core/dom/dom.js
 ///import core/utils.js
 /**
- * dtd html语义化的体现类
+ * Dtd html semantics of the class
  * @constructor
  * @namespace dtd
  */
@@ -1682,7 +1598,7 @@ var dtd = dom.dtd = (function() {
         J = X( _({iframe:1}), H, B ),
         K = _({img:1,embed:1,noscript:1,br:1,kbd:1,center:1,button:1,basefont:1,h5:1,h4:1,samp:1,h6:1,ol:1,h1:1,h3:1,h2:1,form:1,font:1,'#':1,select:1,menu:1,ins:1,abbr:1,label:1,code:1,table:1,script:1,cite:1,input:1,iframe:1,strong:1,textarea:1,noframes:1,big:1,small:1,span:1,hr:1,sub:1,bdo:1,'var':1,div:1,object:1,sup:1,strike:1,dir:1,map:1,dl:1,applet:1,del:1,isindex:1,fieldset:1,ul:1,b:1,acronym:1,a:1,blockquote:1,i:1,u:1,s:1,tt:1,address:1,q:1,pre:1,p:1,em:1,dfn:1}),
 
-        L = X( _({a:0}), J ),//a不能被切开，所以把他
+        L = X( _({a:0}), J ),//A can not be cut, so 
         M = _({tr:1}),
         N = _({'#':1}),
         O = X( _({param:1}), K ),
@@ -1700,9 +1616,9 @@ var dtd = dom.dtd = (function() {
 
     return  _({
 
-        // $ 表示自定的属性
+        // $ Indicates a custom attribute
 
-        // body外的元素列表.
+        // The list of elements outside the body.
         $nonBodyContent: X( V, U, S ),
 
         //块结构元素列表
@@ -2006,17 +1922,17 @@ var domUtils = dom.domUtils = {
     },
 
     /**
-     * 检测节点node在父节点中的索引位置
+     * Detects节点node在父节点中的索引位置
      * @method getNodeIndex
-     * @param { Node } node 需要检测的节点对象
+     * @param { Node } node 需要Detects的节点对象
      * @return { Number } 该节点在父节点中的位置
      * @see UE.dom.domUtils.getNodeIndex(Node,Boolean)
      */
 
     /**
-     * 检测节点node在父节点中的索引位置， 根据给定的mergeTextNode参数决定是否要合并多个连续的文本节点为一个节点
+     * Detects节点node在父节点中的索引位置， 根据给定的mergeTextNode参数决定是否要合并多个连续的文本节点为一个节点
      * @method getNodeIndex
-     * @param { Node } node 需要检测的节点对象
+     * @param { Node } node 需要Detects的节点对象
      * @param { Boolean } mergeTextNode 是否合并多个连续的文本节点为一个节点
      * @return { Number } 该节点在父节点中的位置
      * @example
@@ -2052,10 +1968,10 @@ var domUtils = dom.domUtils = {
     },
 
     /**
-     * 检测节点node是否在给定的document对象上
+     * Detects节点node是否在给定的document对象上
      * @method inDoc
-     * @param { Node } node 需要检测的节点对象
-     * @param { DomDocument } doc 需要检测的document对象
+     * @param { Node } node 需要Detects的节点对象
+     * @param { DomDocument } doc 需要Detects的document对象
      * @return { Boolean } 该节点node是否在给定的document的dom树上
      * @example
      * ```javascript
@@ -2082,7 +1998,7 @@ var domUtils = dom.domUtils = {
      * @param { Node } node 需要查找的节点
      * @param { Function } filterFn 自定义的过滤方法。
      * @warning 查找的终点是到body节点为止
-     * @remind 自定义的过滤方法filterFn接受一个Node对象作为参数， 该对象代表当前执行检测的祖先节点。 如果该
+     * @remind 自定义的过滤方法filterFn接受一个Node对象作为参数， 该对象代表当前执行Detects的祖先节点。 如果该
      *          节点满足过滤条件， 则要求返回true， 这时将直接返回该节点作为findParent()的结果， 否则， 请返回false。
      * @return { Node | Null } 如果找到符合过滤条件的节点， 就返回该节点， 否则返回NULL
      * @example
@@ -2107,7 +2023,7 @@ var domUtils = dom.domUtils = {
      * @param { Function } filterFn 自定义的过滤方法。
      * @param { Boolean } includeSelf 查找过程是否包含自身
      * @warning 查找的终点是到body节点为止
-     * @remind 自定义的过滤方法filterFn接受一个Node对象作为参数， 该对象代表当前执行检测的祖先节点。 如果该
+     * @remind 自定义的过滤方法filterFn接受一个Node对象作为参数， 该对象代表当前执行Detects的祖先节点。 如果该
      *          节点满足过滤条件， 则要求返回true， 这时将直接返回该节点作为findParent()的结果， 否则， 请返回false。
      * @remind 如果includeSelf为true， 则过滤器第一次执行时的参数会是节点本身。
      *          反之， 过滤器第一次执行时的参数将是该节点的父节点。
@@ -2329,10 +2245,10 @@ var domUtils = dom.domUtils = {
         return getDomNode(node, 'lastChild', 'previousSibling', startFromChild, filterFn, guard);
     },
     /**
-     * 检测节点node是否属是UEditor定义的bookmark节点
+     * Detects节点node是否属是UEditor定义的bookmark节点
      * @method isBookmarkNode
      * @private
-     * @param { Node } node 需要检测的节点对象
+     * @param { Node } node 需要Detects的节点对象
      * @return { Boolean } 是否是bookmark节点
      * @example
      * ```html
@@ -2494,10 +2410,10 @@ var domUtils = dom.domUtils = {
     },
 
     /**
-     * 检测文本节点textNode是否为空节点（包括空格、换行、占位符等字符）
+     * Detects文本节点textNode是否为空节点（包括空格、换行、占位符等字符）
      * @method  isWhitespace
-     * @param { Node } node 需要检测的节点对象
-     * @return { Boolean } 检测的节点是否为空
+     * @param { Node } node 需要Detects的节点对象
+     * @return { Boolean } Detects的节点是否为空
      * @example
      * ```html
      * <div id="test">
@@ -2781,10 +2697,10 @@ var domUtils = dom.domUtils = {
     /**
      * 检查节点node是否为block元素
      * @method isBlockElm
-     * @param { Node } node 需要检测的节点对象
+     * @param { Node } node 需要Detects的节点对象
      * @return { Boolean } 是否是block元素节点
      * @warning 该方法的判断规则如下： 如果该元素原本是block元素， 则不论该元素当前的css样式是什么都会返回true；
-     *          否则，检测该元素的css样式， 如果该元素当前是block元素， 则返回true。 其余情况下都返回false。
+     *          否则，Detects该元素的css样式， 如果该元素当前是block元素， 则返回true。 其余情况下都返回false。
      * @example
      * ```html
      * <span id="test1" style="display: block"></span>
@@ -2809,9 +2725,9 @@ var domUtils = dom.domUtils = {
         return node.nodeType == 1 && (dtd.$block[node.tagName] || styleBlock[domUtils.getComputedStyle(node, 'display')]) && !dtd.$nonChild[node.tagName];
     },
     /**
-     * 检测node节点是否为body节点
+     * Detectsnode节点是否为body节点
      * @method isBody
-     * @param { Element } node 需要检测的dom元素
+     * @param { Element } node 需要Detects的dom元素
      * @return { Boolean } 给定的元素是否是body元素
      * @example
      * ```javascript
@@ -2888,7 +2804,7 @@ var domUtils = dom.domUtils = {
     /**
      * 检查节点node是否是空inline节点
      * @method  isEmptyInlineElement
-     * @param { Node } node 需要检测的节点对象
+     * @param { Node } node 需要Detects的节点对象
      * @return { Number }  如果给定的节点是空的inline节点， 则返回1, 否则返回0。
      * @example
      * ```html
@@ -2904,7 +2820,7 @@ var domUtils = dom.domUtils = {
         }
         node = node.firstChild;
         while (node) {
-            //如果是创建的bookmark就跳过
+            //if it's true创建的bookmark就跳过
             if (domUtils.isBookmarkNode(node)) {
                 return 0;
             }
@@ -3485,8 +3401,8 @@ var domUtils = dom.domUtils = {
     /**
      * 判断元素element是否包含给定的样式类名className
      * @method hasClass
-     * @param { Node } ele 需要检测的元素
-     * @param { String } classNames 需要检测的className， 多个className之间用空格分割
+     * @param { Node } ele 需要Detects的元素
+     * @param { String } classNames 需要Detects的className， 多个className之间用空格分割
      * @return { Boolean } 元素是否包含所有给定的className
      * @example
      * ```html
@@ -3507,8 +3423,8 @@ var domUtils = dom.domUtils = {
     /**
      * 判断元素element是否包含给定的样式类名className
      * @method hasClass
-     * @param { Node } ele 需要检测的元素
-     * @param { Array } classNames 需要检测的className数组
+     * @param { Node } ele 需要Detects的元素
+     * @param { Array } classNames 需要Detects的className数组
      * @return { Boolean } 元素是否包含所有给定的className
      * @example
      * ```html
@@ -3695,7 +3611,7 @@ var domUtils = dom.domUtils = {
     /**
      * 获取子节点的数量
      * @method getChildCount
-     * @param { Element } node 需要检测的元素
+     * @param { Element } node 需要Detects的元素
      * @return { Number } 给定的node元素的子节点数量
      * @example
      * ```html
@@ -3715,7 +3631,7 @@ var domUtils = dom.domUtils = {
     /**
      * 根据给定的过滤规则， 获取符合条件的子节点的数量
      * @method getChildCount
-     * @param { Element } node 需要检测的元素
+     * @param { Element } node 需要Detects的元素
      * @param { Function } fn 过滤器， 要求对符合条件的子节点返回true， 反之则要求返回false
      * @return { Number } 符合过滤条件的node元素的子节点数量
      * @example
@@ -3753,7 +3669,7 @@ var domUtils = dom.domUtils = {
     /**
      * 判断给定节点是否为空节点
      * @method isEmptyNode
-     * @param { Node } node 需要检测的节点对象
+     * @param { Node } node 需要Detects的节点对象
      * @return { Boolean } 节点是否为空
      * @example
      * ```javascript
@@ -4077,7 +3993,7 @@ var domUtils = dom.domUtils = {
      * 判断节点的标签上是否不存在任何属性
      * @method hasNoAttributes
      * @private
-     * @param { Node } node 需要检测的节点对象
+     * @param { Node } node 需要Detects的节点对象
      * @return { Boolean } 节点是否不包含任何属性
      * @example
      * ```html
@@ -4099,10 +4015,10 @@ var domUtils = dom.domUtils = {
     },
 
     /**
-     * 检测节点是否是UEditor所使用的辅助节点
+     * Detects节点是否是UEditor所使用的辅助节点
      * @method isCustomeNode
      * @private
-     * @param { Node } node 需要检测的节点
+     * @param { Node } node 需要Detects的节点
      * @remind 辅助节点是指编辑器要完成工作临时添加的节点， 在输出的时候将会从编辑器内移除， 不会影响最终的结果。
      * @return { Boolean } 给定的节点是否是一个辅助节点
      */
@@ -4111,9 +4027,9 @@ var domUtils = dom.domUtils = {
     },
 
     /**
-     * 检测节点的标签是否是给定的标签
+     * Detects节点的标签是否是给定的标签
      * @method isTagNode
-     * @param { Node } node 需要检测的节点对象
+     * @param { Node } node 需要Detects的节点对象
      * @param { String } tagName 标签
      * @return { Boolean } 节点的标签是否是给定的标签
      * @example
@@ -4216,7 +4132,7 @@ var domUtils = dom.domUtils = {
      * 查询给定的range选区是否在给定的node节点内，且在该节点的最末尾
      * @method isInNodeEndBoundary
      * @param { UE.dom.Range } rng 需要判断的range对象， 该对象的startContainer不能为NULL
-     * @param node 需要检测的节点对象
+     * @param node 需要Detects的节点对象
      * @return { Number } 如果给定的选取range对象是在node内部的最末端， 则返回1, 否则返回0
      */
     isInNodeEndBoundary : function (rng,node){
@@ -4266,7 +4182,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
  */
 
 /**
- * Range实现类，本类是UEditor底层核心类，封装不同浏览器之间的Range操作。
+ * Range实现类，本类是UEditor底层核心类，封装不同 browser之间的Range操作。
  * @unfile
  * @module UE.dom
  * @class Range
@@ -4424,8 +4340,8 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
      */
 
     /**
-     * @property { Node } startOffset 当前Range的开始边界容器节点的偏移量, 如果是元素节点，
-     *                              该值就是childNodes中的第几个节点， 如果是文本节点就是文本内容的第几个字符
+     * @property { Node } startOffset 当前Range的开始边界容器节点的偏移量, if it's true元素节点，
+     *                              该值就是childNodes中的第几个节点， if it's true文本节点就是文本内容的第几个字符
      */
 
     /**
@@ -4433,8 +4349,8 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
      */
 
     /**
-     * @property { Node } endOffset 当前Range的结束边界容器节点的偏移量, 如果是元素节点，
-     *                              该值就是childNodes中的第几个节点， 如果是文本节点就是文本内容的第几个字符
+     * @property { Node } endOffset 当前Range的结束边界容器节点的偏移量, if it's true元素节点，
+     *                              该值就是childNodes中的第几个节点， if it's true文本节点就是文本内容的第几个字符
      */
 
     /**
@@ -4627,7 +4543,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
          * 设置Range的开始容器节点和偏移量
          * @method  setStart
          * @remind 如果给定的节点是元素节点，那么offset指的是其子元素中索引为offset的元素，
-         *          如果是文本节点，那么offset指的是其文本内容的第offset个字符
+         *          if it's true文本节点，那么offset指的是其文本内容的第offset个字符
          * @remind 如果提供的容器节点是一个不能包含子元素的节点， 则该选区的开始容器将被设置
          *          为该节点的父节点， 此时， 其距离开始容器的偏移量也变成了该节点在其父节点
          *          中的索引
@@ -5004,7 +4920,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
             }
             if (!ignoreEnd) {
                 while (me.endContainer.nodeType == 1//是element
-                    && me.endOffset > 0 //如果是空元素就退出 endOffset=0那么endOffst-1为负值，childNodes[endOffset]报错
+                    && me.endOffset > 0 //if it's true空元素就退出 endOffset=0那么endOffst-1为负值，childNodes[endOffset]报错
                     && (child = me.endContainer.childNodes[me.endOffset - 1]) //子节点也是element
                     && check(child)) {
                     me.setEnd(child, child.childNodes.length);
@@ -5110,7 +5026,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
         },
 
         /**
-         * 调整当前Range的开始和结束边界容器，如果是容器节点是文本节点,就调整到包含该文本节点的父节点上
+         * 调整当前Range的开始和结束边界容器，if it's true容器节点是文本节点,就调整到包含该文本节点的父节点上
          * @method trimBoundary
          * @remind 该操作有可能会引起文本节点被切开
          * @return { UE.dom.Range } 当前range对象
@@ -5132,7 +5048,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
          */
 
         /**
-         * 调整当前Range的开始和结束边界容器，如果是容器节点是文本节点,就调整到包含该文本节点的父节点上，
+         * 调整当前Range的开始和结束边界容器，if it's true容器节点是文本节点,就调整到包含该文本节点的父节点上，
          * 可以根据 ignoreEnd 参数的值决定是否调整对结束边界的调整
          * @method trimBoundary
          * @param { Boolean } ignoreEnd 是否忽略对结束边界的调整
@@ -5828,7 +5744,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
          * 判断当前选区内容是否占位符
          * @private
          * @method inFillChar
-         * @return { Boolean } 如果是占位符返回true，否则返回false
+         * @return { Boolean } if it's true占位符返回true，否则返回false
          */
         inFillChar : function(){
             var start = this.startContainer;
@@ -6921,7 +6837,7 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');
                         'document.write("' + html + '");document.close();}())'
                 }));
                 container.style.overflow = 'hidden';
-                //解决如果是给定的百分比，会导致高度算不对的问题
+                //解决if it's true给定的百分比，会导致高度算不对的问题
                 setTimeout(function(){
                     if( /%$/.test(options.initialFrameWidth)){
                         options.minFrameWidth = options.initialFrameWidth = container.offsetWidth;
@@ -8204,7 +8120,7 @@ UE.ajax = function() {
         if (!utils.isEmptyObject(ajaxOpts.data)){
             submitStr += (submitStr? "&":"") + json2str(ajaxOpts.data);
         }
-        //超时检测
+        //超时Detects
         var timerID = setTimeout(function() {
             if (xhr.readyState != 4) {
                 timeIsOut = true;
@@ -9463,7 +9379,7 @@ var htmlparser = UE.htmlparser = function (htmlstr,ignoreBlank) {
 //            elm.parentNode = parent;
 //        }
         parent.children.push(elm);
-        //如果是自闭合节点返回父亲节点
+        //if it's true自闭合节点返回父亲节点
         return  dtd.$empty[tagName] ? parent : elm
     }
 
@@ -10723,7 +10639,7 @@ UE.plugins['autotypeset'] = function(){
     function ToDBC(txtstring) {
         txtstring = utils.html(txtstring);
         var tmp = "";
-        var mark = "";/*用于判断,如果是html尖括里的标记,则不进行全角的转换*/
+        var mark = "";/*用于判断,if it's truehtml尖括里的标记,则不进行全角的转换*/
         for (var i = 0; i < txtstring.length; i++) {
             if (txtstring.charCodeAt(i) == 32) {
                 tmp = tmp + String.fromCharCode(12288);
@@ -11940,7 +11856,7 @@ UE.plugins['link'] = function(){
                     return node;
                 }
             } else {
-                //trace:1111  如果是<p><a>xx</a></p> startContainer是p就会找不到a
+                //trace:1111  if it's true<p><a>xx</a></p> startContainer是p就会找不到a
                 range.shrinkBoundary();
                 var start = range.startContainer.nodeType  == 3 || !range.startContainer.childNodes[range.startOffset] ? range.startContainer : range.startContainer.childNodes[range.startOffset],
                     end =  range.endContainer.nodeType == 3 || range.endOffset == 0 ? range.endContainer : range.endContainer.childNodes[range.endOffset-1],
@@ -11967,7 +11883,7 @@ UE.plugins['link'] = function(){
 
         },
         queryCommandState : function() {
-            //判断如果是视频的话连接不可用
+            //判断if it's true视频的话连接不可用
             //fix 853
             var img = this.selection.getRange().getClosedNode(),
                 flag = img && (img.className == "edui-faked-video" || img.className.indexOf("edui-upload-video")!=-1);
@@ -15583,7 +15499,7 @@ UE.plugins['list'] = function () {
 
                                 span = me.document.createElement('span');
                                 range.insertNode(span);
-                                //判断pre是否是空的节点,如果是<p><br/></p>类型的空节点，干掉p标签防止它占位
+                                //判断pre是否是空的节点,if it's true<p><br/></p>类型的空节点，干掉p标签防止它占位
                                 if (domUtils.isEmptyBlock(pre)) {
                                     pre.innerHTML = '';
                                 }
@@ -16810,7 +16726,7 @@ UE.plugins['keystrokes'] = function() {
             }
 
 
-            //chrome下如果删除了inline标签，浏览器会有记忆，在输入文字还是会套上刚才删除的标签，所以这里再选一次就不会了
+            //chrome下如果删除了inline标签， browser会有记忆，在输入文字还是会套上刚才删除的标签，所以这里再选一次就不会了
             if( !collapsed && (rng.startContainer.nodeType == 3 || rng.startContainer.nodeType == 1 && domUtils.isEmptyBlock(rng.startContainer))){
                 if(browser.ie){
                     var span = rng.document.createElement('span');
@@ -17147,11 +17063,11 @@ UE.plugins['fiximgclick'] = (function () {
 
 // plugins/autolink.js
 ///import core
-///commands 为非ie浏览器自动添加a标签
+///commands 为非ie browser自动添加a标签
 ///commandsName  AutoLink
 ///commandsTitle  自动增加链接
 /**
- * @description 为非ie浏览器自动添加a标签
+ * @description 为非ie browser自动添加a标签
  * @author zhanyi
  */
 
@@ -17786,8 +17702,8 @@ UE.plugins['video'] = function (){
     };
 
     /**
-     * 获取单元格或者单元格组的“对齐”状态。 如果当前的检测对象是一个单元格组， 只有在满足所有单元格的 水平和竖直 对齐属性都相同的
-     * 条件时才会返回其状态值，否则将返回null； 如果当前只检测了一个单元格， 则直接返回当前单元格的对齐状态；
+     * 获取单元格或者单元格组的“对齐”状态。 如果当前的Detects对象是一个单元格组， 只有在满足所有单元格的 水平和竖直 对齐属性都相同的
+     * 条件时才会返回其状态值，否则将返回null； 如果当前只Detects了一个单元格， 则直接返回当前单元格的对齐状态；
      * @param table cell or table cells , 支持单个单元格dom对象 或者 单元格dom对象数组
      * @return { align: 'left' || 'right' || 'center', valign: 'top' || 'middle' || 'bottom' } 或者 null
      */
@@ -18614,7 +18530,7 @@ UE.plugins['video'] = function (){
                 td.rowSpan--;
             });
             row.parentNode.removeChild(row);
-            //浏览器方法本身存在bug,采用自定义方法删除
+            // browser方法本身存在bug,采用自定义方法删除
             //this.table.deleteRow(rowIndex);
             this.update();
         },
@@ -19882,7 +19798,7 @@ UE.plugins['table'] = function () {
     var startTd = null, //鼠标按下时的锚点td
         currentTd = null, //当前鼠标经过时的td
         onDrag = "", //指示当前拖动状态，其值可为"","h","v" ,分别表示未拖动状态，横向拖动状态，纵向拖动状态，用于鼠标移动过程中的判断
-        onBorder = false, //检测鼠标按下时是否处在单元格边缘位置
+        onBorder = false, //Detects鼠标按下时是否处在单元格边缘位置
         dragButton = null,
         dragOver = false,
         dragLine = null, //模拟的拖动线
@@ -20234,7 +20150,7 @@ UE.plugins['table'] = function () {
 
 
         //内容变化时触发索引更新
-        //todo 可否考虑标记检测，如果不涉及表格的变化就不进行索引重建和更新
+        //todo 可否考虑标记Detects，如果不涉及表格的变化就不进行索引重建和更新
         me.addListener("contentchange", function () {
             var me = this;
             //尽可能排除一些不需要更新的状况
@@ -20694,7 +20610,7 @@ UE.plugins['table'] = function () {
         var timer;
 
         function doClick(evt, button) {
-            // 部分浏览器下需要清理
+            // 部分 browser下需要清理
             clearTimeout(timer);
             timer = setTimeout(function () {
                 editor.fireEvent("tableClicked", table, button);
@@ -23099,7 +23015,7 @@ UE.plugins['customstyle'] = function() {
             return  parent ? parent.getAttribute('label') : '';
         }
     };
-    //当去掉customstyle是，如果是块元素，用p代替
+    //当去掉customstyle是，if it's true块元素，用p代替
     me.addListener('keyup', function(type, evt) {
         var keyCode = evt.keyCode || evt.which;
 
@@ -27899,7 +27815,7 @@ UE.ui = baidu.editor.ui = {};
                         });
                         editorui.buttons[cmd] = ui;
                         editor.addListener('selectionchange', function () {
-                            //只存在于右键菜单而无工具栏按钮的ui不需要检测状态
+                            //只存在于右键菜单而无工具栏按钮的ui不需要Detects状态
                             var unNeedCheckState = {'edittable':1};
                             if (cmd in unNeedCheckState)return;
 

@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import com.hengtiansoft.church.entity.SBasicParaEntity;
 
 /**
- * Class Name: SBasicParaDao Description: 基础配置参数的Dao层
+ * Class Name: SBasicParaDao Description: Basic configuration parameters of the Dao layer
  * 
  * @author yigesong
  */
@@ -24,7 +24,7 @@ public interface SBasicParaDao extends JpaRepository<SBasicParaEntity, Integer> 
 	SBasicParaEntity findByParaName(String paraName);
 	
 	/**
-	 * Description: 根据typeId查找数据，在根据para_value1中的内容按数字排序
+	 * Description: Find data according to typeId, sorted by number according to the contents of para_value1
 	 *
 	 * @param typeId
 	 * @return
@@ -33,7 +33,7 @@ public interface SBasicParaDao extends JpaRepository<SBasicParaEntity, Integer> 
 	List<String> queryActAbout(Integer typeId);
 	
 	/**
-     * Description: 根据typeName查找数据，在根据para_value1中的内容按数字排序
+     * Description: Find data according to typeName, sort by number according to the contents of para_value1
      *
      * @param typeName
      * @return

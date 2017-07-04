@@ -23,7 +23,7 @@ import com.hengtiansoft.common.dto.ResultDtoFactory;
 import com.hengtiansoft.common.util.AppConfigUtil;
 
 /**
- * Class Name: SUserController Description: 账户控制器
+ * Class Name: SUserController Description: account controller
  * 
  * @author zhisongliu
  */
@@ -35,7 +35,7 @@ public class SUserController {
     private SUserService sUserService;
 
     /**
-     * Description:进入首页
+     * Description:go to homepage
      * 
      * @return
      */
@@ -47,7 +47,7 @@ public class SUserController {
     }
 
     /**
-     * Description:首页数据
+     * Description:homepage's data
      * 
      * @param dto
      * @return
@@ -60,7 +60,7 @@ public class SUserController {
     }
 
     /**
-     * Description:进入到添加页面
+     * Description:go to add page
      * 
      * @return
      */
@@ -70,7 +70,7 @@ public class SUserController {
     }
 
     /**
-     * Description :获取添加页面角色数据
+     * Description :get add page's role data
      * 
      * @return
      */
@@ -78,12 +78,12 @@ public class SUserController {
     @ResponseBody
     public ResultDto<List<SRoleInfoEntity>> addPageData() {
         List<SRoleInfoEntity> list = sUserService.findRoles();
-        return ResultDtoFactory.toAck("角色Dto", list);
+        return ResultDtoFactory.toAck("Role Dto", list);
 
     }
 
     /**
-     * Description : 新增保存
+     * Description : add and save
      * 
      * @param dto
      * @return
@@ -95,7 +95,7 @@ public class SUserController {
     }
 
     /**
-     * Description:进入到编辑页面
+     * Description:go to edit page
      * 
      * @return
      */
@@ -105,7 +105,7 @@ public class SUserController {
     }
 
     /**
-     * Description : 编辑页面数据
+     * Description : edit page's data
      */
     @RequestMapping(value = "/editData/{id}", method = RequestMethod.POST)
     @ResponseBody
@@ -115,11 +115,11 @@ public class SUserController {
         SUserSaveAndUpdateDto dto = sUserService.findById(id);
         editDto.setDto(dto);
         editDto.setList(roles);
-        return ResultDtoFactory.toAck("编辑DTO", editDto);
+        return ResultDtoFactory.toAck("Edit DTO", editDto);
     }
     
     /**
-     * Description:编辑保存
+     * Description:save edit 
      * 
      * @param dto
      * @return
@@ -127,7 +127,7 @@ public class SUserController {
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
     @ResponseBody
     public ResultDto<String> edit(@RequestBody SUserUpdateDto dto) {
-        /** 2016-8-18 yigesong 编辑用户时状态不设置 WELY-175，专门开一个解锁用户按钮 **/
+        /** 2016-8-18 yigesong Edit the user when the state does not set WELY-175, specifically open a unlock user button **/
         return sUserService.update(dto);
     }
 
@@ -139,7 +139,7 @@ public class SUserController {
     }
 
     /**
-     * Description: 密码重置
+     * Description: Password Reset
      *
      * @param memberId
      * @return
@@ -151,7 +151,7 @@ public class SUserController {
     }
 
     /**
-     * Description:进入到个人资料编辑页面
+     * Description:go to edit personal data
      * 
      * @return
      */
@@ -161,7 +161,7 @@ public class SUserController {
     }
 
     /**
-     * Description:个人资料编辑页面数据
+     * Description:personal data
      */
     @RequestMapping(value = "/selfEditData", method = RequestMethod.POST)
     @ResponseBody
@@ -174,11 +174,11 @@ public class SUserController {
         editDto.setList(roles);
         editDto.setQrCodeUrl(AppConfigUtil.getConfig("common.qr.server") + AppConfigUtil.getConfig("common.qr.url") + "/?" + dto.getOrgId());
 
-        return ResultDtoFactory.toAck("个人资料编辑DTO", editDto);
+        return ResultDtoFactory.toAck("Personal information editor DTO", editDto);
     }
 
     /**
-     * Description:编辑保存
+     * Description:save edit 
      * 
      * @param dto
      * @return

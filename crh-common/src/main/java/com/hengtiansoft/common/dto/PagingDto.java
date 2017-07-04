@@ -18,7 +18,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * Class Name: PagingDto Description:分页Dto
+ * Class Name: PagingDto Description:Paging Dto
  * 
  * @author jialiangli
  */
@@ -33,19 +33,19 @@ public class PagingDto<T> implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    // 每页显示记录数
+    // Displays the number of records per page
     private Integer           pageSize         = 50;
 
-    // 当前页数
+    // current page number
     private Integer           currentPage      = 1;
 
-    // 总记录数
+    // total
     private Long              totalRecord;
 
-    // 总页数
+    // total pages
     private Integer           totalPages;
 
-    // 数据List
+    // data List
     private List<T>           list;
 
     public Integer getPageSize() {

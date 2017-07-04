@@ -27,7 +27,7 @@ import com.hengtiansoft.common.dto.ResultDtoFactory;
 import com.hengtiansoft.common.security.KaptchaSupport;
 
 /**
- * Class Name: LoginController Description: 登录控制器
+ * Class Name: LoginController Description: login controller
  * 
  * @author zhisongliu
  */
@@ -41,7 +41,7 @@ public class LoginController {
     private SUserDao       userDao;
 
     /**
-     * Descption:跳转至登录页面
+     * Descption:Jump to login page
      * 
      * @param model
      * @return
@@ -52,7 +52,7 @@ public class LoginController {
     }
 
     /**
-     * Descption:登录验证
+     * Descption:validate logon
      * 
      * @param loginDto
      * @param response
@@ -117,7 +117,7 @@ public class LoginController {
     }
 
     /**
-     * Description: 登出
+     * Description: logout
      * 
      * @param response
      * @param cookieDomain

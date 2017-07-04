@@ -2,7 +2,7 @@
  * Created with JetBrains PhpStorm.
  * User: taoqili
  * Date: 12-6-12
- * Time: 下午6:57
+ * Time: 6:57
  * To change this template use File | Settings | File Templates.
  */
 UE.I18N['en'] = {
@@ -31,9 +31,9 @@ UE.I18N['en'] = {
         'num':'1,2,3...',
         'num1':'1),2),3)...',
         'num2':'(1),(2),(3)...',
-        'cn':'一,二,三....',
-        'cn1':'一),二),三)....',
-        'cn2':'(一),(二),(三)....',
+        'cn':'One,Two,Three....',
+        'cn1':'One),Two),Three)....',
+        'cn2':'(One),(Two),(Three)....',
         'decimal':'1,2,3...',
         'lower-alpha':'a,b,c...',
         'lower-roman':'i,ii,iii...',
@@ -490,10 +490,10 @@ UE.I18N['en'] = {
             'lang_chart_y_title': 'Y-axis title:',
             'lang_chart_tip': 'Prompt',
             'lang_cahrt_tip_prefix': 'prefix:',
-            'lang_cahrt_tip_description': '仅饼图有效， 当鼠标移动到饼图中相应的块上时，提示框内的文字的前缀',
+            'lang_cahrt_tip_description': 'Only the pie chart is valid, when the mouse moves to the corresponding block on the pie, the text box prefix prefix',
             'lang_chart_data_unit': 'Unit',
             'lang_chart_data_unit_title': 'unit:',
-            'lang_chart_data_unit_description': '显示在每个数据点上的数据的单位， 比如： 温度的单位 ℃',
+            'lang_chart_data_unit_description': 'A unit of data displayed at each data point, such as unit of temperature ° C',
             'lang_chart_type': 'Chart type:',
             'lang_prev_btn': 'Previous',
             'lang_next_btn': 'Next'

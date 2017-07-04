@@ -20,7 +20,7 @@ public interface SUserDao extends JpaRepository<SUserEntity, Long>, JpaSpecifica
 
     /**
      * 
-    * Description: 通过token查询出所有用户
+    * Description: Find all users by token
     *
     * @param token
     * @return
@@ -29,7 +29,7 @@ public interface SUserDao extends JpaRepository<SUserEntity, Long>, JpaSpecifica
 
     /**
      * 
-    * Description: 通过用户登录ID，密码，以及状态验证用户是否存在
+    * Description: Verify that the user exists by user login ID, password, and status
     *
     * @param loginId
     * @param password
@@ -40,7 +40,7 @@ public interface SUserDao extends JpaRepository<SUserEntity, Long>, JpaSpecifica
 
     /**
      * 
-    * Description: 验证登录ID和状态
+    * Description: Verify login ID and status
     *
     * @param loginId
     * @param status
@@ -50,7 +50,7 @@ public interface SUserDao extends JpaRepository<SUserEntity, Long>, JpaSpecifica
 
     /**
      * 
-    * Description: 验证当前登录loginId是否存在
+    * Description: Verify that the current login loginId exists
     *
     * @param loginId
     * @return
@@ -60,7 +60,7 @@ public interface SUserDao extends JpaRepository<SUserEntity, Long>, JpaSpecifica
 
     /**
      * 
-    * Description: 通过orgId来查询用户信息
+    * Description:Use orgId to query user information
     *
     * @param orgId
     * @return
@@ -69,7 +69,7 @@ public interface SUserDao extends JpaRepository<SUserEntity, Long>, JpaSpecifica
 
     /**
      * 
-    * Description: 通过登录ID来查询用户信息 
+    * Description:The user information is checked by the login ID
     *
     * @param loginId
     * @return

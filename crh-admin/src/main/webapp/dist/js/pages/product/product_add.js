@@ -7,8 +7,8 @@ var productApp = {
     $mainForm : void 0,
 	$navTabs : void 0,
     validator : void 0,
-    isCoverText : "[封面图片]",
-    notCoverText : "[设为封面]",
+    isCoverText : "[cover image]",
+    notCoverText : "[Set to cover]",
     $picList : $('.goodspic-list'),
     coverElement : ".goodsCover",
     removeBtn : ".remove-btn",
@@ -26,17 +26,17 @@ var productApp = {
          +"</div>"
         +"</div>"
         +"<div class='form-group '>"
-         +"<div class='col-sm-5'><input type=text class='form-control' id='cProductName' style='width:70%' placeholder='商品名称'></div>"
-         +"<div class='col-sm-2'><button type=button id='rRefreshRecord' class='btn btn-primary'><i class='fa fa-search'></i>开始搜索</div>"
+         +"<div class='col-sm-5'><input type=text class='form-control' id='cProductName' style='width:70%' placeholder='product name'></div>"
+         +"<div class='col-sm-2'><button type=button id='rRefreshRecord' class='btn btn-primary'><i class='fa fa-search'></i>Start searching</div>"
         +"</div>"
         +"<div class='row 　col-md-12　treeTable'>"
                 +"<table class='tree_table' id='copyGoodsList'>"
                 +"<thead class='borderRow'>"
                 +"<th  class='text-center'></th>"
-                +"<th  class='text-center'>序号</th>"
-                +"<th  class='text-center'>商品品类</th>"
-                +"<th  class='text-center'>供应商</th>"
-                +"<th  class='text-center'>商品名称</th>"
+                +"<th  class='text-center'>Serial number</th>"
+                +"<th  class='text-center'>Commodity category</th>"
+                +"<th  class='text-center'>supplier</th>"
+                +"<th  class='text-center'>product name</th>"
                 +"</thead>"
                 +"<tbody>"
                 +"</tbody>"
@@ -147,7 +147,7 @@ var productApp = {
         $('button.submitMainForm').on("click", _(this.submitForm).bind(this));
         $('.addNewPic').on('click', _(this.addNewPic).bind(this));
         $('#copy-product').on('click', _(this.addCopyGoods).bind(this));
-        // 商品图片ajax上传
+        // Product picture upload by ajax
         
         this.$mainForm.on('change', '.upload-btn input[type="file"]', function(){
             var id = $(this).attr('id');
@@ -186,7 +186,7 @@ var productApp = {
     		url = this.editPostUrl;
             result.productId = this.productId;
     	 }
-    	 $('button.submitMainForm').prop('disabled', true).text('保存中....');
+    	 $('button.submitMainForm').prop('disabled', true).text('saving....');
     	 $.ajax(
             { 
         		type         : 'post',
@@ -197,7 +197,7 @@ var productApp = {
 		 })
 		 .done(function(result) {
 			if(result.code == "ACK") {
-				$('button.submitMainForm').prop('disabled', true).text('保存成功');
+				$('button.submitMainForm').prop('disabled', true).text('Saved successfully');
 				that.$mainForm .loadingInfo({
     				type : "success", 
     				text: message("admin.message.success"),
@@ -207,13 +207,13 @@ var productApp = {
     			});
 			} 
 		 }).always(function() {
-			 $('button.submitMainForm').prop('disabled', false).text('保存');
+			 $('button.submitMainForm').prop('disabled', false).text('save');
 		 });
     },
     
     addNewPic : function() {
     	if(this.$goodspicList.find('li').length >= this.maxPics) {
-    		this.$mainForm.loadingInfo("error", "最多只能添加 "+ this.maxPics + " 张图片");
+    		this.$mainForm.loadingInfo("error", "Can only be added at most "+ this.maxPics + " images");
     		return false;
     	}
     	
@@ -224,12 +224,12 @@ var productApp = {
     addCopyGoods : function() {
         var that = this;
         that.dialog =  BootstrapDialog.show({
-            title: '选择商品',
+            title: 'Choose a product',
             //type : BootstrapDialog.TYPE_DEFAULT,
             message: $(this.copyGoodsHtml),
             draggable: true,
             buttons: [{
-                label: '确认',
+                label: 'sure',
                 cssClass: 'btn-primary',
                 action: function(dialog) {
                 	var productId = $('#copyGoodsList').bootstrapTable('getSelections'); 
@@ -237,7 +237,7 @@ var productApp = {
                     dialog.close();
                 }
             }, {
-                label: '取消',
+                label: 'cancle',
                 action: function(dialog) {
                     dialog.close();
                 }
@@ -301,10 +301,10 @@ var productApp = {
         
     },
     /*
-    http://localhost:8080/admin/web/main/addImage/{source}   souce值在global中定义  返回{"code":"ACK","message":"","data":"/wly-admin/static/upload/image/brand/201605134e19bd834-7f3b-49e5-8e85-907489e836f6-source.jpg","nonBizError":false}
+    http://localhost:8080/admin/web/main/addImage/{source}   The source value is defined in global,retuen{"code":"ACK","message":"","data":"/wly-admin/static/upload/image/brand/201605134e19bd834-7f3b-49e5-8e85-907489e836f6-source.jpg","nonBizError":false}
     
     */
-    // 图片上传ajax
+    // Image upload by ajax
     ajaxFileUpload:   function (id, o) {
         var that = this;
         $('#img_' + id + '').attr('src', uiBase + "/img/loading.gif");

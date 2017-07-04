@@ -17,7 +17,7 @@ package com.hengtiansoft.church;
 
 /**
  * Class Name: SystemConst
- * Description: 默认常量定义类
+ * Description:  Default constants define classes
  * 
  * @author chengminmiao
  */

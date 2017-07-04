@@ -50,7 +50,7 @@ public final class ResultDtoFactory {
     }
 
     /**
-     * Description: 在controller层直接返回错误消息，避免在controller中用该方法catch异常做处理
+     * Description: In the controller layer directly return error message, to avoid using the method in the controller catch exception to do processing
      * 
      * @param msg
      * @return
@@ -60,7 +60,7 @@ public final class ResultDtoFactory {
     }
 
     /**
-     * Description: 在controller层直接返回错误消息，避免在controller中用该方法catch异常做处理
+     * Description: In the controller layer directly return error message, to avoid using the method in the controller catch exception to do processing
      * 
      * @param error
      * @return
@@ -74,7 +74,7 @@ public final class ResultDtoFactory {
     }
 
     /**
-     * Description: 在controller层直接返回错误消息，避免在controller中用该方法catch异常做处理
+     * Description: In the controller layer directly return error message, to avoid using the method in the controller catch exception to do processing
      * 
      * @param msg
      * @param data
@@ -117,7 +117,7 @@ public final class ResultDtoFactory {
         dto.setCode(ResultCode.COMMON_ERROR);
         StringBuilder text = new StringBuilder();
         if (StringUtils.isBlank(msg)) {
-            text.append(MessageUtil.getMessage(EErrorCode.COMM_INTERNAL_ERROR.getDisplayMsg())).append("[").append("时间：")
+            text.append(MessageUtil.getMessage(EErrorCode.COMM_INTERNAL_ERROR.getDisplayMsg())).append("[").append("time：")
                     .append((new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")).format(new Date())).append("]");
         } else {
             text.append(msg);
@@ -133,7 +133,7 @@ public final class ResultDtoFactory {
     }
 
     /**
-     * Description: 异常的stacktrace和message将在非生产环境中显示出来
+     * Description: Exceptional stacktrace and message will be displayed in a non-production environment
      * 
      * @param e
      * @return
@@ -144,7 +144,7 @@ public final class ResultDtoFactory {
     }
 
     /**
-     * Description: 异常的stacktrace和message将在非生产环境中显示出来
+     * Description: Exceptional stacktrace and message will be displayed in a non-production environment
      * 
      * @param e
      * @return
@@ -154,7 +154,7 @@ public final class ResultDtoFactory {
     }
 
     /**
-     * Description: 传入的msg将显示出来
+     * Description:The incoming msg will be displayed
      * 
      * @param msg
      * @return
