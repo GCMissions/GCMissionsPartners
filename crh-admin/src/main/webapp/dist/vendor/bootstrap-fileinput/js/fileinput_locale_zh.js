@@ -13,49 +13,49 @@
     "use strict";
 
     $.fn.fileinputLocales['zh'] = {
-        fileSingle: '文件',
-        filePlural: '多个文件',
-        browseLabel: '选择 &hellip;',
-        removeLabel: '移除',
-        removeTitle: '清除选中文件',
-        cancelLabel: '取消',
-        cancelTitle: '取消进行中的上传',
-        uploadLabel: '上传',
-        uploadTitle: '上传选中文件',
-        msgNo: '没有',
-        msgCancelled: '取消',
-        msgZoomTitle: '查看详情',
-        msgZoomModalHeading: '详细预览',
-        msgSizeTooLarge: '文件 "{name}" (<b>{size} KB</b>) 超过了允许大小 <b>{maxSize} KB</b>.',
-        msgFilesTooLess: '你必须选择最少 <b>{n}</b> {files} 来上传. ',
-        msgFilesTooMany: '选择的上传文件个数 <b>({n})</b> 超出最大文件的限制个数 <b>{m}</b>.',
-        msgFileNotFound: '文件 "{name}" 未找到!',
-        msgFileSecured: '安全限制，为了防止读取文件 "{name}".',
-        msgFileNotReadable: '文件 "{name}" 不可读.',
-        msgFilePreviewAborted: '取消 "{name}" 的预览.',
-        msgFilePreviewError: '读取 "{name}" 时出现了一个错误.',
-        msgInvalidFileType: '不正确的类型 "{name}". 只支持 "{types}" 类型的文件.',
-        msgInvalidFileExtension: '不正确的文件扩展名 "{name}". 只支持 "{extensions}" 的文件扩展名.',
-        msgUploadAborted: '该文件上传被中止',
-        msgValidationError: '验证错误',
-        msgLoading: '加载第 {index} 文件 共 {files} &hellip;',
-        msgProgress: '加载第 {index} 文件 共 {files} - {name} - {percent}% 完成.',
-        msgSelected: '{n} {files} 选中',
-        msgFoldersNotAllowed: '只支持拖拽文件! 跳过 {n} 拖拽的文件夹.',
-        msgImageWidthSmall: '宽度的图像文件的"{name}"的必须是至少{size}像素.',
-        msgImageHeightSmall: '图像文件的"{name}"的高度必须至少为{size}像素.',
-        msgImageWidthLarge: '宽度的图像文件"{name}"不能超过{size}像素.',
-        msgImageHeightLarge: '图像文件"{name}"的高度不能超过{size}像素.',
-        msgImageResizeError: '无法获取的图像尺寸调整。',
-        msgImageResizeException: '错误而调整图像大小。<pre>{errors}</pre>',
-        dropZoneTitle: '',
-        fileActionSettings: {
-            removeTitle: '删除文件',
-            uploadTitle: '上传文件',
-            indicatorNewTitle: '没有上传',
-            indicatorSuccessTitle: '上传',
-            indicatorErrorTitle: '上传错误',
-            indicatorLoadingTitle: '上传 ...'
-        }
-    };
+    		FileSingle: 'file',
+    		        FilePlural: 'multiple files',
+    		        BrowseLabel: 'select & hellip;',
+    		        RemoveLabel: 'remove',
+    		        RemoveTitle: 'Clear selected file',
+    		        CancelLabel: 'Cancel',
+    		        CancelTitle: 'Cancel in progress',
+    		        UploadLabel: 'upload',
+    		        UploadTitle: 'upload selected file',
+    		        MsgNo: 'no',
+    		        MsgCancelled: 'Cancel',
+    		        MsgzoomTitle: 'view details',
+    		        MsgzoomModalHeading: 'detailed preview',
+    		        MsgSizeTooLarge: 'file' {name} "(<b> {size} KB </ b>) exceeds the allowed size <b> {maxSize} KB </ b>
+    		        MsgFilesTooLess: 'You must choose at least <b> {n} </ b> {files} to upload.
+    		        MsgFilesTooMany: 'the number of uploaded files <b> ({n}) </ b> exceeds the maximum number of files <b> {m} </ b>
+    		        MsgFileNotFound: 'file' {name} "not found! ',
+    		        MsgFileSecured: 'security restrictions, in order to prevent reading the file' {name} '.',
+    		        MsgFileNotReadable: 'file' {name} "unreadable.",
+    		        MsgFilePreviewAborted: 'Cancel' preview of '{name}'. '
+    		        MsgFilePreviewError: 'An error occurred while reading' {name} '.'
+    		        MsgInvalidFileType: 'Incorrect type' {name} ". Only files of type" {types} "are supported.
+    		        MsgInvalidFileExtension: 'Incorrect file extension' {name} '. Only file extensions for "{extensions}" are supported.
+    		        MsgUploadAborted: 'The file was aborted'
+    		        MsgValidationError: 'validation error',
+    		        MsgLoading: 'load the {index} file {files} & hellip;',
+    		        MsgProgress: 'Load the {index} file {files} - {name} - {percent}% complete.
+    		        MsgSelected: '{n} {files} selected'
+    		        MsgFoldersNotAllowed: 'only support drag and drop files! Skip {n} drag the folder.',
+    		        MsgImageWidthSmall: 'width of the image file' {name} 'must be at least {size} pixels.',
+    		        MsgImageHeightSmall: 'The height of the image file' {name} 'must be at least {size} pixels.',
+    		        MsgImageWidthLarge: 'width of the image file' {name} "can not exceed {size} pixels.
+    		        MsgImageHeightLarge: The height of the image file {name} "can not exceed the {size} pixel.
+    		        MsgImageResizeError: 'Unable to get image size adjustment. ',
+    		        MsgImageResizeException: 'error and adjust the image size. <Pre> {errors} </ pre> ',
+    		        DropZoneTitle: '',
+    		        FileActionSettings: {
+    		            RemoveTitle: 'delete file',
+    		            UploadTitle: 'upload file',
+    		            IndicatorNewTitle: 'no upload',
+    		            IndicatorSuccessTitle: 'Upload',
+    		            IndicatorErrorTitle: 'upload error',
+    		            IndicatorLoadingTitle: 'upload ...'
+    		        }
+    		    };
 })(window.jQuery);

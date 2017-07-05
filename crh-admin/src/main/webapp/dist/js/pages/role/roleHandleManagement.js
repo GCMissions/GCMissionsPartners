@@ -37,7 +37,7 @@ $(function(){
 			}else if(!(data.functionIds instanceof Array)){
 				data.functionIds = new Array(data.functionIds);
 			}
-			//当某一组checkbox未全部勾选,还是要传回其父节点的值
+			//When a group of checkbox is not all checked, or to return the value of its parent node
 			this.getParentCheckbox(data.functionIds);
 			return data;
 		},

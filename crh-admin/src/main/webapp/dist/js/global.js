@@ -78,7 +78,7 @@ $.GLOBAL.config = {
 	    base : [['undo', 'redo','bold', 'italic', 'underline', 'paragraph', 'fontfamily', 'fontsize']]
     },
     defaultGoodsImg  :  uiBase + "img/default_goods_image_240.gif",
-    dialogLoading : "<div><img src='"+uiBase+"img/loading.gif"+"'>加载中...</div>"
+    dialogLoading : "<div><img src='"+uiBase+"img/loading.gif"+"'>loading...</div>"
 };
 window.uploadSourcesMap = $.GLOBAL.config.uploadSourcesMap;
 
@@ -622,7 +622,7 @@ var messages = {
 	"admin.dialog.ok": "sure",
 	"admin.dialog.cancel": "cancle",
 	"admin.dialog.deleteConfirm": "Are you sure you want to delete?",
-	"admin.dialog.clearConfirm": "Are you sure you want to clear it?？",
+	"admin.dialog.clearConfirm": "Are you sure you want to clear it?",
 	"admin.browser.title": "Select a document please",
 	"admin.browser.upload": "Local Upload",
 	"admin.browser.parent": "Parent directory",
@@ -795,7 +795,7 @@ iTsai.form = {
      * Name or number as the key, the value attribute as the value
      * 
      * @param {Array}
-     *            inputs input/select/textarea的object集合
+     *            inputs input/select/textarea object List
      * @return {object} json object {key:value,...}
      */
     _serializeInputs : function(inputs) {
@@ -841,7 +841,7 @@ iTsai.form = {
                 }
                 }
             } else {
-                // Non-input input tag，such as：select,textarea
+                // Non-input input tag,such as:select,textarea
                 value = input.val();
             }
  
@@ -854,8 +854,8 @@ iTsai.form = {
     /**
      * Fill the value into the input tag
      * 
-     * @param{Array} inputs 输入标签集合
-     * @param{String/Number} value 值
+     * @param{Array} inputs: 	The enter label set
+     * @param{String/Number} value 
      * @returns {___anonymous188_8285}
      */
     _deserializeInputs : function(inputs, value) {
@@ -932,14 +932,14 @@ iTsai.form = {
     },
     /**
      * To serialize form values, the result is returned as key/value in form key, form object name (name||id), and value as its value.<br>
-     * HTML format：<br>
+     * HTML format:<br>
      * 1).Form: the container is usually a form form (if it does not exist in the body container, which contains the father) input label and sub container;<br>
-     * 2).The child container (or not): it must include the attribute fieldset=, XXX, div tag, which contains input tags and sub containers。<br>
+     * 2).The child container (or not): it must include the attribute fieldset=, XXX, div tag, which contains input tags and sub containers.<br>
      * After serialization, jsonobject. will be generated with XXX as the primary key. If the child container is nested, then the jsonobject of the different groupings is generated with fieldset as the primary key.<br>
-     * 3).Enter the label: enter the label as input type label(ncluding：'checkbox','color','date','datetime','datetime-local',<br>
+     * 3).Enter the label: enter the label as input type label(ncluding:'checkbox','color','date','datetime','datetime-local',<br>
      * 'email','file','hidden','month','number','password','radio','range
      * ','reset','search','submit',<br>
-     * 'tel','text','time ','url','week'）.
+     * 'tel','text','time ','url','week').
      * and 'button','reset','submit','image'Will be filtered out.
      * 
      * @param{$()} frm jQuery form object

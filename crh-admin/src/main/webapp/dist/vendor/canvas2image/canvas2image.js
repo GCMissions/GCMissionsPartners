@@ -148,10 +148,10 @@ var Canvas2Image = (function() {
 		document.location.href = strData;
 	}
 	/**
-	 * 在本地进行文件保存
-	 * @param  {String} data     要保存到本地的图片数据
-	 * @param  {String} filename 文件名
-	 */
+	* Save the file locally
+	* @param {String} data to save to the local image data
+	* @param {String} filename filename
+	*/
 	var saveFileWithName = function(data, filename){
 		var save_link = document.createElementNS('http://www.w3.org/1999/xhtml', 'a');
 		save_link.href = data;

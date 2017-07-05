@@ -12,7 +12,7 @@
 		var c = 0;
 //		setParentMenuTop(0);
 		function scrollUp() {
-			if (!_this.is(":animated")) { // Determines whether the element is in animation, and if not animated, append the animation。
+			if (!_this.is(":animated")) { // Determines whether the element is in animation, and if not animated, append the animation.
 				if (m < count-5) { // Determine whether the M is smaller than the number of screens (7 per screen)
 					m += line;
 					_this.animate({

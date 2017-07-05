@@ -79,7 +79,7 @@
   };
 
   // A mostly-internal function to generate callbacks that can be applied
-  // to each element in a collection, returning the desired result — either
+  // to each element in a collection, returning the desired result - either
   // identity, an arbitrary callback, a property matcher, or a property accessor.
   _.iteratee = function(value, context, argCount) {
     if (value == null) return _.identity;
@@ -310,7 +310,7 @@
   };
 
   // Shuffle a collection, using the modern version of the
-  // [Fisher-Yates shuffle](http://en.wikipedia.org/wiki/Fisher–Yates_shuffle).
+  // [Fisher-Yates shuffle](http://en.wikipedia.org/wiki/Fisher-Yates_shuffle).
   _.shuffle = function(obj) {
     var set = obj && obj.length === +obj.length ? obj : _.values(obj);
     var length = set.length;

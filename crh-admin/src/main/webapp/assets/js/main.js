@@ -97,7 +97,7 @@ function createFrame(url) {
 }
 
 function CloseTab() {
-    parent.$.messager.confirm('System hint', 'Tip: are you sure you want to close the current page？', function (r) {
+    parent.$.messager.confirm('System hint', 'Tip: are you sure you want to close the current page?', function (r) {
         if (r) {
             var currTab = $('#tabs').tabs('getSelected');
             $('#tabs').tabs('close', currTab.panel('options').title);
@@ -274,7 +274,7 @@ function tabCloseEven() {
 //Load timeout information
 function LoadByPwd() {
     $('#win').dialog({
-        title: 'Login has timed out. Please re-enter your password：',
+        title: 'Login has timed out. Please re-enter your password:',
         width: 300,
         height: 150,
         closed: false,
@@ -408,7 +408,7 @@ function userPwd() {
 }
 //drop out
 function signOut() {
-    $.messager.confirm('system hint', "Are you sure you want to drop out of the system？", function (r) {
+    $.messager.confirm('system hint', "Are you sure you want to drop out of the system?", function (r) {
         if (r) {
             $("#hidout").val("1");
             window.location.href = '/admin/login.html';
