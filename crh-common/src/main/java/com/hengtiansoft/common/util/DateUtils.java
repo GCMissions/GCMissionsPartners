@@ -26,7 +26,7 @@ public final class DateUtils {
     public static final String DATE_PATTERN_FULL = "yyyyMMddHHmmss";
 
     public static final String DATE_PATTERN_YMD = "yyyyMMdd";
-    
+
     public static final String DATE_PATTERN_YMDH = "yyyyMMddHH";
 
     public static final String DATE_PATTERN_HHMMSS = "HHmmss";
@@ -57,7 +57,7 @@ public final class DateUtils {
     public static Date getCurrentDate() {
         return Calendar.getInstance().getTime();
     }
-    
+
     /**
      * Get the current month, the datatype is date
      * 
@@ -65,7 +65,7 @@ public final class DateUtils {
      */
     public static int getCurrentMonth() {
         Calendar c = new GregorianCalendar();
-        return c.get(Calendar.MONTH) + 1; 
+        return c.get(Calendar.MONTH) + 1;
     }
 
     /**
@@ -88,8 +88,8 @@ public final class DateUtils {
     }
 
     /**
-     * Converts the date of the incoming Date type 
-     * to the date of the pattern type (the default is yyyy-MM-dd HH: mm: ss format)
+     * Converts the date of the incoming Date type to the date of the pattern type (the default is yyyy-MM-dd HH: mm: ss
+     * format)
      * 
      * @param date
      * @param pattern
@@ -107,8 +107,8 @@ public final class DateUtils {
     }
 
     /**
-     * Converts the incoming string date to 
-     * the date of the date type of the specified format (the default is yyyy-MM-dd HH: mm: ss format)
+     * Converts the incoming string date to the date of the date type of the specified format (the default is yyyy-MM-dd
+     * HH: mm: ss format)
      * 
      * @param date
      * @return
@@ -154,7 +154,7 @@ public final class DateUtils {
 
         return map;
     }
-    
+
     /**
      * Get the month of the date
      * 
@@ -163,9 +163,9 @@ public final class DateUtils {
     public static int getDateMonth(Date date) {
         Calendar c = Calendar.getInstance();
         c.setTime(date);
-        return c.get(Calendar.MONTH) + 1; 
+        return c.get(Calendar.MONTH) + 1;
     }
-    
+
     /**
      *
      * 
@@ -174,11 +174,12 @@ public final class DateUtils {
     public static int getDateDay(Date date) {
         Calendar c = Calendar.getInstance();
         c.setTime(date);
-        return c.get(Calendar.DATE); 
+        return c.get(Calendar.DATE);
     }
-    
+
     /**
      * Get the first day of last month and the last day of last month.
+     * 
      * @param currentDate
      * @return
      */
@@ -197,19 +198,19 @@ public final class DateUtils {
         dates.add(endDate);
         return dates;
     }
-    
-    /** 
+
+    /**
      * One day after obtaining a specified date
-     *  
-     * @param specifiedDay 
-     * @return 
-     */  
-    public static Date getSpecifiedDayAfter(Date specifiedDay) {  
-        Calendar c = Calendar.getInstance();  
-        c.setTime(specifiedDay); 
-        int day = c.get(Calendar.DATE);  
-        c.set(Calendar.DATE, day + 1);  
-        return c.getTime();  
-    }  
-    
+     * 
+     * @param specifiedDay
+     * @return
+     */
+    public static Date getSpecifiedDayAfter(Date specifiedDay) {
+        Calendar c = Calendar.getInstance();
+        c.setTime(specifiedDay);
+        int day = c.get(Calendar.DATE);
+        c.set(Calendar.DATE, day + 1);
+        return c.getTime();
+    }
+
 }

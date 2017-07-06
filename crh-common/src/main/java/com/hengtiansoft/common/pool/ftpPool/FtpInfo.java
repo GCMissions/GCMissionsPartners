@@ -1,11 +1,11 @@
 package com.hengtiansoft.common.pool.ftpPool;
 
 /**
-* Class Name: FtpInfo
-* Description: ftp information
-* @author taochen
-*
-*/
+ * Class Name: FtpInfo Description: ftp information
+ * 
+ * @author taochen
+ *
+ */
 public class FtpInfo {
 
     private String ftpHost;
@@ -14,7 +14,7 @@ public class FtpInfo {
 
     private String ftpPassword;
 
-    private int    ftpPort;
+    private int ftpPort;
 
     public String getFtpHost() {
         return ftpHost;

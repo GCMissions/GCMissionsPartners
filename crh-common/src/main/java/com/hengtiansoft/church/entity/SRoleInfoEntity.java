@@ -20,19 +20,19 @@ public class SRoleInfoEntity extends RoleInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ROLE_ID")
-    private Long           roleId;
+    private Long roleId;
 
     @Column(name = "ROLE")
-    private String            role;
+    private String role;
 
     @Column(name = "DESCRIPTION")
-    private String            description;
+    private String description;
 
     @Column(name = "CREATE_DATE")
-    private Date              createDate;
+    private Date createDate;
 
     @Column(name = "STATUS")
-    private String            status;
+    private String status;
 
     public Long getRoleId() {
         return roleId;

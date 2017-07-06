@@ -13,8 +13,7 @@ import org.slf4j.LoggerFactory;
 import com.hengtiansoft.common.constant.ApplicationConstant;
 
 /**
- * Class Name: HttpRequestUtil 
- * Description: Send http request
+ * Class Name: HttpRequestUtil Description: Send http request
  * 
  * @author taochen
  *
@@ -63,7 +62,10 @@ public class HttpUtil {
                 }
             }
             // Converts the returned input stream to a string
-            try (InputStream inputStream = httpUrlConn.getInputStream(); InputStreamReader inputStreamReader = new InputStreamReader(inputStream, ApplicationConstant.ENCODING); BufferedReader bufferedReader = new BufferedReader(inputStreamReader)) {
+            try (InputStream inputStream = httpUrlConn.getInputStream();
+                    InputStreamReader inputStreamReader = new InputStreamReader(inputStream,
+                            ApplicationConstant.ENCODING);
+                    BufferedReader bufferedReader = new BufferedReader(inputStreamReader)) {
                 String str = null;
                 while ((str = bufferedReader.readLine()) != null) {
                     buffer.append(str);
@@ -71,7 +73,7 @@ public class HttpUtil {
             }
 
         } catch (Exception e) {
-            logger.error("msg",e);
+            logger.error("msg", e);
             throw new RuntimeException(e);
         } finally {
             if (null != httpUrlConn) {
@@ -95,14 +97,17 @@ public class HttpUtil {
             httpUrlConn.setRequestMethod(ApplicationConstant.GET);
             httpUrlConn.connect();
             // Converts the returned input stream to a string
-            try (InputStream inputStream = httpUrlConn.getInputStream(); InputStreamReader inputStreamReader = new InputStreamReader(inputStream, ApplicationConstant.ENCODING); BufferedReader bufferedReader = new BufferedReader(inputStreamReader)) {
+            try (InputStream inputStream = httpUrlConn.getInputStream();
+                    InputStreamReader inputStreamReader = new InputStreamReader(inputStream,
+                            ApplicationConstant.ENCODING);
+                    BufferedReader bufferedReader = new BufferedReader(inputStreamReader)) {
                 String str = null;
                 while ((str = bufferedReader.readLine()) != null) {
                     buffer.append(str);
                 }
             }
         } catch (Exception e) {
-            logger.error("msg",e);
+            logger.error("msg", e);
         } finally {
             if (null != httpUrlConn) {
                 httpUrlConn.disconnect();

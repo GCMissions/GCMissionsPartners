@@ -1,11 +1,9 @@
 package com.hengtiansoft.common.sequence;
 
 public enum SequenceType {
-    M_RETURN("mOrderReturn", "OrderReturn", "T"), 
-    M_KD_RETURN("mKdOrderReturn", "KdOrderReturn", "KT"), 
-    M_ORDER("mOrderMainSeq", "MemberOrder", "D"), 
-    M_KD_ORDER("mKdOrderMainSeq", "KdMemberOrder", "KD"), 
-    ORG("orgSeq", "Organization", "");
+    M_RETURN("mOrderReturn", "OrderReturn", "T"), M_KD_RETURN("mKdOrderReturn", "KdOrderReturn", "KT"), M_ORDER(
+            "mOrderMainSeq", "MemberOrder", "D"), M_KD_ORDER("mKdOrderMainSeq", "KdMemberOrder", "KD"), ORG("orgSeq",
+            "Organization", "");
 
     private String code;
 

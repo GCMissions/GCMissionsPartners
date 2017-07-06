@@ -5,53 +5,53 @@ import java.io.Serializable;
 public class RegisterRequestDto implements Serializable {
     private static final long serialVersionUID = -7950697450636843894L;
 
-    private String            loginId;
+    private String loginId;
 
-    private String            email;
+    private String email;
 
-    private String            password;
+    private String password;
 
-    private String            custImage;
+    private String custImage;
 
-    private String            custName;
+    private String custName;
 
-    private String            sex;
+    private String sex;
 
-    private String            status;
+    private String status;
 
-    private Integer           point;
+    private Integer point;
 
-    private String            addressName;
+    private String addressName;
 
-    private String            address;
+    private String address;
 
-    private String            addressPhone;
+    private String addressPhone;
 
-    private String            addressContact;
+    private String addressContact;
 
-    private Integer           regionId;
+    private Integer regionId;
 
-    private String            lng;
+    private String lng;
 
-    private String            lat;
+    private String lat;
 
-    private String            username;
+    private String username;
 
-    private String            areaName;
+    private String areaName;
 
-    private String            mobile;
+    private String mobile;
 
-    private String            realName;
+    private String realName;
 
-    private String            idCard;
+    private String idCard;
 
-    private String            catpcha;
+    private String catpcha;
 
-    private Integer           num;
+    private Integer num;
 
-    private Integer           referee;
+    private Integer referee;
 
-    private String            type;
+    private String type;
 
     public String getLoginId() {
         return loginId;

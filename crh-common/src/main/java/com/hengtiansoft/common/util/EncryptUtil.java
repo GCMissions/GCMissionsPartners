@@ -15,27 +15,28 @@ import org.slf4j.LoggerFactory;
 import com.hengtiansoft.common.constant.ApplicationConstant;
 
 /**
- * Class Name: EncryptUtil 
- * Description: Encryption tool class
+ * Class Name: EncryptUtil Description: Encryption tool class
  * 
  * @author taochen
  *
  */
 public class EncryptUtil {
-    private static final Logger log= LoggerFactory.getLogger(EncryptUtil.class);
+    private static final Logger log = LoggerFactory.getLogger(EncryptUtil.class);
+
     /**
      * Description: MD5 encryption
      * 
      * @param input
      * @param salt
      * @return
-     * @throws UnsupportedEncodingException 
+     * @throws UnsupportedEncodingException
      */
     public static String encryptMd5(String input, String salt) {
         input = input.toLowerCase();
         try {
             int middle = input.length() / 2;
-            byte[] result = MessageDigest.getInstance("MD5").digest((input.substring(0, middle) + salt + input.substring(middle)).getBytes());
+            byte[] result = MessageDigest.getInstance("MD5").digest(
+                    (input.substring(0, middle) + salt + input.substring(middle)).getBytes());
             StringBuilder strBuilder = new StringBuilder(result.length * 2);
             for (byte b : result) {
                 String s = Integer.toHexString(b & 0x00FF);
@@ -78,7 +79,7 @@ public class EncryptUtil {
      * @param encryptKey
      *            Encryption key
      * @return Encrypted byte[]
-     * @throws NoSuchAlgorithmException 
+     * @throws NoSuchAlgorithmException
      */
     public static byte[] aesEncryptToBytes(String content, String encryptKey) {
         KeyGenerator kgen;
@@ -91,7 +92,7 @@ public class EncryptUtil {
             cipher.init(Cipher.ENCRYPT_MODE, new SecretKeySpec(kgen.generateKey().getEncoded(), "AES"));
             return cipher.doFinal(content.getBytes("utf-8"));
         } catch (Exception e) {
-            log.error("msg",e);
+            log.error("msg", e);
         }
         return null;
     }
@@ -103,13 +104,13 @@ public class EncryptUtil {
      *            To be decrypted
      * @param decryptKey
      *            Decryption key
-     * @return String 
+     * @return String
      */
     public static String aesDecryptByBytes(byte[] encryptBytes, String decryptKey) {
         try {
             SecureRandom random = SecureRandom.getInstance("SHA1PRNG");
             random.setSeed(decryptKey.getBytes());
-            
+
             KeyGenerator kgen = KeyGenerator.getInstance("AES");
             kgen.init(128, random);
 
@@ -118,7 +119,7 @@ public class EncryptUtil {
             byte[] decryptBytes = cipher.doFinal(encryptBytes);
             return new String(decryptBytes);
         } catch (Exception e) {
-            log.error("msg",e);
+            log.error("msg", e);
         }
         return null;
     }
@@ -158,7 +159,7 @@ public class EncryptUtil {
         }
         return result;
     }
-    
+
     /**
      * AES encryption
      * 
@@ -167,9 +168,9 @@ public class EncryptUtil {
      * @param encryptKey
      *            Encryption key
      * @return Encrypted byte[]
-     * @throws NoSuchAlgorithmException 
+     * @throws NoSuchAlgorithmException
      */
-    public static String aesEncrypt(String content, String encryptKey){
+    public static String aesEncrypt(String content, String encryptKey) {
         return parseByte2HexStr(aesEncryptToBytes(content, encryptKey));
     }
 

@@ -3,9 +3,8 @@ package com.hengtiansoft.common.dto;
 public class AccessToken {
 
     private String access_token;
-    
-    private  Integer expires_in;
-    
+
+    private Integer expires_in;
 
     public String getAccess_token() {
         return access_token;

@@ -8,12 +8,12 @@ import com.hengtiansoft.common.dto.ResultDto;
 public interface SlidesAdminService {
 
     void getSlidesList(SlidesSearchDto dto);
-    
+
     ResultDto<?> deleteSlide(Long id);
-    
+
     SlidesListDto slideDetail(Long id);
-    
+
     ResultDto<?> saveSlides(SlidesSaveDto dto);
-    
+
     ResultDto<?> adjustSort(Long id, String type);
 }

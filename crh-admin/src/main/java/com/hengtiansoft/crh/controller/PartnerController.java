@@ -18,7 +18,7 @@ import com.wordnik.swagger.annotations.ApiOperation;
 @RequestMapping(value = "/partner")
 @Api(value = "Partner", description = "Groups,Partners")
 public class PartnerController {
-    
+
     @Autowired
     private GroupService groupService;
 

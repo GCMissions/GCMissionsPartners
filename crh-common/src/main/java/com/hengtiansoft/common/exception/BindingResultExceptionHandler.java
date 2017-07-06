@@ -1,6 +1,5 @@
 package com.hengtiansoft.common.exception;
 
-
 import java.util.List;
 
 import org.apache.commons.lang.StringUtils;

@@ -7,34 +7,33 @@ import com.hengtiansoft.church.authority.constant.TreeNodeBean;
 
 /**
  * 
-* Class Name: SRoleEditDto
-* Description: ROLE EDIT DTO
-* @author taochen
-*
+ * Class Name: SRoleEditDto Description: ROLE EDIT DTO
+ * 
+ * @author taochen
+ *
  */
-public class SRoleEditDto implements Serializable{
+public class SRoleEditDto implements Serializable {
 
-	private static final long serialVersionUID = -645449392360766220L;
-	
-	private List<TreeNodeBean> list;
-	
-	private SRoleInfoSaveAndUpdateDto dto;
+    private static final long serialVersionUID = -645449392360766220L;
 
-	public List<TreeNodeBean> getList() {
-		return list;
-	}
+    private List<TreeNodeBean> list;
 
-	public void setList(List<TreeNodeBean> list) {
-		this.list = list;
-	}
+    private SRoleInfoSaveAndUpdateDto dto;
 
-	public SRoleInfoSaveAndUpdateDto getDto() {
-		return dto;
-	}
+    public List<TreeNodeBean> getList() {
+        return list;
+    }
 
-	public void setDto(SRoleInfoSaveAndUpdateDto dto) {
-		this.dto = dto;
-	}
-	
-	
+    public void setList(List<TreeNodeBean> list) {
+        this.list = list;
+    }
+
+    public SRoleInfoSaveAndUpdateDto getDto() {
+        return dto;
+    }
+
+    public void setDto(SRoleInfoSaveAndUpdateDto dto) {
+        this.dto = dto;
+    }
+
 }

@@ -12,8 +12,7 @@ import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
 /**
- * Class Name: BasicType
- * Description: BasicType-doMain
+ * Class Name: BasicType Description: BasicType-doMain
  * 
  * @author taochen
  */
@@ -25,22 +24,22 @@ public class SBasicTypeEntity implements Serializable {
 
     @Id
     @Column(name = "TYPE_ID")
-    private Integer           typeId;
+    private Integer typeId;
 
     @Column(name = "TYPE_NAME")
-    private String            typeName;
+    private String typeName;
 
     @Column(name = "CONFIG_FLAG")
-    private Integer           configFlag;
-    
+    private Integer configFlag;
+
     @Column(name = "MODIFY_ID")
-    private Integer           modifyId;
+    private Integer modifyId;
 
     @Column(name = "MODIFY_DATE")
-    private Date              modifyDate;
+    private Date modifyDate;
 
     @Column(name = "REMARK")
-    private String            remark;
+    private String remark;
 
     /**
      * @return return the value of the var typeId
@@ -75,20 +74,21 @@ public class SBasicTypeEntity implements Serializable {
     }
 
     /**
-	 * @return the configFlag
-	 */
-	public Integer getConfigFlag() {
-		return configFlag;
-	}
+     * @return the configFlag
+     */
+    public Integer getConfigFlag() {
+        return configFlag;
+    }
 
-	/**
-	 * @param configFlag the configFlag to set
-	 */
-	public void setConfigFlag(Integer configFlag) {
-		this.configFlag = configFlag;
-	}
+    /**
+     * @param configFlag
+     *            the configFlag to set
+     */
+    public void setConfigFlag(Integer configFlag) {
+        this.configFlag = configFlag;
+    }
 
-	/**
+    /**
      * @return return the value of the var modifyId
      */
     public Integer getModifyId() {

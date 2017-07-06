@@ -21,8 +21,7 @@ import com.hengtiansoft.common.util.AppConfigUtil;
 import com.hengtiansoft.common.util.web.WebUtil;
 
 /**
- * Class Name: ResultHandler 
- * Description: 
+ * Class Name: ResultHandler Description:
  * 
  * @author taochen
  *
@@ -54,7 +53,7 @@ public class ResultHandler {
             AuthorityContext ac = new AuthorityContext();
             request.setAttribute("auth", ac);
             request.setAttribute("userInfo", ShiroUtil.getUserByToken(request));
-            //request.setAttribute("region", ShiroUtil.getRegionByRequest(request));
+            // request.setAttribute("region", ShiroUtil.getRegionByRequest(request));
             request.setAttribute("ftpPath", AuthorityContext.getFtpPath());
             request.setAttribute("uin", AuthorityContext.getQqPath());
             if (AppConfigUtil.isDevEnv()) {

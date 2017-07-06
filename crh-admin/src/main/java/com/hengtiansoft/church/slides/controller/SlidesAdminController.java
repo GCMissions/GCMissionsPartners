@@ -18,7 +18,7 @@ import com.hengtiansoft.common.dto.ResultDto;
 @Controller
 @RequestMapping(value = "/slides")
 public class SlidesAdminController {
-    
+
     @Autowired
     private SlidesAdminService slidesService;
 
@@ -26,20 +26,20 @@ public class SlidesAdminController {
     public String index(Model model) {
         return "slides/slides_list";
     }
-    
+
     @RequestMapping(value = "/list", method = RequestMethod.POST)
     @ResponseBody
     public SlidesSearchDto slideList(@RequestBody SlidesSearchDto dto) {
         slidesService.getSlidesList(dto);
         return dto;
     }
-    
+
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     @ResponseBody
     public ResultDto<?> deleteSlide(Long id) {
         return slidesService.deleteSlide(id);
     }
-    
+
     @RequestMapping(value = "/view/{id}", method = RequestMethod.GET)
     public String view(@PathVariable Long id, Model model) {
         if (id != 0L) {
@@ -51,13 +51,13 @@ public class SlidesAdminController {
         }
         return "slides/slides_detail";
     }
-    
+
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     @ResponseBody
     public ResultDto<?> saveSlides(@RequestBody SlidesSaveDto dto) {
         return slidesService.saveSlides(dto);
     }
-    
+
     @RequestMapping(value = "/sort", method = RequestMethod.POST)
     @ResponseBody
     public ResultDto<?> adjustSort(@RequestBody SlidesSortDto dto) {

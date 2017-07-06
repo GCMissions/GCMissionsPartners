@@ -6,13 +6,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.MessageSource;
 
-
 /**
-* Class Name: MessageUtil
-* Description: 
-* @author taochen
-*
-*/
+ * Class Name: MessageUtil Description:
+ * 
+ * @author taochen
+ *
+ */
 public final class MessageUtil {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MessageUtil.class);
@@ -22,7 +21,7 @@ public final class MessageUtil {
     private static Locale defaultLocale = Locale.SIMPLIFIED_CHINESE;
 
     private MessageUtil() {
-        
+
     }
 
     /**
@@ -37,25 +36,24 @@ public final class MessageUtil {
     }
 
     /**
-    * Description: get error message with parameters
-    *
-    * @param code
-    * @param args
-    * @return
-    */
+     * Description: get error message with parameters
+     *
+     * @param code
+     * @param args
+     * @return
+     */
     public static String getMessage(String code, Object... args) {
         return getMessage(code, defaultLocale, args);
     }
 
-    
     /**
-    * Description: get error message with locale and parameters
-    *
-    * @param code
-    * @param locale
-    * @param args
-    * @return
-    */
+     * Description: get error message with locale and parameters
+     *
+     * @param code
+     * @param locale
+     * @param args
+     * @return
+     */
     public static String getMessage(String code, Locale locale, Object... args) {
         LOGGER.debug("getMessage() invoked,  Message code: " + code);
         return messageSource.getMessage(code, args, "Unknown message, code: " + code, locale);

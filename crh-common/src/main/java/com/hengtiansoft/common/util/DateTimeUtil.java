@@ -14,57 +14,57 @@ import org.slf4j.LoggerFactory;
 
 public abstract class DateTimeUtil {
 
-    private static final Logger LOGGER            = LoggerFactory.getLogger(DateTimeUtil.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(DateTimeUtil.class);
 
-    public static final int     DEFAULT_HOUR      = 23;
+    public static final int DEFAULT_HOUR = 23;
 
-    public static final int     DEFAULT_MINUTE    = 59;
+    public static final int DEFAULT_MINUTE = 59;
 
-    public static final int     DEFAULT_SENCEND   = 0;
+    public static final int DEFAULT_SENCEND = 0;
 
-    public static final int     START_HOUR        = 0;
+    public static final int START_HOUR = 0;
 
-    public static final int     FREE_START_HOUR   = 9;
+    public static final int FREE_START_HOUR = 9;
 
-    public static final int     START_MINUTE      = 0;
+    public static final int START_MINUTE = 0;
 
-    public static final int     START_SENCEND     = 0;
+    public static final int START_SENCEND = 0;
 
-    public final static String  SIMPLE_FMT        = "yyyy-MM-dd HH:mm:ss";
+    public final static String SIMPLE_FMT = "yyyy-MM-dd HH:mm:ss";
 
-    public final static String  SIMPLE_FMT_MINUTE = "yyyy-MM-dd HH:mm";
+    public final static String SIMPLE_FMT_MINUTE = "yyyy-MM-dd HH:mm";
 
-    public final static String  SIMPLE_YMD        = "yyyy-MM-dd";
+    public final static String SIMPLE_YMD = "yyyy-MM-dd";
 
-    public final static String  SIMPLE_YM         = "yyyy-MM";
+    public final static String SIMPLE_YM = "yyyy-MM";
 
-    public final static String  SIMPLE_MD         = "MM-dd";
+    public final static String SIMPLE_MD = "MM-dd";
 
-    public final static String  SIMPLE_MILLS      = "yyyyMMddHHmmssSSS";
+    public final static String SIMPLE_MILLS = "yyyyMMddHHmmssSSS";
 
-    public final static String  SIMPLE_SECONDS    = "yyyyMMddHHmmss";
+    public final static String SIMPLE_SECONDS = "yyyyMMddHHmmss";
 
-    public final static String  SIMPLE_FMT_MILLS  = "yyyy-MM-dd HH:mm:ss：SSS";
+    public final static String SIMPLE_FMT_MILLS = "yyyy-MM-dd HH:mm:ss：SSS";
 
-    public final static String  EN_FORMAT         = "EEE MMM dd HH:mm:ss zzz yyyy";
+    public final static String EN_FORMAT = "EEE MMM dd HH:mm:ss zzz yyyy";
 
-    public final static String  MONTH_DAY_FORMAT  = "MMdd";
+    public final static String MONTH_DAY_FORMAT = "MMdd";
 
-    public final static String  SIMPLE_DATE_YMD   = "yyyyMMdd";
+    public final static String SIMPLE_DATE_YMD = "yyyyMMdd";
 
-    public final static String  SIMPLE_DATE_YM    = "yyyyMM";
+    public final static String SIMPLE_DATE_YM = "yyyyMM";
 
-    public final static String  SIMPLE_TIME_HMS   = "HHmmss";
+    public final static String SIMPLE_TIME_HMS = "HHmmss";
 
-    public final static String  CHINA_YMD         = "yyyy年MM月dd日";
-    
-    public final static String SIMPLE_M_D         = "yyyy-M-d HH:mm";
-    
-    public final static String SIMPLE_M_D_H_M_S   = "yyyy-M-d HH:mm:ss";
-    
-    public final static String YYYY_M_D           = "yyyy-M-d";
-    
-    public final static String FOREIGN_FORMAT     = "MM-dd-yyyy HH:mm";
+    public final static String CHINA_YMD = "yyyy年MM月dd日";
+
+    public final static String SIMPLE_M_D = "yyyy-M-d HH:mm";
+
+    public final static String SIMPLE_M_D_H_M_S = "yyyy-M-d HH:mm:ss";
+
+    public final static String YYYY_M_D = "yyyy-M-d";
+
+    public final static String FOREIGN_FORMAT = "MM-dd-yyyy HH:mm";
 
     /**
      * Date to String
@@ -128,14 +128,14 @@ public abstract class DateTimeUtil {
      * @param sDate
      *            Source string, using "yyyy-MM-dd" format
      * @param sFormat
-     * @return 
+     * @return
      */
     public static Date parseDate(String sDate, String sFormat) {
         try {
-            if(StringUtils.isEmpty(sDate)){
+            if (StringUtils.isEmpty(sDate)) {
                 return null;
             }
-            
+
             return new SimpleDateFormat(sFormat).parse(sDate);
         } catch (ParseException e) {
             LOGGER.warn("parseDate error:" + e);
@@ -164,7 +164,7 @@ public abstract class DateTimeUtil {
     }
 
     /**
-     * Description:The incoming String type date is converted to a TimeStamp  type
+     * Description:The incoming String type date is converted to a TimeStamp type
      * 
      * @param ts
      * @return
@@ -423,7 +423,7 @@ public abstract class DateTimeUtil {
      * @param dateString
      *            Date string format： MMddHH
      * @param foramt
-     *            
+     * 
      * @return
      */
     public static String getNextHour(String dateString, String format) {
@@ -444,7 +444,7 @@ public abstract class DateTimeUtil {
      * @param dateString
      *            Date string format： yyyyMMddHH
      * @param foramt
-     *           
+     * 
      * @return
      */
     public static String getNextHour2(String dateString) {
@@ -510,9 +510,10 @@ public abstract class DateTimeUtil {
         return new Long(parseDateToString(new Date(), SIMPLE_DATE_YMD));
 
     }
-    
+
     /**
      * Description : To determine whether the two dates are the same day
+     * 
      * @param date1
      * @param date2
      * @return
@@ -522,13 +523,14 @@ public abstract class DateTimeUtil {
         c1.setTime(date1);
         Calendar c2 = Calendar.getInstance();
         c2.setTime(date2);
-        if (c1.get(Calendar.YEAR) == c2.get(Calendar.YEAR) && c1.get(Calendar.MONTH) == c2.get(Calendar.MONTH) && c1.get(Calendar.DATE) == c2.get(Calendar.DATE)) {
+        if (c1.get(Calendar.YEAR) == c2.get(Calendar.YEAR) && c1.get(Calendar.MONTH) == c2.get(Calendar.MONTH)
+                && c1.get(Calendar.DATE) == c2.get(Calendar.DATE)) {
             return true;
         } else {
             return false;
         }
     }
-    
+
     /**
      * Description: Get the current time
      *

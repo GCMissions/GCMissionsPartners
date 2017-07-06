@@ -6,17 +6,17 @@ import java.util.List;
 import com.hengtiansoft.church.entity.CountryEntity;
 
 public class RegionDetailDto implements Serializable {
-    
+
     private static final long serialVersionUID = 1L;
-    
+
     private Long id;
 
     private String regionName;
-    
+
     private String color;
-    
+
     private List<CountryEntity> haveCountryList;
-    
+
     private List<CountryEntity> notHaveCountryList;
 
     public Long getId() {

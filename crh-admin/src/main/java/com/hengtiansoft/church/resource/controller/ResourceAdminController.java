@@ -18,7 +18,7 @@ import com.hengtiansoft.common.dto.ResultDto;
 @RequestMapping(value = "/resource")
 @Controller
 public class ResourceAdminController {
-    
+
     @Autowired
     private ResourceAdminService resourceService;
 
@@ -26,20 +26,20 @@ public class ResourceAdminController {
     public String index() {
         return "resource/resource_list";
     }
-    
+
     @RequestMapping(value = "/list", method = RequestMethod.POST)
     @ResponseBody
     public ResourceSearchDto resourceList(@RequestBody ResourceSearchDto dto) {
         resourceService.searchResource(dto);
         return dto;
     }
-    
+
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     @ResponseBody
     public ResultDto<?> deleteResource(Long id) {
         return resourceService.deleteResource(id);
     }
-    
+
     @RequestMapping(value = "/view/{id}", method = RequestMethod.GET)
     public String view(@PathVariable Long id, Model model) {
         if (id != 0L) {
@@ -51,13 +51,13 @@ public class ResourceAdminController {
         }
         return "resource/resource_detail";
     }
-    
+
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     @ResponseBody
     public ResultDto<?> saveResource(@RequestBody ResourceSaveDto dto) {
         return resourceService.saveResource(dto);
     }
-    
+
     @RequestMapping(value = "/sort", method = RequestMethod.POST)
     @ResponseBody
     public ResultDto<?> adjustSort(@RequestBody ResourceSortDto dto) {

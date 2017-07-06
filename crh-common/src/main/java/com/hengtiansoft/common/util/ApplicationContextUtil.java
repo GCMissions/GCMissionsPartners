@@ -15,25 +15,23 @@ public final class ApplicationContextUtil implements ApplicationContextAware {
 
     private static ApplicationContext applicationContext;
 
-    
     /**
-    * Description: get a bean from Spring context by type
-    *
-    * @param clz
-    * @return
-    */
+     * Description: get a bean from Spring context by type
+     *
+     * @param clz
+     * @return
+     */
     public static <T> T getBean(Class<T> clz) {
         return applicationContext.getBean(clz);
     }
 
-    
     /**
-    * Description: get a bean from Spring context by type and qualifier
-    *
-    * @param name
-    * @param clz
-    * @return
-    */
+     * Description: get a bean from Spring context by type and qualifier
+     *
+     * @param name
+     * @param clz
+     * @return
+     */
     public static <T> T getBean(String name, Class<T> clz) {
         return applicationContext.getBean(name, clz);
     }

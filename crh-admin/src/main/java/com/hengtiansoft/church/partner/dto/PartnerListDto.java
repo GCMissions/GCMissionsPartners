@@ -7,13 +7,13 @@ public class PartnerListDto implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private Long id;
-    
+
     private String partnerName;
-    
+
     private String mission;
-    
+
     private String countryName;
-    
+
     private String regionName;
 
     public Long getId() {

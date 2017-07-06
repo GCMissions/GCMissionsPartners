@@ -8,13 +8,13 @@ import org.springframework.data.jpa.repository.Query;
 
 import com.hengtiansoft.church.entity.SRoleFunctionEntity;
 
-public interface SRoleFunctionDao extends  JpaRepository<SRoleFunctionEntity, Long>{
-	
-	@Query("select t from SRoleFunctionEntity t where t.roleId =?1")
-	List<SRoleFunctionEntity> findAll(Long id);
-	
-	@Modifying
-	@Query(value="delete from SRoleFunctionEntity t where t.roleId=?1")
-	void deleteByRoleId(Long roleId);
+public interface SRoleFunctionDao extends JpaRepository<SRoleFunctionEntity, Long> {
+
+    @Query("select t from SRoleFunctionEntity t where t.roleId =?1")
+    List<SRoleFunctionEntity> findAll(Long id);
+
+    @Modifying
+    @Query(value = "delete from SRoleFunctionEntity t where t.roleId=?1")
+    void deleteByRoleId(Long roleId);
 
 }

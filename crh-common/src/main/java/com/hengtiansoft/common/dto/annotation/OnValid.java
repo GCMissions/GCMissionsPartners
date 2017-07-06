@@ -7,8 +7,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Class Name: Validateded 
- * Description: 
+ * Class Name: Validateded Description:
  * 
  * @author taochen
  * 
@@ -29,8 +28,8 @@ public @interface OnValid {
      * ways as well.
      */
     Class<?>[] value() default {};
-    
+
     boolean isDeepCheck() default false;
-    
+
     boolean isParentCheck() default false;
 }

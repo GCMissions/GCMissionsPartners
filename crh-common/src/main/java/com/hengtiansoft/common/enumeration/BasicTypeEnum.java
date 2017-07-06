@@ -11,7 +11,7 @@ public enum BasicTypeEnum {
 
     private Integer key;
 
-    private String  name;
+    private String name;
 
     public Integer getKey() {
         return key;

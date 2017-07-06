@@ -16,8 +16,10 @@ public final class JacksonUtil {
     public static ObjectMapper objectMapper;
 
     /**
-     *Use the generic method to convert the json string to the corresponding JavaBean object. (1) converted to a normal JavaBean: readValue (json, Student.class)
-     *   (2) is converted to a set of List, such as List <Student>, the second parameter is passed Student [] .class then Arrays.asList ();. The method of converting an array obtained for a specific type of List
+     * Use the generic method to convert the json string to the corresponding JavaBean object. (1) converted to a normal
+     * JavaBean: readValue (json, Student.class)      *   (2) is converted to a set of List, such as List <Student>, the
+     * second parameter is passed Student [] .class then Arrays.asList ();. The method of converting an array obtained
+     * for a specific type of List
      * 
      * @param jsonStr
      * @param valueType

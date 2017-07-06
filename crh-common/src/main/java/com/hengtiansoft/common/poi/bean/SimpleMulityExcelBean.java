@@ -5,7 +5,7 @@ import java.util.List;
 
 public class SimpleMulityExcelBean {
 
-    private String                title;
+    private String title;
 
     private List<SimpleExcelBean> beans = new ArrayList<SimpleExcelBean>();
 

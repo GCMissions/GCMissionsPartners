@@ -15,13 +15,14 @@ public class SequenceGenerator {
 
     @Autowired
     private SequenceGeneratorService sequenceGeneratorService;
+
     /**
      * Description: Take the sequence from RAM
      *
      * @param sequenceType
      * @return
      */
-    
+
     public Long take(SequenceType sequenceType) {
         return sequenceGeneratorService.generate(sequenceType.getCode(), 1);
     }

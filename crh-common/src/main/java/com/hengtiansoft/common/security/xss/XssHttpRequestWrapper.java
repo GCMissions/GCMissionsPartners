@@ -15,8 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Class Name: XssHttpRequestWrapper
- * Description: wrap http request for sanitizing XSS attack parameters
+ * Class Name: XssHttpRequestWrapper Description: wrap http request for sanitizing XSS attack parameters
  * 
  * @author taochen
  * 

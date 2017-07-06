@@ -9,12 +9,13 @@ import javax.persistence.Table;
 import org.hibernate.validator.constraints.NotBlank;
 
 import com.hengtiansoft.common.authority.domain.UserInfo;
+
 /**
  * 
-* Class Name: SUserEntity
-* Description:User information table
-* @author taochen
-*
+ * Class Name: SUserEntity Description:User information table
+ * 
+ * @author taochen
+ *
  */
 @Entity
 @Table(name = "USER")
@@ -23,34 +24,34 @@ public class SUserEntity extends UserInfo {
     private static final long serialVersionUID = -2241064570931700134L;
 
     @Column(name = "ORG_ID")
-    private Long              orgId;
+    private Long orgId;
 
     @Column(name = "USER_NAME")
-    private String            userName;
+    private String userName;
 
     @Column(name = "WEB_TOKEN")
-    private String            webToken;
+    private String webToken;
 
     @Column(name = "PHONE")
-    private String            phone;
+    private String phone;
 
     @Column(name = "EMAIL")
-    private String            email;
+    private String email;
 
     @Column(name = "STATUS")
-    private String            status;
-    
+    private String status;
+
     @Column(name = "PWD_ERROR_TIMES")
-    private Integer            pwdErrorTimes;
+    private Integer pwdErrorTimes;
 
     @Column(name = "REMARK")
-    private String            remark;
+    private String remark;
 
     @Column(name = "CREATE_DATE")
-    private Date              createDate;
+    private Date createDate;
 
     @Column(name = "CREATE_ID")
-    private Long              createId;
+    private Long createId;
 
     public String getWebToken() {
         return webToken;

@@ -12,8 +12,7 @@ import sun.misc.BASE64Decoder;
 import com.hengtiansoft.common.util.web.WebUtil;
 
 /**
- * Class Name: ZCUtil 
- * Description: zhongce Project tool class
+ * Class Name: ZCUtil Description: zhongce Project tool class
  * 
  * @author taochen
  *
@@ -113,7 +112,7 @@ public class BizUtil {
     }
 
     /**
-     * Description: Converts a json string  to an object
+     * Description: Converts a json string to an object
      *
      * @param content
      * @param valueType

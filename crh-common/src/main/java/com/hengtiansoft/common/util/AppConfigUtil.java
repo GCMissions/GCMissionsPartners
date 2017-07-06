@@ -7,16 +7,15 @@ import java.util.Locale;
 import org.springframework.context.MessageSource;
 
 /**
- * Class Name: AppConfigUtil
- * Description: Gets the global configuration of the application
+ * Class Name: AppConfigUtil Description: Gets the global configuration of the application
  * 
  * @author taochen
  * 
  */
 public final class AppConfigUtil {
 
-    private static final String  ENVIRONMENT = "env";
-    
+    private static final String ENVIRONMENT = "env";
+
     private static final String APPNAME = "app_name";
 
     private static MessageSource messageSource;
@@ -26,9 +25,9 @@ public final class AppConfigUtil {
     }
 
     public static String getAppName() {
-        return  getConfig(APPNAME);
+        return getConfig(APPNAME);
     }
-    
+
     /**
      * Whether current profile is for PROD environment.
      * 

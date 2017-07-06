@@ -13,13 +13,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
-* Class Name: ModularRealmAuthenticator
-* Description: Rewrite ModularRealmAuthenticator to short circuit mode.
-* If the authentication method is FirstSuccessfulStrategy,
-* Is directly returned to the first validation is successful, no longer continue to verify the back of the
-* @author jialiangli
-*
-*/
+ * Class Name: ModularRealmAuthenticator Description: Rewrite ModularRealmAuthenticator to short circuit mode. If the
+ * authentication method is FirstSuccessfulStrategy, Is directly returned to the first validation is successful, no
+ * longer continue to verify the back of the
+ * 
+ * @author taochen
+ *
+ */
 public class MyModularRealmAuthenticator extends ModularRealmAuthenticator {
     private static final Logger log = LoggerFactory.getLogger(MyModularRealmAuthenticator.class);
 
@@ -49,15 +49,18 @@ public class MyModularRealmAuthenticator extends ModularRealmAuthenticator {
                 } catch (Throwable throwable) {
                     t = throwable;
                     if (log.isDebugEnabled()) {
-                        String msg = "Realm [" + realm + "] threw an exception during a multi-realm authentication attempt:";
+                        String msg = "Realm [" + realm
+                                + "] threw an exception during a multi-realm authentication attempt:";
                         log.debug(msg, t);
                     }
                 }
 
                 aggregate = strategy.afterAttempt(realm, token, info, aggregate, t);
 
-                //If the authentication method is FirstSuccessfulStrategy, then return directly to the first verification is successful, no longer continue to verify the back
-                if (strategy.getClass() == FirstSuccessfulStrategy.class && aggregate != null && !CollectionUtils.isEmpty(aggregate.getPrincipals())) {
+                // If the authentication method is FirstSuccessfulStrategy, then return directly to the first
+                // verification is successful, no longer continue to verify the back
+                if (strategy.getClass() == FirstSuccessfulStrategy.class && aggregate != null
+                        && !CollectionUtils.isEmpty(aggregate.getPrincipals())) {
                     return aggregate;
                 }
 

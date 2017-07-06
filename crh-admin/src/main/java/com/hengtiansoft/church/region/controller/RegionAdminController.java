@@ -20,25 +20,25 @@ public class RegionAdminController {
 
     @Autowired
     private RegionAdminService regionService;
-    
+
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index() {
         return "region/region_list";
     }
-    
+
     @RequestMapping(value = "/list", method = RequestMethod.POST)
     @ResponseBody
     public RegionSearchDto list(@RequestBody RegionSearchDto dto) {
         regionService.searchRegion(dto);
         return dto;
     }
-    
+
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     @ResponseBody
     public ResultDto<?> deleteRegion(Long id) {
         return regionService.deleteRegion(id);
     }
-    
+
     @RequestMapping(value = "/view/{id}", method = RequestMethod.GET)
     public String view(@PathVariable Long id, Model model) {
         if (id == 0L) {
@@ -50,7 +50,7 @@ public class RegionAdminController {
         }
         return "region/region_detail";
     }
-    
+
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     @ResponseBody
     public ResultDto<?> saveResource(@RequestBody RegionSaveDto dto) {

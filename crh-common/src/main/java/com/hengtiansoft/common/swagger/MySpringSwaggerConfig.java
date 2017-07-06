@@ -31,9 +31,7 @@ public class MySpringSwaggerConfig extends SpringSwaggerConfig {
     }
 
     /**
-     * Chain programming 
-     * Used to customize the API style 
-     * will be added after the grouping information
+     * Chain programming Used to customize the API style will be added after the grouping information
      *
      * @return
      */

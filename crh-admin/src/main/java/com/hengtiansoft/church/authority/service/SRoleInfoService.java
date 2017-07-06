@@ -17,7 +17,7 @@ import com.hengtiansoft.common.dto.ResultDto;
 public interface SRoleInfoService {
     /**
      * 
-    * Description: RESEARCH
+    * Description: SEARCH
     *
     * @param dto
      */

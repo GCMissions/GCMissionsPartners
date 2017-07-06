@@ -9,8 +9,7 @@ import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 
 /**
- * Class Name: CustomMoneySerializer 
- * Description: Currency conversion
+ * Class Name: CustomMoneySerializer Description: Currency conversion
  * 
  * @author taochen
  *

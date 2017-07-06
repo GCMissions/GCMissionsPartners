@@ -3,37 +3,34 @@ package com.hengtiansoft.church.authority.dto;
 import java.io.Serializable;
 
 /**
- * Class Name: SUserDto
- * Description: account information DTO
+ * Class Name: SUserDto Description: account information DTO
  * 
  * @author tao chen
  */
 public class SUserDto implements Serializable {
 
     /**
-    * Variables Name: serialVersionUID
-    * Description: 
-    * Value Description: 
-    */
+     * Variables Name: serialVersionUID Description: Value Description:
+     */
     private static final long serialVersionUID = -8500343522458962523L;
 
-    private Long              id;
+    private Long id;
 
-    private String            loginId;
+    private String loginId;
 
-    private String            orgId;
+    private String orgId;
 
-    private String            userName;
+    private String userName;
 
-    private String            phone;
-    
-    private String            email;
+    private String phone;
 
-    private String            status;
+    private String email;
 
-    private String            createTime;
-    
-    private String            role;
+    private String status;
+
+    private String createTime;
+
+    private String role;
 
     public Long getId() {
         return id;

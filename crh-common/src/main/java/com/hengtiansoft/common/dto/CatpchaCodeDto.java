@@ -1,10 +1,10 @@
 package com.hengtiansoft.common.dto;
 
 public class CatpchaCodeDto {
-	
-	private String loginId;
-	
-	private String code;
+
+    private String loginId;
+
+    private String code;
 
     public String getLoginId() {
         return loginId;
@@ -21,7 +21,5 @@ public class CatpchaCodeDto {
     public void setCode(String code) {
         this.code = code;
     }
-	
-	
 
 }

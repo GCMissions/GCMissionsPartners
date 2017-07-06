@@ -33,22 +33,22 @@ import com.hengtiansoft.standard.FileOperator;
 @Controller
 @RequestMapping("main")
 public class IndexController implements ServletContextAware {
-    private static Logger LOGGER  = LoggerFactory.getLogger(IndexController.class);
+    private static Logger LOGGER = LoggerFactory.getLogger(IndexController.class);
 
     @Value("${ftp.server.base}")
-    private String              imgPath;
+    private String imgPath;
 
     @Autowired
-    private SUserService        sUserService;
+    private SUserService sUserService;
 
     @Autowired
     private FileOperator fileOperator;
-    
+
     /** servletContext */
-    private ServletContext      servletContext;
-    
+    private ServletContext servletContext;
+
     @Autowired
-    private SBasicParaDao       basicParaDao;
+    private SBasicParaDao basicParaDao;
 
     public void setServletContext(ServletContext servletContext) {
         this.servletContext = servletContext;
@@ -77,35 +77,36 @@ public class IndexController implements ServletContextAware {
 
     /**
      * 
-    * Description: Single picture oss upload
-    *
-    * @param file
-    * @param source
-    * @return
-    * @author taochen
+     * Description: Single picture oss upload
+     *
+     * @param file
+     * @param source
+     * @return
+     * @author taochen
      */
     @RequestMapping(value = "/ossAddImage/{source}", method = RequestMethod.POST)
     @ResponseBody
-    public ResultDto<FtpImageUploadDto> ossAddImage(@RequestBody MultipartFile file, @PathVariable("source") String source) {
+    public ResultDto<FtpImageUploadDto> ossAddImage(@RequestBody MultipartFile file,
+            @PathVariable("source") String source) {
         String fileName = "";
         try {
             String suffix = StringUtils.substringAfterLast(file.getOriginalFilename(), ".");
-            fileName = UUID.randomUUID().toString()+"."+suffix;
-            if(FtpUtil.open()){
+            fileName = UUID.randomUUID().toString() + "." + suffix;
+            if (FtpUtil.open()) {
                 FtpUtil.upload(file.getInputStream(), fileName, imgPath);
-            }else{
-                return ResultDtoFactory.toNack("get connection fail!");   
+            } else {
+                return ResultDtoFactory.toNack("get connection fail!");
             }
         } catch (Exception e) {
             LOGGER.error("upload failed!{}", e);
-        } 
-        String key = imgPath+"/"+fileName;
+        }
+        String key = imgPath + "/" + fileName;
         FtpImageUploadDto dto = new FtpImageUploadDto();
         if (StringUtils.isNotBlank(key)) {
             dto.setKey(key);
             dto.setUrl(FtpUtil.getUrl(key));
             return ResultDtoFactory.toAck("", dto);
-        } 
+        }
         return ResultDtoFactory.toNack("upload failed!");
     }
 }

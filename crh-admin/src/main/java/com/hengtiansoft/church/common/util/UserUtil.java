@@ -4,8 +4,8 @@ import com.hengtiansoft.church.entity.SUserEntity;
 import com.hengtiansoft.common.authority.AuthorityContext;
 
 /**
- * Class Name: UserUtil
- * Description:
+ * Class Name: UserUtil Description:
+ * 
  * @author taochen
  */
 public class UserUtil {

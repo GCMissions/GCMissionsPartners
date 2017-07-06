@@ -9,16 +9,16 @@ package com.hengtiansoft.common.util;
 public final class CommonAttributes {
 
     /** Date format */
-    public static final String[] DATE_PATTERNS = new String[] { "yyyy", "yyyy-MM", "yyyyMM", "yyyy/MM", "yyyy-MM-dd", "yyyyMMdd", "yyyy/MM/dd",
-            "yyyy-MM-dd HH:mm:ss", "yyyyMMddHHmmss", "yyyy/MM/dd HH:mm:ss" };
+    public static final String[] DATE_PATTERNS = new String[] { "yyyy", "yyyy-MM", "yyyyMM", "yyyy/MM", "yyyy-MM-dd",
+            "yyyyMMdd", "yyyy/MM/dd", "yyyy-MM-dd HH:mm:ss", "yyyyMMddHHmmss", "yyyy/MM/dd HH:mm:ss" };
 
-    private static String        xylXmlPath    = "/wrw.xml";
-
+    private static String xylXmlPath = "/wrw.xml";
 
     /**
      * Can not be instantiated
      */
-    private CommonAttributes() {}
+    private CommonAttributes() {
+    }
 
     /**
      * @return the xylXmlPath

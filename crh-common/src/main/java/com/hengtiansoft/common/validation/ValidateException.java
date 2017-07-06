@@ -50,7 +50,7 @@ public class ValidateException extends RuntimeException {
 
     /**
      * 
-     * Description: 
+     * Description:
      * 
      * @param bindingResult
      * @return
@@ -61,7 +61,7 @@ public class ValidateException extends RuntimeException {
 
     /**
      * 
-     * Description: 
+     * Description:
      * 
      * @return
      */
@@ -78,7 +78,7 @@ public class ValidateException extends RuntimeException {
 
     /**
      * 
-     * Description: 
+     * Description:
      * 
      * @param bindingResult
      * @return
@@ -89,7 +89,7 @@ public class ValidateException extends RuntimeException {
 
     /**
      * 
-     * Description: 
+     * Description:
      * 
      * @return
      */
@@ -107,7 +107,7 @@ public class ValidateException extends RuntimeException {
 
     /**
      * 
-     * Description: 
+     * Description:
      * 
      * @param bindingResult
      * @return
@@ -118,7 +118,7 @@ public class ValidateException extends RuntimeException {
 
     /**
      * 
-     * Description: 
+     * Description:
      * 
      * @return
      */

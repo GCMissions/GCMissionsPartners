@@ -26,26 +26,27 @@ import com.hengtiansoft.common.util.HttpUtil;
  */
 public class BaiduApiUtil {
 
-    private static final Logger LOGGER                          = LoggerFactory.getLogger(BaiduApiUtil.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(BaiduApiUtil.class);
 
-    private static final String BAIDU_NEARBY_URL                = "http://api.map.baidu.com/geosearch/v3/nearby?";
+    private static final String BAIDU_NEARBY_URL = "http://api.map.baidu.com/geosearch/v3/nearby?";
 
-    private static final String BAIDU_POI_UPATE                 = "http://api.map.baidu.com/geodata/v3/poi/update";
+    private static final String BAIDU_POI_UPATE = "http://api.map.baidu.com/geodata/v3/poi/update";
 
-    private static final String BAIDU_POI_CREATE                = "http://api.map.baidu.com/geodata/v3/poi/create";
+    private static final String BAIDU_POI_CREATE = "http://api.map.baidu.com/geodata/v3/poi/create";
 
-    private static final String BAIDU_POI_STORE_USER_QUERY      = "http://api.map.baidu.com/geosearch/v3/detail";  // http://api.map.baidu.com/geosearch/v3/detail/{uid}
-                                                                                                                    // GET  Request
+    private static final String BAIDU_POI_STORE_USER_QUERY = "http://api.map.baidu.com/geosearch/v3/detail"; // http://api.map.baidu.com/geosearch/v3/detail/{uid}
+                                                                                                             // GET
+                                                                                                             // Request
 
-    private static final String BAIDU_GEOCODER_URL              = "http://api.map.baidu.com/geocoder/v2/?";
+    private static final String BAIDU_GEOCODER_URL = "http://api.map.baidu.com/geocoder/v2/?";
 
-    private static final String ENABLE_STORE                    = "enable:1";
+    private static final String ENABLE_STORE = "enable:1";
 
-    private static final String NORMAL_STATUS_CODE              = "0";
+    private static final String NORMAL_STATUS_CODE = "0";
 
-    private static final String BAIDU_LBS_AK                    = "baidu.lbs.ak";
+    private static final String BAIDU_LBS_AK = "baidu.lbs.ak";
 
-    private static final String BAIDU_LBS_STORE_GEOTABLE_ID     = "baidu.lbs.store.geotable_id";
+    private static final String BAIDU_LBS_STORE_GEOTABLE_ID = "baidu.lbs.store.geotable_id";
 
     private static final String BAIDU_LBS_STOREUSER_GEOTABLE_ID = "baidu.lbs.storeuser.geotable_id";
 
@@ -59,7 +60,8 @@ public class BaiduApiUtil {
      * @param locationInfoBean
      * @return
      */
-    public static LocationInfoBean getNearbyStoreByDistance(String localtion, Integer radius, String brand, Integer pageIndex, Integer pageSize) {
+    public static LocationInfoBean getNearbyStoreByDistance(String localtion, Integer radius, String brand,
+            Integer pageIndex, Integer pageSize) {
         return getNearbyStore(localtion, radius, brand, "distance:1", pageIndex, pageSize);
     }
 
@@ -73,7 +75,8 @@ public class BaiduApiUtil {
      * @param pageSize
      * @return
      */
-    public static LocationInfoBean getNearbyStoreByRate(String localtion, Integer radius, String brand, Integer pageIndex, Integer pageSize) {
+    public static LocationInfoBean getNearbyStoreByRate(String localtion, Integer radius, String brand,
+            Integer pageIndex, Integer pageSize) {
         return getNearbyStore(localtion, radius, brand, "rate:-1", pageIndex, pageSize);
     }
 
@@ -88,7 +91,8 @@ public class BaiduApiUtil {
      * @param pageSize
      * @return
      */
-    public static LocationInfoBean getNearbyStore(String localtion, Integer radius, String brand, String sortby, Integer pageIndex, Integer pageSize) {
+    public static LocationInfoBean getNearbyStore(String localtion, Integer radius, String brand, String sortby,
+            Integer pageIndex, Integer pageSize) {
         StringBuilder url = new StringBuilder(BAIDU_NEARBY_URL);
         url.append("ak=").append(AppConfigUtil.getConfig(BAIDU_LBS_AK));
         url.append("&geotable_id=").append(AppConfigUtil.getConfig(BAIDU_LBS_STORE_GEOTABLE_ID));
@@ -138,11 +142,11 @@ public class BaiduApiUtil {
     }
 
     /**
-    * Description: Upload location information
-    *
-    * @param params
-    * @return
-    */
+     * Description: Upload location information
+     *
+     * @param params
+     * @return
+     */
     public static BaiduResultBean createPoi(String params) {
         String content = HttpUtil.doPost(BAIDU_POI_CREATE, ApplicationConstant.FORM_CONTENT_TYPE, params);
         BaiduResultBean resultBean = BizUtil.parseStringToObj(content, BaiduResultBean.class);
@@ -155,11 +159,11 @@ public class BaiduApiUtil {
     }
 
     /**
-    * Description: Modify the location information
-    *
-    * @param params
-    * @return
-    */
+     * Description: Modify the location information
+     *
+     * @param params
+     * @return
+     */
     public static BaiduResultBean updatePoi(String params) {
         String content = HttpUtil.doPost(BAIDU_POI_UPATE, ApplicationConstant.FORM_CONTENT_TYPE, params);
         BaiduResultBean resultBean = BizUtil.parseStringToObj(content, BaiduResultBean.class);
@@ -172,10 +176,10 @@ public class BaiduApiUtil {
     }
 
     /**
-    * Description: Upload store information
-    *
-    * @return
-    */
+     * Description: Upload store information
+     *
+     * @return
+     */
     public static BaiduResultBean createStorePoi(StoreLocationDetailBean storeLocationDetailBean) {
         StringBuilder params = new StringBuilder("ak=").append(AppConfigUtil.getConfig(BAIDU_LBS_AK));
         params.append("&geotable_id=").append(AppConfigUtil.getConfig(BAIDU_LBS_STORE_GEOTABLE_ID));
@@ -211,11 +215,11 @@ public class BaiduApiUtil {
     }
 
     /**
-    * Description: Modify store information
-    *
-    * @param storeLocationDetailBean
-    * @return
-    */
+     * Description: Modify store information
+     *
+     * @param storeLocationDetailBean
+     * @return
+     */
     public static BaiduResultBean updateStorePoi(StoreLocationDetailBean storeLocationDetailBean) {
         StringBuilder params = new StringBuilder("ak=").append(AppConfigUtil.getConfig(BAIDU_LBS_AK));
         params.append("&geotable_id=").append(AppConfigUtil.getConfig(BAIDU_LBS_STORE_GEOTABLE_ID));
@@ -281,11 +285,11 @@ public class BaiduApiUtil {
     }
 
     /**
-    * Description: According to the address obtained latitude and longitude
-    *
-    * @param address
-    * @return
-    */
+     * Description: According to the address obtained latitude and longitude
+     *
+     * @param address
+     * @return
+     */
     @SuppressWarnings("unchecked")
     public static String[] getLocationByAddress(String address) {
         if (!BizUtil.isEmpty(address)) {
@@ -301,11 +305,11 @@ public class BaiduApiUtil {
                     Map<String, String> map = (Map<String, String>) result.get("location");
                     return new String[] { String.valueOf(map.get("lng")), String.valueOf(map.get("lat")) };
                 } else {
-                    LOGGER.error("Baidu gets address error, error code："+ geocoderBean.getStatus());
+                    LOGGER.error("Baidu gets address error, error code：" + geocoderBean.getStatus());
                 }
             } catch (UnsupportedEncodingException e) {
                 LOGGER.error("Baidu gets the address coordinate code conversion error, address：{}", address);
-                
+
             }
         }
         return null;

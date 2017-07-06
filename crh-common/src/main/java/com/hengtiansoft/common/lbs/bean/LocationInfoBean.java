@@ -5,11 +5,11 @@ import java.util.List;
 
 public class LocationInfoBean {
 
-    private String                        status;
+    private String status;
 
-    private Integer                       size;
+    private Integer size;
 
-    private Integer                       total;
+    private Integer total;
 
     private List<StoreLocationDetailBean> contents = new ArrayList<StoreLocationDetailBean>();
 

@@ -9,7 +9,7 @@ public class CountryDto implements Serializable {
 
     // country Name
     private String name;
-    
+
     // country Partners
     private List<PartnerDto> item;
 

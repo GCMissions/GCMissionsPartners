@@ -1,4 +1,3 @@
-
 package com.hengtiansoft.common.util.pay;
 
 import java.io.ByteArrayInputStream;
@@ -16,7 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class RSA {
-    private static final Logger log= LoggerFactory.getLogger(RSA.class);
+    private static final Logger log = LoggerFactory.getLogger(RSA.class);
     public static final String SIGN_ALGORITHMS = "SHA1WithRSA";
 
     /**
@@ -45,7 +44,7 @@ public class RSA {
 
             return Base64.encode(signed);
         } catch (Exception e) {
-            log.error("msg",e);
+            log.error("msg", e);
         }
 
         return null;
@@ -59,7 +58,7 @@ public class RSA {
      * @param sign
      *            sign value
      * @param ali_public_key
-     *            alipay public key 
+     *            alipay public key
      * @param input_charset
      *            Encoding format
      * @return boolean value
@@ -78,7 +77,7 @@ public class RSA {
             return signature.verify(Base64.decode(sign));
 
         } catch (Exception e) {
-            log.error("msg",e);
+            log.error("msg", e);
         }
 
         return false;

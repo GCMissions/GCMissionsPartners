@@ -18,22 +18,22 @@ public class SequenceEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "SEQUENCE_NAME")
-    private String            sequenceName;
+    private String sequenceName;
 
     @Column(name = "LAST_NUMBER")
-    private Long              lastNumber;
+    private Long lastNumber;
 
     @Column(name = "MIN_VALUE")
-    private Long              minValue;
+    private Long minValue;
 
     @Column(name = "MAX_VALUE")
-    private Long              maxValue;
+    private Long maxValue;
 
     @Column(name = "CACHE_SIZE")
-    private Long              cacheSize;
+    private Long cacheSize;
 
     @Column(name = "CYCLE_FLAG")
-    private Boolean           cycleFlag;
+    private Boolean cycleFlag;
 
     public String getSequenceName() {
         return sequenceName;

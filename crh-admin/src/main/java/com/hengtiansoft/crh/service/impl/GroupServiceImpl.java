@@ -29,7 +29,7 @@ public class GroupServiceImpl implements GroupService {
     private RegionDao regionDao;
     @Autowired
     private CountryDao countryDao;
-    
+
     @Override
     public ResultDto<List<RegionDto>> getAllGroups() {
         List<RegionEntity> regionList = regionDao.findByDelFlagAndSort(StatusEnum.NORMAL.getCode());
@@ -43,7 +43,8 @@ public class GroupServiceImpl implements GroupService {
             List<CountryDto> countryDtoList = new ArrayList<CountryDto>();
             for (CountryEntity country : countryList) {
                 CountryDto cDto = new CountryDto();
-                List<PartnersEntity> partnerList = partnerDao.getAllPartnersByRegionIdAndCountryId(region.getId(), country.getId());
+                List<PartnersEntity> partnerList = partnerDao.getAllPartnersByRegionIdAndCountryId(region.getId(),
+                        country.getId());
                 if (partnerList.isEmpty()) {
                     continue;
                 } else {

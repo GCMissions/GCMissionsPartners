@@ -5,116 +5,112 @@ import java.util.List;
 
 /**
  * 
-* Class Name: SUserSaveAndUpdateDto
-* Description: ACCOUNT ADD OR EDITDTO
-*
-* @author tao chen
+ * Class Name: SUserSaveAndUpdateDto Description: User add or update 
+ *
+ * @author tao chen
  */
-public class SUserSaveAndUpdateDto implements Serializable{
+public class SUserSaveAndUpdateDto implements Serializable {
 
-	private static final long serialVersionUID = 3331612490216121385L;
-	
-	private Long id;
-	
-	private String userName;
-	
-	private String loginId;
-	
-	private Long orgId;
-	
-	private String phone;
-	
-	private String password;
-	
-	private String status;
-	
-	private List<Long> roleIds;
-	
-	private String remark;
-	
-	private String email;
+    private static final long serialVersionUID = 3331612490216121385L;
 
-	public Long getId() {
-		return id;
-	}
+    private Long id;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    private String userName;
 
-	public String getUserName() {
-		return userName;
-	}
+    private String loginId;
 
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
+    private Long orgId;
 
-	public String getLoginId() {
-		return loginId;
-	}
+    private String phone;
 
-	public void setLoginId(String loginId) {
-		this.loginId = loginId;
-	}
+    private String password;
 
-	public Long getOrgId() {
-		return orgId;
-	}
+    private String status;
 
-	public void setOrgId(Long orgId) {
-		this.orgId = orgId;
-	}
+    private List<Long> roleIds;
 
-	public String getPhone() {
-		return phone;
-	}
+    private String remark;
 
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
+    private String email;
 
-	public String getPassword() {
-		return password;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public String getStatus() {
-		return status;
-	}
+    public String getUserName() {
+        return userName;
+    }
 
-	public void setStatus(String status) {
-		this.status = status;
-	}
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
-	public List<Long> getRoleIds() {
-		return roleIds;
-	}
+    public String getLoginId() {
+        return loginId;
+    }
 
-	public void setRoleIds(List<Long> roleIds) {
-		this.roleIds = roleIds;
-	}
+    public void setLoginId(String loginId) {
+        this.loginId = loginId;
+    }
 
-	public String getRemark() {
-		return remark;
-	}
+    public Long getOrgId() {
+        return orgId;
+    }
 
-	public void setRemark(String remark) {
-		this.remark = remark;
-	}
+    public void setOrgId(Long orgId) {
+        this.orgId = orgId;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public String getPhone() {
+        return phone;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	
-	
-	
-	
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public List<Long> getRoleIds() {
+        return roleIds;
+    }
+
+    public void setRoleIds(List<Long> roleIds) {
+        this.roleIds = roleIds;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
 }

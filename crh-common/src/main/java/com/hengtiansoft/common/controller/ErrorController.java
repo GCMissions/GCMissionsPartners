@@ -14,8 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.google.common.base.Throwables;
 
 /**
- * ClassName:ErrorController 
- * Description:
+ * ClassName:ErrorController Description:
  * 
  * @author taochen
  */

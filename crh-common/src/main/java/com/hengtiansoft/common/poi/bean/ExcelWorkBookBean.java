@@ -5,16 +5,16 @@ import java.util.List;
 
 public class ExcelWorkBookBean {
     // file Name
-    private String               fileName;
+    private String fileName;
 
     // sheet count
-    private int                  sheetCount = 1;
+    private int sheetCount = 1;
 
-    // sheet  collection
+    // sheet collection
     private List<ExcelSheetBean> sheetBeans = new ArrayList<>();
 
     // template name
-    private String               templateName;
+    private String templateName;
 
     public String getFileName() {
         return fileName;

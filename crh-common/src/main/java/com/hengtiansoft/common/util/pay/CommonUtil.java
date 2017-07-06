@@ -8,9 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 
 public class CommonUtil {
 
-   /**
-    * Discription：Get the IP address
-    */
+    /**
+     * Discription：Get the IP address
+     */
     public static String getIpAddr(HttpServletRequest request) {
         String ip = request.getHeader("x-forwarded-for");
         if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
@@ -24,28 +24,28 @@ public class CommonUtil {
         }
         return ip;
     }
-    
+
     /**
      * Description: Gets the parameter Map in HttpRequest
      *
-     * @param request 
+     * @param request
      * @return
      */
-    @SuppressWarnings({"unchecked" })
+    @SuppressWarnings({ "unchecked" })
     public static Map<String, String> getRequestMap(HttpServletRequest request) {
         Map<String, String> params = new HashMap<String, String>();
         Map<Object, Object> requestParams = request.getParameterMap();
         for (Entry<Object, Object> entry : requestParams.entrySet()) {
             String name = (String) entry.getKey();
             String[] values = (String[]) entry.getValue();
-           
+
             String valueStr = "";
             for (int i = 0; i < values.length; i++) {
                 valueStr = (i == values.length - 1) ? valueStr + values[i] : valueStr + values[i] + ",";
             }
             params.put(name, valueStr);
         }
-        
+
         return params;
     }
 }

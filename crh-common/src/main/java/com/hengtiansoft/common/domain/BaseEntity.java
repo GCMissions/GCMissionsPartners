@@ -7,8 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
 /**
- * Class Name: BaseEntity
- * Description: basic Entity
+ * Class Name: BaseEntity Description: basic Entity
  * 
  * @author taochen
  */
@@ -18,16 +17,16 @@ public class BaseEntity implements Serializable {
     private static final long serialVersionUID = -708401431169678136L;
 
     @Column(name = "CREATE_DATE", insertable = false, updatable = false)
-    private Date              createDate;
+    private Date createDate;
 
     @Column(name = "CREATE_ID", nullable = false)
-    private Long              createId;
+    private Long createId;
 
     @Column(name = "MODIFY_DATE", insertable = false)
-    private Date              modifyDate;
+    private Date modifyDate;
 
     @Column(name = "MODIFY_ID", insertable = false)
-    private Long              modifyId;
+    private Long modifyId;
 
     public Date getCreateDate() {
         return createDate;

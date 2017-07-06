@@ -1,8 +1,7 @@
 package com.hengtiansoft.common.enumeration;
 
 /**
- * Class Name: BaseEnum 
- * Description: 
+ * Class Name: BaseEnum Description:
  * 
  * @author taochen
  * 
@@ -10,44 +9,39 @@ package com.hengtiansoft.common.enumeration;
 
 public interface PageEnum {
 
-    
     /**
-    * Description: get the text for display
-    *
-    * @return
-    */
+     * Description: get the text for display
+     *
+     * @return
+     */
     String getText();
 
-    
     /**
-    * Description: set the text for display
-    *
-    * @param text
-    */
+     * Description: set the text for display
+     *
+     * @param text
+     */
     void setText(String text);
 
-    
     /**
-    * Description: get the code of the enum
-    *
-    * @return
-    */
+     * Description: get the code of the enum
+     *
+     * @return
+     */
     String getCode();
 
-    
     /**
-    * Description: set the code of the enum
-    *
-    * @param code
-    */
+     * Description: set the code of the enum
+     *
+     * @param code
+     */
     void setCode(String code);
 
-    
     /**
-    * Description: set the name of the enum
-    *
-    * @return
-    */
+     * Description: set the name of the enum
+     *
+     * @return
+     */
     String name();
 
 }

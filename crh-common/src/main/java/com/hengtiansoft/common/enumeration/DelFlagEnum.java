@@ -1,21 +1,20 @@
-
 package com.hengtiansoft.common.enumeration;
 
 /**
  * 
-* Class Name: DelFlagEnum
-* Description: Whether the enumeration has been deleted
-* @author taochen
-*
+ * Class Name: DelFlagEnum Description: Whether the enumeration has been deleted
+ * 
+ * @author taochen
+ *
  */
 public enum DelFlagEnum {
-    DEL("0","DELETED"),UN_DEL("1","NOT DELETED");
+    DEL("0", "DELETED"), UN_DEL("1", "NOT DELETED");
     private String code;
     private String text;
-    
-    private DelFlagEnum(String code,String text){
-        this.code=code;
-        this.text=text;
+
+    private DelFlagEnum(String code, String text) {
+        this.code = code;
+        this.text = text;
     }
 
     public String getCode() {
@@ -33,10 +32,10 @@ public enum DelFlagEnum {
     public void setText(String text) {
         this.text = text;
     }
-    
-    public static String getText(String code){
-        for(DelFlagEnum delFlagEnum :DelFlagEnum.values()){
-            if(delFlagEnum.getCode().equals(code)){
+
+    public static String getText(String code) {
+        for (DelFlagEnum delFlagEnum : DelFlagEnum.values()) {
+            if (delFlagEnum.getCode().equals(code)) {
                 return delFlagEnum.getText();
             }
         }

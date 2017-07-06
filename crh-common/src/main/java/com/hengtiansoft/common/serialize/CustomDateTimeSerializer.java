@@ -10,8 +10,7 @@ import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 
 /**
- * Class Name: CustomDateTimeSerializer 
- * Description: Custom Returns the date formatting process in JSON data
+ * Class Name: CustomDateTimeSerializer Description: Custom Returns the date formatting process in JSON data
  * 
  * @author taochen
  *

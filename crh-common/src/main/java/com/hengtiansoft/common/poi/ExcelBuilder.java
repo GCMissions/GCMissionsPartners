@@ -18,17 +18,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
-* Class Name: ExcelBuilder
-* Description: excel
-* @author taochen
-*
-*/
+ * Class Name: ExcelBuilder Description: excel
+ * 
+ * @author taochen
+ *
+ */
 public class ExcelBuilder {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ExcelBuilder.class);
 
-    private HSSFWorkbook        wb     = null;
-    private HSSFSheet           sheet  = null;
+    private HSSFWorkbook wb = null;
+    private HSSFSheet sheet = null;
 
     /**
      * Constructor method--Initialize the table
@@ -73,14 +73,20 @@ public class ExcelBuilder {
     }
 
     public void build() {
-        if (null != this.sheet.getRow(0) && null != this.sheet.getRow(1) && this.sheet.getRow(0).getLastCellNum() < this.sheet.getRow(1).getLastCellNum()) {
-            final CellRangeAddress range = new CellRangeAddress(0, 0, 0, this.sheet.getRow(1).getLastCellNum() - 1);// Merge the title cell
+        if (null != this.sheet.getRow(0) && null != this.sheet.getRow(1)
+                && this.sheet.getRow(0).getLastCellNum() < this.sheet.getRow(1).getLastCellNum()) {
+            final CellRangeAddress range = new CellRangeAddress(0, 0, 0, this.sheet.getRow(1).getLastCellNum() - 1);// Merge
+                                                                                                                    // the
+                                                                                                                    // title
+                                                                                                                    // cell
             this.sheet.addMergedRegion(range);
             for (int i = 0; i < this.sheet.getRow(1).getLastCellNum(); i++) {// Automatically adjust the column width
                 this.sheet.autoSizeColumn(i);
             }
         } else {
-            for (int i = 0; i < this.sheet.getRow(this.sheet.getFirstRowNum()).getLastCellNum(); i++) {// Automatically adjust the column width
+            for (int i = 0; i < this.sheet.getRow(this.sheet.getFirstRowNum()).getLastCellNum(); i++) {// Automatically
+                                                                                                       // adjust the
+                                                                                                       // column width
                 this.sheet.autoSizeColumn(i);
             }
         }
@@ -118,6 +124,7 @@ public class ExcelBuilder {
 
     /**
      * Column header setting
+     * 
      * @param colNames
      * @param wb
      * @param sheet
@@ -136,12 +143,14 @@ public class ExcelBuilder {
 
     /**
      * Calculate the current line subscript
+     * 
      * @return
      */
     private int culCurrRowIndex() {
         if (this.sheet.getLastRowNum() == 0) {
-            if (this.sheet.getPhysicalNumberOfRows() == 0) {// If the number of physical rows is 0, 
-                                                            //it means that no row is created and the first row is returned.
+            if (this.sheet.getPhysicalNumberOfRows() == 0) {// If the number of physical rows is 0,
+                                                            // it means that no row is created and the first row is
+                                                            // returned.
                 return 0;
             }
             return 1;
@@ -151,6 +160,7 @@ public class ExcelBuilder {
 
     /**
      * Set the title
+     * 
      * @param title
      * @param colNames
      * @param wb
@@ -167,7 +177,7 @@ public class ExcelBuilder {
         titleCell.setCellValue(title);
     }
 
-    /*Set the font format*/
+    /* Set the font format */
     private HSSFFont getTitleFont(final HSSFWorkbook wb) {
         final HSSFFont fontStyle = wb.createFont();
         fontStyle.setFontName("Times New Roman");

@@ -2,17 +2,15 @@ package com.hengtiansoft.church.common.dto;
 
 import java.io.Serializable;
 
-public class FtpImageUploadDto implements Serializable{
+public class FtpImageUploadDto implements Serializable {
 
     /**
-    * Variables Name: serialVersionUID
-    * Description: 
-    * Value Description: 
-    */
+     * Variables Name: serialVersionUID Description: Value Description:
+     */
     private static final long serialVersionUID = 1L;
-    
+
     private String key;
-    
+
     private String url;
 
     public String getKey() {
@@ -30,6 +28,5 @@ public class FtpImageUploadDto implements Serializable{
     public void setUrl(String url) {
         this.url = url;
     }
-    
-    
+
 }

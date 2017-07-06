@@ -15,13 +15,14 @@ import com.hengtiansoft.common.util.AppConfigUtil;
 import com.hengtiansoft.common.util.MessageUtil;
 
 /**
- * Class Name: ResultDtoFactory Description: 
+ * Class Name: ResultDtoFactory Description:
  * 
  * @author taochen
  */
 public final class ResultDtoFactory {
 
-    private ResultDtoFactory() {};
+    private ResultDtoFactory() {
+    };
 
     public static <T> ResultDto<T> toAck(String msg) {
         return toAck(msg, null);
@@ -50,7 +51,8 @@ public final class ResultDtoFactory {
     }
 
     /**
-     * Description: In the controller layer directly return error message, to avoid using the method in the controller catch exception to do processing
+     * Description: In the controller layer directly return error message, to avoid using the method in the controller
+     * catch exception to do processing
      * 
      * @param msg
      * @return
@@ -60,7 +62,8 @@ public final class ResultDtoFactory {
     }
 
     /**
-     * Description: In the controller layer directly return error message, to avoid using the method in the controller catch exception to do processing
+     * Description: In the controller layer directly return error message, to avoid using the method in the controller
+     * catch exception to do processing
      * 
      * @param error
      * @return
@@ -74,7 +77,8 @@ public final class ResultDtoFactory {
     }
 
     /**
-     * Description: In the controller layer directly return error message, to avoid using the method in the controller catch exception to do processing
+     * Description: In the controller layer directly return error message, to avoid using the method in the controller
+     * catch exception to do processing
      * 
      * @param msg
      * @param data
@@ -117,8 +121,9 @@ public final class ResultDtoFactory {
         dto.setCode(ResultCode.COMMON_ERROR);
         StringBuilder text = new StringBuilder();
         if (StringUtils.isBlank(msg)) {
-            text.append(MessageUtil.getMessage(EErrorCode.COMM_INTERNAL_ERROR.getDisplayMsg())).append("[").append("time：")
-                    .append((new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")).format(new Date())).append("]");
+            text.append(MessageUtil.getMessage(EErrorCode.COMM_INTERNAL_ERROR.getDisplayMsg())).append("[")
+                    .append("time：").append((new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")).format(new Date()))
+                    .append("]");
         } else {
             text.append(msg);
         }

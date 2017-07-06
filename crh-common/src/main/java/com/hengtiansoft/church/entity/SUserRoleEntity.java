@@ -18,13 +18,13 @@ public class SUserRoleEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
-    private Long           id;
+    private Long id;
 
     @Column(name = "ROLE_ID")
-    private Long           roleId;
+    private Long roleId;
 
     @Column(name = "USER_ID")
-    private Long           userId;
+    private Long userId;
 
     public Long getRoleId() {
         return roleId;

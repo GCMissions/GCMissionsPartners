@@ -9,13 +9,13 @@ public class RegisterDto extends RequestDto {
     private String password;
 
     private String vpassword;
-    
+
     private String code;
-    
+
     private String username;
-    
+
     private String name;
-    
+
     private String idCard;
 
     public String getLoginId() {
@@ -73,7 +73,5 @@ public class RegisterDto extends RequestDto {
     public void setIdCard(String idCard) {
         this.idCard = idCard;
     }
-
-
 
 }

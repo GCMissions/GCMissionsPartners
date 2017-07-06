@@ -4,9 +4,9 @@ import com.hengtiansoft.common.util.StringUtil;
 
 /**
  * 
- * Class Name: CommonConstants 
+ * Class Name: CommonConstants
  * 
- * Description: 
+ * Description:
  * 
  * @author taochen
  *

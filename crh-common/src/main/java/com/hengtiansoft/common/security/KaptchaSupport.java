@@ -19,8 +19,7 @@ import com.google.code.kaptcha.util.Config;
 import com.hengtiansoft.common.security.service.KaptchaService;
 
 /**
- * Class Name: KaptchaSupport 
- * Description: 
+ * Class Name: KaptchaSupport Description:
  * 
  * @author taochen
  *

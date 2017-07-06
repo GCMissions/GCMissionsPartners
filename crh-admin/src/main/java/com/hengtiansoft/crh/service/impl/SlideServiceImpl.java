@@ -15,7 +15,7 @@ import com.hengtiansoft.crh.service.SlideService;
 
 @Service
 public class SlideServiceImpl implements SlideService {
-    
+
     @Autowired
     private SlidesDao slidesDao;
 

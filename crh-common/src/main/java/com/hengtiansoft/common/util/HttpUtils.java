@@ -1,6 +1,5 @@
 package com.hengtiansoft.common.util;
 
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URLEncoder;
@@ -46,263 +45,268 @@ import org.springframework.util.Assert;
  * 
  * @author taochen
  * 
- * @date 
+ * @date
  * 
  * @version V1.0
  */
 
 public class HttpUtils {
-    private static final Logger log= LoggerFactory.getLogger(HttpUtils.class);
-	private HttpUtils() {
-	}
+    private static final Logger log = LoggerFactory.getLogger(HttpUtils.class);
 
-	/**
-	 * cancel cookie
-	 * 
-	 * @author mapengwei
-	 * @param request
-	 * @param response
-	 * @param name
-	 * @param domain
-	 */
-	public static void cancleCookie(HttpServletRequest request, HttpServletResponse response, String name, String domain) {
-		Cookie cookie = new Cookie(name, "");
-		cookie.setMaxAge(0);
-		String ctx = request.getContextPath();
-		cookie.setPath(StringUtils.isBlank(ctx) ? "/" : ctx);
-		if (StringUtils.isNotBlank(domain)) {
-			cookie.setDomain(domain);
-		}
-		response.addCookie(cookie);
-	}
+    private HttpUtils() {
+    }
 
-	/**
-	 * set cookie
-	 * 
-	 * @param response
-	 * @param cookieName
-	 *            cookie name
-	 * @param cookieValue
-	 *            cookie value
-	 * @param time
-	 *            cookie effective time
-	 */
-	public static void addCookie(HttpServletResponse response, String cookieName, String cookieValue, int time) {
-		try {
-			if (cookieValue != null)
-				cookieValue = URLEncoder.encode(cookieValue, "UTF-8");
+    /**
+     * cancel cookie
+     * 
+     * @author mapengwei
+     * @param request
+     * @param response
+     * @param name
+     * @param domain
+     */
+    public static void cancleCookie(HttpServletRequest request, HttpServletResponse response, String name, String domain) {
+        Cookie cookie = new Cookie(name, "");
+        cookie.setMaxAge(0);
+        String ctx = request.getContextPath();
+        cookie.setPath(StringUtils.isBlank(ctx) ? "/" : ctx);
+        if (StringUtils.isNotBlank(domain)) {
+            cookie.setDomain(domain);
+        }
+        response.addCookie(cookie);
+    }
 
-		} catch (Exception ex) {
-		    log.error("msg",ex);
-		}
+    /**
+     * set cookie
+     * 
+     * @param response
+     * @param cookieName
+     *            cookie name
+     * @param cookieValue
+     *            cookie value
+     * @param time
+     *            cookie effective time
+     */
+    public static void addCookie(HttpServletResponse response, String cookieName, String cookieValue, int time) {
+        try {
+            if (cookieValue != null)
+                cookieValue = URLEncoder.encode(cookieValue, "UTF-8");
 
-		Cookie cookie = new Cookie(cookieName, cookieValue);
-		cookie.setMaxAge(time);
-		cookie.setPath("/");
-		response.addCookie(cookie);
-	}
+        } catch (Exception ex) {
+            log.error("msg", ex);
+        }
 
-	/**
-	 * set cookie
-	 * 
-	 * @param response
-	 * @param domain
-	 *            save cookie domain 
-	 * @param path
-	 *            Save the cookie path
-	 * @param cookieName
-	 *            cookie name
-	 * @param cookieValue
-	 *            cookie value
-	 * @param time
-	 *            cookie effective time
-	 */
-	public static void addCookie(HttpServletResponse response, String domain, String path, String cookieName, String cookieValue, int time) {
-		try {
-			cookieValue = URLEncoder.encode(cookieValue, "UTF-8");
-		} catch (Exception ex) {
-		}
-		Cookie cookie = new Cookie(cookieName, cookieValue);
-		cookie.setMaxAge(time);
-		if (null != domain) {
-			cookie.setDomain(domain);
-		}
-		cookie.setPath(path);
-		response.addCookie(cookie);
-	}
+        Cookie cookie = new Cookie(cookieName, cookieValue);
+        cookie.setMaxAge(time);
+        cookie.setPath("/");
+        response.addCookie(cookie);
+    }
 
-	public static void addCookie1(HttpServletResponse response, String cookieName, String cookieValue, int time) {
+    /**
+     * set cookie
+     * 
+     * @param response
+     * @param domain
+     *            save cookie domain
+     * @param path
+     *            Save the cookie path
+     * @param cookieName
+     *            cookie name
+     * @param cookieValue
+     *            cookie value
+     * @param time
+     *            cookie effective time
+     */
+    public static void addCookie(HttpServletResponse response, String domain, String path, String cookieName,
+            String cookieValue, int time) {
+        try {
+            cookieValue = URLEncoder.encode(cookieValue, "UTF-8");
+        } catch (Exception ex) {
+        }
+        Cookie cookie = new Cookie(cookieName, cookieValue);
+        cookie.setMaxAge(time);
+        if (null != domain) {
+            cookie.setDomain(domain);
+        }
+        cookie.setPath(path);
+        response.addCookie(cookie);
+    }
 
-		Cookie cookie = new Cookie(cookieName, cookieValue);
-		cookie.setMaxAge(time);
-		cookie.setPath("/");
-		response.addCookie(cookie);
-	}
+    public static void addCookie1(HttpServletResponse response, String cookieName, String cookieValue, int time) {
 
-	/**
-	 * Get the cookie value by cookie name
-	 * 
-	 * @param request
-	 * @param cookieName
-	 * @param domain
-	 * @param path
-	 * @return
-	 */
-	public static String getCookieValue(HttpServletRequest request, String cookieName, String domain, String path) {
-		Cookie[] cookies = request.getCookies();
+        Cookie cookie = new Cookie(cookieName, cookieValue);
+        cookie.setMaxAge(time);
+        cookie.setPath("/");
+        response.addCookie(cookie);
+    }
 
-		if (cookies != null) {
-			for (int i = 0; i < cookies.length; i++) {
-				if (domain.equals(cookies[i].getDomain()) && path.equals(cookies[i].getPath()) && cookieName.equals(cookies[i].getName())) {
-					return cookies[i].getValue();
-				}
-			}
-		}
-		return null;
-	}
+    /**
+     * Get the cookie value by cookie name
+     * 
+     * @param request
+     * @param cookieName
+     * @param domain
+     * @param path
+     * @return
+     */
+    public static String getCookieValue(HttpServletRequest request, String cookieName, String domain, String path) {
+        Cookie[] cookies = request.getCookies();
 
-	/**
-	 * Get the value of the cookie based on the cookie name
-	 * 
-	 * @param HttpServletRequest
-	 *            request request object
-	 * @param name
-	 *            cookie name
-	 * @return string cookie value , Return null when fail to get a cookie value
-	 */
-	public static String getCookieValue(HttpServletRequest request, String cookieName) {
-		Cookie[] cookies = request.getCookies();
+        if (cookies != null) {
+            for (int i = 0; i < cookies.length; i++) {
+                if (domain.equals(cookies[i].getDomain()) && path.equals(cookies[i].getPath())
+                        && cookieName.equals(cookies[i].getName())) {
+                    return cookies[i].getValue();
+                }
+            }
+        }
+        return null;
+    }
 
-		if (cookies != null) {
-			for (int i = 0; i < cookies.length; i++) {
+    /**
+     * Get the value of the cookie based on the cookie name
+     * 
+     * @param HttpServletRequest
+     *            request request object
+     * @param name
+     *            cookie name
+     * @return string cookie value , Return null when fail to get a cookie value
+     */
+    public static String getCookieValue(HttpServletRequest request, String cookieName) {
+        Cookie[] cookies = request.getCookies();
 
-				if (cookieName.equals(cookies[i].getName())) {
-					return cookies[i].getValue();
-				}
-			}
-		}
-		return null;
-	}
+        if (cookies != null) {
+            for (int i = 0; i < cookies.length; i++) {
 
-	/**
-	 * POST Request method
-	 * 
-	 * @param url
-	 *            URL
-	 * @param parameterMap
-	 *            Request parameter
-	 * @return 
-	 */
-	public static String post(String url, Map<String, Object> parameterMap) {
-		Assert.hasText(url);
-		String siteUrl = StringUtils.lowerCase(url);
-		if (siteUrl.startsWith("https")) {
-			return postSSL(siteUrl, parameterMap);
-		}
-		String result = null;
-		CloseableHttpClient httpClient = HttpClients.createDefault();
-		try {
-			HttpPost httpPost = new HttpPost(url);
-			List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-			if (parameterMap != null) {
-				for (Entry<String, Object> entry : parameterMap.entrySet()) {
-					String name = entry.getKey();
-					String value = ConvertUtils.convert(entry.getValue());
-					if (StringUtils.isNotEmpty(name)) {
-						nameValuePairs.add(new BasicNameValuePair(name, value));
-					}
-				}
-			}
-			httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs, "UTF-8"));
-			HttpResponse httpResponse = httpClient.execute(httpPost);
-			HttpEntity httpEntity = httpResponse.getEntity();
-			result = EntityUtils.toString(httpEntity);
-			EntityUtils.consume(httpEntity);
-		} catch (ClientProtocolException e) {
-		    log.error("msg",e);
-		} catch (IOException e) {
-		    log.error("msg",e);
-		} 
-		return result;
-	}
+                if (cookieName.equals(cookies[i].getName())) {
+                    return cookies[i].getValue();
+                }
+            }
+        }
+        return null;
+    }
 
-	private static String postSSL(String url, Map<String, Object> parameterMap) {
-		Assert.hasText(url);
-		String result = null;
-		CloseableHttpClient httpClient = HttpClients.createDefault();
-		RequestConfig requestConfig = RequestConfig.custom().setSocketTimeout(2000).setConnectTimeout(1000).build();
-		HttpPost httpPost = null;
-		try {
-			SSLContext sslContext = SSLContexts.createDefault();
-			SSLConnectionSocketFactory sslsf = new SSLConnectionSocketFactory(sslContext, new String[] { "TLSv1" }, null, SSLConnectionSocketFactory.BROWSER_COMPATIBLE_HOSTNAME_VERIFIER);
-			httpClient = HttpClients.custom().setSSLSocketFactory(sslsf).build();
-			httpPost = new HttpPost(url);
-			httpPost.setConfig(requestConfig);
-			List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-			if (parameterMap != null) {
-				for (Entry<String, Object> entry : parameterMap.entrySet()) {
-					String name = entry.getKey();
-					String value = ConvertUtils.convert(entry.getValue());
-					if (StringUtils.isNotEmpty(name)) {
-						nameValuePairs.add(new BasicNameValuePair(name, value));
-					}
-				}
-			}
-			httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs, "UTF-8"));
-			HttpResponse httpResponse = httpClient.execute(httpPost);
-			HttpEntity httpEntity = httpResponse.getEntity();
-			result = EntityUtils.toString(httpEntity);
-			EntityUtils.consume(httpEntity);
-		} catch (Exception e) {
-		    log.error("msg",e);
-		} finally {
-			httpPost.abort();
-		}
-		return result;
-	}
+    /**
+     * POST Request method
+     * 
+     * @param url
+     *            URL
+     * @param parameterMap
+     *            Request parameter
+     * @return
+     */
+    public static String post(String url, Map<String, Object> parameterMap) {
+        Assert.hasText(url);
+        String siteUrl = StringUtils.lowerCase(url);
+        if (siteUrl.startsWith("https")) {
+            return postSSL(siteUrl, parameterMap);
+        }
+        String result = null;
+        CloseableHttpClient httpClient = HttpClients.createDefault();
+        try {
+            HttpPost httpPost = new HttpPost(url);
+            List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+            if (parameterMap != null) {
+                for (Entry<String, Object> entry : parameterMap.entrySet()) {
+                    String name = entry.getKey();
+                    String value = ConvertUtils.convert(entry.getValue());
+                    if (StringUtils.isNotEmpty(name)) {
+                        nameValuePairs.add(new BasicNameValuePair(name, value));
+                    }
+                }
+            }
+            httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs, "UTF-8"));
+            HttpResponse httpResponse = httpClient.execute(httpPost);
+            HttpEntity httpEntity = httpResponse.getEntity();
+            result = EntityUtils.toString(httpEntity);
+            EntityUtils.consume(httpEntity);
+        } catch (ClientProtocolException e) {
+            log.error("msg", e);
+        } catch (IOException e) {
+            log.error("msg", e);
+        }
+        return result;
+    }
 
-	/**
-	 * GET Request method
-	 * 
-	 * @param url
-	 *            URL
-	 * @param parameterMap
-	 *            Request parameter
-	 * @return 
-	 */
-	public static String get(String url, Map<String, Object> parameterMap) {
-		Assert.hasText(url);
-		String result = null;
-		CloseableHttpClient httpClient = HttpClients.createDefault();
-		try {
-			List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-			if (parameterMap != null) {
-				for (Entry<String, Object> entry : parameterMap.entrySet()) {
-					String name = entry.getKey();
-					String value = ConvertUtils.convert(entry.getValue());
-					if (StringUtils.isNotEmpty(name)) {
-						nameValuePairs.add(new BasicNameValuePair(name, value));
-					}
-				}
-			}
-			HttpGet httpGet = new HttpGet(url + (StringUtils.contains(url, "?") ? "&" : "?") + EntityUtils.toString(new UrlEncodedFormEntity(nameValuePairs, "UTF-8")));
-			HttpResponse httpResponse = httpClient.execute(httpGet);
-			HttpEntity httpEntity = httpResponse.getEntity();
-			result = EntityUtils.toString(httpEntity);
-			EntityUtils.consume(httpEntity);
-		} catch (ClientProtocolException e) {
-		    log.error("msg",e);
-		} catch (IOException e) {
-		    log.error("msg",e);
-		} 
-		return result;
-	}
-	
-	public static String getUserIP(HttpServletRequest request){
+    private static String postSSL(String url, Map<String, Object> parameterMap) {
+        Assert.hasText(url);
+        String result = null;
+        CloseableHttpClient httpClient = HttpClients.createDefault();
+        RequestConfig requestConfig = RequestConfig.custom().setSocketTimeout(2000).setConnectTimeout(1000).build();
+        HttpPost httpPost = null;
+        try {
+            SSLContext sslContext = SSLContexts.createDefault();
+            SSLConnectionSocketFactory sslsf = new SSLConnectionSocketFactory(sslContext, new String[] { "TLSv1" },
+                    null, SSLConnectionSocketFactory.BROWSER_COMPATIBLE_HOSTNAME_VERIFIER);
+            httpClient = HttpClients.custom().setSSLSocketFactory(sslsf).build();
+            httpPost = new HttpPost(url);
+            httpPost.setConfig(requestConfig);
+            List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+            if (parameterMap != null) {
+                for (Entry<String, Object> entry : parameterMap.entrySet()) {
+                    String name = entry.getKey();
+                    String value = ConvertUtils.convert(entry.getValue());
+                    if (StringUtils.isNotEmpty(name)) {
+                        nameValuePairs.add(new BasicNameValuePair(name, value));
+                    }
+                }
+            }
+            httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs, "UTF-8"));
+            HttpResponse httpResponse = httpClient.execute(httpPost);
+            HttpEntity httpEntity = httpResponse.getEntity();
+            result = EntityUtils.toString(httpEntity);
+            EntityUtils.consume(httpEntity);
+        } catch (Exception e) {
+            log.error("msg", e);
+        } finally {
+            httpPost.abort();
+        }
+        return result;
+    }
+
+    /**
+     * GET Request method
+     * 
+     * @param url
+     *            URL
+     * @param parameterMap
+     *            Request parameter
+     * @return
+     */
+    public static String get(String url, Map<String, Object> parameterMap) {
+        Assert.hasText(url);
+        String result = null;
+        CloseableHttpClient httpClient = HttpClients.createDefault();
+        try {
+            List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+            if (parameterMap != null) {
+                for (Entry<String, Object> entry : parameterMap.entrySet()) {
+                    String name = entry.getKey();
+                    String value = ConvertUtils.convert(entry.getValue());
+                    if (StringUtils.isNotEmpty(name)) {
+                        nameValuePairs.add(new BasicNameValuePair(name, value));
+                    }
+                }
+            }
+            HttpGet httpGet = new HttpGet(url + (StringUtils.contains(url, "?") ? "&" : "?")
+                    + EntityUtils.toString(new UrlEncodedFormEntity(nameValuePairs, "UTF-8")));
+            HttpResponse httpResponse = httpClient.execute(httpGet);
+            HttpEntity httpEntity = httpResponse.getEntity();
+            result = EntityUtils.toString(httpEntity);
+            EntityUtils.consume(httpEntity);
+        } catch (ClientProtocolException e) {
+            log.error("msg", e);
+        } catch (IOException e) {
+            log.error("msg", e);
+        }
+        return result;
+    }
+
+    public static String getUserIP(HttpServletRequest request) {
         return request.getHeader("X-Real-IP") == null ? getPublicIP(request) : request.getHeader("X-Real-IP");
     }
-	
-	public static String getPublicIP(HttpServletRequest request) {
+
+    public static String getPublicIP(HttpServletRequest request) {
         String ip = request.getRemoteAddr();
 
         if ("0:0:0:0:0:0:0:1".equals(ip) || isInner(ip)) {
@@ -336,8 +340,9 @@ public class HttpUtils {
         Matcher matcher = p.matcher(ip);
         return matcher.find();
     }
-	
-	public static void main(String[] args) {
-		System.out.println(get("http://1.jiajiag.com/lottery/buy_history.cgi?time=1430363119327&pid=1981&_=1430363119327", null));
-	}
+
+    public static void main(String[] args) {
+        System.out.println(get(
+                "http://1.jiajiag.com/lottery/buy_history.cgi?time=1430363119327&pid=1981&_=1430363119327", null));
+    }
 }

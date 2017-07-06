@@ -4,10 +4,10 @@ import java.io.Serializable;
 
 /**
  * 
-* Class Name: LoginDto
-* Description: login DTO
-* @author taochen
-*
+ * Class Name: LoginDto Description: login DTO
+ * 
+ * @author taochen
+ *
  */
 public class LoginDto implements Serializable {
 
@@ -37,15 +37,15 @@ public class LoginDto implements Serializable {
         this.captcha = captcha;
     }
 
-	public String getLoginId() {
-		return loginId;
-	}
+    public String getLoginId() {
+        return loginId;
+    }
 
-	public void setLoginId(String loginId) {
-		this.loginId = loginId;
-	}
+    public void setLoginId(String loginId) {
+        this.loginId = loginId;
+    }
 
-	public String getPassword() {
+    public String getPassword() {
         return password;
     }
 

@@ -20,86 +20,89 @@ import org.springframework.web.servlet.LocaleResolver;
 @Lazy(false)
 public final class SpringUtils implements ApplicationContextAware, DisposableBean {
 
-	/** applicationContext. */
-	private static ApplicationContext applicationContext;
+    /** applicationContext. */
+    private static ApplicationContext applicationContext;
 
-	/**
-	 * Can not be instantiated.
-	 */
-	private SpringUtils() {
-	}
-	
-	/**
-	 * @param applicationContext
-	 */
-	protected static void initApplicationContext(ApplicationContext applicationContext) {
-		SpringUtils.applicationContext = applicationContext;
-	}
-	
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.springframework.context.ApplicationContextAware#setApplicationContext(org.springframework.context.ApplicationContext)
-	 */
-	public void setApplicationContext(ApplicationContext applicationContext) {
-		SpringUtils.initApplicationContext(applicationContext);
-	}
+    /**
+     * Can not be instantiated.
+     */
+    private SpringUtils() {
+    }
 
-	/* (non-Javadoc)
-	 * @see org.springframework.beans.factory.DisposableBean#destroy()
-	 */
-	public void destroy() {
-	}
+    /**
+     * @param applicationContext
+     */
+    protected static void initApplicationContext(ApplicationContext applicationContext) {
+        SpringUtils.applicationContext = applicationContext;
+    }
 
-	/**
-	 * get applicationContext.
-	 * 
-	 * @return applicationContext
-	 */
-	public static ApplicationContext getApplicationContext() {
-		return applicationContext;
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.springframework.context.ApplicationContextAware#setApplicationContext(org.springframework.context.
+     * ApplicationContext)
+     */
+    public void setApplicationContext(ApplicationContext applicationContext) {
+        SpringUtils.initApplicationContext(applicationContext);
+    }
 
-	/**
-	 * Get the instance.
-	 * 
-	 * @param name
-	 *            Bean name
-	 * @return instance
-	 */
-	public static Object getBean(String name) {
-		Assert.hasText(name);
-		return applicationContext.getBean(name);
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.springframework.beans.factory.DisposableBean#destroy()
+     */
+    public void destroy() {
+    }
 
-	/**
-	 * Get the instance.
-	 * 
-	 * @param name
-	 *            Bean name
-	 * @param type
-	 *            Bean type
-	 * @return instance
-	 */
-	public static <T> T getBean(String name, Class<T> type) {
-		Assert.hasText(name);
-		Assert.notNull(type);
-		return applicationContext.getBean(name, type);
-	}
+    /**
+     * get applicationContext.
+     * 
+     * @return applicationContext
+     */
+    public static ApplicationContext getApplicationContext() {
+        return applicationContext;
+    }
 
-	/**
-	 * Get international news.
-	 * 
-	 * @param code
-	 *            
-	 * @param args
-	 *           
-	 * @return Internationalized news
-	 */
-	public static String getMessage(String code, Object... args) {
-		LocaleResolver localeResolver = getBean("localeResolver", LocaleResolver.class);
-		Locale locale = localeResolver.resolveLocale(null);
-		return applicationContext.getMessage(code, args, locale);
-	}
+    /**
+     * Get the instance.
+     * 
+     * @param name
+     *            Bean name
+     * @return instance
+     */
+    public static Object getBean(String name) {
+        Assert.hasText(name);
+        return applicationContext.getBean(name);
+    }
+
+    /**
+     * Get the instance.
+     * 
+     * @param name
+     *            Bean name
+     * @param type
+     *            Bean type
+     * @return instance
+     */
+    public static <T> T getBean(String name, Class<T> type) {
+        Assert.hasText(name);
+        Assert.notNull(type);
+        return applicationContext.getBean(name, type);
+    }
+
+    /**
+     * Get international news.
+     * 
+     * @param code
+     * 
+     * @param args
+     * 
+     * @return Internationalized news
+     */
+    public static String getMessage(String code, Object... args) {
+        LocaleResolver localeResolver = getBean("localeResolver", LocaleResolver.class);
+        Locale locale = localeResolver.resolveLocale(null);
+        return applicationContext.getMessage(code, args, locale);
+    }
 
 }

@@ -7,13 +7,13 @@ public class RegionSaveDto implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private Long id;
-    
+
     private String regionName;
-    
+
     private String color;
-    
+
     private Long[] countryIdList;
-    
+
     private String type;
 
     public Long getId() {

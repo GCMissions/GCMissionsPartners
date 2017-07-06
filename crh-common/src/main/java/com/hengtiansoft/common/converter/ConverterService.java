@@ -13,8 +13,8 @@ import org.springframework.beans.BeansException;
 import com.hengtiansoft.common.util.ApplicationContextUtil;
 
 /**
- * Class Name: ConverterService
- * Description: provides a conversion utility in converting between PO and DTO back and forth.
+ * Class Name: ConverterService Description: provides a conversion utility in converting between PO and DTO back and
+ * forth.
  * 
  * @author taochen
  * 

@@ -20,7 +20,7 @@ import com.hengtiansoft.common.poi.bean.SimpleMulityExcelBean;
 
 public class ExcelUtilDemo {
 
-    private static final Logger log= LoggerFactory.getLogger(ExcelUtilDemo.class);
+    private static final Logger log = LoggerFactory.getLogger(ExcelUtilDemo.class);
     private List<List<String>> content = new ArrayList<List<String>>();
     {
 
@@ -45,9 +45,9 @@ public class ExcelUtilDemo {
     }
 
     /**
-    * Description: Export excel
-    *
-    */
+     * Description: Export excel
+     *
+     */
     @RequestMapping("/toExcel")
     public void toExcel(HttpServletRequest request, HttpServletResponse response) {
         SimpleExcelBean bean = new SimpleExcelBean();
@@ -57,7 +57,7 @@ public class ExcelUtilDemo {
         try {
             PoiUtil.toExcel(bean, response, request);
         } catch (IOException e) {
-            log.error("msg",e);
+            log.error("msg", e);
         }
     }
 
@@ -85,7 +85,7 @@ public class ExcelUtilDemo {
         try {
             PoiUtil.toExcelMulity(mulityExcelBean, response, request);
         } catch (IOException e) {
-            log.error("msg",e);
+            log.error("msg", e);
         }
 
     }
@@ -101,7 +101,7 @@ public class ExcelUtilDemo {
                 }
             }
         } catch (IOException e) {
-            log.error("msg",e);
+            log.error("msg", e);
         }
     }
 }

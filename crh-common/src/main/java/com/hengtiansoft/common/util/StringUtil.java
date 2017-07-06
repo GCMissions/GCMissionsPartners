@@ -15,8 +15,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.support.PropertiesLoaderUtils;
 
 /**
- *  Class Name: StringUtil 
- *  Description: Character type public processing class
+ * Class Name: StringUtil Description: Character type public processing class
  * 
  * @author taochen
  *
@@ -110,10 +109,11 @@ public class StringUtil extends StringUtils {
      * @param resource
      *            Source string
      * @param length
-     *            
+     * 
      * @param fillChar
      *            Fill in the string
-     * @return If the source string length is greater than the total length, the source string is returned, otherwise the padding string
+     * @return If the source string length is greater than the total length, the source string is returned, otherwise
+     *         the padding string
      */
     public static String StringFormat(String resource, int length, char fillChar) {
         if (resource.length() >= length) {
@@ -129,13 +129,13 @@ public class StringUtil extends StringUtils {
     }
 
     /**
-     * Stitching "in" statement: oracle has 1000 parameters of the length of the restrictions 
-     * mysql by the system parameters max_allowed_packet parameters set to default to 1M 25165824 so this method is currently useless
+     * Stitching "in" statement: oracle has 1000 parameters of the length of the restrictions mysql by the system
+     * parameters max_allowed_packet parameters set to default to 1M 25165824 so this method is currently useless
      * 
      * @param columnName
-     *            
+     * 
      * @param valueList
-     *            
+     * 
      * @return
      */
     public static String contactInSql(String columnName, List<String> valueList) {

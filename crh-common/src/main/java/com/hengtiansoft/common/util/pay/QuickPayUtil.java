@@ -11,12 +11,14 @@ import com.hengtiansoft.common.util.pay.ib.IbPayConfig;
 
 public class QuickPayUtil {
 
-    /** 
-     * Sort all the elements of the array and concatenate them into a string with the "&" character 
-     * according to the "parameter = parameter value" pattern
-     * @param params Need to be sorted and participate in the character splicing of the combination of parameters
+    /**
+     * Sort all the elements of the array and concatenate them into a string with the "&" character according to the
+     * "parameter = parameter value" pattern
+     * 
+     * @param params
+     *            Need to be sorted and participate in the character splicing of the combination of parameters
      * @return The string after splicing
-     * @throws UnsupportedEncodingException 
+     * @throws UnsupportedEncodingException
      */
     public static String createLinkString(LinkedHashMap<String, Object> params) throws UnsupportedEncodingException {
 
@@ -38,8 +40,8 @@ public class QuickPayUtil {
 
         return prestr;
     }
-    
-    public static String createSign(LinkedHashMap<String, Object> parameters,  String key) {
+
+    public static String createSign(LinkedHashMap<String, Object> parameters, String key) {
         Set<String> keyArr = parameters.keySet();
         StringBuffer sb = new StringBuffer();
         for (String k : keyArr) {
@@ -51,10 +53,10 @@ public class QuickPayUtil {
         sb.append("secret=" + key);
         return EncryptUtil.encryptMd5(sb.toString()).toUpperCase();
     }
-    
+
     public static String generateIbpayForm(LinkedHashMap<String, String> map) {
         StringBuffer sbHtml = new StringBuffer();
-        sbHtml.append("<form id=\"ibpaysubmit\" name=\"ibpaysubmit\" action=\"" + IbPayConfig.getGateway() 
+        sbHtml.append("<form id=\"ibpaysubmit\" name=\"ibpaysubmit\" action=\"" + IbPayConfig.getGateway()
                 + "\" method=\"" + "post" + "\">");
         for (String key : map.keySet()) {
             sbHtml.append("<input type=\"hidden\" name=\"" + key + "\" value=\"" + map.get(key) + "\"/>");
@@ -64,7 +66,7 @@ public class QuickPayUtil {
         sbHtml.append("<script>document.forms['ibpaysubmit'].submit();</script>");
         return sbHtml.toString();
     }
-    
+
     public static void main(String[] args) {
         LinkedHashMap<String, Object> map = new LinkedHashMap<String, Object>();
         map.put("custom_no", "linkea.pro");

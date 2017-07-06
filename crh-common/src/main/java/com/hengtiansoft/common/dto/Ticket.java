@@ -2,11 +2,11 @@ package com.hengtiansoft.common.dto;
 
 public class Ticket {
     private String ticket;
-    
-    private  Integer expires_in;
-    
+
+    private Integer expires_in;
+
     private String errcode;
-    
+
     private String errmsg;
 
     public String getTicket() {

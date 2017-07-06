@@ -8,8 +8,7 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 import com.hengtiansoft.common.enumeration.PageEnum;
 
 /**
- * Class Name: PageEnumSerializer 
- * Description: 
+ * Class Name: PageEnumSerializer Description:
  * 
  * @author taochen
  * 
@@ -34,4 +33,3 @@ public class PageEnumSerializer extends JsonSerializer<PageEnum> {
         return PageEnum.class;
     }
 }
-

@@ -21,7 +21,7 @@ public class ResourceController {
 
     @Autowired
     private ResourceService resourceService;
-    
+
     @RequestMapping(value = "/show", method = RequestMethod.POST)
     @ResponseBody
     @ApiOperation(value = "Resource Show", httpMethod = "POST", response = ResultDto.class)

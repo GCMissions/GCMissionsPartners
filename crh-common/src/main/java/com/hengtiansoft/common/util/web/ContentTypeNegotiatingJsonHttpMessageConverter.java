@@ -13,13 +13,12 @@ import org.springframework.http.server.ServletServerHttpRequest;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-
 /**
-* Class Name: ContentTypeNegotiatingJsonHttpMessageConverter
-* Description: 
-* @author taochen
-*
-*/
+ * Class Name: ContentTypeNegotiatingJsonHttpMessageConverter Description:
+ * 
+ * @author taochen
+ *
+ */
 public class ContentTypeNegotiatingJsonHttpMessageConverter implements HttpMessageConverter<Object> {
     private final MappingJackson2HttpMessageConverter converter;
 

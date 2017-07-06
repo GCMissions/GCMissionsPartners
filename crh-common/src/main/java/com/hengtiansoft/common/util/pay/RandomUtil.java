@@ -3,8 +3,8 @@ package com.hengtiansoft.common.util.pay;
 import java.util.Random;
 
 public class RandomUtil {
-    
-    public static final String ALLCHAR    = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+    public static final String ALLCHAR = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     public static final String LETTERCHAR = "abcdefghijkllmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
@@ -13,7 +13,8 @@ public class RandomUtil {
     /**
      * Description: randomly get a string of the specified length (contains only numbers)
      *
-     * @param length  The length of the string
+     * @param length
+     *            The length of the string
      * @return
      */
     public static String generateNumberString(int length) {
@@ -24,11 +25,12 @@ public class RandomUtil {
         }
         return sb.toString();
     }
-    
+
     /**
      * Description: randomly get a string of the specified length (including uppercase and lowercase letters, numbers)
      *
-     * @param length The length of the string
+     * @param length
+     *            The length of the string
      * @return
      */
     public static String generateString(int length) {
@@ -74,7 +76,7 @@ public class RandomUtil {
     public static String generateUpperString(int length) {
         return generateMixString(length).toUpperCase();
     }
-    
+
     public static void main(String[] args) {
         System.out.println(RandomUtil.generateString(32));
     }

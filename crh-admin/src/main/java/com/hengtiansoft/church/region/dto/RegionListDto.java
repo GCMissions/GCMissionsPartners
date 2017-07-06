@@ -5,11 +5,11 @@ import java.io.Serializable;
 public class RegionListDto implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    
+
     private Long id;
 
     private String regionName;
-    
+
     private String createTime;
 
     public Long getId() {

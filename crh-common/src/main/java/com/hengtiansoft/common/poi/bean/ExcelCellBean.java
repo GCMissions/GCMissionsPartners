@@ -4,14 +4,13 @@ public class ExcelCellBean {
     // Start column
     private Object value;
 
-    
-    private int    collapseColumn = 1;
+    private int collapseColumn = 1;
 
     // Start row
-    private int    row;
+    private int row;
 
     // Start column
-    private int    col            = 0;
+    private int col = 0;
 
     public ExcelCellBean(Object value) {
         this.value = value;
@@ -28,7 +27,7 @@ public class ExcelCellBean {
         this.col = col;
         this.collapseColumn = collapseColumn;
     }
-    
+
     public ExcelCellBean(Object value, int row, int col) {
         this.value = value;
         this.row = row;

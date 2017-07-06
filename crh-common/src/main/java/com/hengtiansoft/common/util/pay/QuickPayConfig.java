@@ -10,22 +10,22 @@ import com.hengtiansoft.common.util.AppConfigUtil;
  */
 public class QuickPayConfig {
     // version
-    private static String version     = AppConfigUtil.getConfig("quickpay.pay.version");
+    private static String version = AppConfigUtil.getConfig("quickpay.pay.version");
 
     // trasaction code
-    private static String transCode   = AppConfigUtil.getConfig("quickpay.pay.transcode");
+    private static String transCode = AppConfigUtil.getConfig("quickpay.pay.transcode");
 
     // merchant code
-    private static String merCode     = AppConfigUtil.getConfig("quickpay.pay.mercode");
+    private static String merCode = AppConfigUtil.getConfig("quickpay.pay.mercode");
 
     // channel number
-    private static String chainNo     = AppConfigUtil.getConfig("quickpay.pay.chainno");
+    private static String chainNo = AppConfigUtil.getConfig("quickpay.pay.chainno");
 
     // request Url
-    private static String requestUrl  = AppConfigUtil.getConfig("quickpay.pay.requesturl");
+    private static String requestUrl = AppConfigUtil.getConfig("quickpay.pay.requesturl");
 
     // certificate path
-    private static String pfxPath     = AppConfigUtil.getConfig("quickpay.pay.pfxpath");
+    private static String pfxPath = AppConfigUtil.getConfig("quickpay.pay.pfxpath");
 
     // certificate password
     private static String pfxPassword = AppConfigUtil.getConfig("quickpay.pay.pfxpassword");

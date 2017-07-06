@@ -10,7 +10,8 @@ import java.util.List;
  */
 public class PagingDto<T> implements Serializable {
 
-    public PagingDto() {}
+    public PagingDto() {
+    }
 
     public PagingDto(Integer pageSize, Integer currentPage) {
         this.pageSize = pageSize;
@@ -20,19 +21,19 @@ public class PagingDto<T> implements Serializable {
     private static final long serialVersionUID = 1L;
 
     // Displays the number of records per page
-    private Integer           pageSize         = 50;
+    private Integer pageSize = 50;
 
     // current page number
-    private Integer           currentPage      = 1;
+    private Integer currentPage = 1;
 
     // total
-    private Long              totalRecord;
+    private Long totalRecord;
 
     // total pages
-    private Integer           totalPages;
+    private Integer totalPages;
 
     // data List
-    private List<T>           list;
+    private List<T> list;
 
     public Integer getPageSize() {
         return pageSize;

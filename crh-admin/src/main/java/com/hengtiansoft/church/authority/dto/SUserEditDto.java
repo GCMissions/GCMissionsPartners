@@ -6,20 +6,19 @@ import java.util.List;
 import com.hengtiansoft.church.entity.SRoleInfoEntity;
 
 /**
- * Class Name: SUserEditDto
- * Description: ACCOUNT EDIT DTO
+ * Class Name: SUserEditDto Description: User edit DTO
  * 
  * @author tao chen
  */
 public class SUserEditDto implements Serializable {
 
-    private static final long     serialVersionUID = 2434154113544738268L;
+    private static final long serialVersionUID = 2434154113544738268L;
 
     private SUserSaveAndUpdateDto dto;
 
     private List<SRoleInfoEntity> list;
 
-    private String                qrCodeUrl;
+    private String qrCodeUrl;
 
     public SUserSaveAndUpdateDto getDto() {
         return dto;

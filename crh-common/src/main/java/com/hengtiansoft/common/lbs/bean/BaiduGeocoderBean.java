@@ -7,10 +7,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class BaiduGeocoderBean {
 
-    private String              status;
+    private String status;
 
     private Map<String, Object> result;
-
 
     public String getStatus() {
         return status;

@@ -18,22 +18,21 @@ import org.springframework.cache.support.SimpleValueWrapper;
  */
 public class SimpleMemcachedCache implements Cache {
     private static final Logger LOGGER = LoggerFactory.getLogger(SimpleMemcachedCache.class);
-    
+
     private static final ThreadLocal<Map<String, Object>> LOCAL_CACHE = new ThreadLocal<Map<String, Object>>() {
         @Override
         protected Map<String, Object> initialValue() {
             return new HashMap<String, Object>();
         }
     };
-    
+
     private MemcachedClient memcachedClient;
-    
+
     private int expiration;
 
     private String cacheName;
 
     private String keyPrefix;
-
 
     public SimpleMemcachedCache() {
     }

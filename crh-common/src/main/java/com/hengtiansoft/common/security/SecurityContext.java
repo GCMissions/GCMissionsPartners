@@ -11,8 +11,7 @@ import com.hengtiansoft.common.util.ApplicationContextUtil;
 import com.hengtiansoft.common.xmemcached.MemcachedCacheManager;
 
 /**
- * Class Name: SecurityContext 
- * Description: 
+ * Class Name: SecurityContext Description:
  * 
  * @author taochen
  * 
@@ -27,7 +26,7 @@ public class SecurityContext {
 
     private static String location = null;
 
-    public static boolean canSwitchUser(){
+    public static boolean canSwitchUser() {
         return "Y".equals(getCache().get("#canSwitchUser#" + SESSION_ID.get(), String.class));
     }
 
@@ -52,15 +51,15 @@ public class SecurityContext {
         return SESSION_ID.get();
     }
 
-    public static void setRoles(Set<String> roles){
+    public static void setRoles(Set<String> roles) {
         ROLES.set(roles);
     }
 
-    public static Set<String> getRoles(){
+    public static Set<String> getRoles() {
         return ROLES.get();
     }
 
-    public static void removeRoles(){
+    public static void removeRoles() {
         ROLES.remove();
     }
 

@@ -32,7 +32,7 @@ import com.hengtiansoft.common.util.BasicUtil;
 
 @Service
 public class SlidesAdminServiceImpl implements SlidesAdminService {
-    
+
     @Autowired
     private EntityManager entityManager;
     @Autowired
@@ -44,8 +44,7 @@ public class SlidesAdminServiceImpl implements SlidesAdminService {
         Map<String, Object> param = new HashMap<String, Object>();
         StringBuilder conditionSql = new StringBuilder("");
         StringBuilder countSql = new StringBuilder("");
-        StringBuilder sql = new StringBuilder(
-                " select id,image,description,display,sort from slides where 1=1 ");
+        StringBuilder sql = new StringBuilder(" select id,image,description,display,sort from slides where 1=1 ");
         countSql.append(" select count(1) from ( ").append(sql);
         conditionSql.append(" and del_flag = '1' order by sort ");
         Query query = entityManager.createNativeQuery(sql.append(conditionSql).toString());

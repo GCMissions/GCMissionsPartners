@@ -38,7 +38,7 @@ import com.hengtiansoft.common.util.BasicUtil;
 
 @Service
 public class PartnerAdminServiceImpl implements PartnerAdminService {
-    
+
     @Autowired
     private PartnerDao partnerDao;
     @Autowired
@@ -58,9 +58,10 @@ public class PartnerAdminServiceImpl implements PartnerAdminService {
         StringBuilder countSql = new StringBuilder("");
         StringBuilder sql = new StringBuilder(
                 " select p.id,p.partner_name,p.mission,c.country_name,r.region_name from partners p left join country_region_ref cr on p.c_r_ref_id = cr.id "
-                + " left join country c on cr.country_id = c.id left join region r on cr.region_id = r.id where 1=1 ");
+                        + " left join country c on cr.country_id = c.id left join region r on cr.region_id = r.id where 1=1 ");
         countSql.append(" select count(1) from ( ").append(sql);
-        conditionSql.append(" and p.del_flag = '1' and cr.del_flag = '1' and c.del_flag = '1' and r.del_flag = '1' order by p.create_date desc,p.id desc ");
+        conditionSql
+                .append(" and p.del_flag = '1' and cr.del_flag = '1' and c.del_flag = '1' and r.del_flag = '1' order by p.create_date desc,p.id desc ");
         Query query = entityManager.createNativeQuery(sql.append(conditionSql).toString());
         QueryUtil.processParamForQuery(query, param);
         Query countQuery = entityManager.createNativeQuery(countSql.append(conditionSql).append(" ) a").toString());
@@ -152,7 +153,8 @@ public class PartnerAdminServiceImpl implements PartnerAdminService {
         partner.setMission(dto.getMission());
         partner.setAddress(dto.getAddress());
         partner.setIntroduce(dto.getIntroduce());
-        CountryRegionRefEntity entity = countryRegionRefDao.findByCountyIdAndRegionId(dto.getCountryId(), dto.getRegionId());
+        CountryRegionRefEntity entity = countryRegionRefDao.findByCountyIdAndRegionId(dto.getCountryId(),
+                dto.getRegionId());
         partner.setcRRefId(entity.getId());
         partnerDao.save(partner);
         return ResultDtoFactory.toAck("Save Success!", null);

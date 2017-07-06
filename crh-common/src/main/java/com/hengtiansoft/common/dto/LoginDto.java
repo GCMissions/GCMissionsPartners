@@ -1,6 +1,5 @@
 package com.hengtiansoft.common.dto;
 
-
 public class LoginDto extends RequestDto {
 
     private static final long serialVersionUID = 3934170150336347402L;
@@ -29,15 +28,15 @@ public class LoginDto extends RequestDto {
         this.captcha = captcha;
     }
 
-	public String getLoginId() {
-		return loginId;
-	}
+    public String getLoginId() {
+        return loginId;
+    }
 
-	public void setLoginId(String loginId) {
-		this.loginId = loginId;
-	}
+    public void setLoginId(String loginId) {
+        this.loginId = loginId;
+    }
 
-	public String getPassword() {
+    public String getPassword() {
         return password;
     }
 

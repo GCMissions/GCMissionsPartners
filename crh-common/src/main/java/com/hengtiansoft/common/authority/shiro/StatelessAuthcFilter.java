@@ -25,11 +25,11 @@ import com.hengtiansoft.common.util.web.WebUtil;
  */
 public class StatelessAuthcFilter extends AccessControlFilter {
 
-    private static final Logger LOGGER                   = LoggerFactory.getLogger(StatelessAuthcFilter.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(StatelessAuthcFilter.class);
 
-    public static final String  DEFAULT_UNAUTHORIZED_URL = "/web/login/login";
+    public static final String DEFAULT_UNAUTHORIZED_URL = "/web/login/login";
 
-    private String              unauthorizedUrl          = DEFAULT_UNAUTHORIZED_URL;
+    private String unauthorizedUrl = DEFAULT_UNAUTHORIZED_URL;
 
     public String getUnauthorizedUrl() {
         return unauthorizedUrl;
@@ -40,7 +40,8 @@ public class StatelessAuthcFilter extends AccessControlFilter {
     }
 
     @Override
-    protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue) throws Exception {
+    protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue)
+            throws Exception {
         return false;
     }
 
@@ -63,8 +64,6 @@ public class StatelessAuthcFilter extends AccessControlFilter {
         }
         return false;
     }
-
-   
 
     // The 401 status code is returned by default when the login fails
     private void onLoginFail(ServletResponse response) throws IOException {

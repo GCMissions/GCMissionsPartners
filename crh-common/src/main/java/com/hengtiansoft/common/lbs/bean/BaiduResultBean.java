@@ -3,13 +3,12 @@ package com.hengtiansoft.common.lbs.bean;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
- * Class Name: BaiduResultBean 
- * Description: Baidu update data to return information
+ * Class Name: BaiduResultBean Description: Baidu update data to return information
  * 
  * @author taochen
  *
  */
-@JsonIgnoreProperties(ignoreUnknown = true)  
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class BaiduResultBean {
 
     private String status;
@@ -41,5 +40,5 @@ public class BaiduResultBean {
     public void setMessage(String message) {
         this.message = message;
     }
-    
+
 }

@@ -24,25 +24,23 @@ import javax.validation.Payload;
 public @interface NullCheck {
 
     /**
-    * Description: the error message when validation error occurs
-    *
-    * @return
-    */
+     * Description: the error message when validation error occurs
+     *
+     * @return
+     */
     String message() default "{error.required.field}";
 
-    
     /**
-    * Description: the validation groups if any
-    *
-    * @return
-    */
+     * Description: the validation groups if any
+     *
+     * @return
+     */
     Class<?>[] groups() default {};
 
-    
     /**
-    * Description: {@link Payload} that needs to be used during validation
-    *
-    * @return
-    */
+     * Description: {@link Payload} that needs to be used during validation
+     *
+     * @return
+     */
     Class<? extends Payload>[] payload() default {};
 }

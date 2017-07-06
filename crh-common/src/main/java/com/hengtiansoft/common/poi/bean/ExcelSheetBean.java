@@ -5,9 +5,9 @@ import java.util.List;
 
 public class ExcelSheetBean {
     // sheet title
-    private ExcelCellBean         title;
+    private ExcelCellBean title;
 
-    private int                   regionCount;
+    private int regionCount;
 
     private List<ExcelRegionBean> regionBeans = new ArrayList<>();
 

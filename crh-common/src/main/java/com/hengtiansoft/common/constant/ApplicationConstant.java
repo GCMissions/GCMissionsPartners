@@ -31,7 +31,7 @@ public final class ApplicationConstant {
     public static final String JSON_CONTENT_TYPE = "application/json";
 
     public static final String FORM_CONTENT_TYPE = "application/x-www-form-urlencoded";
-    
+
     public static final Integer NO_ZC_SUPPLIER_ID = 0;
 
 }

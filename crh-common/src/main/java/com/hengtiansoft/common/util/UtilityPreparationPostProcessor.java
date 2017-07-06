@@ -11,8 +11,7 @@ import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Component;
 
 /**
- * Class Name: UtilityPreparationPostProcessor
- * Description: 
+ * Class Name: UtilityPreparationPostProcessor Description:
  * 
  * @author taochen
  */
@@ -23,11 +22,11 @@ public class UtilityPreparationPostProcessor {
 
     @Autowired
     @Qualifier("messageSource")
-    private MessageSource       messageSource;
+    private MessageSource messageSource;
 
     @Autowired
     @Qualifier("appConfig")
-    private MessageSource       appConfig;
+    private MessageSource appConfig;
 
     @PostConstruct
     public void postProcessAfterInitialization() throws BeansException {

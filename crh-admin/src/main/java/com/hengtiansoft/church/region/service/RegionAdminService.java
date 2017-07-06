@@ -11,12 +11,12 @@ import com.hengtiansoft.common.dto.ResultDto;
 public interface RegionAdminService {
 
     void searchRegion(RegionSearchDto dto);
-    
+
     ResultDto<?> deleteRegion(Long id);
 
     RegionDetailDto regionDetail(Long id);
 
     ResultDto<?> saveRegion(RegionSaveDto dto);
-    
+
     List<CountryEntity> findNoRegionCountries();
 }

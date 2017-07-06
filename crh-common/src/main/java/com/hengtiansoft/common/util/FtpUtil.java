@@ -22,8 +22,7 @@ import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
 /**
- * Class Name: FtpUtil 
- * Description: ftp tool class 
+ * Class Name: FtpUtil Description: ftp tool class
  * 
  * @author taochen
  */
@@ -86,7 +85,7 @@ public class FtpUtil {
                         ftpClient.storeFile(fileName, input);
                         break;
                     }
-                   
+
                 } else {
                     ftpClient.makeDirectory(date);
                     changeWorkingDirectory(ftpClient, image + imagePath + "/" + date);
@@ -123,13 +122,12 @@ public class FtpUtil {
         }
 
         changeWorkingDirectory(ftpClient, workingDirectory.toString());
-        putStream(pool,ftpClient, filePath, true, model, template);
-        
-        
+        putStream(pool, ftpClient, filePath, true, model, template);
+
     }
 
-    public static void putStream(FtpClientPoolFactory pool,FTPClient ftpClient, String remoteAbsoluteFile, boolean autoClose,
-            Map<String, Object> model, Template template) {
+    public static void putStream(FtpClientPoolFactory pool, FTPClient ftpClient, String remoteAbsoluteFile,
+            boolean autoClose, Map<String, Object> model, Template template) {
         Writer writer = null;
         OutputStreamWriter outputStreamWriter = null;
         try {

@@ -6,13 +6,12 @@ import org.aopalliance.intercept.MethodInvocation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
 /**
-* Class Name: MonitoringInterceptor
-* Description: for performance monitoring purpose
-* @author taochen
-*
-*/
+ * Class Name: MonitoringInterceptor Description: for performance monitoring purpose
+ * 
+ * @author taochen
+ *
+ */
 public class MonitoringInterceptor extends MonitoringSpringInterceptor {
 
     private static final long serialVersionUID = 1L;

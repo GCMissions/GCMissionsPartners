@@ -9,8 +9,8 @@ import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 
 /**
- * Class Name: XssSantizeJsonSerializer
- * Description: Sanitize String type fields in object for json serialization.   
+ * Class Name: XssSantizeJsonSerializer Description: Sanitize String type fields in object for json serialization.
+ * 
  * @author taochen
  *
  */

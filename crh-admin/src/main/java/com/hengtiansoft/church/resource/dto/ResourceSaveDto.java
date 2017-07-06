@@ -9,13 +9,13 @@ public class ResourceSaveDto implements Serializable {
     private Long id;
 
     private String image;
-    
+
     private String link;
-    
+
     private String title;
-    
+
     private String index;
-    
+
     private String type;
 
     public Long getId() {

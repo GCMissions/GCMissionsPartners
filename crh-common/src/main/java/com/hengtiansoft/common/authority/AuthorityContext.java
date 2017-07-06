@@ -29,7 +29,7 @@ import com.hengtiansoft.common.util.web.WebUtil;
  */
 public class AuthorityContext {
 
-    private static final Logger                LOGGER    = LoggerFactory.getLogger(AuthorityContext.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(AuthorityContext.class);
 
     private final static ThreadLocal<UserInfo> UESR_INFO = new ThreadLocal<>();
 
@@ -76,7 +76,8 @@ public class AuthorityContext {
      * @param password
      * 
      */
-    public static String login(String userName, String password) throws IncorrectCredentialsException, LockedAccountException {
+    public static String login(String userName, String password) throws IncorrectCredentialsException,
+            LockedAccountException {
         long start = System.currentTimeMillis();
         UsernamePasswordToken token = new UsernamePasswordToken(userName, password);
         Subject currentUser = SecurityUtils.getSubject();
@@ -100,7 +101,8 @@ public class AuthorityContext {
      * @param cookieDomain
      */
     public static void setTokenCookie(HttpServletResponse response, String cookieDomain) {
-        CookieUtils.addCookie(response, "token", AuthorityContext.getCurrentToken(), -1, WebUtil.getFullUrlBasedOn("/"), cookieDomain, null);
+        CookieUtils.addCookie(response, "token", AuthorityContext.getCurrentToken(), -1,
+                WebUtil.getFullUrlBasedOn("/"), cookieDomain, null);
     }
 
     /**
@@ -160,7 +162,8 @@ public class AuthorityContext {
     }
 
     /**
-     * Description: Verify that the current user belongs to all of the following roles. Please judge by permission rather than role, such as hasPermission.
+     * Description: Verify that the current user belongs to all of the following roles. Please judge by permission
+     * rather than role, such as hasPermission.
      *
      * @param roles
      * @return
@@ -171,7 +174,8 @@ public class AuthorityContext {
     }
 
     /**
-     * Description: Verify that the current user belongs to any of the following roles. Please judge by permission rather than role, such as hasPermission.
+     * Description: Verify that the current user belongs to any of the following roles. Please judge by permission
+     * rather than role, such as hasPermission.
      *
      * @param roleNames
      * @return
@@ -249,7 +253,7 @@ public class AuthorityContext {
     }
 
     /**
-     * Description: logout
+     * Description: Logout
      *
      * @param token
      */

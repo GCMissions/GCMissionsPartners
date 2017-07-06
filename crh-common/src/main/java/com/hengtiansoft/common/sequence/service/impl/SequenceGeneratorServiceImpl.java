@@ -25,7 +25,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * Created by taochen 
+ * Created by taochen
  */
 @Service
 public class SequenceGeneratorServiceImpl implements SequenceGeneratorService {
@@ -74,7 +74,7 @@ public class SequenceGeneratorServiceImpl implements SequenceGeneratorService {
                 List<Long> list = new ArrayList<>(increment.intValue());
 
                 try (Connection connection = DataSourceUtils.getConnection(dataSource);
-                     PreparedStatement preparedStatement = connection.prepareStatement("SELECT seq(?, ?)")) {
+                        PreparedStatement preparedStatement = connection.prepareStatement("SELECT seq(?, ?)")) {
 
                     preparedStatement.setString(1, type);
                     preparedStatement.setLong(2, increment);

@@ -11,8 +11,7 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import com.hengtiansoft.common.constant.ApplicationConstant;
 
 /**
- * Class Name: BaseController
- * Description: all controller should extend this base class
+ * Class Name: BaseController Description: all controller should extend this base class
  * 
  * @author taochen
  * 

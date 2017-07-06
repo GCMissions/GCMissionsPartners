@@ -12,16 +12,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
-* Class Name: FtpClientFactory
-* Description: Ftp Connection pool factory
-* @author taochen
-*
-*/
+ * Class Name: FtpClientFactory Description: Ftp Connection pool factory
+ * 
+ * @author taochen
+ *
+ */
 public class FtpClientFactory extends BasePooledObjectFactory<FTPClient> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(FtpClientFactory.class);
 
-    private FtpInfo             ftpInfo;
+    private FtpInfo ftpInfo;
 
     public void setFtpInfo(FtpInfo ftpInfo) {
         this.ftpInfo = ftpInfo;
@@ -34,7 +34,8 @@ public class FtpClientFactory extends BasePooledObjectFactory<FTPClient> {
             ftpClient = new FTPClient();
             ftpClient.connect(ftpInfo.getFtpHost(), ftpInfo.getFtpPort());// Connect to the FTP server
             ftpClient.login(ftpInfo.getFtpUserName(), ftpInfo.getFtpPassword());// Log in to the FTP server
-            LOGGER.debug("IP:" + ftpInfo.getFtpHost() + ", Port：" + ftpInfo.getFtpPort() + "，UserName：" + ftpInfo.getFtpUserName() + "，Password" + ftpInfo.getFtpPassword());
+            LOGGER.debug("IP:" + ftpInfo.getFtpHost() + ", Port：" + ftpInfo.getFtpPort() + "，UserName："
+                    + ftpInfo.getFtpUserName() + "，Password" + ftpInfo.getFtpPassword());
             if (FTPReply.isPositiveCompletion(ftpClient.getReplyCode())) {
                 LOGGER.info("FTP connection is successful");
             } else {
@@ -44,7 +45,7 @@ public class FtpClientFactory extends BasePooledObjectFactory<FTPClient> {
         } catch (SocketException e) {
             LOGGER.error("IP address of the FTP may be wrong, please correct configuration", e);
         } catch (IOException e) {
-            LOGGER.error("msg",e);
+            LOGGER.error("msg", e);
         }
         return ftpClient;
     }

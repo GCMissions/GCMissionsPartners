@@ -50,15 +50,14 @@ public class RegionAdminServiceImpl implements RegionAdminService {
     private CountryRegionRefDao countryRegionRefDao;
     @Autowired
     private PartnerDao partnerDao;
-    
+
     @SuppressWarnings("unchecked")
     @Override
     public void searchRegion(final RegionSearchDto dto) {
         Map<String, Object> param = new HashMap<String, Object>();
         StringBuilder conditionSql = new StringBuilder("");
         StringBuilder countSql = new StringBuilder("");
-        StringBuilder sql = new StringBuilder(
-                " select id,region_name,create_date from region where 1=1 ");
+        StringBuilder sql = new StringBuilder(" select id,region_name,create_date from region where 1=1 ");
         countSql.append(" select count(1) from ( ").append(sql);
         if (!BasicUtil.isEmpty(dto.getRegionName())) {
             String msg = dto.getRegionName().trim();
@@ -158,8 +157,9 @@ public class RegionAdminServiceImpl implements RegionAdminService {
             countryRegionRefDao.save(saveRfEntities);
         } else {
             Long regionId = dto.getId();
-            //need to decide whether the country you need to delete is bound to partner
-            List<CountryRegionRefEntity> regionRefList = countryRegionRefDao.findByRegionIdAndDelFlag(regionId, StatusEnum.NORMAL.getCode());
+            // need to decide whether the country you need to delete is bound to partner
+            List<CountryRegionRefEntity> regionRefList = countryRegionRefDao.findByRegionIdAndDelFlag(regionId,
+                    StatusEnum.NORMAL.getCode());
             List<Long> countryList = new ArrayList<Long>();
             List<Long> removeCountryIdList = new ArrayList<Long>();
             List<Long> newCountryList = new ArrayList<Long>();
@@ -190,7 +190,8 @@ public class RegionAdminServiceImpl implements RegionAdminService {
             List<CountryRegionRefEntity> saveRfEntities = new ArrayList<CountryRegionRefEntity>();
             for (Long countryId : dto.getCountryIdList()) {
                 if (!countryList.contains(countryId)) {
-                    CountryRegionRefEntity countryRegionRef = countryRegionRefDao.findByCountyIdWithRegionId(countryId, regionId);
+                    CountryRegionRefEntity countryRegionRef = countryRegionRefDao.findByCountyIdWithRegionId(countryId,
+                            regionId);
                     if (countryRegionRef != null) {
                         countryRegionRef.setDelFlag(StatusEnum.NORMAL.getCode());
                         countryRegionRefDao.save(countryRegionRef);

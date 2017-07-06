@@ -11,73 +11,73 @@ import com.hengtiansoft.church.entity.SUserEntity;
 
 /**
  * 
-* Class Name: SUserDao
-* Description: userDao
-* @author taochen
-*
+ * Class Name: SUserDao Description: userDao
+ * 
+ * @author taochen
+ *
  */
 public interface SUserDao extends JpaRepository<SUserEntity, Long>, JpaSpecificationExecutor<SUserEntity> {
 
     /**
      * 
-    * Description: Find all users by token
-    *
-    * @param token
-    * @return
+     * Description: Find all users by token
+     *
+     * @param token
+     * @return
      */
     List<SUserEntity> findByWebToken(String token);
 
     /**
      * 
-    * Description: Verify that the user exists by user login ID, password, and status
-    *
-    * @param loginId
-    * @param password
-    * @param status
-    * @return
+     * Description: Verify that the user exists by user login ID, password, and status
+     *
+     * @param loginId
+     * @param password
+     * @param status
+     * @return
      */
     List<SUserEntity> findByLoginIdAndPasswordAndStatus(String loginId, String password, String status);
 
     /**
      * 
-    * Description: Verify login ID and status
-    *
-    * @param loginId
-    * @param status
-    * @return
+     * Description: Verify login ID and status
+     *
+     * @param loginId
+     * @param status
+     * @return
      */
     SUserEntity findByLoginIdAndStatus(String loginId, String status);
 
     /**
      * 
-    * Description: Verify that the current login loginId exists
-    *
-    * @param loginId
-    * @return
+     * Description: Verify that the current login loginId exists
+     *
+     * @param loginId
+     * @return
      */
     @Query("select count(t) from SUserEntity t where t.loginId =?1 and t.status != '3'")
     int findbyLoginIdAndOrgId(String loginId);
 
     /**
      * 
-    * Description:Use orgId to query user information
-    *
-    * @param orgId
-    * @return
+     * Description:Use orgId to query user information
+     *
+     * @param orgId
+     * @return
      */
     SUserEntity findByOrgId(Long orgId);
 
     /**
      * 
-    * Description:The user information is checked by the login ID
-    *
-    * @param loginId
-    * @return
+     * Description:The user information is checked by the login ID
+     *
+     * @param loginId
+     * @return
      */
     SUserEntity findByLoginId(String loginId);
 
     SUserEntity findOneByOrgId(Long orgId);
-    
+
     @Modifying
     @Query(value = "update user set status = '3' where org_id = ?1", nativeQuery = true)
     void deleteUser(Long orgId);

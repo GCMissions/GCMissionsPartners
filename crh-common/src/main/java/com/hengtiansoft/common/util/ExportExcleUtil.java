@@ -13,8 +13,7 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.util.CellRangeAddress;
 
 /**
- * Class Name: ExcleUtil 
- * Description: 
+ * Class Name: ExcleUtil Description:
  * 
  * @author taochen
  */

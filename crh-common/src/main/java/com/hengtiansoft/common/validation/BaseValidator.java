@@ -5,8 +5,7 @@ import javax.validation.ConstraintValidatorContext;
 import org.apache.commons.lang.StringUtils;
 
 /**
- * Class Name: BaseValidator 
- * Description: 
+ * Class Name: BaseValidator Description:
  * 
  * @author taochen
  * 
@@ -16,7 +15,7 @@ public class BaseValidator {
 
     /**
      * 
-     * Description: 
+     * Description:
      * 
      * @param context
      * @param fieldName

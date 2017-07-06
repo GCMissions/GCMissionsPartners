@@ -7,32 +7,34 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class LocationDetailBean {
 
-    private String   uid;                       // Baidu data ID
+    private String uid; // Baidu data ID
 
-    private String   geotable_id;               // Baidu table ID
+    private String geotable_id; // Baidu table ID
 
-    private String   title;
+    private String title;
 
-    private String   address;
+    private String address;
 
-    private String   province;
+    private String province;
 
-    private String   city;
+    private String city;
 
-    private String   district;
+    private String district;
 
-    private Integer  coord_type = 3;            //1: GPS latitude and longitude coordinates 2: National Bureau of Surveying latitude and longitude coordinates
-                                              // 3: Baidu encryption latitude and longitude coordinates 4: Baidu encryption Mecato coordinates
+    private Integer coord_type = 3; // 1: GPS latitude and longitude coordinates 2: National Bureau of Surveying
+                                    // latitude and longitude coordinates
+                                    // 3: Baidu encryption latitude and longitude coordinates 4: Baidu encryption Mecato
+                                    // coordinates
 
-    private String[] location   = new String[2]; // 0 Longitude 1 latitude
+    private String[] location = new String[2]; // 0 Longitude 1 latitude
 
-    private String   tags;
+    private String tags;
 
-    private Integer  distance;
+    private Integer distance;
 
-    private Integer  weight;
+    private Integer weight;
 
-    private Long     create_time;               // Second level timestamp
+    private Long create_time; // Second level timestamp
 
     public Long getCreate_time() {
         return create_time;

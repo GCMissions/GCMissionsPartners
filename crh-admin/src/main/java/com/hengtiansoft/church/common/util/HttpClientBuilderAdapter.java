@@ -26,9 +26,8 @@ import com.thoughtworks.xstream.io.xml.DomDriver;
 import com.thoughtworks.xstream.io.xml.XmlFriendlyNameCoder;
 
 /**
- * Class Name: HttpClientBuilderAdapter
- * Description:
- *  
+ * Class Name: HttpClientBuilderAdapter Description:
+ * 
  * @author taochen
  */
 public class HttpClientBuilderAdapter implements IServiceRequest {
@@ -37,7 +36,7 @@ public class HttpClientBuilderAdapter implements IServiceRequest {
 
     private CloseableHttpClient httpClient;
 
-    private boolean             hasInit;
+    private boolean hasInit;
 
     public HttpClientBuilderAdapter() {
         init();
@@ -53,8 +52,8 @@ public class HttpClientBuilderAdapter implements IServiceRequest {
     }
 
     @Override
-    public String sendPost(String api_url, Object xmlObj) throws UnrecoverableKeyException, KeyManagementException, NoSuchAlgorithmException,
-            KeyStoreException, IOException {
+    public String sendPost(String api_url, Object xmlObj) throws UnrecoverableKeyException, KeyManagementException,
+            NoSuchAlgorithmException, KeyStoreException, IOException {
         if (!hasInit) {
             init();
         }

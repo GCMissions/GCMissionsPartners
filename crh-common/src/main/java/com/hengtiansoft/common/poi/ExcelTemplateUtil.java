@@ -33,8 +33,10 @@ public class ExcelTemplateUtil {
     private static final String FILE_FOLDER = "/excelTemplate";
 
     public static HSSFWorkbook buildExceFile(ExcelWorkBookBean workBookBean) throws IOException {
-        StringBuilder filePath = new StringBuilder(File.separator).append(FILE_FOLDER).append(File.separator).append(workBookBean.getTemplateName()).append(FILE_SUFFIX);
-        try (InputStream inputStream = new FileInputStream(filePath.toString()); HSSFWorkbook workbook = new HSSFWorkbook(inputStream);) {
+        StringBuilder filePath = new StringBuilder(File.separator).append(FILE_FOLDER).append(File.separator)
+                .append(workBookBean.getTemplateName()).append(FILE_SUFFIX);
+        try (InputStream inputStream = new FileInputStream(filePath.toString());
+                HSSFWorkbook workbook = new HSSFWorkbook(inputStream);) {
             // Traverse the sheet
             for (int i = 0; i < workBookBean.getSheetBeans().size(); i++) {
                 ExcelSheetBean excelSheetBean = workBookBean.getSheetBeans().get(i);
@@ -81,7 +83,7 @@ public class ExcelTemplateUtil {
                             HSSFCell targetCell = null;
                             for (int m = 0; m < cellBeans.size(); m++) {
                                 ExcelCellBean cellBean = cellBeans.get(m);
-                                //If there is a row offset, the first row of data is copied
+                                // If there is a row offset, the first row of data is copied
                                 for (int h = 0; h < cellBean.getCol(); h++) {
                                     sourceCell = startRow.getCell(regionCol);
                                     targetCell = targetRow.createCell(regionCol);
@@ -161,8 +163,7 @@ public class ExcelTemplateUtil {
     }
 
     /**
-     * Copy cell, if copyValueFlag = true, 
-     * then replicated together with the data
+     * Copy cell, if copyValueFlag = true, then replicated together with the data
      * 
      * @param sourceCell
      * @param targetCell

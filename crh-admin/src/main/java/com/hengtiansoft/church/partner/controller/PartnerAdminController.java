@@ -20,7 +20,7 @@ import com.hengtiansoft.common.dto.ResultDto;
 @RequestMapping(value = "/partner")
 @Controller
 public class PartnerAdminController {
-    
+
     @Autowired
     private PartnerAdminService partnerService;
 
@@ -28,14 +28,14 @@ public class PartnerAdminController {
     public String index() {
         return "partner/partner_list";
     }
-    
+
     @RequestMapping(value = "/list", method = RequestMethod.POST)
     @ResponseBody
     public PartnerSearchDto searchPartners(@RequestBody PartnerSearchDto dto) {
         partnerService.searchPartner(dto);
         return dto;
     }
-    
+
     @RequestMapping(value = "/view/{id}/{showType}", method = RequestMethod.GET)
     public String view(@PathVariable Long id, @PathVariable String showType, Model model) {
         model.addAttribute("showType", showType);
@@ -46,19 +46,19 @@ public class PartnerAdminController {
         }
         return "partner/partner_detail";
     }
-    
+
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     @ResponseBody
     public ResultDto<?> deletePartner(Long id) {
         return partnerService.deletePartner(id);
     }
-    
+
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     @ResponseBody
     public ResultDto<?> savePartner(@RequestBody PartnerSaveDto dto) {
         return partnerService.savePartner(dto);
     }
-    
+
     @RequestMapping(value = "/getCountry", method = RequestMethod.POST)
     @ResponseBody
     public ResultDto<List<CountryEntity>> getCountry(Long regionId) {

@@ -106,35 +106,40 @@ public class ValidateInterceptor {
      * @throws IllegalArgumentException
      */
     // Loop validation and catch errors
-    //(Only validate the attributes of the "@validation" annotation in this class and the attributes that contain the type Dto, the inherited attribute is not validated, 
-    //and only onValid is configured to check if the isDeepCheck is true)
+    // (Only validate the attributes of the "@validation" annotation in this class and the attributes that contain the
+    // type Dto, the inherited attribute is not validated,
+    // and only onValid is configured to check if the isDeepCheck is true)
     // When the isParentCheck is true, the attributes inherited from the parent class are validated
     private void executeValidate(final Object validatedObj, final Class<?>[] groups,
-            final Set<ConstraintViolation<?>> result, boolean isDeepCheck, boolean isParentCheck) throws IllegalArgumentException,
-            IllegalAccessException {
+            final Set<ConstraintViolation<?>> result, boolean isDeepCheck, boolean isParentCheck)
+            throws IllegalArgumentException, IllegalAccessException {
         result.addAll(validator.validate(validatedObj, groups));
         Class<?> clazz = validatedObj.getClass();
         if (isDeepCheck) {
-            List<Field> fields = Arrays.asList(clazz.getDeclaredFields());//Get the attributes of this type of declaration
+            List<Field> fields = Arrays.asList(clazz.getDeclaredFields());// Get the attributes of this type of
+                                                                          // declaration
             fieldsValidate(fields, validatedObj, groups, result, isDeepCheck, isParentCheck);
         }
-        if (isParentCheck) {    //Gets the inheritance attribute that includes the parent class (only the parent class, not the superclass)
+        if (isParentCheck) { // Gets the inheritance attribute that includes the parent class (only the parent class,
+                             // not the superclass)
             Class<?> parentClazz = clazz.getSuperclass();
-            List<Field> superFields = Arrays.asList(parentClazz.getDeclaredFields());//Get attributes of this class declaration
+            List<Field> superFields = Arrays.asList(parentClazz.getDeclaredFields());// Get attributes of this class
+                                                                                     // declaration
             fieldsValidate(superFields, validatedObj, groups, result, isDeepCheck, isParentCheck);
         }
     }
-    
+
     private void fieldsValidate(List<Field> fields, final Object validatedObj, final Class<?>[] groups,
-            final Set<ConstraintViolation<?>> result, boolean isDeepCheck, boolean isParentCheck) throws IllegalArgumentException, IllegalAccessException{
+            final Set<ConstraintViolation<?>> result, boolean isDeepCheck, boolean isParentCheck)
+            throws IllegalArgumentException, IllegalAccessException {
         for (Field field : fields) {
             field.setAccessible(true);
             Object value = field.get(validatedObj);
-            //dto
+            // dto
             if (value != null && value.getClass().toString().endsWith("Dto")) {
                 executeValidate(value, groups, result, isDeepCheck, isParentCheck);
             }
-            //array
+            // array
             if (value != null && value.getClass().isArray()) {
                 int arrayLength = Array.getLength(value);
                 for (int i = 0; i < arrayLength; i++) {

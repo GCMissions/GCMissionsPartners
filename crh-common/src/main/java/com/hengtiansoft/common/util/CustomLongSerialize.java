@@ -9,8 +9,7 @@ import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 
 /**
- * Class Name: CustomLongSerialize
- * Description: 
+ * Class Name: CustomLongSerialize Description:
  * 
  * @author taochen
  */
@@ -19,7 +18,8 @@ public class CustomLongSerialize extends JsonSerializer<Long> {
     private DecimalFormat df = new DecimalFormat("##0.00");
 
     @Override
-    public void serialize(Long value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
+    public void serialize(Long value, JsonGenerator jgen, SerializerProvider provider) throws IOException,
+            JsonProcessingException {
 
         if (null == value) {
             jgen.writeString("0.00");

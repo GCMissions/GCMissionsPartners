@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * 
 * Class Name: SUserSaveAndUpdateDto
-* Description: ACCOUNT ADD OR EDIT DTO
+* Description: USER ADD OR EDIT DTO
 * 
 * @author tao chen
  */

@@ -4,9 +4,9 @@ import java.util.List;
 
 public class SimpleExcelBean {
     // title
-    private String             title;
+    private String title;
     // column name
-    private String[]           colNames;
+    private String[] colNames;
     // content
     private List<List<String>> content;
 

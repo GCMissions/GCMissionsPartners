@@ -4,21 +4,21 @@ import java.io.Serializable;
 
 /**
  * 
-* Class Name: ImageDetailDto
-* Description: Multiple pictures to upload the required parameters to return
-* @author taochen
-*
+ * Class Name: ImageDetailDto Description: Multiple pictures to upload the required parameters to return
+ * 
+ * @author taochen
+ *
  */
-public class ImageDetailDto implements Serializable{
+public class ImageDetailDto implements Serializable {
 
     private static final long serialVersionUID = -2908961512537159404L;
-    
+
     private String url;
-    
+
     private String title;
-    
+
     private String state;
-    
+
     private String original;
 
     public String getUrl() {
@@ -52,7 +52,5 @@ public class ImageDetailDto implements Serializable{
     public void setOriginal(String original) {
         this.original = original;
     }
-    
-    
-    
+
 }

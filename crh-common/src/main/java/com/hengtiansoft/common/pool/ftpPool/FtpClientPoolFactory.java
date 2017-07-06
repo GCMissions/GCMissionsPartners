@@ -7,14 +7,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
-* Class Name: FtpClientFactory
-* Description: Ftp Connection pool factory
-* @author taochen
-*
-*/
+ * Class Name: FtpClientFactory Description: Ftp Connection pool factory
+ * 
+ * @author taochen
+ *
+ */
 public class FtpClientPoolFactory {
 
-    private static final Logger          LOGGER = LoggerFactory.getLogger(FtpClientPoolFactory.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(FtpClientPoolFactory.class);
 
     private GenericObjectPool<FTPClient> pool;
 

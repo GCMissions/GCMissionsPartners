@@ -15,8 +15,7 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 
 /**
- * Class Name: CustomDateTimeDeserialize 
- * Description: 
+ * Class Name: CustomDateTimeDeserialize Description:
  * 
  * @author taochen
  *

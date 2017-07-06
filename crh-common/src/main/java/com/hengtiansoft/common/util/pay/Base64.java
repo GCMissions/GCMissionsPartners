@@ -2,17 +2,17 @@ package com.hengtiansoft.common.util.pay;
 
 public final class Base64 {
 
-    static private final int     BASELENGTH           = 128;
-    static private final int     LOOKUPLENGTH         = 64;
-    static private final int     TWENTYFOURBITGROUP   = 24;
-    static private final int     EIGHTBIT             = 8;
-    static private final int     SIXTEENBIT           = 16;
-    static private final int     FOURBYTE             = 4;
-    static private final int     SIGN                 = -128;
-    static private final char    PAD                  = '=';
-    static private final boolean fDebug               = false;
-    static final private byte[]  base64Alphabet       = new byte[BASELENGTH];
-    static final private char[]  lookUpBase64Alphabet = new char[LOOKUPLENGTH];
+    static private final int BASELENGTH = 128;
+    static private final int LOOKUPLENGTH = 64;
+    static private final int TWENTYFOURBITGROUP = 24;
+    static private final int EIGHTBIT = 8;
+    static private final int SIXTEENBIT = 16;
+    static private final int FOURBYTE = 4;
+    static private final int SIGN = -128;
+    static private final char PAD = '=';
+    static private final boolean fDebug = false;
+    static final private byte[] base64Alphabet = new byte[BASELENGTH];
+    static final private char[] lookUpBase64Alphabet = new char[LOOKUPLENGTH];
 
     static {
         for (int i = 0; i < BASELENGTH; ++i) {
@@ -63,7 +63,8 @@ public final class Base64 {
     /**
      * Encodes hex octects into Base64
      *
-     * @param binaryData Array containing binaryData
+     * @param binaryData
+     *            Array containing binaryData
      * @return Encoded Base64 array
      */
     public static String encode(byte[] binaryData) {
@@ -154,7 +155,8 @@ public final class Base64 {
     /**
      * Decodes Base64 data into octects
      *
-     * @param encoded string containing Base64 data
+     * @param encoded
+     *            string containing Base64 data
      * @return Array containind decoded data.
      */
     public static byte[] decode(String encoded) {
@@ -168,7 +170,7 @@ public final class Base64 {
         int len = removeWhiteSpace(base64Data);
 
         if (len % FOURBYTE != 0) {
-            return null;//should be divisible by four
+            return null;// should be divisible by four
         }
 
         int numberQuadruple = (len / FOURBYTE);
@@ -189,10 +191,9 @@ public final class Base64 {
         for (; i < numberQuadruple - 1; i++) {
 
             if (!isData((d1 = base64Data[dataIndex++])) || !isData((d2 = base64Data[dataIndex++]))
-                || !isData((d3 = base64Data[dataIndex++]))
-                || !isData((d4 = base64Data[dataIndex++]))) {
+                    || !isData((d3 = base64Data[dataIndex++])) || !isData((d4 = base64Data[dataIndex++]))) {
                 return null;
-            }//if found "no data" just return null
+            }// if found "no data" just return null
 
             b1 = base64Alphabet[d1];
             b2 = base64Alphabet[d2];
@@ -205,7 +206,7 @@ public final class Base64 {
         }
 
         if (!isData((d1 = base64Data[dataIndex++])) || !isData((d2 = base64Data[dataIndex++]))) {
-            return null;//if found "no data" just return null
+            return null;// if found "no data" just return null
         }
 
         b1 = base64Alphabet[d1];
@@ -213,9 +214,9 @@ public final class Base64 {
 
         d3 = base64Data[dataIndex++];
         d4 = base64Data[dataIndex++];
-        if (!isData((d3)) || !isData((d4))) {//Check if they are PAD characters
+        if (!isData((d3)) || !isData((d4))) {// Check if they are PAD characters
             if (isPad(d3) && isPad(d4)) {
-                if ((b2 & 0xf) != 0)//last 4 bits should be zero
+                if ((b2 & 0xf) != 0)// last 4 bits should be zero
                 {
                     return null;
                 }
@@ -225,7 +226,7 @@ public final class Base64 {
                 return tmp;
             } else if (!isPad(d3) && isPad(d4)) {
                 b3 = base64Alphabet[d3];
-                if ((b3 & 0x3) != 0)//last 2 bits should be zero
+                if ((b3 & 0x3) != 0)// last 2 bits should be zero
                 {
                     return null;
                 }
@@ -237,7 +238,7 @@ public final class Base64 {
             } else {
                 return null;
             }
-        } else { //No PAD e.g 3cQl
+        } else { // No PAD e.g 3cQl
             b3 = base64Alphabet[d3];
             b4 = base64Alphabet[d4];
             decodedData[encodedIndex++] = (byte) (b1 << 2 | b2 >> 4);
@@ -252,8 +253,9 @@ public final class Base64 {
     /**
      * remove WhiteSpace from MIME containing encoded Base64 data.
      *
-     * @param data  the byte array of base64 data (with WS)
-     * @return      the new length
+     * @param data
+     *            the byte array of base64 data (with WS)
+     * @return the new length
      */
     private static int removeWhiteSpace(char[] data) {
         if (data == null) {

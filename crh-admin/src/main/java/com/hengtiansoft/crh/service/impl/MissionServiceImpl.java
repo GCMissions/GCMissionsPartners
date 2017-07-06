@@ -14,7 +14,7 @@ import com.hengtiansoft.crh.service.MissionService;
 
 @Service
 public class MissionServiceImpl implements MissionService {
-    
+
     @Autowired
     private MissionDao missionDao;
 

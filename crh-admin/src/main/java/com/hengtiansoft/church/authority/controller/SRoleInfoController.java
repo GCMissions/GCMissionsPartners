@@ -20,10 +20,10 @@ import com.hengtiansoft.common.dto.ResultDto;
 
 /**
  * 
-* Class Name: SRoleInfoController
-* Description: role controller
-* @author taochen
-*
+ * Class Name: SRoleInfoController Description: role controller
+ * 
+ * @author taochen
+ *
  */
 @Controller
 @RequestMapping(value = "/role")
@@ -93,7 +93,7 @@ public class SRoleInfoController {
     }
 
     /**
-     * Description:save edit 
+     * Description:save edit
      * 
      * @param dto
      * @return
@@ -126,7 +126,7 @@ public class SRoleInfoController {
         List<Long> nodeIds = new ArrayList<Long>();
         for (TreeNodeBean bean : functions) {
             for (Long fids : dto.getFunctionIds()) {
-                for(TreeNodeBean child : bean.getChildrenList()){
+                for (TreeNodeBean child : bean.getChildrenList()) {
                     if (child.getId().equals(fids)) {
                         nodeIds.add(child.getPid());
                     }

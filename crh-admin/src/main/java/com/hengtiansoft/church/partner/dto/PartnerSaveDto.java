@@ -11,29 +11,29 @@ public class PartnerSaveDto implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private Long id;
-    
+
     private String partnerName;
-    
+
     private String mission;
-    
+
     private Long regionId;
-    
+
     private Long countryId;
-    
+
     private String regionName;
-    
+
     private String countryName;
-    
+
     private String address;
-    
+
     private String image;
-    
+
     private String introduce;
-    
+
     private String type;
-    
+
     private List<RegionEntity> regionList;
-    
+
     private List<CountryEntity> countryList;
 
     public Long getId() {

@@ -5,44 +5,44 @@ import java.util.List;
 
 public class UserLocationInfoBean {
 
-	private String status;
+    private String status;
 
-	private Integer size;
+    private Integer size;
 
-	private Integer total;
+    private Integer total;
 
-	private List<StoreUserLocationDetailBean> contents = new ArrayList<StoreUserLocationDetailBean>();
+    private List<StoreUserLocationDetailBean> contents = new ArrayList<StoreUserLocationDetailBean>();
 
-	public String getStatus() {
-		return status;
-	}
+    public String getStatus() {
+        return status;
+    }
 
-	public void setStatus(String status) {
-		this.status = status;
-	}
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
-	public Integer getSize() {
-		return size;
-	}
+    public Integer getSize() {
+        return size;
+    }
 
-	public void setSize(Integer size) {
-		this.size = size;
-	}
+    public void setSize(Integer size) {
+        this.size = size;
+    }
 
-	public Integer getTotal() {
-		return total;
-	}
+    public Integer getTotal() {
+        return total;
+    }
 
-	public void setTotal(Integer total) {
-		this.total = total;
-	}
+    public void setTotal(Integer total) {
+        this.total = total;
+    }
 
-	public List<StoreUserLocationDetailBean> getContents() {
-		return contents;
-	}
+    public List<StoreUserLocationDetailBean> getContents() {
+        return contents;
+    }
 
-	public void setContents(List<StoreUserLocationDetailBean> contents) {
-		this.contents = contents;
-	}
+    public void setContents(List<StoreUserLocationDetailBean> contents) {
+        this.contents = contents;
+    }
 
 }

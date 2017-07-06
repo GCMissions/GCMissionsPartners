@@ -8,7 +8,7 @@ package com.hengtiansoft.common.lbs;
 public class LocationUtil {
 
     // Equatorial radius (accuracy: m)
-    private static final double EARTH_RADIUS_M  = 6378137;
+    private static final double EARTH_RADIUS_M = 6378137;
 
     // Equatorial radius (accuracy: km)
     private static final double EARTH_RADIUS_KM = 6378.137;
@@ -33,8 +33,8 @@ public class LocationUtil {
         double dLat = radLat1 - radLat2;
         double dLng = rad(lng1 - lng2);
 
-        double s = 2
-                * Math.asin(Math.sqrt(Math.pow(Math.sin(dLat / 2), 2) + Math.cos(radLat1) * Math.cos(radLat2) * Math.pow(Math.sin(dLng / 2), 2)));
+        double s = 2 * Math.asin(Math.sqrt(Math.pow(Math.sin(dLat / 2), 2) + Math.cos(radLat1) * Math.cos(radLat2)
+                * Math.pow(Math.sin(dLng / 2), 2)));
 
         s = s * EARTH_RADIUS_M;
         s = Math.round(s * 10000) / 10000;
@@ -62,9 +62,9 @@ public class LocationUtil {
         double dLat = radLat1 - radLat2;
         double dLng = rad(lng1 - lng2);
 
-        double s = 2
-                * Math.asin(Math.sqrt(Math.pow(Math.sin(dLat / 2), 2) + Math.cos(radLat1) * Math.cos(radLat2) * Math.pow(Math.sin(dLng / 2), 2)));
-        
+        double s = 2 * Math.asin(Math.sqrt(Math.pow(Math.sin(dLat / 2), 2) + Math.cos(radLat1) * Math.cos(radLat2)
+                * Math.pow(Math.sin(dLng / 2), 2)));
+
         s = s * EARTH_RADIUS_KM;
         s = Math.round(s * 10000) / 10000;
 

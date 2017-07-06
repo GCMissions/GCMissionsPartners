@@ -4,11 +4,11 @@ import com.hengtiansoft.common.enumeration.EErrorCode;
 
 public class WRWException extends RuntimeException {
 
-    private static final long  serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
     protected final EErrorCode code;
 
-    protected final String[]   params;
+    protected final String[] params;
 
     public WRWException() {
         super();

@@ -19,7 +19,7 @@ import com.hengtiansoft.common.util.pay.QHttpClientUtil;
 public class WechatUtil {
 
     /**
-     * Description: 
+     * Description:
      *
      * @param params
      * @param unifieOrderUrl
@@ -28,23 +28,24 @@ public class WechatUtil {
     public static String getPrepayId(Map<String, String> params) {
         String requestXml = getRequestXml(params);
         String resultXml = QHttpClientUtil.httpRequest(WechatConfig.unifiedorderUrl, "POST", requestXml);
-        
-       return doXMLParse(resultXml).get("prepay_id");
-        
+
+        return doXMLParse(resultXml).get("prepay_id");
+
     }
-    
+
     /**
      * Description: WeChar signature
      *
-     * @param params Requested parameters
+     * @param params
+     *            Requested parameters
      * @return
      */
     public static String Sign(Map<String, String> params, String apiKey) {
         String signContent = generateSignVertifyString(params);
-        
+
         return EncryptUtil.encryptMd5(signContent).toUpperCase();
     }
-    
+
     /**
      * Description: WeChat signature parameters for assembly
      *
@@ -65,19 +66,19 @@ public class WechatUtil {
                 sb.append(key).append("=").append(value).append("&");
             }
         }
-        
+
         // Additional key
         sb.append("key").append("=").append(WechatConfig.apiKey);
-          
+
         return sb.toString();
     }
-    
+
     /**
      * Description：Parameter XML escaping
      */
     public static String getRequestXml(Map<String, String> params) {
         StringBuffer sb = new StringBuffer();
-        
+
         sb.append("<xml>");
         for (Map.Entry<String, String> entry : params.entrySet()) {
             String key = entry.getKey();
@@ -89,12 +90,12 @@ public class WechatUtil {
             }
         }
         sb.append("</xml>");
-       
+
         return sb.toString();
     }
-    
+
     /**
-     * Description: 
+     * Description:
      *
      * @param code
      * @param msg
@@ -102,15 +103,15 @@ public class WechatUtil {
      */
     public static String notifyReturn(String code, String msg) {
         StringBuffer sb = new StringBuffer();
-        
+
         sb.append("<xml>");
         sb.append("<return_code><![CDATA[").append(code).append("]]></return_code>");
         sb.append("<return_msg><![CDATA[").append(msg).append("]]></return_msg>");
         sb.append("</xml>");
-        
+
         return sb.toString();
     }
-    
+
     /**
      * Description: xml analysis
      *
@@ -122,10 +123,10 @@ public class WechatUtil {
         SAXReader reader = new SAXReader();
         try {
             InputSource source = new InputSource(new StringReader(xmlStr));
-             
+
             Document doc = reader.read(source);
             Element root = doc.getRootElement();
-             
+
             @SuppressWarnings("unchecked")
             List<Element> list = root.elements();
             for (Element e : list) {

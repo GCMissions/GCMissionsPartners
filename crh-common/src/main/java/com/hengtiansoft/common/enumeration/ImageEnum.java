@@ -1,23 +1,22 @@
 package com.hengtiansoft.common.enumeration;
 
 /**
- * Class Name: ImageEnum
- * Description: upload picture
+ * Class Name: ImageEnum Description: upload picture
+ * 
  * @author taochen
  *
  */
 public enum ImageEnum {
-    PLATFORM("0","Platform System","/wrw-admin/static/upload/image"),
-    MOBILE("1","Mobile Terminal System","/mobile/static/upload/image");
-    
+    PLATFORM("0", "Platform System", "/wrw-admin/static/upload/image"), MOBILE("1", "Mobile Terminal System","/mobile/static/upload/image");
+
     private String key;
     private String name;
     private String value;
-    
-    private ImageEnum(String key ,String name, String value){
-        this.key=key;
-        this.name=name;
-        this.value=value;
+
+    private ImageEnum(String key, String name, String value) {
+        this.key = key;
+        this.name = name;
+        this.value = value;
     }
 
     public String getKey() {
@@ -44,13 +43,13 @@ public enum ImageEnum {
         this.value = value;
     }
 
-    public static String getValue(String key){
-        for(ImageEnum status:values()){
-            if(status.getKey().equals(key)){
+    public static String getValue(String key) {
+        for (ImageEnum status : values()) {
+            if (status.getKey().equals(key)) {
                 return status.getValue();
             }
         }
         return null;
-       
+
     }
 }

@@ -11,8 +11,7 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 
 /**
- * Class Name: CustomMoneyDeserializer 
- * Description: Currency conversion
+ * Class Name: CustomMoneyDeserializer Description: Currency conversion
  * 
  * @author taochen
  *

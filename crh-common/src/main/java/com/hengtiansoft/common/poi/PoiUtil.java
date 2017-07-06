@@ -23,22 +23,22 @@ import com.hengtiansoft.common.poi.bean.SimpleMulityExcelBean;
 import com.hengtiansoft.common.util.DateTimeUtil;
 
 /**
-* Class Name: PoiUtil
-* Description: POI Tools
-* @author taochen
-*
-*/
+ * Class Name: PoiUtil Description: POI Tools
+ * 
+ * @author taochen
+ *
+ */
 public class PoiUtil {
-    private static final Logger LOGGER      = LoggerFactory.getLogger(PoiUtil.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(PoiUtil.class);
 
     private static final String FILE_SUFFIX = ".xls";
 
     /**
-    * Description: many sheets excel
-    *
-    * @param beans
-    * @param os
-    */
+     * Description: many sheets excel
+     *
+     * @param beans
+     * @param os
+     */
     public static void toExcelMulity(List<SimpleExcelBean> beans, OutputStream os) {
         HSSFWorkbook workbook = new HSSFWorkbook();
         for (int i = 0; i < beans.size(); i++) {
@@ -52,11 +52,11 @@ public class PoiUtil {
     }
 
     /**
-    * Description: Write the data to excel
-    *
-    * @param bean
-    * @param os
-    */
+     * Description: Write the data to excel
+     *
+     * @param bean
+     * @param os
+     */
     public static void toExcel(SimpleExcelBean bean, OutputStream os) {
         ExcelBuilder builder = new ExcelBuilder(new HSSFWorkbook(), bean.getTitle());
         builder.buildTitle(bean.getTitle());
@@ -67,14 +67,15 @@ public class PoiUtil {
     }
 
     /**
-    * Description: Many sheets excel
-    *
-    * @param bean
-    * @param response
-    * @param request
-    * @throws IOException
-    */
-    public static void toExcelMulity(SimpleMulityExcelBean bean, HttpServletResponse response, HttpServletRequest request) throws IOException {
+     * Description: Many sheets excel
+     *
+     * @param bean
+     * @param response
+     * @param request
+     * @throws IOException
+     */
+    public static void toExcelMulity(SimpleMulityExcelBean bean, HttpServletResponse response,
+            HttpServletRequest request) throws IOException {
         initHttpServletResponse(response, processFileName(request, bean.getTitle()));
         try (OutputStream os = response.getOutputStream()) {
             toExcelMulity(bean.getBeans(), os);
@@ -82,14 +83,15 @@ public class PoiUtil {
     }
 
     /**
-    * Description: Write the data to excel
-    *
-    * @param bean
-    * @param response
-    * @param request
-    * @throws IOException
-    */
-    public static void toExcel(SimpleExcelBean bean, HttpServletResponse response, HttpServletRequest request) throws IOException {
+     * Description: Write the data to excel
+     *
+     * @param bean
+     * @param response
+     * @param request
+     * @throws IOException
+     */
+    public static void toExcel(SimpleExcelBean bean, HttpServletResponse response, HttpServletRequest request)
+            throws IOException {
         initHttpServletResponse(response, processFileName(request, bean.getTitle()));
         try (OutputStream os = response.getOutputStream()) {
             toExcel(bean, os);
@@ -97,14 +99,15 @@ public class PoiUtil {
     }
 
     /**
-    * Description: Export excel according to template
-    *
-    * @param workBookBean
-    * @param response
-    * @param request
-    * @throws IOException
-    */
-    public static void toTemplateExcel(ExcelWorkBookBean workBookBean, HttpServletResponse response, HttpServletRequest request) throws IOException {
+     * Description: Export excel according to template
+     *
+     * @param workBookBean
+     * @param response
+     * @param request
+     * @throws IOException
+     */
+    public static void toTemplateExcel(ExcelWorkBookBean workBookBean, HttpServletResponse response,
+            HttpServletRequest request) throws IOException {
         initHttpServletResponse(response, processFileName(request, workBookBean.getFileName()));
         try (OutputStream os = response.getOutputStream()) {
             HSSFWorkbook workbook = ExcelTemplateUtil.buildExceFile(workBookBean);
@@ -115,11 +118,14 @@ public class PoiUtil {
     }
 
     /**
-     * Read data from excel in (subject to the 2003 version of the format,  xls end)
-     * @param colLength --The column length is read according to the column length
-     * @param is Input stream (usually file stream)
+     * Read data from excel in (subject to the 2003 version of the format, xls end)
+     * 
+     * @param colLength
+     *            --The column length is read according to the column length
+     * @param is
+     *            Input stream (usually file stream)
      * @return a two-dimensional array of data
-     * @throws IOException 
+     * @throws IOException
      */
     public static String[][] getFromExcel(int colLength, InputStream is) {
         List<String[]> list = new ArrayList<String[]>();
@@ -156,6 +162,7 @@ public class PoiUtil {
 
     /**
      * The conversion gets the value of the string type
+     * 
      * @param cellTypeCode
      * @return
      */
@@ -175,7 +182,8 @@ public class PoiUtil {
             if (HSSFDateUtil.isCellDateFormatted(cell)) {// Judge whether the date type
                 return DateTimeUtil.parseDateToString(cell.getDateCellValue(), DateTimeUtil.SIMPLE_FMT);
             }
-            cell.setCellType(HSSFCell.CELL_TYPE_STRING);// If it is a number, returns the text format of the original type number
+            cell.setCellType(HSSFCell.CELL_TYPE_STRING);// If it is a number, returns the text format of the original
+                                                        // type number
             return cell.getStringCellValue();
         case HSSFCell.CELL_TYPE_FORMULA:
             return cell.getCellFormula();
@@ -201,7 +209,7 @@ public class PoiUtil {
                 newFileName = new String(fileNames.getBytes("UTF-8"), "iso-8859-1");
             }
         } catch (Exception e) {
-            LOGGER.error("msg",e);
+            LOGGER.error("msg", e);
         }
         return newFileName;
     }

@@ -13,8 +13,7 @@ import org.slf4j.LoggerFactory;
 import com.hengtiansoft.common.util.web.WebUtil;
 
 /**
- * Class Name: 
- * Description: Project tool class
+ * Class Name: Description: Project tool class
  * 
  * @author taochen
  */
@@ -131,7 +130,7 @@ public class BasicUtil {
         Base64 decoder = new Base64();
         return new ByteArrayInputStream(decoder.decode(base64Str));
     }
-    
+
     /**
      * Description: Object to Integer
      *
@@ -157,7 +156,7 @@ public class BasicUtil {
         }
         return 0L;
     }
-    
+
     /**
      * Description: Object to Double
      *
@@ -170,14 +169,14 @@ public class BasicUtil {
         }
         return 0.0D;
     }
-    
+
     /**
-    * Description: Object to String
-    *   When Object = null, returns blank ""
-    * @param obj
-    * @return
-    */
-    public static String objToString(Object obj){
+     * Description: Object to String When Object = null, returns blank ""
+     * 
+     * @param obj
+     * @return
+     */
+    public static String objToString(Object obj) {
         if (obj != null) {
             return String.valueOf(obj);
         }
@@ -245,7 +244,7 @@ public class BasicUtil {
         }
         return null;
     }
-    
+
     /**
      * Description: Converts an object to a json string
      *

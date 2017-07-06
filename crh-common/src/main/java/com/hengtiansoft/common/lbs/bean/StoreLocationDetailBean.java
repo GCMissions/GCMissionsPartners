@@ -5,18 +5,18 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class StoreLocationDetailBean extends LocationDetailBean {
 
-    private Double  rate;
+    private Double rate;
 
     private Integer enable;
 
     private Integer store_id;
 
-    private String  brand;
+    private String brand;
 
-    private String  imgUrl;
+    private String imgUrl;
 
-    private String  business_hours;
-    
+    private String business_hours;
+
     public String getBusiness_hours() {
         return business_hours;
     }

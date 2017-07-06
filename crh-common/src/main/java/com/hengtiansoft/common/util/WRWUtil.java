@@ -20,19 +20,19 @@ import com.hengtiansoft.common.util.web.WebUtil;
 
 /**
  * 
-* Class Name: WRWUtil
-* Description: WRW paradise tool class
-* @author taochen
-*
+ * Class Name: WRWUtil Description: WRW paradise tool class
+ * 
+ * @author taochen
+ *
  */
 public class WRWUtil {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(WRWUtil.class);
-    
+
     private static DecimalFormat decimalFormat = new DecimalFormat("##,##0.00");
-    
+
     private static DecimalFormat decimalFormatSimple = new DecimalFormat("#0.00");
-    
+
     private static final String NUMERRIC_PATTERN = "[0-9]*";
 
     /**
@@ -125,7 +125,7 @@ public class WRWUtil {
     }
 
     /**
-     * Description: Converts a json string  to an object
+     * Description: Converts a json string to an object
      *
      * @param content
      * @param valueType
@@ -170,10 +170,9 @@ public class WRWUtil {
         }
         return 0;
     }
-    
+
     /**
-     * Description: Object to String
-     * When Object = null, returns blank ""
+     * Description: Object to String When Object = null, returns blank ""
      * 
      * @param obj
      * @return
@@ -184,7 +183,7 @@ public class WRWUtil {
         }
         return "";
     }
-    
+
     public static String listToString(List<String> stringList) {
         if (stringList == null) {
             return null;
@@ -246,7 +245,7 @@ public class WRWUtil {
         }
         return null;
     }
-    
+
     /**
      * Description: fen to yuan
      *
@@ -259,9 +258,9 @@ public class WRWUtil {
         }
         return null;
     }
-    
+
     /**
-     * Description: fen to yuan  Not included","
+     * Description: fen to yuan Not included","
      *
      * @param fen
      * @return
@@ -273,7 +272,6 @@ public class WRWUtil {
         return null;
     }
 
-    
     /**
      * Description: Get a random string
      *
@@ -307,9 +305,9 @@ public class WRWUtil {
         }
         return sb.toString();
     }
-    
+
     /**
-     * Get the configuration file information  creater:bindizhang
+     * Get the configuration file information creater:bindizhang
      * 
      * @param paramKey
      * @return
@@ -324,7 +322,7 @@ public class WRWUtil {
         }
         return props.getProperty(paramKey);
     }
-    
+
     /**
      * Determine whether the obtained id is a number. creater : bindizhang
      * 

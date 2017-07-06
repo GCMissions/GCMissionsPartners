@@ -117,9 +117,9 @@ public class SUserController {
         editDto.setList(roles);
         return ResultDtoFactory.toAck("Edit DTO", editDto);
     }
-    
+
     /**
-     * Description:save edit 
+     * Description:save edit
      * 
      * @param dto
      * @return
@@ -127,7 +127,9 @@ public class SUserController {
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
     @ResponseBody
     public ResultDto<String> edit(@RequestBody SUserUpdateDto dto) {
-        /** 2016-8-18 yigesong Edit the user when the state does not set WELY-175, specifically open a unlock user button **/
+        /**
+         * 2016-8-18 yigesong Edit the user when the state does not set WELY-175, specifically open a unlock user button
+         **/
         return sUserService.update(dto);
     }
 
@@ -172,13 +174,14 @@ public class SUserController {
         SUserSaveAndUpdateDto dto = sUserService.findById(id);
         editDto.setDto(dto);
         editDto.setList(roles);
-        editDto.setQrCodeUrl(AppConfigUtil.getConfig("common.qr.server") + AppConfigUtil.getConfig("common.qr.url") + "/?" + dto.getOrgId());
+        editDto.setQrCodeUrl(AppConfigUtil.getConfig("common.qr.server") + AppConfigUtil.getConfig("common.qr.url")
+                + "/?" + dto.getOrgId());
 
         return ResultDtoFactory.toAck("Personal information editor DTO", editDto);
     }
 
     /**
-     * Description:save edit 
+     * Description:save edit
      * 
      * @param dto
      * @return

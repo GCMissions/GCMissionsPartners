@@ -9,7 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Transient;
 
-
 @MappedSuperclass
 public class UserInfo implements Serializable {
 
@@ -28,7 +27,7 @@ public class UserInfo implements Serializable {
 
     @Transient
     private String token;
-    
+
     public String getToken() {
         return token;
     }

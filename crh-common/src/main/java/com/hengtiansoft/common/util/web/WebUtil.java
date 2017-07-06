@@ -13,8 +13,7 @@ import com.hengtiansoft.common.util.DateTimeUtil;
 import com.hengtiansoft.common.util.PageEnumSerializer;
 
 /**
- * Class Name: WebUtil 
- * Description: 
+ * Class Name: WebUtil Description:
  * 
  * @author taochen
  * 

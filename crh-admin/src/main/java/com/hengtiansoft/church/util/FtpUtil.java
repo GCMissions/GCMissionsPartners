@@ -7,34 +7,36 @@ import java.util.Map;
 import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPReply;
+
 /**
  * 
-* Class Name: FtpUtil
-* Description: 
-* @author taochen
-*
+ * Class Name: FtpUtil Description:
+ * 
+ * @author taochen
+ *
  */
 public class FtpUtil {
-    
+
     private static FTPClient ftpClient = null;
     private static String ip;
     private static int port;
     private static String userName;
     private static String userPassword;
     private static String prefix;
-    
-    static{
+
+    static {
         Map<String, Object> pro = PropertiesParse.properties2Map("/env/env-var.properties");
-        ip = (String)pro.get("ftp.server.ip");
-        port = Integer.parseInt((String)pro.get("ftp.server.port"));
-        userName = (String)pro.get("ftp.server.userName");
-        userPassword = (String)pro.get("ftp.server.userPwd");
-        prefix = (String)pro.get("ftp.prefix");
+        ip = (String) pro.get("ftp.server.ip");
+        port = Integer.parseInt((String) pro.get("ftp.server.port"));
+        userName = (String) pro.get("ftp.server.userName");
+        userPassword = (String) pro.get("ftp.server.userPwd");
+        prefix = (String) pro.get("ftp.prefix");
     }
-    
+
     /**
      * connect service
-     * @return  true:success， false:fail
+     * 
+     * @return true:success， false:fail
      */
     public static boolean open() {
         if (ftpClient != null && ftpClient.isConnected()) {
@@ -51,19 +53,24 @@ public class FtpUtil {
                 close();
                 System.exit(1);
             }
-            ftpClient.setFileType(FTP.BINARY_FILE_TYPE); // Set the upload mode.binally  or ascii
+            ftpClient.setFileType(FTP.BINARY_FILE_TYPE); // Set the upload mode.binally or ascii
             return true;
         } catch (Exception ex) {
             close();
             return false;
         }
     }
-    
+
     /**
      * Upload files to the FTP server
-     * @param localDirectoryAndFileName:   Local file directory and file name
-     * @param ftpFileName:                 The name of the file uploaded to the server
-     * @param ftpDirectory:                The FTP directory, such as /path1/pathb2/, automatically creates a directory if the directory does not exist
+     * 
+     * @param localDirectoryAndFileName
+     *            : Local file directory and file name
+     * @param ftpFileName
+     *            : The name of the file uploaded to the server
+     * @param ftpDirectory
+     *            : The FTP directory, such as /path1/pathb2/, automatically creates a directory if the directory does
+     *            not exist
      * @return
      */
     public static boolean upload(InputStream fis, String ftpFileName, String ftpDirectory) {
@@ -73,7 +80,7 @@ public class FtpUtil {
         boolean flag = false;
         if (ftpClient != null) {
             try {
-                //Create directory (not created when not present)
+                // Create directory (not created when not present)
                 mkDir(ftpDirectory);
                 ftpClient.setBufferSize(100000);
                 ftpClient.setControlEncoding("UTF-8");
@@ -95,10 +102,13 @@ public class FtpUtil {
         }
         return flag;
     }
-    
+
     /**
-     * After you create the directory and create the directory, set the work directory to the directory you are currently creating
-     * @param ftpPath :the directory that need to create
+     * After you create the directory and create the directory, set the work directory to the directory you are
+     * currently creating
+     * 
+     * @param ftpPath
+     *            :the directory that need to create
      * @return
      */
     public static boolean mkDir(String ftpPath) {
@@ -135,19 +145,17 @@ public class FtpUtil {
             return false;
         }
     }
-    
+
     /**
-     *get url
-    * Description: 
-    *
-    * @param key
-    * @return
+     * get url Description:
+     *
+     * @param key
+     * @return
      */
-    public static String getUrl(String key){
+    public static String getUrl(String key) {
         return prefix + key;
     }
-    
-    
+
     /**
      * close connect
      */
@@ -160,5 +168,5 @@ public class FtpUtil {
             e.printStackTrace();
         }
     }
-    
+
 }

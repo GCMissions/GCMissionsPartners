@@ -19,13 +19,13 @@ public class CountryEntity extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Long id;
-    
+
     @Column(name = "COUNTRY_SIMPLE_NAME")
     private String countrySimpleName;
-    
+
     @Column(name = "COUNTRY_NAME")
     private String countryName;
-    
+
     @Column(name = "DEL_FLAG")
     private String delFlag;
 

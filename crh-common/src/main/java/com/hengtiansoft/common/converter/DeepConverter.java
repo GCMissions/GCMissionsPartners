@@ -11,8 +11,7 @@ import net.sf.cglib.core.Converter;
 import org.apache.commons.lang.time.DateUtils;
 
 /**
- * Class Name: DeepConverter
- * Description: customized {@link Converter}
+ * Class Name: DeepConverter Description: customized {@link Converter}
  * 
  * @author taochen
  * 
