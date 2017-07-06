@@ -9,7 +9,7 @@
 (function(){
     UE = window.UE || {};
     var isIE = !!window.ActiveXObject;
-    //定义utils工具
+    //Define the utils tool
     var utils = {
             removeLastbs : function(url){
                 return url.replace(/\/$/,'')
@@ -382,7 +382,7 @@ UE.parse.register('table', function (utils) {
         tables = root.getElementsByTagName('table');
     if (tables.length) {
         var selector = this.selector;
-        //追加默认的表格样式
+        //Append the default format
         utils.cssRule('table',
             selector + ' table.noBorderTable td,' +
                 selector + ' table.noBorderTable th,' +
@@ -399,7 +399,7 @@ UE.parse.register('table', function (utils) {
                 selector + ' tr.ue-table-interlace-color-double td{ background: #f7faff; }' +
                 selector + ' td p{margin:0;padding:0;}',
             document);
-        //填充空的单元格
+        //Fill empty cells
 
         utils.each('td th caption'.split(' '), function (tag) {
             var cells = root.getElementsByTagName(tag);
@@ -411,7 +411,7 @@ UE.parse.register('table', function (utils) {
             })
         });
 
-        //表格可排序
+        //Forms can be sorted
         var tables = root.getElementsByTagName('table');
         utils.each(tables, function (table) {
             if (/\bsortEnabled\b/.test(table.className)) {
@@ -429,7 +429,7 @@ UE.parse.register('table', function (utils) {
             }
         });
 
-        //按照标签名查找父节点
+        //Find the parent node by tag name
         function findParentByTagName(target, tagNames) {
             var i, current = target;
             tagNames = utils.isArray(tagNames) ? tagNames:[tagNames];
@@ -441,7 +441,7 @@ UE.parse.register('table', function (utils) {
             }
             return null;
         }
-        //表格排序
+        //Table sorting
         function sortTable(table, sortByCellIndex, compareFn) {
             var rows = table.rows,
                 trArray = [],
@@ -482,10 +482,10 @@ UE.parse.register('table', function (utils) {
                 }
             };
 
-            //对表格设置排序的标记data-sort-type
+            //Set the sorted tag data-sort-type to the table
             table.setAttribute('data-sort-type', compareFn && typeof compareFn === "string" && Fn[compareFn] ? compareFn:'');
 
-            //th不参与排序
+            //Th does not participate in sorting
             flag && trArray.splice(0, 1);
             trArray = sort(trArray,function (tr1, tr2) {
                 var result;
@@ -511,7 +511,7 @@ UE.parse.register('table', function (utils) {
                 tbody.insertBefore(fragment,rows[lastRowIndex- range.endRowIndex + range.beginRowIndex - 1])
             }
         }
-        //冒泡排序
+        //Bubble Sort
         function sort(array, compareFn){
             compareFn = compareFn || function(item1, item2){ return item1.localeCompare(item2);};
             for(var i= 0,len = array.length; i<len; i++){
@@ -525,9 +525,9 @@ UE.parse.register('table', function (utils) {
             }
             return array;
         }
-        //更新表格
+        //Update the form
         function updateTable(table) {
-            //给第一行设置firstRow的样式名称,在排序图标的样式上使用到
+            //Set the firstRow style name to the first line, and use it on the style of the sort icon
             if(!utils.hasClass(table.rows[0], "firstRow")) {
                 for(var i = 1; i< table.rows.length; i++) {
                     utils.removeClass(table.rows[i], "firstRow");
@@ -544,7 +544,7 @@ UE.parse.register('charts',function( utils ){
         containers = this.root,
         sources = null;
 
-    //不存在指定的根路径， 则直接退出
+    //If there is no specified root path, it will exit directly
     if ( !resourceRoot ) {
         return;
     }
@@ -567,7 +567,7 @@ UE.parse.register('charts',function( utils ){
     }
 
     /**
-     * 提取数据
+     *Extract data
      */
     function extractChartData ( rootNode ) {
 
@@ -594,7 +594,7 @@ UE.parse.register('charts',function( utils ){
             metaConfig = {},
             data = [];
 
-        //提取table数据
+        //Extract table data
         for ( var i = 0, row; row = tableNode.rows[ i ]; i++ ) {
 
             var rowData = [];
@@ -610,7 +610,7 @@ UE.parse.register('charts',function( utils ){
 
         }
 
-        //解析元信息
+        //Parsing meta information
         meta = meta.split( ";" );
         for ( var i = 0, metaData; metaData = meta[ i ]; i++ ) {
 
@@ -628,7 +628,7 @@ UE.parse.register('charts',function( utils ){
 
     }
 
-    //加载资源
+    //Load the resource
     function loadResources () {
 
         loadJQuery();
@@ -637,7 +637,7 @@ UE.parse.register('charts',function( utils ){
 
     function loadJQuery () {
 
-        //不存在jquery， 则加载jquery
+        //If jquery does not exist, jquery is loaded
         if ( !window.jQuery ) {
 
             utils.loadFile(document,{
@@ -661,8 +661,7 @@ UE.parse.register('charts',function( utils ){
 
     function loadHighcharts () {
 
-        //不存在Highcharts， 则加载Highcharts
-        if ( !window.Highcharts ) {
+        //If Highcharts does not exist, Highcharts is loaded
 
             utils.loadFile(document,{
                 src : resourceRoot + "/third-party/highcharts/highcharts.js",
@@ -683,7 +682,7 @@ UE.parse.register('charts',function( utils ){
 
     }
 
-    //加载图表差异化配置文件
+    //Load the chart to differentiate the configuration file
     function loadTypeConfig () {
 
         utils.loadFile(document,{
@@ -699,7 +698,7 @@ UE.parse.register('charts',function( utils ){
 
     }
 
-    //渲染图表
+    //Render the chart
     function render () {
 
         var config = null,
@@ -722,10 +721,10 @@ UE.parse.register('charts',function( utils ){
     }
 
     /**
-     * 渲染图表
-     * @param container 图表容器节点对象
-     * @param typeConfig 图表类型配置
-     * @param config 图表通用配置
+     * Render the chart
+     * @param container Chart container node object
+     * @param typeConfig Chart type configuration
+     * @param config Chart general configuratio
      * */
     function renderChart ( container, typeConfig, config ) {
 
@@ -779,8 +778,8 @@ UE.parse.register('charts',function( utils ){
     }
 
     /**
-     * 创建图表的容器
-     * 新创建的容器会替换掉对应的table对象
+     * Create a container for the chart
+     * The newly created container will replace the corresponding table object
      * */
     function createContainer ( tableNode ) {
 
@@ -793,17 +792,17 @@ UE.parse.register('charts',function( utils ){
 
     }
 
-    //根据config解析出正确的类别和图表数据信息
+    //Analyze the correct category and chart data according to config
     function analysisConfig ( config ) {
 
         var series = [],
-        //数据类别
+        //Data category
             categories = [],
             result = [],
             data = config.data,
             meta = config.meta;
 
-        //数据对齐方式为相反的方式， 需要反转数据
+        //Depending on the way the alignment is reversed, the data needs to be reversed
         if ( meta.dataFormat != "1" ) {
 
             for ( var i = 0, len = data.length; i < len ; i++ ) {
@@ -826,7 +825,7 @@ UE.parse.register('charts',function( utils ){
 
         result = {};
 
-        //普通图表
+        //Ordinary chart
         if ( meta.chartType != typeConfig.length - 1 ) {
 
             categories = data[ 0 ].slice( 1 );
@@ -856,7 +855,7 @@ UE.parse.register('charts',function( utils ){
 
             }
 
-            //饼图
+            //Pie chart
             series[ 0 ] = {
                 type: 'pie',
                 name: meta.tip,
@@ -887,7 +886,7 @@ UE.parse.register('background', function (utils) {
         }
     }
 
-    //追加默认的表格样式
+    //Append the default table style
     styles && utils.cssRule('ueditor_background', me.selector + '{' + styles + '}', document);
 });
 UE.parse.register('list',function(utils){

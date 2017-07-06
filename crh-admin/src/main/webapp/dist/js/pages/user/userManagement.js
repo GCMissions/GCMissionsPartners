@@ -220,7 +220,7 @@ $(function(){
 	    					type : "success", 
 	    					text: message("admin.message.success"),
 	    					callBack : function() {
-	    						//@TODO 删除行
+	    						//@TODO Delete rows
 	    						that.dialog.close();
 	    						that.bootTable.refresh(); 
 	    					}

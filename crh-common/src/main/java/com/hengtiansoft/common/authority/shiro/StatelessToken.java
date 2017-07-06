@@ -4,7 +4,7 @@ import org.apache.shiro.authc.AuthenticationToken;
 
 /**
 * Class Name: StatelessToken
-* Description: Stateless Token
+* Description: no status Token
 * @author taochen
 *
 */

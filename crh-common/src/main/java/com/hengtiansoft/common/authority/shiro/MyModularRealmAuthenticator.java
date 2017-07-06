@@ -15,9 +15,9 @@ import org.slf4j.LoggerFactory;
 /**
 * Class Name: ModularRealmAuthenticator
 * Description: Rewrite ModularRealmAuthenticator to short circuit mode.
-*              If the authentication method is FirstSuccessfulStrategy, 
-*              return directly to the first verification is successful, no longer continue to verify.
-* @author taochen
+* If the authentication method is FirstSuccessfulStrategy,
+* Is directly returned to the first validation is successful, no longer continue to verify the back of the
+* @author jialiangli
 *
 */
 public class MyModularRealmAuthenticator extends ModularRealmAuthenticator {
@@ -56,8 +56,7 @@ public class MyModularRealmAuthenticator extends ModularRealmAuthenticator {
 
                 aggregate = strategy.afterAttempt(realm, token, info, aggregate, t);
 
-                // If the authentication method is FirstSuccessfulStrategy, 
-                // return directly to the first verification is successful, no longer continue to verify.
+                //If the authentication method is FirstSuccessfulStrategy, then return directly to the first verification is successful, no longer continue to verify the back
                 if (strategy.getClass() == FirstSuccessfulStrategy.class && aggregate != null && !CollectionUtils.isEmpty(aggregate.getPrincipals())) {
                     return aggregate;
                 }

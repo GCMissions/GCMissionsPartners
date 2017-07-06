@@ -53,7 +53,7 @@ public class StatelessAuthcFilter extends AccessControlFilter {
                 getSubject(request, response).login(statelessToken);
                 return true;
             } catch (Exception e) {
-                LOGGER.info("Token:{}Invalid， Validation failed", token);
+                LOGGER.info("Token:{}Invalid, validation failed", token);
             }
         }
         if (isAjaxRequest((HttpServletRequest) request)) {

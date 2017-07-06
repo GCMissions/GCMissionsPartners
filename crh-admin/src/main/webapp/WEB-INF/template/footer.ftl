@@ -45,7 +45,7 @@
 <script src="${uiBase}js/content_tabs.js?v=${resourceVersion}" ></script>
 <#else>
 <script src="${uiBase}js/pages/pages.js?v=${resourceVersion}" ></script>
-<script src="${uiBase}vendor/bootstrap-select/js/bootstrap-select.js" ></script><#-- 源码有bug 只对bootstrap-select.js 做了修改. min 未改-->
+<script src="${uiBase}vendor/bootstrap-select/js/bootstrap-select.js" ></script><#-- The source code has bug, only made the revision to the bootstrap-select.js. Min has not changed-->
 <script src="${uiBase}vendor/bootstrap-datatimepicker/js/bootstrap-datetimepicker.min.js" ></script>
 <script src="${uiBase}vendor/jquery-validator/jquery.validate.js" ></script>
 <script src="${uiBase}vendor/jquery-validator/additional-methods.min.js" ></script>

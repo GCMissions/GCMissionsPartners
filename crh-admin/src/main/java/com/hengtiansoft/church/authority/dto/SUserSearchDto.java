@@ -4,7 +4,7 @@ import com.hengtiansoft.common.dto.PagingDto;
 
 /**
  * Class Name: SUserSearchDto
- * Description: Search for account information DTO
+ * Description: ACCOUNT RESRARCHDTO
  * 
  * @author tao chen
  */

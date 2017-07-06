@@ -1,56 +1,56 @@
 package com.hengtiansoft.church.authority.dto;
 
 import java.io.Serializable;
+
 /**
  * 
-* Class Name: SRoleInfoDto
-* Description: The role of the information DTO
-* @author tao chen
-*
+ * Class Name: SRoleInfoDto Description: The role of the information DTO
+ * 
+ * @author tao chen
+ *
  */
-public class SRoleInfoDto implements Serializable{
+public class SRoleInfoDto implements Serializable {
 
-	private static final long serialVersionUID = 6478591975506559699L;
-	
-	private Long roleId;
-	
-	private String role;
-	
-	private String createDate;
-	
-	private String status;
+    private static final long serialVersionUID = 6478591975506559699L;
 
-	public Long getRoleId() {
-		return roleId;
-	}
+    private Long roleId;
 
-	public void setRoleId(Long roleId) {
-		this.roleId = roleId;
-	}
+    private String role;
 
-	public String getRole() {
-		return role;
-	}
+    private String createDate;
 
-	public void setRole(String role) {
-		this.role = role;
-	}
+    private String status;
 
-	public String getCreateDate() {
-		return createDate;
-	}
+    public Long getRoleId() {
+        return roleId;
+    }
 
-	public void setCreateDate(String createDate) {
-		this.createDate = createDate;
-	}
+    public void setRoleId(Long roleId) {
+        this.roleId = roleId;
+    }
 
-	public String getStatus() {
-		return status;
-	}
+    public String getRole() {
+        return role;
+    }
 
-	public void setStatus(String status) {
-		this.status = status;
-	}
-	
-	
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(String createDate) {
+        this.createDate = createDate;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
 }

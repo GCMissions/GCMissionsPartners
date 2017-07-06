@@ -19,19 +19,18 @@
 	</bean>
 	
 	<bean id="ftpConfig" class="org.apache.commons.pool2.impl.GenericObjectPoolConfig">
-		<!-- 最多连接数 -->
 		<property name="maxTotal" value="10" />
-		<!-- 最多空闲连接数 -->
+		<!-- Max free connections -->
 		<property name="maxIdle" value="5" />
-		<!-- 空闲连接检测周期（毫秒） -->
+		<!-- Idle connection detection cycle (Millisecond) -->
 		<property name="timeBetweenEvictionRunsMillis" value="300000" />
-		<!-- 空闲连接多久后会被移除 （毫秒） -->
+		<!-- Duration taht the idle connection will be removed (milliseconds) -->
 		<property name="minEvictableIdleTimeMillis" value="60000" />
-		<!-- 线程池空时是否阻塞 -->
+		<!-- Is the thread pool empty? -->
 		<property name="blockWhenExhausted" value="true" />
-		<!-- 阻塞等待时间 （毫秒） -->
+		<!-- Jam wait time (MS) -->
 		<property name="maxWaitMillis" value="5000" />
-		<!-- 从池中取出连接时是否验证有效性 -->
+		<!-- Is validation valid when the connection is removed from the pool? -->
 		<property name="testOnBorrow" value="true" />
 	</bean>
 	

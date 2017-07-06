@@ -28,7 +28,7 @@ import com.thoughtworks.xstream.io.xml.XmlFriendlyNameCoder;
 /**
  * Class Name: HttpClientBuilderAdapter
  * Description:
- * 
+ *  
  * @author taochen
  */
 public class HttpClientBuilderAdapter implements IServiceRequest {

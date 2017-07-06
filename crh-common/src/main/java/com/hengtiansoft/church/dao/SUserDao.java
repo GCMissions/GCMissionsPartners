@@ -29,7 +29,7 @@ public interface SUserDao extends JpaRepository<SUserEntity, Long>, JpaSpecifica
 
     /**
      * 
-    * Description: Verify that the user exists, through loginId, password, and status
+    * Description: Verify that the user exists by user login ID, password, and status
     *
     * @param loginId
     * @param password
@@ -50,7 +50,7 @@ public interface SUserDao extends JpaRepository<SUserEntity, Long>, JpaSpecifica
 
     /**
      * 
-    * Description: Verify that the current loginId exists
+    * Description: Verify that the current login loginId exists
     *
     * @param loginId
     * @return
@@ -60,7 +60,7 @@ public interface SUserDao extends JpaRepository<SUserEntity, Long>, JpaSpecifica
 
     /**
      * 
-    * Description: Use orgId to query the user's information
+    * Description:Use orgId to query user information
     *
     * @param orgId
     * @return
@@ -69,7 +69,7 @@ public interface SUserDao extends JpaRepository<SUserEntity, Long>, JpaSpecifica
 
     /**
      * 
-    * Description: Use loginId to query the user's information
+    * Description:The user information is checked by the login ID
     *
     * @param loginId
     * @return

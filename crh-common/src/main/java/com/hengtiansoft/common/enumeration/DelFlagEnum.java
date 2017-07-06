@@ -4,12 +4,12 @@ package com.hengtiansoft.common.enumeration;
 /**
  * 
 * Class Name: DelFlagEnum
-* Description: Whether to delete
+* Description: Whether the enumeration has been deleted
 * @author taochen
 *
  */
 public enum DelFlagEnum {
-    DEL("0","Deleted"),UN_DEL("1","Not deleted");
+    DEL("0","DELETED"),UN_DEL("1","NOT DELETED");
     private String code;
     private String text;
     

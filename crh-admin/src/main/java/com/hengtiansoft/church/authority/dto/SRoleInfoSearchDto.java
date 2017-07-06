@@ -3,8 +3,7 @@ package com.hengtiansoft.church.authority.dto;
 import com.hengtiansoft.common.dto.PagingDto;
 
 /**
- * Class Name: SRoleInfoSearchDto
- * Description: Search the role DTO
+ * Class Name: SRoleInfoSearchDto Description:Search the role DTO
  * 
  * @author tao chen
  */
@@ -12,7 +11,7 @@ public class SRoleInfoSearchDto extends PagingDto<SRoleInfoDto> {
 
     private static final long serialVersionUID = -186235214893466998L;
 
-    private String            role;
+    private String role;
 
     public String getRole() {
         return role;

@@ -1,9 +1,9 @@
 /*
- * 图表配置文件
+ * chat configuration 
  * */
 
 
-//不同类型的配置
+//Different types of configuration
 var typeConfig = [
     {
         chart: {

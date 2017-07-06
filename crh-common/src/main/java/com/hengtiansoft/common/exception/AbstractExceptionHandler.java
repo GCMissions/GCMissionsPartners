@@ -37,7 +37,7 @@ public abstract class AbstractExceptionHandler {
 
     public ResultDto<?> buildErrorDto(final Exception ex, final Object handler, final String formId) {
         if (StringUtils.isEmpty(formId)) {
-            return ResultDtoFactory.toCommonError("Not incoming formId!");
+            return ResultDtoFactory.toCommonError("Don't income formId!");
         } else {
             ResultDto<List<ValidationResultDto>> error = new ResultDto<List<ValidationResultDto>>();
             error.setMessage("Verification error！");

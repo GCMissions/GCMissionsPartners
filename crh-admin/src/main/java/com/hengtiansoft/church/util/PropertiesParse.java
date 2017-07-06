@@ -13,8 +13,8 @@ import java.util.Map.Entry;
  */
 public class PropertiesParse {
 	/**
-	 * place the properties file into the map collection
-	 * @param propertiesFilePath    
+	 * Property file converted to map
+	 * @param propertiesFilePath    Property file converted to map
 	 * @return
 	 */
 	public static<T> Map<String, Object> properties2Map(String propertiesFilePath) {

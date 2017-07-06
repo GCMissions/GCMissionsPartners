@@ -36,7 +36,7 @@ var loginApp = {
 		$("#captchaImage").on('click', _(this.changeCaptcha).bind(this)); 
 		$('.loginButton').on('click', _(this.doLogin).bind(this)); 
 		
-		// 用户名输入框回车直接进入密码输入框
+		// User Name Input Box Enter Enter the password entry box directly
 		$("#loginId").keydown(function(e) {
 			if (e.keyCode == "13") {
 				$("#loginId").removeClass("focus");
@@ -44,7 +44,7 @@ var loginApp = {
 				$("#password").select();
 			}
 		});
-		// 密码输入框回车直接进入验证码输入框
+		// Password input box carriage return directly into the verification code input box
 		$("#password").keydown(function(e) {
 			var isCapthaHide = $('#verifyCodeLi').hasClass('hide');
 			if (e.keyCode == "13") {
@@ -57,7 +57,7 @@ var loginApp = {
 				}
 			}
 		});
-		// 验证码输入框回车直接登录
+		//Verification code Enter box Enter Enter
 		$("#captcha").keydown(function(e) {
 			if (e.keyCode == "13") {
 				$(".loginButton").click();
@@ -124,14 +124,14 @@ var loginApp = {
 			var userName = $("#loginId").val();
 			addCookie("sysUser", "true", {
 				expires : 7*24*3600
-			}); // 存储一个带7天期限的 cookie
+			}); // Store a cookie with a 7 day duration
 			addCookie("loginId", userName, {
 				expires : 7*24*3600
-			}); // 存储一个带7天期限的 cookie
+			}); // Store a cookie with a 7 day duration
 		} else {
 			addCookie("sysUser", "false", {
 				expires : -1
-			}); // 删除 cookie
+			}); // delete cookie
 			addCookie("loginId", '', {
 				expires : -1
 			});

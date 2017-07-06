@@ -14,7 +14,7 @@ $(function(){
         	this.checkBoxFunc();
 		},	
 		
-		//将form表单的值转化为json
+		//Change the value of the form form to json
 		getJson : function($form) {
 			$.fn.serializeObject = function(){
 			    var o = {};
@@ -37,7 +37,7 @@ $(function(){
 			}else if(!(data.functionIds instanceof Array)){
 				data.functionIds = new Array(data.functionIds);
 			}
-			//当某一组checkbox未全部勾选,还是要传回其父节点的值
+			//When a group of checkbox is not all checked, or to return the value of its parent node
 			this.getParentCheckbox(data.functionIds);
 			return data;
 		},
@@ -59,7 +59,7 @@ $(function(){
 		},
 		
 		checkBoxFunc : function() {
-			//点击全选时其下的checkbox全部选中,当某一组checkbox全部勾选时全选checkbox也选中
+			//Click all selected when the checkbox all selected, when a group of checkbox all check all checkbox also selected
 			$("[id^='checkAll']").on('click',function(){
         		var parent = $(this).parent();
         		parent.siblings(".child").find("input[type='checkbox']").prop("checked", this.checked);

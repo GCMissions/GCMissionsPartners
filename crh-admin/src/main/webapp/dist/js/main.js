@@ -117,7 +117,7 @@ function _init(options) {
       /*
        * @TODO
        * better switch to ul.sidebar-menu
-       * slimScroll 会设置 overflow:hidden 导致:hover时显示子菜单功能  失效 
+       * slimScroll
        * */
       $("section.sidebar").slimScroll({
 			height: "100%",
@@ -491,24 +491,24 @@ $('.message').on('click',function(e){
     
 });
 })(jQuery);
-//修改资料
+//Modify the information
 $('body').on("click", "a.changeProfile", function(e) {
 	e.preventDefault();
 	var $target = $(e.target),
 		loginId = $target.data('loginid'); //id
 	
 	var dialog =  BootstrapDialog.show({
-		title: '修改资料',
+		title: 'Modify the information',
 		message: $($.GLOBAL.config.dialogLoading), 
 		draggable: true,
 		buttons: [{
-			label: '保存',
+			label: 'save',
 			cssClass: 'btn-primary',
 			action: function(dialog, e) {
 				save(dialog, $(e.target));
 			}
 		}, {
-			label: '取消',
+			label: 'cancel',
 			action: function(dialog) {
 				dialog.close();
 			}
@@ -517,12 +517,12 @@ $('body').on("click", "a.changeProfile", function(e) {
 	});
 	dialog.getModalDialog().css('width', '500px');
 	
-	//添加自定义的验证
+	//Add custom validation
 	$.validator.addMethod("isphone", function(value,element) {
 		  var length = value.length;
 		  var mobile = /^1[0-9]{10}$/;
 		  return this.optional(element) || (length == 11 && mobile.test(value));
-	}, "请正确填写电话号码");
+	}, "Please fill in correct phone number");
 	
 	var doneFunction = _.partial(function(dialog, response){
 		if(response.code == "ACK") {
@@ -611,7 +611,7 @@ $('body').on("click", "a.changeProfile", function(e) {
 	
 });
 
-//商家二维码
+//Business two-dimensional code
 var myqrcode = {
 	qrconfig : $.GLOBAL.config.qrcodes,
 	init : function() {
@@ -635,14 +635,14 @@ var myqrcode = {
 		this.defaultConfig = this.qrconfig.defaultConfig;
 		
 		this.dialog =  BootstrapDialog.show({
-			title: '查看我的二维码',
+			title: 'view my two-dimensional code',
 			message: $(template('myQrcodeTpl', $.extend(true, {
 				qrText  : this.qrText,
 				qrcodes : this.qrconfig.otherSizes
 			}, this.defaultConfig  ))), 
 			draggable: true,
 			buttons: [{
-				label : '关闭',
+				label : 'close',
 				action: function(dialog) {
 					dialog.close();
 				}
@@ -677,16 +677,16 @@ var myqrcode = {
 		this.buildQrcode($('#defaultQrcode'),  this.defaultConfig.width, this.defaultConfig.height);
 	},
 	buildOtherSize : function($target, width, height) {
-		//生成
+		//generate
 		$target.prop("disabled", true);
 		$('#otherQrcode').qrcode({ 
 			
-			width: width, //宽度 
-			height:height, //高度 
+			width: width, 
+			height:height, 
 			text: this.qrText
 		}); 
 		
-		//下载
+		//download
 		var pCanvas = $('#otherQrcode').find('canvas').get(0);
 		this.saveCanvas(pCanvas, width, height);
 		$target.prop("disabled", false);
@@ -695,15 +695,15 @@ var myqrcode = {
 	buildQrcode: function($item, width, height) {
 		$item.qrcode({ 
 			
-			width: width, //宽度 
-			height:height, //高度 
+			width: width,  
+			height:height, 
 			text: this.qrText
 		}); 
 	},
 	saveCanvas: function(pCanvas,  width, height) {
 		var bRes     = false,
 			strType  = "PNG",
-		    fileName =  $.GLOBAL.config.systemName + "二维码_"+width;
+		    fileName =  $.GLOBAL.config.systemName + "QR code_"+width;
 		if (strType == "PNG")
 			bRes = Canvas2Image.saveAsPNGWithFileName(pCanvas, fileName+".png", width, height);
 		if (strType == "BMP")

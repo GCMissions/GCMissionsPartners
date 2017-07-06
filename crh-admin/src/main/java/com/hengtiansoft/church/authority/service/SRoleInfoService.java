@@ -10,14 +10,14 @@ import com.hengtiansoft.common.dto.ResultDto;
 /**
  * 
 * Class Name: SRoleInfoService
-* Description:  role service
-* @author tao chen
+* Description: roleService
+* @author taochen
 *
  */
 public interface SRoleInfoService {
     /**
      * 
-    * Description: search
+    * Description: RESEARCH
     *
     * @param dto
      */
@@ -34,7 +34,7 @@ public interface SRoleInfoService {
 
     /**
      * 
-    * Description: save roles
+    * Description: ROEL SAVE
     *
     * @param dto
     * @return
@@ -43,7 +43,7 @@ public interface SRoleInfoService {
 
     /**
      * 
-    * Description: To find the role information by Id
+    * Description: FIND ROLE BY ID 
     *
     * @param id
     * @return
@@ -52,7 +52,7 @@ public interface SRoleInfoService {
 
     /**
      * 
-    * Description: Update the role
+    * Description: ROEL UPDATE
     *
     * @param dto
     * @return
@@ -61,7 +61,7 @@ public interface SRoleInfoService {
 
     /**
      * 
-    * Description: delete the role
+    * Description: ROEL DELETE
     *
     * @param id
     * @return

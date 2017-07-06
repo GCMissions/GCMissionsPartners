@@ -2,23 +2,23 @@ var orderRemind = {
 	taskCounts  : 0,
 	$sound      : void 0,//@TODO NOT IMPLEMENT
 	$message    : void 0,
-	curAnimateStatus      : "", //当前 动画状态(showing, shown, hiding,hidden)
+	curAnimateStatus      : "", //the current animation status(showing, shown, hiding,hidden)
 	maxBottom 	: "50px",
 	minBottom 	: "-100px",
-//	messageBody : '您有 <strong style="color:#ff0000">{{count}}</strong> 个{{typeText}}<p align="center" style="word-break:break-all">'
-	messageBody : '您有{{typeText}}<p align="center" style="word-break:break-all">'
-				+'<a href="{{link}}" data-text="{{tabText}}"  class="openInTab" style="color:#ff0000">点击查看{{typeText}}</a>',
+//	messageBody : 'You have <strong style="color:#ff0000">{{count}}</strong> {{typeText}}<p align="center" style="word-break:break-all">'
+	messageBody : 'You have {{typeText}}<p align="center" style="word-break:break-all">'
+				+'<a href="{{link}}" data-text="{{tabText}}"  class="openInTab" style="color:#ff0000">click to view{{typeText}}</a>',
 	
-	//可配置参数
+	//Configurable parameters
 	defaults : {
 		cookieName 			  : "",//$.GLOBAL.config.newOrderCookieName,
-		messageKeepingSeconds : 4, //4秒后 信息开始消失
-		animateSeconds        : 2, //显示,隐藏直动画 持续时间(秒)
-		orderInterval         : 30, //心跳间隔(秒) $.GLOBAL.config.newOrderInterval
-		typeText              : "新订单",
-		tabText               : "订单列表",
-		orderUrl              : "",//"distributionOrder/list",//@TODO 查看新订单地址
-		url                   : "" //ajax 请求地址 不含urlPrefix : "distributionOrder/getNewOrderRemind"
+		messageKeepingSeconds : 4, //4 seconds after the information began to disappear
+		animateSeconds        : 2, //Show, hide straight animation duration (seconds)
+		orderInterval         : 30, // $.GLOBAL.config.newOrderInterval
+		typeText              : "new order",
+		tabText               : "order list",
+		orderUrl              : "",//"distributionOrder/list",//@TODO view new order's address
+		url                   : "" //ajax request address,not including urlPrefix : "distributionOrder/getNewOrderRemind"
 	},
 	options : {},
 	
@@ -72,7 +72,7 @@ var orderRemind = {
 		}).bind(this));
 	},
 	playSound : function() {
-		if(this.options.typeText === "新订单"){
+		if(this.options.typeText === "new order"){
 			//var borswer = window.navigator.userAgent.toLowerCase();
 			var src = ""+$.GLOBAL.config.uiBase+"newOrder.mp3";
 			$('<embed name="embedPlay" src="'+src+'" autostart="true" hidden="true" loop="false"></embed>').appendTo('body');
@@ -174,8 +174,8 @@ if( $.GLOBAL.config.overTimeOrderTips === true && $.GLOBAL.config.overTimeOrderI
 		cookieName 			  : $.GLOBAL.config.overTimeOrderCookieName,
 		orderInterval         : $.GLOBAL.config.overTimeOrderInterval,
 		orderUrl              : "order/1?daley=1",
-		tabText               : "异常订单",
-		typeText              : "超时订单",
+		tabText               : "unusual order",
+		typeText              : "time-out order",
 		url                   : "order/delayNum"
 	});
 	orderRemind.taskCounts ++ ;

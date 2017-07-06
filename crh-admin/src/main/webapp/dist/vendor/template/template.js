@@ -30,14 +30,14 @@
 }(this, function(root) {
     'use strict';
     var o = {
-        sTag: '<%',//开始标签
-        eTag: '%>',//结束标签
-        compress: false,//是否压缩html
-        escape: true, //默认输出是否进行HTML转义
-        error: function (e) {}//错误回调
+        sTag: '<%',//start tag
+        eTag: '%>',//end tag
+        compress: false,//Do you want to compress HTML?
+        escape: true, //Is the default output HTML escaped?
+        error: function (e) {}//error callback
     };
-    var functionMap = {}; //内部函数对象
-    //修饰器前缀
+    var functionMap = {}; //Internal function object
+    //Modifier prefix
     var modifierMap = {
         '': function (param) {return nothing(param)},
         'h': function (param) {return encodeHTML(param)},
@@ -138,7 +138,7 @@
         var eTag = opt.eTag;
         var escape = opt.escape;
         function parsehtml(line) {
-            // 单双引号转义，换行符替换为空格
+            // Single and double quotes escaped, newline replaced with spaces
             line = line.replace(/('|")/g, '\\$1').replace(/\n/g, ' ');
             return ';__code__ += ("' + line + '")\n';
         }
@@ -152,19 +152,19 @@
             // = := :*=
             // :h=123 [':h=123', 'h', '123']
             if (arr = reg.exec(line)) {
-                html = arr[2]; // 输出
+                html = arr[2]; // output
                 if (Boolean(arr[1])) {
-                    // :开头
+                    // :start with
                     modifier = arr[1].slice(1);
                 } else {
-                    // = 开头
+                    // = start with
                     modifier = escape ? 'h' : '';
                 }
 
                 return ';__code__ += __modifierMap__["' + modifier + '"](typeof (' + html + ') !== "undefined" ? (' + html + ') : "")\n';
             }
             
-            //原生js
+            //original js
             return ';' + line + '\n';
         }
 
@@ -202,7 +202,7 @@
         '    return html;\n';
 
         var code = headerCode + mainCode + footerCode;
-        code = code.replace(/[\r]/g, ' '); // ie 7 8 会报错，不知道为什么
+        code = code.replace(/[\r]/g, ' '); // Ie 78 will make a mistake and don't know why
         try {
             var Render = new Function('__data__', '__modifierMap__', code); 
             Render.toString = function () {

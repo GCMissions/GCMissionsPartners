@@ -34,7 +34,7 @@ public class StatelessRealm extends AuthorizingRealm {
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) {
         SimpleAuthenticationInfo authenticationInfo = statelessAuthcImpl.doGetAuthenticationInfo(token);
-        // Has been verified, do not need to re-verify the password
+        // Has been verified, do not need to verify the password
         setCredentialsMatcher(new StatelessCredentialsMatcher());
         return authenticationInfo;
     }

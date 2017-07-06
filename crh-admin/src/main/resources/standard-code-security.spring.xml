@@ -15,10 +15,10 @@
 		<property name="sessionManager" ref="sessionManager" />
 	</bean>
 
-	<!-- Subject工厂 -->
+	<!-- Subject factory  -->
 	<bean id="subjectFactory"
 		class="com.hengtiansoft.common.authority.shiro.StatelessDefaultSubjectFactory" />
-	<!-- 会话管理器 -->
+	<!-- session manager -->
 	<bean id="sessionManager" class="org.apache.shiro.session.mgt.DefaultSessionManager">
 		<property name="sessionValidationSchedulerEnabled" value="false" />
 	</bean>

@@ -23,9 +23,9 @@ import com.hengtiansoft.common.dto.ResultDtoFactory;
 import com.hengtiansoft.common.util.AppConfigUtil;
 
 /**
- * Class Name: SUserController Description: UserController
+ * Class Name: SUserController Description: account controller
  * 
- * @author tao chen
+ * @author taochen
  */
 @Controller
 @RequestMapping(value = "/user")
@@ -35,7 +35,7 @@ public class SUserController {
     private SUserService sUserService;
 
     /**
-     * Description:go to the home page
+     * Description:go to homepage
      * 
      * @return
      */
@@ -47,7 +47,7 @@ public class SUserController {
     }
 
     /**
-     * Description:home data
+     * Description:homepage's data
      * 
      * @param dto
      * @return
@@ -60,7 +60,7 @@ public class SUserController {
     }
 
     /**
-     * Description:Go to the add page
+     * Description:go to add page
      * 
      * @return
      */
@@ -70,7 +70,7 @@ public class SUserController {
     }
 
     /**
-     * Description :Get Data page of the Add Roles
+     * Description :get add page's role data
      * 
      * @return
      */
@@ -83,7 +83,7 @@ public class SUserController {
     }
 
     /**
-     * Description : Save the new data
+     * Description : add and save
      * 
      * @param dto
      * @return
@@ -95,7 +95,7 @@ public class SUserController {
     }
 
     /**
-     * Description:go to the edit page
+     * Description:go to edit page
      * 
      * @return
      */
@@ -105,7 +105,7 @@ public class SUserController {
     }
 
     /**
-     * Description : Edit the data for the page
+     * Description : edit page's data
      */
     @RequestMapping(value = "/editData/{id}", method = RequestMethod.POST)
     @ResponseBody
@@ -117,9 +117,9 @@ public class SUserController {
         editDto.setList(roles);
         return ResultDtoFactory.toAck("Edit DTO", editDto);
     }
-
+    
     /**
-     * Description:save the modified information
+     * Description:save edit 
      * 
      * @param dto
      * @return
@@ -127,9 +127,7 @@ public class SUserController {
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
     @ResponseBody
     public ResultDto<String> edit(@RequestBody SUserUpdateDto dto) {
-        /**
-         *  taochen Edit the user when the state does not set WELY-175, specifically open a unlock user button
-         **/
+        /** 2016-8-18 yigesong Edit the user when the state does not set WELY-175, specifically open a unlock user button **/
         return sUserService.update(dto);
     }
 
@@ -141,7 +139,7 @@ public class SUserController {
     }
 
     /**
-     * Description: reset password
+     * Description: Password Reset
      *
      * @param memberId
      * @return
@@ -153,8 +151,7 @@ public class SUserController {
     }
 
     /**
-     * Description:Go to the page where you 
-     *              edited your personal information
+     * Description:go to edit personal data
      * 
      * @return
      */
@@ -164,7 +161,7 @@ public class SUserController {
     }
 
     /**
-     * Description:get the personal information data that needs to be modified
+     * Description:personal data
      */
     @RequestMapping(value = "/selfEditData", method = RequestMethod.POST)
     @ResponseBody
@@ -175,14 +172,13 @@ public class SUserController {
         SUserSaveAndUpdateDto dto = sUserService.findById(id);
         editDto.setDto(dto);
         editDto.setList(roles);
-        editDto.setQrCodeUrl(AppConfigUtil.getConfig("common.qr.server") + AppConfigUtil.getConfig("common.qr.url")
-                + "/?" + dto.getOrgId());
+        editDto.setQrCodeUrl(AppConfigUtil.getConfig("common.qr.server") + AppConfigUtil.getConfig("common.qr.url") + "/?" + dto.getOrgId());
 
-        return ResultDtoFactory.toAck("Edit DTO", editDto);
+        return ResultDtoFactory.toAck("Personal information editor DTO", editDto);
     }
 
     /**
-     * Description:Save the modified personal information
+     * Description:save edit 
      * 
      * @param dto
      * @return

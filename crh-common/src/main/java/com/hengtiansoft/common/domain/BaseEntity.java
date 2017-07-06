@@ -8,7 +8,7 @@ import javax.persistence.MappedSuperclass;
 
 /**
  * Class Name: BaseEntity
- * Description:Base Entity
+ * Description: basic Entity
  * 
  * @author taochen
  */

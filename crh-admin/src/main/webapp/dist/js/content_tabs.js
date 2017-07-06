@@ -291,9 +291,9 @@ $(function() {
     tabBanner.prototype.messageClickHandler = function (element,e) {
         var $target =element;
         var href = $target.attr("href") || $target.data("href"),
-            text = "站内信",
+            text = "mail ",
             m = '1000',
-            l    = "站内信",
+            l    = "mail",
             that = this,
             k    = true;
         if (href == undefined || $.trim(href).length == 0) {

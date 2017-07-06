@@ -1,22 +1,17 @@
-/*
- * pages.js
- * 用于执行内面的相关组件初始化.
- */
-//dom加载完成后 立即加载的功能
 $(function() {
 	 
 	/**
-	 * 用于日期控件格式化
+	 * Used for date control formatting
 	 */
 	$.fn.datetimepicker.dates['ch'] = {
-        days: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六","星期日"],
-        daysShort: ["日", "一", "二", "三", "四", "五", "六","日"],
-        daysMin: ["日", "一", "二", "三", "四", "五", "六","日"],
-        months: ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"],
-        monthsShort: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
-        meridiem:["上午","下午"],
-        suffix:[],
-        today:"今日"
+			Days: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+			DaysShort: [" seven "," one "," two "," three "," four "," five "," six ","seven"],
+			months :[" one "," two "," three "," four "," five "," six ",
+			                "seven", "eight", "nine", "ten", "eleven", "twelve" ],
+			                MonthsShort: ["January", "May", "March", "April", "May", "June", "July", "August", "September", " October "," November "," December "],
+			                Meridiem: ["morning", "afternoon"],
+			                Suffix: [],
+			                Today: "today"
 	};
 	var datetimepicker = {
         init: function(){
@@ -57,7 +52,7 @@ $(function() {
 		});
 	}
 	
-	// ueEditor编辑器
+	// ueEditor editor
     function  initUeEditor($ue) {
         if(typeof(UE) != "undefined") {
         	 UE.Editor.prototype.loadServerConfig  = function() {
@@ -92,7 +87,7 @@ $(function() {
                     width    = $ue.data('ue-width')   || '100%',
                     height   = $ue.data('ue-height')  || 320;
                 $ue.html($ue.html().replace(/&amp;/g, "&").replace(/&quot;/g, '"').replace(/&lt;/g, "<").replace(/&gt;/g, ">"));
-                // 统一使用上传到oss
+                //upload to oss
                 var uploadUrl = "main/ossUploadImage/";
                 var ue = UE.getEditor($ue.attr("id"), {
                     serverUrl         : urlPrefix + uploadUrl + $.GLOBAL.config.uploadSourcesMap.ueditor,
@@ -108,13 +103,12 @@ $(function() {
              }
         }
     }
-	//后台 富文本编辑器图片上传
+	//Background rich text editor picture upload
     initUeEditor($("#ueEditor-platform"));
-    //酷袋 富文本编辑器 图片上传
     initUeEditor($("#ueEditor"));
 	//@TODO datetimepicker
     
-    // 验证消息
+    // Verify the message
 	if($.validator != null) {
 		$.extend($.validator.messages, {
 		    required: message("admin.validate.required"),
@@ -187,52 +181,52 @@ $(function() {
 			return $.trim(value).length > 0;
 		});
 		
-		//添加自定义的验证
+		//Add custom validation
 		$.validator.addMethod("isphone", function(value,element) {
 			//var length = value.length;
 			//var mobile = /^(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/;
  			var tel = /^\d{3,4}-?\d{7,8}$/;
 			return this.optional(element) || tel.test(value);
-		}, "Please fill in the right number");
+		}, "Please fill in correct phone number");
 	
 		jQuery.validator.addMethod("price", function(value, element) {         
 			return this.optional(element) || /^\d+(\.\d{1,2})?$/.test(value.trim());         
-		}, "Format error (small digital at most two)");     
+		}, "Format error (up to two decimal places)");     
 		
 		jQuery.validator.addMethod("isMobile", function(value, element) {
 			  var length = value.length;
 			  var mobile = /^1[0-9]{10}$/;
 			  return this.optional(element) || (length == 11 && mobile.test(value));
-		}, "Please fill in the mobile phone number correctly");
+		}, "Please fill in correct phone number");
 		
 		jQuery.validator.addMethod("userName", function(value, element) {
 			  var userName =  /^[0-9A-Za-z\u4E00-\u9FA5a-zA-Z]{2,20}$/;
 			  return this.optional(element) || (userName.test(value));
-		}, "The format of user name is incorrect");
+		}, "The username is malformed");
 		
 		jQuery.validator.addMethod("uname", function(value, element) {
 			  var userName =  /^[\u4E00-\u9FA5a-zA-Z]{2,10}$/;
 			  return this.optional(element) || (userName.test(value));
-		}, "The format of user name is incorrect");
+		}, "The username is malformed");
 		
 		jQuery.validator.addMethod("rolename", function(value, element) {
 			  var roleName =  /^[\u4E00-\u9FA5a-zA-Z]{2,20}$/;
 			  return this.optional(element) || (roleName.test(value));
-		}, "The format of role name is incorrect");
+		}, "The role name is malformed");
 		
 		jQuery.validator.addMethod("isEmail", function(value, element) {
 			  return this.optional(element) || /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/.test(value);
-		}, "The format of Email is incorrect");
+		}, "Please fill in correct email");
 		
 		jQuery.validator.addMethod("isPwd", function(value, element) {
 			 var isPwd = /^[A-Za-z0-9]{6,12}$/;
 			 return this.optional(element) || (isPwd.test(value));
-		}, "Password must be 6 to 12 letters or Numbers");
+		}, "The password must be a letter or a number 6 to 12 digits");
 	}
 	
 
 	
-	//刷新
+	//refresh
     $('button.reloadPage').on("click", function() {
     	location.reload(true);
     });
@@ -247,7 +241,7 @@ $(function() {
     });
 	
 });
-//需要手动加载的功能
+//Need to manually load the function
 $.pages = {};
 $.pages.initDateTime = function() {
 	$('.datetimeInput').each(function() {

@@ -303,7 +303,7 @@
         paginationPreText: '&lsaquo;',
         paginationNextText: '&rsaquo;',
 		
-		initSearchForm: false,//从url中获取默认的搜索条件
+		initSearchForm: false,//Get the default search criteria from the url
 		searchConditionName : "btsData",
 		onInitSearchFrom : function(data) {
 			return false;

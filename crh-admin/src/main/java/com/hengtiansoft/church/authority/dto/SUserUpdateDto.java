@@ -6,9 +6,9 @@ import java.util.List;
 /**
  * 
 * Class Name: SUserSaveAndUpdateDto
-* Description: Add or edit roles DTO
+* Description: ACCOUNT ADD OR EDIT DTO
+* 
 * @author tao chen
-*
  */
 public class SUserUpdateDto implements Serializable {
 

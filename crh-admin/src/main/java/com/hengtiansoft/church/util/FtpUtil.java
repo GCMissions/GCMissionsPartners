@@ -33,8 +33,8 @@ public class FtpUtil {
     }
     
     /**
-     * connect to the server
-     * @return  true:success， false:failure
+     * connect service
+     * @return  true:success， false:fail
      */
     public static boolean open() {
         if (ftpClient != null && ftpClient.isConnected()) {
@@ -45,7 +45,7 @@ public class FtpUtil {
             // connect
             ftpClient.connect(ip, port);
             ftpClient.login(userName, userPassword);
-            // Check whether the connection was successful
+            // test whether it's sucessful to connect
             int reply = ftpClient.getReplyCode();
             if (!FTPReply.isPositiveCompletion(reply)) {
                 close();
@@ -60,10 +60,10 @@ public class FtpUtil {
     }
     
     /**
-     * Upload the file to the FTP server
-     * @param localDirectoryAndFileName
-     * @param ftpFileName   Uploaded to the server's file name
-     * @param ftpDirectory  FTP directory such as: / path1 / pathb2 /, if the directory does not exist will automatically create the directory
+     * Upload files to the FTP server
+     * @param localDirectoryAndFileName:   Local file directory and file name
+     * @param ftpFileName:                 The name of the file uploaded to the server
+     * @param ftpDirectory:                The FTP directory, such as /path1/pathb2/, automatically creates a directory if the directory does not exist
      * @return
      */
     public static boolean upload(InputStream fis, String ftpFileName, String ftpDirectory) {
@@ -73,11 +73,11 @@ public class FtpUtil {
         boolean flag = false;
         if (ftpClient != null) {
             try {
-                //Create a directory (created when it does not exist)
+                //Create directory (not created when not present)
                 mkDir(ftpDirectory);
                 ftpClient.setBufferSize(100000);
                 ftpClient.setControlEncoding("UTF-8");
-                // Set the type of file (binary)
+                // Set file type (binary)
                 ftpClient.setFileType(FTPClient.BINARY_FILE_TYPE);
                 // upload
                 flag = ftpClient.storeFile(new String(ftpFileName.getBytes(), "iso-8859-1"), fis);
@@ -97,9 +97,8 @@ public class FtpUtil {
     }
     
     /**
-     * Loop to create the directory, complete the creation of the directory,
-     *  set the working directory for the current directory created
-     * @param ftpPath  Need to create the directory
+     * After you create the directory and create the directory, set the work directory to the directory you are currently creating
+     * @param ftpPath :the directory that need to create
      * @return
      */
     public static boolean mkDir(String ftpPath) {
@@ -107,6 +106,7 @@ public class FtpUtil {
             return false;
         }
         try {
+            // Unify the slashes in the path
             char[] chars = ftpPath.toCharArray();
             StringBuffer sbStr = new StringBuffer(256);
             for (int i = 0; i < chars.length; i++) {
@@ -118,11 +118,11 @@ public class FtpUtil {
             }
             ftpPath = sbStr.toString();
             if (ftpPath.indexOf('/') == -1) {
-                // There is only one directory
+                // Only one layer of directory
                 ftpClient.makeDirectory(new String(ftpPath.getBytes(), "iso-8859-1"));
                 ftpClient.changeWorkingDirectory(new String(ftpPath.getBytes(), "iso-8859-1"));
             } else {
-                // Loop to create a multi-level directory
+                // Multilevel directory loop creation
                 String[] paths = ftpPath.split("/");
                 for (int i = 0; i < paths.length; i++) {
                     ftpClient.makeDirectory(new String(paths[i].getBytes(), "iso-8859-1"));
@@ -137,7 +137,7 @@ public class FtpUtil {
     }
     
     /**
-     * get url
+     *get url
     * Description: 
     *
     * @param key
@@ -149,7 +149,7 @@ public class FtpUtil {
     
     
     /**
-     * Close the connection
+     * close connect
      */
     public static void close() {
         try {

@@ -9,15 +9,16 @@ import com.hengtiansoft.church.entity.SRoleInfoEntity;
 import com.hengtiansoft.common.dto.ResultDto;
 
 /**
+ * 
 * Class Name: SUserService
-* Description: 
-* @author tao chen
+* Description: User business
+* @author taochen
 *
-*/
+ */
 public interface SUserService {
     /**
      * 
-    * Description: search
+    * Description: RESEARCH
     *
     * @param dto
      */
@@ -25,7 +26,7 @@ public interface SUserService {
 
     /**
      * 
-    * Description: save the user
+    * Description: USER SAVE
     *
     * @param dto
     * @return
@@ -34,7 +35,7 @@ public interface SUserService {
 
     /**
      * 
-    * Description: Update personal information (current user)
+    * Description: THE CURRENT USER DATE UDDATE
     *
     * @param dto
     * @return
@@ -43,7 +44,7 @@ public interface SUserService {
 
     /**
      * 
-    * Description: update the user
+    * Description: USER UPDATE
     *
     * @param dto
     * @return
@@ -52,7 +53,7 @@ public interface SUserService {
 
     /**
      * 
-    * Description: Find out all the roles
+    * Description: FIND ALL ROLES
     *
     * @return
      */
@@ -60,7 +61,7 @@ public interface SUserService {
 
     /**
      * 
-    * Description: Find out information through the user's ID
+    * Description: FIDN USERS MESSAGE BY ID
     *
     * @param id
     * @return
@@ -69,7 +70,7 @@ public interface SUserService {
     
     
     /**
-    * Description: Queries the user exists role
+    * Description: FIDN USER'S ROLES
     *
     * @param id
     * @return
@@ -78,7 +79,7 @@ public interface SUserService {
 
     /**
      * 
-    * Description: delete the user
+    * Description: DELETE USER
     *
     * @param ids
     * @return
@@ -87,7 +88,7 @@ public interface SUserService {
 
     /**
      * 
-    * Description: Reset the password
+    * Description: RESET PASSWORD 
     *
     * @param loginId
     * @return

@@ -7,7 +7,7 @@ import com.hengtiansoft.church.entity.SRoleInfoEntity;
 
 /**
  * Class Name: SUserEditDto
- * Description: Edit the account DTO
+ * Description: ACCOUNT EDIT DTO
  * 
  * @author tao chen
  */

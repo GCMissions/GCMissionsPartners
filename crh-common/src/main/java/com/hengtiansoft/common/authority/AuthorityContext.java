@@ -22,7 +22,7 @@ import com.hengtiansoft.common.util.CookieUtils;
 import com.hengtiansoft.common.util.web.WebUtil;
 
 /**
- * Class Name: AuthorityContext Description: Authority Context
+ * Class Name: AuthorityContext Description: Permission container
  * 
  * @author taochen
  *
@@ -34,7 +34,7 @@ public class AuthorityContext {
     private final static ThreadLocal<UserInfo> UESR_INFO = new ThreadLocal<>();
 
     /**
-     * Description: Gets the basic information of the current user.。
+     * Description: Gets the basic information of the current user.
      * 
      * @return
      */
@@ -43,7 +43,7 @@ public class AuthorityContext {
     }
 
     /**
-     * Description: Set the basic information of the current user。
+     * Description: set the basic information of the current user.
      * 
      * @return
      */
@@ -56,7 +56,7 @@ public class AuthorityContext {
     }
 
     /**
-     * Description: Get the current user Token
+     * Description:Gets the token of the current user.
      *
      * @return
      */
@@ -70,8 +70,7 @@ public class AuthorityContext {
     }
 
     /**
-     * Description: Verify that the user login name,
-     *  it creates a new session after a successful landing.
+     * Description:Login to verify the user name, login and landing will create a new session.
      * 
      * @param userId
      * @param password
@@ -95,7 +94,7 @@ public class AuthorityContext {
     }
 
     /**
-     * Description: Add the token to the cookie
+     * Description: Set the token to the cookie
      *
      * @param response
      * @param cookieDomain
@@ -105,8 +104,7 @@ public class AuthorityContext {
     }
 
     /**
-     * Description: Verify that the current user 
-     * has this permission.
+     * Description: Verify that the current user has this permission.
      *
      * @param permission
      * @return
@@ -117,8 +115,7 @@ public class AuthorityContext {
     }
 
     /**
-     * Description: Verify that the current user 
-     * has all of the following permissions.
+     * Description: Verify that the current user has all of the following permissions. The
      *
      * @param permissions
      * @return
@@ -129,8 +126,7 @@ public class AuthorityContext {
     }
 
     /**
-     * Description: Verify that the current user 
-     * has any of the following permissions
+     * Description: Verify that the current user has any of the following permissions
      *
      * @param permissions
      * @return
@@ -149,8 +145,7 @@ public class AuthorityContext {
     }
 
     /**
-     * Check if there is permission, 
-     * if there is no authority to throw an exception.
+     * Check if there is permission, if nothing else throws an exception.
      *
      * @see org.apache.shiro.subject.Subject#checkPermission(String permission)
      * @param permission
@@ -165,8 +160,7 @@ public class AuthorityContext {
     }
 
     /**
-     * Description: Verify that the current user belongs to all of the following roles. 
-     * Please judge by permission rather than role, such as hasPermission.
+     * Description: Verify that the current user belongs to all of the following roles. Please judge by permission rather than role, such as hasPermission.
      *
      * @param roles
      * @return
@@ -177,8 +171,7 @@ public class AuthorityContext {
     }
 
     /**
-     * Description: Verify that the current user belongs to any of the following roles
-     * Please judge by permission rather than role, such as hasPermission.
+     * Description: Verify that the current user belongs to any of the following roles. Please judge by permission rather than role, such as hasPermission.
      *
      * @param roleNames
      * @return
@@ -217,7 +210,7 @@ public class AuthorityContext {
     }
 
     /**
-     * Description: get a static resource path
+     * Description: Get static resource address
      *
      * @param userId
      */
@@ -227,7 +220,7 @@ public class AuthorityContext {
     }
 
     /**
-     * Description: get a ftp path
+     * Description: Get FTPaddress
      *
      * @return
      */
@@ -272,7 +265,7 @@ public class AuthorityContext {
     }
 
     /**
-     * Description: Get the permissions for the URL
+     * Description:Get URL permissions
      *
      * @param url
      * @return

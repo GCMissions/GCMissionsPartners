@@ -13,8 +13,7 @@ import com.hengtiansoft.common.authority.domain.UserInfo;
 import com.hengtiansoft.common.xmemcached.constant.CacheType;
 
 /**
- * Class Name: AuthorityService 
- * Description: Verification of permissions Service
+ * Class Name: AuthorityService Description: Permission Validation Service
  * 
  * @author taochen
  *
@@ -40,7 +39,7 @@ public interface AuthorityService {
     public UserInfo authcUser(String loginId, String password);
 
     /**
-     * Description: Get the user's login information
+     * Description: Get logined user's information
      *
      * @param userInfo
      * @return
@@ -71,7 +70,7 @@ public interface AuthorityService {
     public List<RoleInfo> findRoleInfosByUserId(Long userId);
 
     /**
-     * Description: Obtain the relevant permissions based on roles
+     * Description: According to the role of access to relevant authority
      *
      * @param roleIds
      * @return
@@ -83,7 +82,8 @@ public interface AuthorityService {
      *
      * @return
      */
-    //@Cacheable(value = CacheType.DEFAULT, key = "T(com.hengtiansoft.common.util.ApplicationContextUtil).getApplicationName()+'_Functions'")
+    // @Cacheable(value = CacheType.DEFAULT, key =
+    // "T(com.hengtiansoft.common.util.ApplicationContextUtil).getApplicationName()+'_Functions'")
     @Cacheable(value = CacheType.DEFAULT, key = "T(com.hengtiansoft.common.util.AppConfigUtil).getAppName()+'_Functions'")
     Map<String, FunctionInfo> getFunctions();
 
@@ -112,7 +112,7 @@ public interface AuthorityService {
     void clearAuthzCache(String token);
 
     /**
-     * Description: Obtain the static resource path
+     * Description: Get static resource address
      *
      * @return
      */
@@ -120,21 +120,19 @@ public interface AuthorityService {
     String getStaticPath();
 
     /**
-     * Description: Get the image resource path
+     * Description: Get the image resource address
      *
      * @return
      */
     @Cacheable(value = CacheType.DEFAULT, key = "'_FtpPath'")
     String getFtpPath();
-    
-    
+
     /**
-     * Description: Get the Qq path
+     * Description: get qq address
      *
      * @return
      */
     @Cacheable(value = CacheType.DEFAULT, key = "'_QqPath'")
     String getQqPath();
-
 
 }

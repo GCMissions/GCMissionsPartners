@@ -243,7 +243,7 @@ window.newOrderInterval = ${newOrderInterval};
 </#if>
 
 <script id="changeProfileTpl" type="text/html">
-{{if dto.status == '启用'}}
+{{if dto.status == 'Enable'}}
 <form id="addEditForm" method="post" class="form-horizontal" novalidate="false">
 <div class="box-body form-horizontal addEditTpl">
  	  <div class="callout callout-info " >
@@ -295,7 +295,7 @@ window.newOrderInterval = ${newOrderInterval};
 </form>
 {{else}}
 <p class="form-control-static">
-The account is disabled, you cannot modify data．
+The account is disabled, you cannot modify data.
 </p>
 {{/if}}
 </script>

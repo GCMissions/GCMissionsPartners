@@ -9,7 +9,8 @@ import javax.persistence.Query;
 import com.hengtiansoft.common.dto.PagingDto;
 
 public class QueryUtil {
-    // Set the parameters of sql
+
+    // configure sql parameter
     public static void processParamForQuery(Query query, Map<String, Object> paramMap) {
         for (Entry<String, Object> entry : paramMap.entrySet()) {
             String paramName = entry.getKey();
@@ -17,10 +18,11 @@ public class QueryUtil {
             query.setParameter(paramName, paramVal);
         }
     }
-    
-    public static void buildPagingDto(PagingDto pagingDto, Long totalRecord,List list){
+
+    public static void buildPagingDto(PagingDto pagingDto, Long totalRecord, List list) {
         pagingDto.setTotalRecord(totalRecord);
-        pagingDto.setTotalPages(totalRecord.intValue() % pagingDto.getPageSize() == 0?totalRecord.intValue() / pagingDto.getPageSize():((totalRecord.intValue() / pagingDto.getPageSize()) + 1));
+        pagingDto.setTotalPages(totalRecord.intValue() % pagingDto.getPageSize() == 0 ? totalRecord.intValue()
+                / pagingDto.getPageSize() : ((totalRecord.intValue() / pagingDto.getPageSize()) + 1));
         pagingDto.setList(list);
     }
 }

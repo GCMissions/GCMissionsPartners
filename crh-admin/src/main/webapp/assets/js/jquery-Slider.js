@@ -1,26 +1,26 @@
 (function($) {
 	$.fn.Scroll = function() {
-		var _btnUp = $("#btnUp"); // 向上按钮
-		var _btnDown = $("#btnDown"); //向下按钮
+		var _btnUp = $("#btnUp"); // up button 
+		var _btnDown = $("#btnDown"); //down button
 		var _this = this.eq(0).find("ul:first");
-		var lineH = 70; // 获取行高
-		var line = 1; // 每次滚动的行数
-		var speed = 500; // 卷动速度，数值越大，速度越慢（毫秒）
-		var m = line; // 用于计算的变量
-		var count = _this.find(".parentMenu").length; // 总共的<li>元素的个数
+		var lineH = 70; // get line height
+		var line = 1; // The number of rows to scroll each time
+		var speed = 500; // Scrolling speed, the greater the value, the slower the speed (milliseconds)
+		var m = line; // Variables used for calculat
+		var count = _this.find(".parentMenu").length; // The total number of <li> elements
 		var upHeight = line * lineH;
 		var c = 0;
 //		setParentMenuTop(0);
 		function scrollUp() {
-			if (!_this.is(":animated")) { // 判断元素是否正处于动画，如果不处于动画状态，则追加动画。
-				if (m < count-5) { // 判断 m 是否小于一屏的个数(每屏7个)
+			if (!_this.is(":animated")) { // Determines whether the element is in animation, and if not animated, append the animation.
+				if (m < count-5) { // Determine whether the M is smaller than the number of screens (7 per screen)
 					m += line;
 					_this.animate({
 						marginTop : "-=" + upHeight + "px"
 					}, speed);
 					c = c+1;
-					$(".upHeight").val("");  //将滚动的高度记录在页面中
-					$(".upHeight").val(upHeight);  //将滚动的高度记录在页面中
+					$(".upHeight").val("");  //Record the scroll height in the page
+					$(".upHeight").val(upHeight);  //Record the scroll height in the page
 //					setParentMenuTop(c);
 				}else{
 					_btnUp.removeClass("hover");
@@ -46,7 +46,7 @@
 //		}
 		function scrollDown() {
 			if (!_this.is(":animated")) {
-				if (m > line) { // 判断m 是否大于一屏个数
+				if (m > line) { // Determine whether the M is larger than the number of screens
 					m -= line;
 					_this.animate({
 						marginTop : "+=" + upHeight + "px"
@@ -62,7 +62,7 @@
 			
 		}
 		_btnUp.mouseover(function(){
-			if (!_this.is(":animated")) { // 判断元素是否正处于动画，如果不处于动画状态，则追加动画。
+			if (!_this.is(":animated")) { // Determine whether the M is larger than the number of screens
 				if (m < count-6) {
 					_btnUp.addClass("hover");
 				}

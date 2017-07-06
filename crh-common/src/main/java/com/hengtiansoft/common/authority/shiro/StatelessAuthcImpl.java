@@ -23,7 +23,7 @@ import com.hengtiansoft.common.authority.service.AuthorityService;
 import com.hengtiansoft.common.xmemcached.constant.CacheType;
 
 /**
- * Class Name: StatelessAuthImpl Description: Permission authentication 
+ * Class Name: StatelessAuthImpl Description: Authority authentication implementation
  * 
  * @author taochen
  *
@@ -39,7 +39,7 @@ public class StatelessAuthcImpl {
     public SimpleAuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
         SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
         UserInfo userInfo = (UserInfo) principals.getPrimaryPrincipal();
-        // Get all the roles of a user
+        // Get all the user's role
         List<RoleInfo> roleInfos = authorityService.findRoleInfosByUserId(userInfo.getUserId());
         if (roleInfos != null) {
             Set<String> roles = new HashSet<String>();
@@ -49,7 +49,7 @@ public class StatelessAuthcImpl {
                 roles.add(roleInfo.getRole());
                 roleIds.add(roleInfo.getRoleId());
             }
-            // Get all the permissions of a user
+            // Get all the user's permissions
             if (!roleIds.isEmpty()) {
                 List<FunctionInfo> functionInfos = authorityService.findFunctionsByRoleIds(roleIds);
                 if (functionInfos != null) {
@@ -87,11 +87,11 @@ public class StatelessAuthcImpl {
                     AuthorityContext.clearAuthzCache(tokenStr);
                     AuthorityContext.clearAuthcCache(tokenStr);
                 }
-                // Setting up a new token
+                // Set new token
                 tokenStr = getRandomToken();
                 authorityService.setLoginInfo(userInfo, tokenStr);
             } else {
-                throw new IncorrectCredentialsException("User[" + loginId + "]Authentication Failed");
+                throw new IncorrectCredentialsException("user [" + loginId + "]fail to Authenticate");
             }
         }
         if (userInfo != null) {

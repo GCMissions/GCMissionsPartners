@@ -6,8 +6,7 @@ public class RequestDto implements Serializable{
     
     /**
     * Variables Name: token
-    * Description: Login authentication token, 
-    * request token authentication before passing into the method body
+    * Description:Login authentication token, request token authentication before passing into the method body
     * Value Description: 
     */
     private String token ;

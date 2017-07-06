@@ -1,5 +1,4 @@
 package com.hengtiansoft.church.common.enums;
-
 /**
  * Class Name: UploadSourceEnum
  * Description: Upload the source of the picture

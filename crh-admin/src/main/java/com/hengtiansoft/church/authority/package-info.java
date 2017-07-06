@@ -1,5 +1,5 @@
 /**
- * @author tao chen
- * authority management
+ * @author taochen
+ * authority management.
  */
 package com.hengtiansoft.church.authority;

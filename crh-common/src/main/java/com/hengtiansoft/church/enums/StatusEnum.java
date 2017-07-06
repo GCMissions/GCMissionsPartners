@@ -1,8 +1,8 @@
 package com.hengtiansoft.church.enums;
 
-
 public enum StatusEnum {
-    NORMAL("1", "Enabled"), DELETE("0", "Delete"),UNENABLED("2","Unenabled"),REMOVED("3","Removed");
+
+    NORMAL("1", "Enabled"), DELETE("0", "Delete"), UNENABLED("2", "Unenabled"), REMOVED("3", "Removed");
 
     private String code;
 
@@ -20,21 +20,22 @@ public enum StatusEnum {
     public String getText() {
         return text;
     }
-    
-    public static String getTextByCode(String code){
-    	 for (StatusEnum type : values()) {
-             if (type.getCode().equals(code)) {
-                 return type.getText();
-             }
-         }
-         return null;
+
+    public static String getTextByCode(String code) {
+        for (StatusEnum type : values()) {
+            if (type.getCode().equals(code)) {
+                return type.getText();
+            }
+        }
+        return null;
     }
-    public static String getCodeByText(String text){
-   	 for (StatusEnum type : values()) {
+
+    public static String getCodeByText(String text) {
+        for (StatusEnum type : values()) {
             if (type.getText().equals(text)) {
                 return type.getCode();
             }
         }
         return null;
-   }
+    }
 }

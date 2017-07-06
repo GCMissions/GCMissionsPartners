@@ -2,7 +2,7 @@
  * Created with JetBrains PhpStorm.
  * User: xuheng
  * Date: 12-5-22
- * Time: 上午11:38
+ * Time: 1:38 am
  * To change this template use File | Settings | File Templates.
  */
 var scrawl = function (options) {
@@ -11,44 +11,42 @@ var scrawl = function (options) {
 (function () {
     var canvas = $G("J_brushBoard"),
         context = canvas.getContext('2d'),
-        drawStep = [], //undo redo存储
-        drawStepIndex = 0; //undo redo指针
+        drawStep = [], //undo redo store
+        drawStepIndex = 0; //undo redoPointer
 
     scrawl.prototype = {
-        isScrawl:false, //是否涂鸦
-        brushWidth:-1, //画笔粗细
-        brushColor:"", //画笔颜色
+        isScrawl:false, //Doodle?
+        brushWidth:-1, //Brush thickness
+        brushColor:"", //brush color
 
         initOptions:function (options) {
             var me = this;
-            me.originalState(options);//初始页面状态
-            me._buildToolbarColor(options.colorList);//动态生成颜色选择集合
+            me.originalState(options);//Initial page status
+            me._buildToolbarColor(options.colorList);//Dynamically generating color selection sets
 
-            me._addBoardListener(options.saveNum);//添加画板处理
-            me._addOPerateListener(options.saveNum);//添加undo redo clearBoard处理
-            me._addColorBarListener();//添加颜色选择处理
-            me._addBrushBarListener();//添加画笔大小处理
-            me._addEraserBarListener();//添加橡皮大小处理
-            me._addAddImgListener();//添加增添背景图片处理
-            me._addRemoveImgListenter();//删除背景图片处理
-            me._addScalePicListenter();//添加缩放处理
-            me._addClearSelectionListenter();//添加清楚选中状态处理
-
-            me._originalColorSelect(options.drawBrushColor);//初始化颜色选中
-            me._originalBrushSelect(options.drawBrushSize);//初始化画笔选中
-            me._clearSelection();//清楚选中状态
+            me._addBoardListener(options.saveNum);//add animation processing
+            me._addOPerateListener(options.saveNum);//add undo redo clearBoard processing
+            me._addColorBarListener();//add color choosing processing 
+            me._addBrushBarListener();//add Stroke size processing
+            me._addEraserBarListener();//Add rubber size handle
+            me._addAddImgListener(); // add add background images
+            me._addRemoveImgListenter(); // delete the background picture
+            me._addScalePicListenter(); // add zoom processing
+            me._addClearSelectionListenter(); // add clear selected treatment
+            me._originalColorSelect (options.drawBrushColor); // initialize the selected color
+            me._originalBrushSelect (options.drawBrushSize); // initialize the selected brush
+            me._clearSelection(); // clear the selected state
         },
 
         originalState:function (options) {
             var me = this;
 
-            me.brushWidth = options.drawBrushSize;//同步画笔粗细
-            me.brushColor = options.drawBrushColor;//同步画笔颜色
-
-            context.lineWidth = me.brushWidth;//初始画笔大小
-            context.strokeStyle = me.brushColor;//初始画笔颜色
-            context.fillStyle = "transparent";//初始画布背景颜色
-            context.lineCap = "round";//去除锯齿
+            me.brushWidth = options.drawBrushSize; // synchronous brush thickness
+            me.brushColor = options.drawBrushColor; //  synchronous brush color
+            Context.lineWidth = me.brushWidth; // initial brush size
+            Context.strokeStyle = me.brushColor; // initial brush color
+            Context.fillStyle = "transparent"; // initial canvas background color
+            Context.lineCap = "round"; // remove the sawtooth
             context.fill();
         },
         _buildToolbarColor:function (colorList) {
@@ -92,7 +90,7 @@ var scrawl = function (options) {
                         isMouseUp = false;
                         isMouseMove = false;
                         me.isScrawl = true;
-                        startX = e.clientX - margin;//10为外边距总和
+                        startX = e.clientX - margin;//10 is the sum of the outer distances
                         startY = e.clientY - margin;
                         context.beginPath();
                         break;
@@ -101,7 +99,7 @@ var scrawl = function (options) {
                             return;
                         }
                         if (!flag && button) {
-                            startX = e.clientX - margin;//10为外边距总和
+                            startX = e.clientX - margin;//10 is the sum of the outer distances
                             startY = e.clientY - margin;
                             context.beginPath();
                             flag = 1;
@@ -388,7 +386,7 @@ var scrawl = function (options) {
                 context.drawImage(img, x, y, img.width, img.height);
             } else {
                 context.globalCompositeOperation = "destination-atop";
-                context.fillStyle = "#fff";//重置画布背景白色
+                context.fillStyle = "#fff";//Reset canvas background white
                 context.fillRect(0, 0, canvas.width, canvas.height);
             }
             try {
@@ -566,13 +564,13 @@ var ScaleBoy = function () {
     };
 })();
 
-//后台回调
+//后台回调Background callback
 function ue_callback(url, state) {
     var doc = document,
         picBorard = $G("J_picBoard"),
         img = doc.createElement("img");
 
-    //图片缩放
+    //picture zoom
     function scale(img, max, oWidth, oHeight) {
         var width = 0, height = 0, percent, ow = img.width || oWidth, oh = img.height || oHeight;
         if (ow > max || oh > max) {
@@ -592,9 +590,9 @@ function ue_callback(url, state) {
         }
     }
 
-    //移除遮罩层
+    //Remove mask layer
     removeMaskLayer();
-    //状态响应
+    //State response
     if (state == "SUCCESS") {
         picBorard.innerHTML = "";
         img.onload = function () {
@@ -611,21 +609,21 @@ function ue_callback(url, state) {
         alert(state);
     }
 }
-//去掉遮罩层
+//remove mask layer
 function removeMaskLayer() {
     var maskLayer = $G("J_maskLayer");
     maskLayer.className = "maskLayerNull";
     maskLayer.innerHTML = "";
     dialog.buttons[0].setDisabled(false);
 }
-//添加遮罩层
+//add mask layer
 function addMaskLayer(html) {
     var maskLayer = $G("J_maskLayer");
     dialog.buttons[0].setDisabled(true);
     maskLayer.className = "maskLayer";
     maskLayer.innerHTML = html;
 }
-//执行确认按钮方法
+//Execute confirmation button method
 function exec(scrawlObj) {
     if (scrawlObj.isScrawl) {
         addMaskLayer(lang.scrawlUpLoading);

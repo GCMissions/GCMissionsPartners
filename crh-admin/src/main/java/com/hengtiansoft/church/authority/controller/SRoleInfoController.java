@@ -20,9 +20,9 @@ import com.hengtiansoft.common.dto.ResultDto;
 
 /**
  * 
-* Class Name: Role of the controller
-* Description: Role Controller
-* @author tao chen
+* Class Name: SRoleInfoController
+* Description: role controller
+* @author taochen
 *
  */
 @Controller
@@ -33,7 +33,7 @@ public class SRoleInfoController {
     private SRoleInfoService sRoleInfoService;
 
     /**
-     * Description:Go to the home page
+     * Description:jump to homepage
      * 
      * @return
      */
@@ -43,7 +43,7 @@ public class SRoleInfoController {
     }
 
     /**
-     * Description:home data
+     * Description:homepage's data
      * 
      * @param dto
      * @return
@@ -56,7 +56,7 @@ public class SRoleInfoController {
     }
 
     /**
-     * Description:Go to the add page
+     * Description:jupm to add page
      * 
      * @return
      */
@@ -68,7 +68,7 @@ public class SRoleInfoController {
     }
 
     /**
-     * Description : save role
+     * Description :add and save
      * 
      * @param dto
      * @return
@@ -80,7 +80,7 @@ public class SRoleInfoController {
     }
 
     /**
-     * Description:go to the edit page
+     * Description:jump to edit page
      * 
      * @return
      */
@@ -93,7 +93,7 @@ public class SRoleInfoController {
     }
 
     /**
-     * Description:save the modified information
+     * Description:save edit 
      * 
      * @param dto
      * @return
@@ -112,7 +112,7 @@ public class SRoleInfoController {
     }
 
     /**
-     * Description:Go to the page for viewing details
+     * Description:Go to the view page
      * 
      * @return
      */

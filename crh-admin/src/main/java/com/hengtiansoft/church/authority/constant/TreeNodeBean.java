@@ -8,7 +8,7 @@ import java.util.List;
  * Class Name: TreeNodeBean
  * Description: Node tree
  * 
- * @author tao chen
+ * @author taochen
  */
 public class TreeNodeBean implements Serializable {
 

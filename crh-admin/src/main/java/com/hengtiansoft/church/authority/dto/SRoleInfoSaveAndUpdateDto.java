@@ -5,55 +5,52 @@ import java.util.List;
 
 /**
  * 
-* Class Name: SRoleInfoSaveAndUpdateDto
-* Description: Add or edit roles DTO
-* @author tao chen
-*
+ * Class Name: SRoleInfoSaveAndUpdateDto Description: Add or edit roles DTO
+ * 
+ * @author tao chen
+ *
  */
-public class SRoleInfoSaveAndUpdateDto implements Serializable{
-	private static final long serialVersionUID = 2137718744388076756L;
-	
-	 private Long roleId;    
-	    
-	 private String role;
-	    
-	 private String description;
-	    
-	 private List<Long> functionIds;
+public class SRoleInfoSaveAndUpdateDto implements Serializable {
+    private static final long serialVersionUID = 2137718744388076756L;
 
-	public Long getRoleId() {
-		return roleId;
-	}
+    private Long roleId;
 
-	public void setRoleId(Long roleId) {
-		this.roleId = roleId;
-	}
+    private String role;
 
-	public String getRole() {
-		return role;
-	}
+    private String description;
 
-	public void setRole(String role) {
-		this.role = role;
-	}
+    private List<Long> functionIds;
 
-	public String getDescription() {
-		return description;
-	}
+    public Long getRoleId() {
+        return roleId;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public void setRoleId(Long roleId) {
+        this.roleId = roleId;
+    }
 
-	public List<Long> getFunctionIds() {
-		return functionIds;
-	}
+    public String getRole() {
+        return role;
+    }
 
-	public void setFunctionIds(List<Long> functionIds) {
-		this.functionIds = functionIds;
-	}
-	 
-	 
-	 
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public List<Long> getFunctionIds() {
+        return functionIds;
+    }
+
+    public void setFunctionIds(List<Long> functionIds) {
+        this.functionIds = functionIds;
+    }
 
 }

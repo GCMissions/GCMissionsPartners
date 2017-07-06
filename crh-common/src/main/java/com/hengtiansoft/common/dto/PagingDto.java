@@ -19,19 +19,19 @@ public class PagingDto<T> implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    // The number of data per page
+    // Displays the number of records per page
     private Integer           pageSize         = 50;
 
-    // Current page number
+    // current page number
     private Integer           currentPage      = 1;
 
-    // Total number of data
+    // total
     private Long              totalRecord;
 
     // total pages
     private Integer           totalPages;
 
-    // Data container
+    // data List
     private List<T>           list;
 
     public Integer getPageSize() {

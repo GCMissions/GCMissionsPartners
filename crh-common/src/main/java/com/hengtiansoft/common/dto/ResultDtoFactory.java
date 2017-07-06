@@ -15,8 +15,7 @@ import com.hengtiansoft.common.util.AppConfigUtil;
 import com.hengtiansoft.common.util.MessageUtil;
 
 /**
- * Class Name: ResultDtoFactory 
- * Description: 
+ * Class Name: ResultDtoFactory Description: 
  * 
  * @author taochen
  */
@@ -51,8 +50,7 @@ public final class ResultDtoFactory {
     }
 
     /**
-     * Description: In the controller layer directly return error message, 
-     * to avoid using the method in the controller catch exception to do processing
+     * Description: In the controller layer directly return error message, to avoid using the method in the controller catch exception to do processing
      * 
      * @param msg
      * @return
@@ -62,8 +60,7 @@ public final class ResultDtoFactory {
     }
 
     /**
-     * Description: Description: In the controller layer directly return error message, 
-     * to avoid using the method in the controller catch exception to do processing
+     * Description: In the controller layer directly return error message, to avoid using the method in the controller catch exception to do processing
      * 
      * @param error
      * @return
@@ -77,8 +74,7 @@ public final class ResultDtoFactory {
     }
 
     /**
-     * Description: In the controller layer directly return error message, 
-     * to avoid using the method in the controller catch exception to do processing
+     * Description: In the controller layer directly return error message, to avoid using the method in the controller catch exception to do processing
      * 
      * @param msg
      * @param data
@@ -121,7 +117,7 @@ public final class ResultDtoFactory {
         dto.setCode(ResultCode.COMMON_ERROR);
         StringBuilder text = new StringBuilder();
         if (StringUtils.isBlank(msg)) {
-            text.append(MessageUtil.getMessage(EErrorCode.COMM_INTERNAL_ERROR.getDisplayMsg())).append("[").append("时间：")
+            text.append(MessageUtil.getMessage(EErrorCode.COMM_INTERNAL_ERROR.getDisplayMsg())).append("[").append("time：")
                     .append((new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")).format(new Date())).append("]");
         } else {
             text.append(msg);
@@ -137,8 +133,7 @@ public final class ResultDtoFactory {
     }
 
     /**
-     * Description: Exceptional stacktrace and message 
-     * will be displayed in a non-production environment
+     * Description: Exceptional stacktrace and message will be displayed in a non-production environment
      * 
      * @param e
      * @return
@@ -149,8 +144,7 @@ public final class ResultDtoFactory {
     }
 
     /**
-     * Description: Exceptional stacktrace and message 
-     * will be displayed in a non-production environment
+     * Description: Exceptional stacktrace and message will be displayed in a non-production environment
      * 
      * @param e
      * @return
@@ -160,7 +154,7 @@ public final class ResultDtoFactory {
     }
 
     /**
-     * Description: The incoming msg will be displayed
+     * Description:The incoming msg will be displayed
      * 
      * @param msg
      * @return

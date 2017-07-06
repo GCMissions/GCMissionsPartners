@@ -12,7 +12,7 @@ import com.hengtiansoft.common.authority.domain.UserInfo;
 /**
  * 
 * Class Name: SUserEntity
-* Description: User information table
+* Description:User information table
 * @author taochen
 *
  */

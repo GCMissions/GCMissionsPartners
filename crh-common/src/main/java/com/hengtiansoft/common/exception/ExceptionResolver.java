@@ -54,7 +54,7 @@ public class ExceptionResolver implements HandlerExceptionResolver {
                 setResult(response, HttpServletResponse.SC_UNAUTHORIZED, ResultDtoFactory.toUnauthorized("Please login again!" + ex.getMessage()));
             } else if (ex instanceof MaxUploadSizeExceededException) {
                 LOGGER.debug("MaxUploadSizeExceededException handled (non-ajax style):", ex);
-                setResult(response, HttpServletResponse.SC_OK, ResultDtoFactory.toNack("File size must be less than 2M, please re-upload"));
+                setResult(response, HttpServletResponse.SC_OK, ResultDtoFactory.toNack("File size must be less than 2M, please re-upload "));
             } else if (ex instanceof BizServiceException) {
                 LOGGER.debug("BizServiceException handled (non-ajax style):", ex);
                 setResult(response, HttpServletResponse.SC_OK, ResultDtoFactory.toBusinessError(ex.getMessage()));

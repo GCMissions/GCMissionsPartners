@@ -20,7 +20,7 @@ var settingApp = {
 				skipflag[i].checked='checked';
 			}
 		}
-		/*//app 文件上传
+		/*//app file upload
 		$('#appFile').on('click',function(){
 			alert($("#appVersion_android").val());
 			that.ajaxFileUpload("android",$("#appVersion_android").val());
@@ -164,7 +164,7 @@ var settingApp = {
 
 			};
 		
-		$('button.submitMainForm').prop('disabled', true).text('保存中....');
+		$('button.submitMainForm').prop('disabled', true).text('saving....');
 		$.ajax({
 			type : 'post',
 			url : urlPrefix + that.saveUrl,
@@ -175,24 +175,24 @@ var settingApp = {
 				function(result) {
 					if (result.code == "ACK") {
 						$('button.submitMainForm').prop('disabled', false)
-								.text('保存成功');
+								.text('Saved successfully');
 						$('#mainForm').loadingInfo({
 							type : "success",
 							text : message("admin.message.success")
 						});
 					}
 				}).always(function() {
-			$('button.submitMainForm').prop('disabled', false).text('保存');
+			$('button.submitMainForm').prop('disabled', false).text('save');
 		});
 	},
 	doSave : function() {
 		var that = this;
 		
 		if(($("#appFile").val()!=""&&$("#appFile").val()!=undefined)){
-			var dtd = $.Deferred(); // 新建一个Deferred对象
+			var dtd = $.Deferred(); // new a Deferred object
 			var wait = function(dtd){
 				var tasks = function(){
-					 $('button.submitMainForm').prop('disabled', true).text('文件上传中....');
+					 $('button.submitMainForm').prop('disabled', true).text('File uploading....');
 					 $.ajaxFileUpload({
 							url : urlPrefix + "paraSetting/uploadApp",
 							secureuri : false,
@@ -206,7 +206,7 @@ var settingApp = {
 								}else{
 									alert(data.message);
 								}
-								dtd.resolve(); // 改变Deferred对象的执行状态
+								dtd.resolve(); // Change the execution state of the Deferred object
 							}
 							
 						});
@@ -244,7 +244,7 @@ var settingApp = {
 
 					};
 				
-				$('button.submitMainForm').prop('disabled', true).text('保存中....');
+				$('button.submitMainForm').prop('disabled', true).text('saving....');
 				$.ajax({
 					type : 'post',
 					url : urlPrefix + that.saveUrl,
@@ -255,14 +255,14 @@ var settingApp = {
 						function(result) {
 							if (result.code == "ACK") {
 								$('button.submitMainForm').prop('disabled', false)
-										.text('保存成功');
+										.text('Saved successfully');
 								$('#mainForm').loadingInfo({
 									type : "success",
 									text : message("admin.message.success")
 								});
 							}
 						}).always(function() {
-					$('button.submitMainForm').prop('disabled', false).text('保存');
+					$('button.submitMainForm').prop('disabled', false).text('save');
 				});
 			});
 		}else{
@@ -286,7 +286,7 @@ var templateApp = {
 		var formData = $('#mainForm').frmSerialize(), result = {};
 		result = formData;
 		var that = this;
-		$('button.submitMainForm').prop('disabled', true).text('保存中....');
+		$('button.submitMainForm').prop('disabled', true).text('saving....');
 		$.ajax({
 			type : 'post',
 			url : urlPrefix + this.saveUrl,
@@ -297,14 +297,14 @@ var templateApp = {
 				function(result) {
 					if (result.code == "ACK") {
 						$('button.submitMainForm').prop('disabled', false)
-								.text('保存成功');
+								.text('Saved successfully');
 						$('#mainForm').loadingInfo({
 							type : "success",
 							text : message("admin.message.success")
 						});
 					}
 				}).always(function() {
-			$('button.submitMainForm').prop('disabled', false).text('保存');
+			$('button.submitMainForm').prop('disabled', false).text('save');
 		});
 	}
 };

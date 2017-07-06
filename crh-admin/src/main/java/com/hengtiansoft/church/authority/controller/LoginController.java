@@ -27,9 +27,9 @@ import com.hengtiansoft.common.dto.ResultDtoFactory;
 import com.hengtiansoft.common.security.KaptchaSupport;
 
 /**
- * Class Name: LoginController Description: LoginController
+ * Class Name: LoginController Description: login controller
  * 
- * @author tao chen
+ * @author taochen
  */
 @Controller
 @RequestMapping(value = "/login")
@@ -41,7 +41,7 @@ public class LoginController {
     private SUserDao       userDao;
 
     /**
-     * Descption:Jump to the login page
+     * Descption:Jump to login page
      * 
      * @param model
      * @return
@@ -52,7 +52,7 @@ public class LoginController {
     }
 
     /**
-     * Descption:Verify login information
+     * Descption:validate logon
      * 
      * @param loginDto
      * @param response

@@ -54,6 +54,7 @@ public class IndexController implements ServletContextAware {
         this.servletContext = servletContext;
     }
 
+    // Background page frame
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView main(Model model) throws Exception {
         SUserSaveAndUpdateDto dto = sUserService.findById(AuthorityContext.getCurrentUser().getUserId());
@@ -76,11 +77,12 @@ public class IndexController implements ServletContextAware {
 
     /**
      * 
-    * Description: A picture oss upload
+    * Description: Single picture oss upload
     *
     * @param file
     * @param source
     * @return
+    * @author taochen
      */
     @RequestMapping(value = "/ossAddImage/{source}", method = RequestMethod.POST)
     @ResponseBody

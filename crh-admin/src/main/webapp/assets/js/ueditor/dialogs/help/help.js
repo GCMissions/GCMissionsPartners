@@ -2,22 +2,22 @@
  * Created with JetBrains PhpStorm.
  * User: xuheng
  * Date: 12-9-26
- * Time: 下午1:06
+ * Time: 1:06 pm
  * To change this template use File | Settings | File Templates.
  */
 /**
- * tab点击处理事件
+ *  process the tab's Click event
  * @param tabHeads
  * @param tabBodys
  * @param obj
  */
 function clickHandler( tabHeads,tabBodys,obj ) {
-    //head样式更改
+    //head's style change
     for ( var k = 0, len = tabHeads.length; k < len; k++ ) {
         tabHeads[k].className = "";
     }
     obj.className = "focus";
-    //body显隐
+    //body show and hidden
     var tabSrc = obj.getAttribute( "tabSrc" );
     for ( var j = 0, length = tabBodys.length; j < length; j++ ) {
         var body = tabBodys[j],
@@ -35,8 +35,8 @@ function clickHandler( tabHeads,tabBodys,obj ) {
 }
 
 /**
- * TAB切换
- * @param tabParentId  tab的父节点ID或者对象本身
+ * TAB Switch
+ * @param tabParentId  TAb's parent node ID or object itself
  */
 function switchTab( tabParentId ) {
     var tabElements = $G( tabParentId ).children,

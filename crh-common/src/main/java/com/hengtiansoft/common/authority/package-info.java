@@ -1,7 +1,7 @@
 /**
  * Class Name: package-info
  * Description: Authority related module
- * @author taochen
+ * @author jialiangli
  *
  */
 package com.hengtiansoft.common.authority;

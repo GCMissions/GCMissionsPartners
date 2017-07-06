@@ -48,11 +48,11 @@ public class MD5 {
     }
 
     /**
-     * MD5 encoding
+     * MD5 code 
      * 
-     * @param origin
-     *            The original string
-     * @return MD5 encrypted results
+     * @param original 
+     *           original Strign 
+     * @return the result After MD5 encryption 
      */
     public static String MD5Encode(String origin) {
         String resultString = null;

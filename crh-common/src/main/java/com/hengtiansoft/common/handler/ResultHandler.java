@@ -37,9 +37,9 @@ public class ResultHandler {
     public Object handlerRequestMapping(final ProceedingJoinPoint joinPoint) throws Throwable {
         final Method method = ((MethodSignature) joinPoint.getSignature()).getMethod();
         String requestUrl = getMappingUrl(method);
-        // To determine whether the user has the authority of the interface
+        // Determine whether the user has permission to range the interface
         if (!hasPermission(requestUrl)) {
-            throw new AuthorizationException("No permission to access the resource");
+            throw new AuthorizationException("No access to the resource");
         }
         // Initialize parameters
         String token = AuthorityContext.getCurrentToken();
@@ -47,7 +47,7 @@ public class ResultHandler {
             LOGGER.debug("Set the current user cache");
             AuthorityContext.setCurrentUser();
         }
-        // If you return to a page, then add parameters to a page
+        // If you return to a page, add a parameter to the page
         if (String.class.equals(method.getReturnType()) || ModelAndView.class.equals(method.getReturnType())) {
             LOGGER.debug("Set the page parameters");
             HttpServletRequest request = WebUtil.getThreadRequest();
@@ -65,7 +65,7 @@ public class ResultHandler {
                 request.setAttribute("staticPath", AuthorityContext.getStaticPath());
             }
         }
-        // Execution method
+        // Implementation method
         return joinPoint.proceed();
     }
 

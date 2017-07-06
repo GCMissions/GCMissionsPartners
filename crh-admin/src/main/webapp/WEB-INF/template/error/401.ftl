@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>未授权</title>
+        <title>unauthorized</title>
         <style>
         	html {
 				background: repeat scroll 0 0 #F5F5F5;
@@ -17,7 +17,7 @@
         </style>
     </head>
     <body>
-		无权访问该页面
+		No access to this page!
     </body>
     <script>
     	setTimeout(function(){
