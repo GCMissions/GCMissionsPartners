@@ -24,7 +24,7 @@ import org.objectweb.asm.Type;
  * Enhance {@link BeanCopier} to allow customized {@link net.sf.cglib.core.Converter} to visit
  * field level information via {@code context} param.
  * 
- * @author SC
+ * @author taochen
  * 
  */
 public abstract class TypeAwareBeanCopier extends BeanCopier { // NOSONAR
@@ -88,8 +88,8 @@ public abstract class TypeAwareBeanCopier extends BeanCopier { // NOSONAR
 
     /**
     * Class Name: TypeAwareGenerator
-    * Description: TODO
-    * @author SC
+    * Description: 
+    * @author taochen
     *
     */
     protected static class TypeAwareGenerator extends Generator {

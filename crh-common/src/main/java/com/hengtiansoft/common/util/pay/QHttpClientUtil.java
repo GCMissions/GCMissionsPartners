@@ -20,22 +20,22 @@ public class QHttpClientUtil {
 
     private static final Logger log= LoggerFactory.getLogger(QHttpClientUtil.class);
     /** 
-     * @Description 发起https请求并获取结果 
-     * @author temdy 
-     * @Date 2015-06-19
-     * @param requestUrl 请求地址 
-     * @param requestMethod 请求方式（GET、POST） 
-     * @param outputStr 提交的数据 
-     * @return JSONObject(通过JSONObject.get(key)的方式获取json对象的属性值) 
+     * @Description Initiate an https request and get the result 
+     * @author taochen 
+     * @Date 
+     * @param requestUrl  
+     * @param requestMethod（GET、POST） 
+     * @param outputStr Submitted data 
+     * @return JSONObject (Through JSONObject.get (key) way to obtain json object attribute value) 
      */  
     public static String httpRequest(String requestUrl, String requestMethod, String outputStr) {  
         StringBuffer buffer = new StringBuffer();  
         try {  
-            // 创建SSLContext对象，并使用我们指定的信任管理器初始化  
+            // Create an SSLContext object and initialize it with our specified trust manager
             TrustManager[] tm = { new MyX509TrustManager() };  
             SSLContext sslContext = SSLContext.getInstance("SSL", "SunJSSE");  
             sslContext.init(null, tm, new java.security.SecureRandom());  
-            // 从上述SSLContext对象中得到SSLSocketFactory对象  
+            // Get the SSLSocketFactory object from the SSLContext object described above
             SSLSocketFactory ssf = sslContext.getSocketFactory();  
 
             URL url = new URL(requestUrl);  
@@ -45,21 +45,20 @@ public class QHttpClientUtil {
             httpUrlConn.setDoOutput(true);  
             httpUrlConn.setDoInput(true);  
             httpUrlConn.setUseCaches(false);  
-            // 设置请求方式（GET/POST）  
+            // Set the request mode (GET / POST)  
             httpUrlConn.setRequestMethod(requestMethod);  
 
             if ("GET".equalsIgnoreCase(requestMethod))  
                 httpUrlConn.connect();  
 
-            // 当有数据需要提交时  
+            // When there is data to be submitted
             if (null != outputStr) {  
                 OutputStream outputStream = httpUrlConn.getOutputStream();  
-                // 注意编码格式，防止中文乱码  
                 outputStream.write(outputStr.getBytes("UTF-8"));  
                 outputStream.close();  
             }  
 
-            // 将返回的输入流转换成字符串  
+            // Converts the input stream to a string  
             InputStream inputStream = httpUrlConn.getInputStream();  
             InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "utf-8");  
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);  
@@ -70,7 +69,7 @@ public class QHttpClientUtil {
             }  
             bufferedReader.close();  
             inputStreamReader.close();  
-            // 释放资源  
+            // release resources  
             inputStream.close();  
             inputStream = null;  
             httpUrlConn.disconnect();  
@@ -86,18 +85,18 @@ public class QHttpClientUtil {
     }
     
     /** 
-     * @Description 发起http请求并获取结果 
-     * @author temdy 
-     * @Date 2015-06-19
-     * @param requestUrl 请求地址 
-     * @param requestMethod 请求方式（GET、POST） 
-     * @param outputStr 提交的数据 
-     * @return JSONObject(通过JSONObject.get(key)的方式获取json对象的属性值) 
+     * @Description Initiate an https request and get the result 
+     * @author taochen 
+     * @Date 
+     * @param requestUrl  
+     * @param requestMethod（GET、POST） 
+     * @param outputStr Submitted data 
+     * @return JSONObject (Through JSONObject.get (key) way to obtain json object attribute value) 
      */  
     public static String httpRequest1(String requestUrl, String requestMethod, String outputStr) {  
         StringBuffer buffer = new StringBuffer();  
         try {  
-            // 创建SSLContext对象，并使用我们指定的信任管理器初始化  
+            // Create an SSLContext object and initialize it with our specified trust manager
             TrustManager[] tm = { new MyX509TrustManager() };  
             SSLContext sslContext = SSLContext.getInstance("SSL", "SunJSSE");  
             sslContext.init(null, tm, new java.security.SecureRandom());  
@@ -109,21 +108,21 @@ public class QHttpClientUtil {
             httpUrlConn.setDoOutput(true);  
             httpUrlConn.setDoInput(true);  
             httpUrlConn.setUseCaches(false);  
-            // 设置请求方式（GET/POST）  
+            // Set the request mode (GET / POST)  
             httpUrlConn.setRequestMethod(requestMethod);  
 
             if ("GET".equalsIgnoreCase(requestMethod))  
                 httpUrlConn.connect();  
 
-            // 当有数据需要提交时  
+            // When there is data to be submitted
             if (null != outputStr) {  
                 OutputStream outputStream = httpUrlConn.getOutputStream();  
-                // 注意编码格式，防止中文乱码  
+                // Note that the encoding format 
                 outputStream.write(outputStr.getBytes("UTF-8"));  
                 outputStream.close();  
             }  
 
-            // 将返回的输入流转换成字符串  
+            // Converts the input stream to a string 
             InputStream inputStream = httpUrlConn.getInputStream();  
             InputStreamReader inputStreamReader = new InputStreamReader(inputStream, "utf-8");  
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);  
@@ -134,7 +133,7 @@ public class QHttpClientUtil {
             }  
             bufferedReader.close();  
             inputStreamReader.close();  
-            // 释放资源  
+            //release resources
             inputStream.close();  
             inputStream = null;  
             httpUrlConn.disconnect();  

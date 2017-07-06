@@ -6,8 +6,8 @@ import java.util.List;
 /**
  * 
 * Class Name: SUserSaveAndUpdateDto
-* Description: 账户新增或编辑DTO
-* @author zhisongliu
+* Description: Add or edit an account DTO
+* @author tao chen
 *
  */
 public class SUserSaveAndUpdateDto implements Serializable{

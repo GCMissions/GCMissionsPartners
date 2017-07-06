@@ -31,7 +31,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.util.Assert;
 
 /**
- * Utils - 图片处理(支持JDK、GraphicsMagick、ImageMagick)
+ * Utils -Image processing (support JDK, GraphicsMagick, ImageMagick)
  * 
  * @author Hengtiansoft Team
  * @version 1.0_beta
@@ -41,11 +41,11 @@ public final class ImageUtils {
 	private final static Logger	LOGGER		= LoggerFactory.getLogger(ImageUtils.class);
 
 	/**
-	 * 处理类型
+	 * Processing type
 	 */
 	private enum Type {
 
-		/** 自动 */
+		/** automatic */
 		auto,
 
 		/** jdk */
@@ -62,19 +62,19 @@ public final class ImageUtils {
 		imageMagick
 	}
 
-	/** 处理类型 */
+	/** Processing type */
 	private static Type type = Type.auto;
 
-	/** GraphicsMagick程序路径 */
+	/** GraphicsMagick program path */
 	private static String graphicsMagickPath;
 
-	/** ImageMagick程序路径 */
+	/** ImageMagick program path */
 	private static String imageMagickPath;
 
-	/** 背景颜色 */
+	/** background color */
 	private static final Color BACKGROUND_COLOR = Color.white;
 
-	/** 目标图片品质(取值范围: 0 - 100) */
+	/** Target image quality (in the range 0 - 100) */
 	private static final int DEST_QUALITY = 88;
 
 	static {
@@ -142,22 +142,22 @@ public final class ImageUtils {
 	}
 
 	/**
-	 * 不可实例化
+	 * Can not be instantiated
 	 */
 	private ImageUtils() {
 	}
 
 	/**
-	 * 等比例图片缩放
+	 *
 	 * 
 	 * @param srcFile
-	 *            源文件
+	 *            Source File
 	 * @param destFile
-	 *            目标文件
+	 *            destination File
 	 * @param destWidth
-	 *            目标宽度
+	 *            destination Width
 	 * @param destHeight
-	 *            目标高度
+	 *            destination Height
 	 */
 	public static void zoom(File srcFile, File destFile, int destWidth, int destHeight) {
 		Assert.notNull(srcFile);
@@ -169,9 +169,10 @@ public final class ImageUtils {
 			ImageOutputStream imageOutputStream = null;
 			ImageWriter imageWriter = null;
 			try {
-				// BufferedImage srcBufferedImage = ImageIO.read(srcFile); 此方式读取会导致ICC信息不全的图片变红或变黑
+				// BufferedImage srcBufferedImage = ImageIO.read (srcFile); 
+			    //this approach will lead to ICC read information is incomplete picture becomes red or black
 				
-				// 新的方式:获取图片后重新绘制并转成BufferedImage
+				// New way: Get images to redraw and convert to BufferedImage
 				Image srcImg = Toolkit.getDefaultToolkit().getImage(srcFile.getPath());
 				BufferedImage srcBufferedImage = toBufferedImage(srcImg);
 				
@@ -249,151 +250,17 @@ public final class ImageUtils {
 	}
 
 	/**
-	 * 添加水印
-	 * 
-	 * @param srcFile
-	 *            源文件
-	 * @param destFile
-	 *            目标文件
-	 * @param watermarkFile
-	 *            水印文件
-	 * @param watermarkPosition
-	 *            水印位置
-	 * @param alpha
-	 *            水印透明度
-	 *//*
-	public static void addWatermark(File srcFile, File destFile, File watermarkFile, WatermarkPosition watermarkPosition, int alpha) {
-		Assert.notNull(srcFile);
-		Assert.notNull(destFile);
-		Assert.state(alpha >= 0);
-		Assert.state(alpha <= 100);
-		if (watermarkFile == null || !watermarkFile.exists() || watermarkPosition == null || watermarkPosition == WatermarkPosition.no) {
-			try {
-				FileUtils.copyFile(srcFile, destFile);
-			} catch (IOException e) {
-				LOGGER.error(e.getMessage(), e);
-			}
-			return;
-		}
-		if (type == Type.jdk) {
-			Graphics2D graphics2D = null;
-			ImageOutputStream imageOutputStream = null;
-			ImageWriter imageWriter = null;
-			try {
-				BufferedImage srcBufferedImage = ImageIO.read(srcFile);
-				int srcWidth = srcBufferedImage.getWidth();
-				int srcHeight = srcBufferedImage.getHeight();
-				BufferedImage destBufferedImage = new BufferedImage(srcWidth, srcHeight, BufferedImage.TYPE_INT_RGB);
-				graphics2D = destBufferedImage.createGraphics();
-				graphics2D.setBackground(BACKGROUND_COLOR);
-				graphics2D.clearRect(0, 0, srcWidth, srcHeight);
-				graphics2D.drawImage(srcBufferedImage, 0, 0, null);
-				graphics2D.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_ATOP, alpha / 100F));
-
-				BufferedImage watermarkBufferedImage = ImageIO.read(watermarkFile);
-				int watermarkImageWidth = watermarkBufferedImage.getWidth();
-				int watermarkImageHeight = watermarkBufferedImage.getHeight();
-				int x = srcWidth - watermarkImageWidth;
-				int y = srcHeight - watermarkImageHeight;
-				if (watermarkPosition == WatermarkPosition.topLeft) {
-					x = 0;
-					y = 0;
-				} else if (watermarkPosition == WatermarkPosition.topRight) {
-					x = srcWidth - watermarkImageWidth;
-					y = 0;
-				} else if (watermarkPosition == WatermarkPosition.center) {
-					x = (srcWidth - watermarkImageWidth) / 2;
-					y = (srcHeight - watermarkImageHeight) / 2;
-				} else if (watermarkPosition == WatermarkPosition.bottomLeft) {
-					x = 0;
-					y = srcHeight - watermarkImageHeight;
-				} else if (watermarkPosition == WatermarkPosition.bottomRight) {
-					x = srcWidth - watermarkImageWidth;
-					y = srcHeight - watermarkImageHeight;
-				}
-				graphics2D.drawImage(watermarkBufferedImage, x, y, watermarkImageWidth, watermarkImageHeight, null);
-
-				imageOutputStream = ImageIO.createImageOutputStream(destFile);
-				imageWriter = ImageIO.getImageWritersByFormatName(FilenameUtils.getExtension(destFile.getName())).next();
-				imageWriter.setOutput(imageOutputStream);
-				ImageWriteParam imageWriteParam = imageWriter.getDefaultWriteParam();
-				imageWriteParam.setCompressionMode(ImageWriteParam.MODE_EXPLICIT);
-				imageWriteParam.setCompressionQuality(DEST_QUALITY / 100F);
-				imageWriter.write(null, new IIOImage(destBufferedImage, null, null), imageWriteParam);
-				imageOutputStream.flush();
-			} catch (IOException e) {
-				LOGGER.error(e.getMessage(), e);
-			} finally {
-				if (graphics2D != null) {
-					graphics2D.dispose();
-				}
-				if (imageWriter != null) {
-					imageWriter.dispose();
-				}
-				if (imageOutputStream != null) {
-					try {
-						imageOutputStream.close();
-					} catch (IOException e) {
-						LOGGER.error(e.getMessage(), e);
-					}
-				}
-			}
-		} else {
-			String gravity = "SouthEast";
-			if (watermarkPosition == WatermarkPosition.topLeft) {
-				gravity = "NorthWest";
-			} else if (watermarkPosition == WatermarkPosition.topRight) {
-				gravity = "NorthEast";
-			} else if (watermarkPosition == WatermarkPosition.center) {
-				gravity = "Center";
-			} else if (watermarkPosition == WatermarkPosition.bottomLeft) {
-				gravity = "SouthWest";
-			} else if (watermarkPosition == WatermarkPosition.bottomRight) {
-				gravity = "SouthEast";
-			}
-			IMOperation operation = new IMOperation();
-			operation.gravity(gravity);
-			operation.dissolve(alpha);
-			operation.quality((double) DEST_QUALITY);
-			operation.addImage(watermarkFile.getPath());
-			operation.addImage(srcFile.getPath());
-			operation.addImage(destFile.getPath());
-			if (type == Type.graphicsMagick) {
-				CompositeCmd compositeCmd = new CompositeCmd(true);
-				if (graphicsMagickPath != null) {
-					compositeCmd.setSearchPath(graphicsMagickPath);
-				}
-				try {
-					compositeCmd.run(operation);
-				} catch (IOException | InterruptedException | IM4JavaException e) {
-					LOGGER.error(e.getMessage(), e);
-				}
-			} else {
-				CompositeCmd compositeCmd = new CompositeCmd(false);
-				if (imageMagickPath != null) {
-					compositeCmd.setSearchPath(imageMagickPath);
-				}
-				try {
-					compositeCmd.run(operation);
-				} catch (IOException | InterruptedException | IM4JavaException e) {
-					LOGGER.error(e.getMessage(), e);
-				}
-			}
-		}
-	}*/
-
-	/**
-	 * 初始化
+	 * initialization
 	 */
 	public static void initialize() {
 	}
 
 	/**
-	 * 转换颜色为十六进制代码
+	 * Convert color to hex code
 	 * 
 	 * @param color
-	 *            颜色
-	 * @return 十六进制代码
+	 *            
+	 * @return Hexadecimal code
 	 */
 	private static String toHexEncoding(Color color) {
 		String R, G, B;
@@ -412,7 +279,7 @@ public final class ImageUtils {
 	}
 	
 	/**
-	 * image对象转化为bufferedImage
+	 * Image object is converted to bufferedImage
 	 * @param image
 	 * @return
 	 */

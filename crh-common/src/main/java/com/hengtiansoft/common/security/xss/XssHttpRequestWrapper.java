@@ -1,22 +1,3 @@
-/*
- * Project Name: zc-collect-web-user-trunk
- * File Name: XssHttpRequestWrapper.java
- * Class Name: XssHttpRequestWrapper
- *
- * Copyright 2014 Hengtian Software Inc
- *
- * Licensed under the Hengtiansoft
- *
- * http://www.hengtiansoft.com
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
- * implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.hengtiansoft.common.security.xss;
 
 import java.util.HashMap;
@@ -37,7 +18,7 @@ import org.slf4j.LoggerFactory;
  * Class Name: XssHttpRequestWrapper
  * Description: wrap http request for sanitizing XSS attack parameters
  * 
- * @author SC
+ * @author taochen
  * 
  */
 public class XssHttpRequestWrapper extends HttpServletRequestWrapper {

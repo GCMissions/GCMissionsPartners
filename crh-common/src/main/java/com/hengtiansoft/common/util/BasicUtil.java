@@ -13,16 +13,17 @@ import org.slf4j.LoggerFactory;
 import com.hengtiansoft.common.util.web.WebUtil;
 
 /**
- * Class Name: 3TUtil Description: 三替项目工具类
+ * Class Name: 
+ * Description: Project tool class
  * 
- * @author jialiangli
+ * @author taochen
  */
 public class BasicUtil {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(BasicUtil.class);
 
     /**
-     * 描述: 判断字符串是否为空
+     * Description: Determines whether the string is empty
      * 
      * @param name
      * @return
@@ -32,7 +33,7 @@ public class BasicUtil {
     }
 
     /**
-     * 描述: 判断字符串是否为空
+     * Description: Determines whether the string is empty
      * 
      * @param name
      * @return
@@ -42,7 +43,7 @@ public class BasicUtil {
     }
 
     /**
-     * 描述: 判断字符串是否为空
+     * Description: Determines whether the string is empty
      * 
      * @param name
      * @return
@@ -52,7 +53,7 @@ public class BasicUtil {
     }
 
     /**
-     * 描述: 模糊查询时,过滤特殊字符
+     * Description: Filtering special characters when blurring queries
      * 
      * @param string
      * @return
@@ -62,7 +63,7 @@ public class BasicUtil {
     }
 
     /**
-     * 描述: 模糊查询时,过滤特殊字符
+     * Description: Filtering special characters when blurring queries
      * 
      * @param string
      * @return
@@ -72,7 +73,7 @@ public class BasicUtil {
     }
 
     /**
-     * 描述: 模糊查询时,过滤特殊字符
+     * Description: Filtering special characters when blurring queries
      * 
      * @param string
      * @return
@@ -96,7 +97,7 @@ public class BasicUtil {
     }
 
     /**
-     * 描述: 将对象转化成json字符串
+     * Description: Converts an object to a json string
      * 
      * @param object
      * @return
@@ -105,13 +106,13 @@ public class BasicUtil {
         try {
             return WebUtil.getObjectMapper().writeValueAsString(object);
         } catch (Exception e) {
-            LOGGER.error("Json转换错误", e);
+            LOGGER.error("Json conversion error", e);
         }
         return null;
     }
 
     /**
-     * Description: 将json字符串转化为Object对象
+     * Description: Converts a json string to an object
      *
      * @param content
      * @param valueType
@@ -121,7 +122,7 @@ public class BasicUtil {
         try {
             return WebUtil.getObjectMapper().readValue(content, valueType);
         } catch (IOException e) {
-            LOGGER.error("Json转换错误", e);
+            LOGGER.error("Json conversion error", e);
         }
         return null;
     }
@@ -132,7 +133,7 @@ public class BasicUtil {
     }
     
     /**
-     * Description: Object 转 Integer
+     * Description: Object to Integer
      *
      * @param obj
      * @return
@@ -145,7 +146,7 @@ public class BasicUtil {
     }
 
     /**
-     * Description: Object 转 Long
+     * Description: Object to Long
      *
      * @param obj
      * @return
@@ -158,7 +159,7 @@ public class BasicUtil {
     }
     
     /**
-     * Description: Object 转 Double
+     * Description: Object to Double
      *
      * @param obj
      * @return
@@ -171,8 +172,8 @@ public class BasicUtil {
     }
     
     /**
-    * Description: Object 转 String
-    *   当Object=null时，返回空白“”
+    * Description: Object to String
+    *   When Object = null, returns blank ""
     * @param obj
     * @return
     */
@@ -220,7 +221,7 @@ public class BasicUtil {
     }
 
     /**
-     * Description: 元转分
+     * Description: yuan to fen
      *
      * @param yuan
      * @return
@@ -233,7 +234,7 @@ public class BasicUtil {
     }
 
     /**
-     * Description: 分转远
+     * Description: fen to yuan
      *
      * @param fen
      * @return
@@ -246,7 +247,7 @@ public class BasicUtil {
     }
     
     /**
-     * Description: 将json字符串转化为Object对象
+     * Description: Converts an object to a json string
      *
      * @param content
      * @param valueType
@@ -257,7 +258,7 @@ public class BasicUtil {
         try {
             return WebUtil.getObjectMapper().readValue(content, valueType);
         } catch (IOException e) {
-            LOGGER.error("Json转换错误", e);
+            LOGGER.error("Json conversion error", e);
         }
         return null;
     }

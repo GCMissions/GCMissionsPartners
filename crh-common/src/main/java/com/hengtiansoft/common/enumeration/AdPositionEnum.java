@@ -4,21 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public enum AdPositionEnum {
-    ALL("all", "全部", null), B2C_TOP("0", "商城首页顶部广告", 3), B2C_ROLL("1", "商城首页轮播广告", 5), B2C_OTHER("2", "商城首页", 3), APP_ROLL("3", "APP轮播广告", 5), APP_OTHER(
-            "4", "APP首页图片", 1),APP_ACTIVITY("5", "APP活动广告", 5);
+    ALL("all", "all", null), B2C_TOP("0", "Mall Home Top Advertisement", 3), B2C_ROLL("1", "Mall Home Roll Advertisement", 5), B2C_OTHER("2", "Mall Home", 3), APP_ROLL("3", "APP Roll Advertisement ", 5), APP_OTHER(
+            "4", "APP Home Picture", 1),APP_ACTIVITY("5", "APP activities Advertisement", 5);
 
     /**
-     * 对应广告的位子，数据库中的local字段
+     * Corresponding to the ad's location, the "local" field in the database
      */
     private String  position;
 
     /**
-     * 广告位名称
+     * Name of the ad positions
      */
     private String  name;
 
     /**
-     * 最多上传几张图片
+     * Upload the maximum number of pictures
      */
     private Integer maxImageCount;
 

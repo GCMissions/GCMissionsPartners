@@ -1,21 +1,3 @@
-/*
- * Project Name: xyl-core
- * File Name: ShiroMemcachedManager.java
- * Class Name: ShiroMemcachedManager
- *
- * Copyright 2014 Hengtian Software Inc
- *
- * Licensed under the Hengtiansoft
- *
- * http://www.hengtiansoft.com
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
- * implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.hengtiansoft.common.xmemcached;
 
 import org.apache.shiro.cache.Cache;
@@ -28,7 +10,7 @@ import org.springframework.cache.CacheManager;
 
 
 /**
- * @author yupengshen
+ * @author taochen
  *
  */
 public class ShiroMemcachedManager implements org.apache.shiro.cache.CacheManager, Initializable, Destroyable {

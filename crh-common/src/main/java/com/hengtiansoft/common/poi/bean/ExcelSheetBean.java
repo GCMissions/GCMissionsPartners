@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ExcelSheetBean {
-    // sheet标题
+    // sheet title
     private ExcelCellBean         title;
 
     private int                   regionCount;

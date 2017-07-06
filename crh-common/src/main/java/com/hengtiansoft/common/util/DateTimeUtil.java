@@ -67,11 +67,11 @@ public abstract class DateTimeUtil {
     public final static String FOREIGN_FORMAT     = "MM-dd-yyyy HH:mm";
 
     /**
-     * 时间转换Date to String
+     * Date to String
      *
      * @param date
      * @param sFmt
-     *            转换的时间模式:yyyy-MM-dd
+     *            Time mode:yyyy-MM-dd
      * @return
      */
     public static String parseDateToString(Date date, String sFmt) {
@@ -83,7 +83,7 @@ public abstract class DateTimeUtil {
     }
 
     /**
-     * Description:传入Date类型日期转换为String类型
+     * Description:Converts the date type date to a String type
      * 
      * @param date
      * @return
@@ -93,7 +93,7 @@ public abstract class DateTimeUtil {
     }
 
     /**
-     * Description:传入Date类型日期转换为String类型
+     * Description:Converts the date type date to a String type
      * 
      * @param date
      * @return
@@ -103,7 +103,7 @@ public abstract class DateTimeUtil {
     }
 
     /**
-     * Description:传入Date类型日期转换为String类型
+     * Description:Converts the date type date to a String type
      * 
      * @param date
      * @return
@@ -113,7 +113,7 @@ public abstract class DateTimeUtil {
     }
 
     /**
-     * Description:传入String类型日期转换为Date类型
+     * Description:Converts the string type date to a date type
      * 
      * @param dateString
      * @return
@@ -123,12 +123,12 @@ public abstract class DateTimeUtil {
     }
 
     /**
-     * 强制类型转换 从串到日期
+     * Force conversion type from string to date
      *
      * @param sDate
-     *            源字符串，采用yyyy-MM-dd格式
+     *            Source string, using "yyyy-MM-dd" format
      * @param sFormat
-     * @return 得到的日期对象
+     * @return 
      */
     public static Date parseDate(String sDate, String sFormat) {
         try {
@@ -144,7 +144,7 @@ public abstract class DateTimeUtil {
     }
 
     /**
-     * Description:传入TimeStamp类型日期转换为String类型
+     * Description:The incoming TimeStamp type date is converted to a String type
      * 
      * @param timestamp
      * @return
@@ -154,7 +154,7 @@ public abstract class DateTimeUtil {
     }
 
     /**
-     * Description:传入TimeStamp类型日期转换为String类型
+     * Description:The incoming TimeStamp type date is converted to a String type
      * 
      * @param timestamp
      * @return
@@ -164,7 +164,7 @@ public abstract class DateTimeUtil {
     }
 
     /**
-     * Description:传入String类型日期转换为TimeStamp类型
+     * Description:The incoming String type date is converted to a TimeStamp  type
      * 
      * @param ts
      * @return
@@ -178,7 +178,7 @@ public abstract class DateTimeUtil {
     }
 
     /**
-     * 将一种格式的时间字符串装换为另一种格式
+     * Converts the time of the string type to another format
      * 
      * @param dateString
      * @param fromFormat
@@ -190,7 +190,7 @@ public abstract class DateTimeUtil {
     }
 
     /**
-     * Description:得到当前日期
+     * Description:Get the current date
      * 
      * @return
      */
@@ -219,12 +219,12 @@ public abstract class DateTimeUtil {
     }
 
     /**
-     * 获取今天之后 <code>num</code> 天的格式化日期
+     * Get the formatting date of <code>num</code> days after today
      * 
      * @param format
-     *            格式化字符
+     *            Formatted characters
      * @param num
-     *            相差天数
+     *            The number of days apart
      * @return
      */
     public static String getDayAfterToday(String format, int num) {
@@ -244,12 +244,12 @@ public abstract class DateTimeUtil {
     }
 
     /**
-     * 验证指定时间是否超时
+     * Verify that the specified time has timed out
      * 
      * @param createDate
      * @param seconds
-     *            超时秒数
-     * @return true 表示超期，false表示未超期
+     *            More than the number of seconds
+     * @return true Represents overdue，false That is not overdue
      */
     public static boolean validateExpiry(String createDate, int seconds) {
         return (new Date().getTime() - parseDate(createDate, SIMPLE_FMT).getTime()) / 1000 > seconds;
@@ -261,7 +261,7 @@ public abstract class DateTimeUtil {
 
     public static String getDayBegin(String day) {
         if (day == null || !day.matches("\\d{4}-\\d{2}-\\d{2}")) {
-            throw new IllegalArgumentException("传入日期参数不正确");
+            throw new IllegalArgumentException("Incoming date parameter is incorrect");
         }
         String[] dateData = day.split("-");
         Calendar calendar = Calendar.getInstance();
@@ -334,7 +334,7 @@ public abstract class DateTimeUtil {
         return calendar.getTime();
     }
 
-    // 取当前时间后10年
+    // Take the current time after 10 years
     public static Date getDateEndAddYear(int year) {
         Date date = new Date();
         Calendar calendar = Calendar.getInstance();
@@ -372,7 +372,7 @@ public abstract class DateTimeUtil {
 
     public static String getDayEnd(String day) {
         if (day == null || !day.matches("\\d{4}-\\d{2}-\\d{2}")) {
-            throw new IllegalArgumentException("传入日期参数不正确,格式应为yyyy-MM-dd");
+            throw new IllegalArgumentException("Incoming date parameter is incorrect, the format should be yyyy-MM-dd");
         }
         String[] dateData = day.split("-");
         Calendar calendar = Calendar.getInstance();
@@ -392,7 +392,7 @@ public abstract class DateTimeUtil {
     }
 
     /**
-     * 描述: 设置当天结束时间
+     * Description: Set the end time of the day
      * 
      * @param date
      * @return
@@ -405,7 +405,7 @@ public abstract class DateTimeUtil {
     }
 
     /**
-     * 描述: 设置当天开始时间
+     * Description: Set the start time of the day
      * 
      * @param date
      * @return
@@ -418,12 +418,12 @@ public abstract class DateTimeUtil {
     }
 
     /**
-     * 获取1个小时后的格式化日期
+     * an hour later date format
      * 
      * @param dateString
-     *            日期字符串 格式为： MMddHH
+     *            Date string format： MMddHH
      * @param foramt
-     *            返回格式
+     *            
      * @return
      */
     public static String getNextHour(String dateString, String format) {
@@ -439,12 +439,12 @@ public abstract class DateTimeUtil {
     }
 
     /**
-     * 获取1个小时后的格式化日期
+     * an hour later date format
      * 
      * @param dateString
-     *            日期字符串 格式为： yyyyMMddHH
+     *            Date string format： yyyyMMddHH
      * @param foramt
-     *            返回格式
+     *           
      * @return
      */
     public static String getNextHour2(String dateString) {
@@ -460,7 +460,7 @@ public abstract class DateTimeUtil {
     }
 
     /**
-     * 描述: 取当前年月字符串
+     * Description: Get the current year string
      * 
      * @return
      */
@@ -470,7 +470,7 @@ public abstract class DateTimeUtil {
     }
 
     /**
-     * 描述: 取当前年月字符串
+     * Description: Get the current year string
      * 
      * @return
      */
@@ -479,7 +479,7 @@ public abstract class DateTimeUtil {
     }
 
     /**
-     * 根据时间和格式得到格式化后的字符串
+     * Description: Get the formatted string
      * 
      * @param date
      * @param formatter
@@ -502,7 +502,7 @@ public abstract class DateTimeUtil {
     }
 
     /**
-     * Description: 取订单的时间戳
+     * Description: Get the timestamp of the order
      *
      * @return
      */
@@ -512,7 +512,7 @@ public abstract class DateTimeUtil {
     }
     
     /**
-     * Description : 判断两个日期是否同一天
+     * Description : To determine whether the two dates are the same day
      * @param date1
      * @param date2
      * @return
@@ -530,7 +530,7 @@ public abstract class DateTimeUtil {
     }
     
     /**
-     * Description: 获取当前时间
+     * Description: Get the current time
      *
      * @return
      */

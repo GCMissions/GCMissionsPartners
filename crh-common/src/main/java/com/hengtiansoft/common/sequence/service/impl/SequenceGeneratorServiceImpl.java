@@ -25,7 +25,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * Created by liminghua on 16/6/13.
+ * Created by taochen 
  */
 @Service
 public class SequenceGeneratorServiceImpl implements SequenceGeneratorService {

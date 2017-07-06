@@ -1,17 +1,3 @@
-/*
- * Project Name: zc-collect-common
- * File Name: BeanUtil.java
- * Class Name: BeanUtil
- * Copyright 2014 Hengtian Software Inc
- * Licensed under the Hengtiansoft
- * http://www.hengtiansoft.com
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
- * implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.hengtiansoft.common.util;
 
 import java.beans.PropertyDescriptor;
@@ -23,16 +9,17 @@ import org.slf4j.LoggerFactory;
 
 /**
  * Class Name: BeanUtil
- * Description: TODO
+ * Description: 
  * 
- * @author chengminmiao
+ * @author taochen
  */
 public class BeanUtil {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(BeanUtil.class);
 
     /**
-     * 重构BeanUtilsBean的copyProperties(Object dest, Object orig)方法 如果源对象值为空，则不拷贝
+     * Rebuild the copyProperties (Object dest, Object orig) method in the BeanUtilsBean class 
+     * If the source object value is empty, do not copy
      * 
      * @param dest
      * @param orig
@@ -50,7 +37,7 @@ public class BeanUtil {
                     if (value != null)
                         beanUtils.copyProperty(dest, name, value);
                 } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
-                    LOGGER.error("类型转换错误", e);
+                    LOGGER.error("type conversion error", e);
                 }
         }
 

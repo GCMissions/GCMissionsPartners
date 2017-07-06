@@ -1,24 +1,4 @@
 package com.hengtiansoft.common.exception;
-
-/*
- * Project Name: zc-collect-web-user
- * File Name: ExceptionHandler.java
- * Class Name: ExceptionHandler
- *
- * Copyright 2014 Hengtian Software Inc
- *
- * 
- *
- * http://www.hengtiansoft.com
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
- * implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
@@ -45,9 +25,10 @@ import com.hengtiansoft.common.dto.ValidationResultDto;
 
 /**
  * 
- * Class Name: ExceptionHandler Description
+ * Class Name: ExceptionHandler 
+ * Description:
  * 
- * @author SC
+ * @author taochen
  * 
  */
 public abstract class AbstractExceptionHandler {
@@ -56,10 +37,10 @@ public abstract class AbstractExceptionHandler {
 
     public ResultDto<?> buildErrorDto(final Exception ex, final Object handler, final String formId) {
         if (StringUtils.isEmpty(formId)) {
-            return ResultDtoFactory.toCommonError("未传入formId!");
+            return ResultDtoFactory.toCommonError("Not incoming formId!");
         } else {
             ResultDto<List<ValidationResultDto>> error = new ResultDto<List<ValidationResultDto>>();
-            error.setMessage("验证出错！");
+            error.setMessage("Verification error！");
             error.setData(new ArrayList<ValidationResultDto>());
             error.setCode(ResultCode.VALIDATION_ERROR);
             setValidationErrorData(ex, handler, formId, error);

@@ -13,29 +13,31 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.util.CellRangeAddress;
 
 /**
- * Class Name: ExcleUtil Description: TODO
+ * Class Name: ExcleUtil 
+ * Description: 
  * 
- * @author jingqiucao
+ * @author taochen
  */
 public class ExportExcleUtil {
 
-    private final int SPLIT_COUNT = 65536; // Excel每个工作表的行数
+    private final int SPLIT_COUNT = 65536; // Excel The number of rows per worksheet
 
-    private ArrayList fieldName = null; // excel数据的抬头栏，即名称栏
+    private ArrayList fieldName = null; // Name column
 
-    private ArrayList sheetName = null; // sheet名字
+    private ArrayList sheetName = null; // sheet name
 
-    private List<List<Object>> fieldData = null; // excel导出的实际数据
+    private List<List<Object>> fieldData = null; // Export excel actual data
 
-    private List<String> fieldStyle = null; // 样式
+    private List<String> fieldStyle = null; // style
 
-    private HSSFWorkbook workBook = null; // 一个excel文件
+    private HSSFWorkbook workBook = null; // An excel file
 
-    private List<CellRangeAddress> mergingCells = null; // 需要合并的区域
+    private List<CellRangeAddress> mergingCells = null; // Need to merge the area
 
-    // 有参构造器，限定了使用此类时，必须首先构建好两个list参数，并将所需数据放入上述两个list。
-    // 其中fieldName这个list可以使用泛型约束List<String>
-    // fieldData这个可以使用泛型约束List<List<Object>>
+    // When you use this class, you must first build two list collections
+    // and place the required data in the two list sets.
+    // Where fieldName this list collection can use the generic constraint List <String>
+    // fieldData This can use the generic constraint List <List <Object >>
     public ExportExcleUtil(ArrayList fieldName, ArrayList sheetName, List<List<Object>> fieldData, ArrayList fieldStyle) {
         this.fieldName = fieldName;
         this.sheetName = sheetName;
@@ -43,8 +45,8 @@ public class ExportExcleUtil {
         this.fieldStyle = fieldStyle;
     }
 
-    public ExportExcleUtil(ArrayList fieldName, ArrayList sheetName, List<List<Object>> fieldData, ArrayList fieldStyle,
-            List<CellRangeAddress> mergingCells) {
+    public ExportExcleUtil(ArrayList fieldName, ArrayList sheetName, List<List<Object>> fieldData,
+            ArrayList fieldStyle, List<CellRangeAddress> mergingCells) {
         this.fieldName = fieldName;
         this.sheetName = sheetName;
         this.fieldData = fieldData;
@@ -56,10 +58,11 @@ public class ExportExcleUtil {
      * @return HSSFWorkbook
      */
     public HSSFWorkbook createWorkbook() {
-        workBook = new HSSFWorkbook();// 创建一个工作簿
-        int rows = fieldData.size();// 清点出输入数据的行数
-        int sheetNum = 0;// 将工作表个数清零
-        // 根据数据的行数与每个工作表所能容纳的行数，求出需要创建工作表的个数
+        workBook = new HSSFWorkbook();// Create a workbook
+        int rows = fieldData.size();// Count out the number of row of input data
+        int sheetNum = 0;// The number of worksheets is cleared
+        // According to the number of rows of data and each worksheet can accommodate the number of rows,
+        // the need to create the number of worksheet
         if (rows % SPLIT_COUNT == 0) {
             sheetNum = rows / SPLIT_COUNT;
         } else {
@@ -67,21 +70,21 @@ public class ExportExcleUtil {
         }
 
         for (int i = 1; i <= sheetNum; i++) {
-            HSSFSheet sheet = workBook.createSheet(sheetName.get(0).toString() + i);// 创建工作表
-            HSSFRow headRow = sheet.createRow(0); // 创建第一栏，抬头栏
+            HSSFSheet sheet = workBook.createSheet(sheetName.get(0).toString() + i);// Create a worksheet
+            HSSFRow headRow = sheet.createRow(0); // Create the first column
             for (int j = 0; j < fieldName.size(); j++) {
-                HSSFCell cell = headRow.createCell(j);// 创建抬头栏单元格
-                // 设置单元格格式
+                HSSFCell cell = headRow.createCell(j);// Create a header column cell
+                // Set the cell formatting
                 cell.setCellType(HSSFCell.CELL_TYPE_STRING);
                 sheet.setColumnWidth(j, Integer.valueOf(this.fieldStyle.get(j)));
                 HSSFCellStyle style = workBook.createCellStyle();
-                style.setAlignment(HSSFCellStyle.ALIGN_CENTER); // 创建一个居中格式
+                style.setAlignment(HSSFCellStyle.ALIGN_CENTER); // Create a centered format
                 HSSFFont font = workBook.createFont();
                 font.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);
                 // short color = HSSFColor.RED.index;
                 // font.setColor(color);
                 style.setFont(font);
-                // 将数据填入单元格
+                // Fill in the data into the cell
                 if (fieldName.get(j) != null) {
                     cell.setCellStyle(style);
                     cell.setCellValue((String) fieldName.get(j));
@@ -90,7 +93,7 @@ public class ExportExcleUtil {
                     cell.setCellValue("-");
                 }
             }
-            // 创建数据栏单元格并填入数据
+            // Create a data field cell and fill in the data
             for (int k = 0; k < (rows < SPLIT_COUNT ? rows : SPLIT_COUNT); k++) {
                 if (((i - 1) * SPLIT_COUNT + k) >= rows)
                     break;
@@ -98,10 +101,10 @@ public class ExportExcleUtil {
                 ArrayList rowList = (ArrayList) fieldData.get((i - 1) * SPLIT_COUNT + k);
                 for (int n = 0; n < rowList.size(); n++) {
                     HSSFCell cell = row.createCell(n);
-//                    HSSFCellStyle style = workBook.createCellStyle();
+                    // HSSFCellStyle style = workBook.createCellStyle();
                     HSSFCellStyle style = cell.getCellStyle();
-                    style.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);// 垂直 居中
-                    style.setAlignment(HSSFCellStyle.ALIGN_CENTER);// 水平 居中
+                    style.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);// Vertical center
+                    style.setAlignment(HSSFCellStyle.ALIGN_CENTER);// Horizontal center
                     if (rowList.get(n) != null) {
                         cell.setCellStyle(style);
                         cell.setCellValue((String) rowList.get(n).toString());
@@ -120,7 +123,7 @@ public class ExportExcleUtil {
         return workBook;
     }
 
-    // 将信息写入输出流的方法。
+    // The method of writing information to the output stream.
     public void exportExcel(OutputStream os) throws Exception {
         workBook = createWorkbook();
         workBook.write(os);

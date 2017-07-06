@@ -9,8 +9,8 @@ import org.springframework.context.MessageSource;
 
 /**
 * Class Name: MessageUtil
-* Description: TODO
-* @author SC
+* Description: 
+* @author taochen
 *
 */
 public final class MessageUtil {

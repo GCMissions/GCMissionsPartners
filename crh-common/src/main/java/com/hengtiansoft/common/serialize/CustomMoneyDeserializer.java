@@ -1,21 +1,3 @@
-/*
- * Project Name: 3t-common
- * File Name: CustomMoneyDeserializer.java
- * Class Name: CustomMoneyDeserializer
- *
- * Copyright 2014 Hengtian Software Inc
- *
- * Licensed under the Hengtiansoft
- *
- * http://www.hengtiansoft.com
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
- * implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.hengtiansoft.common.serialize;
 
 import java.io.IOException;
@@ -29,9 +11,10 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 
 /**
- * Class Name: CustomMoneyDeserializer Description: 元转分
+ * Class Name: CustomMoneyDeserializer 
+ * Description: Currency conversion
  * 
- * @author kangruan
+ * @author taochen
  *
  */
 public class CustomMoneyDeserializer extends JsonDeserializer<Long> {

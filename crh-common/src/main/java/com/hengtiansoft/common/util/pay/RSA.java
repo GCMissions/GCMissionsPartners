@@ -20,15 +20,15 @@ public class RSA {
     public static final String SIGN_ALGORITHMS = "SHA1WithRSA";
 
     /**
-     * RSA签名
+     * RSA
      * 
      * @param content
-     *            待签名数据
+     *            To be signed data
      * @param privateKey
-     *            商户私钥
+     *            Business private key
      * @param input_charset
-     *            编码格式
-     * @return 签名值
+     *            Encoding format
+     * @return Signature results
      */
     public static String sign(String content, String privateKey, String input_charset) {
         try {
@@ -52,17 +52,17 @@ public class RSA {
     }
 
     /**
-     * RSA验签名检查
+     * RSA signature check
      * 
      * @param content
-     *            待签名数据
+     *            To be signed data
      * @param sign
-     *            签名值
+     *            sign value
      * @param ali_public_key
-     *            支付宝公钥
+     *            alipay public key 
      * @param input_charset
-     *            编码格式
-     * @return 布尔值
+     *            Encoding format
+     * @return boolean value
      */
     public static boolean verify(String content, String sign, String ali_public_key, String input_charset) {
         try {
@@ -85,15 +85,15 @@ public class RSA {
     }
 
     /**
-     * 解密
+     * Decrypted
      * 
      * @param content
-     *            密文
+     *            Ciphertext
      * @param private_key
-     *            商户私钥
+     *            Business private key
      * @param input_charset
-     *            编码格式
-     * @return 解密后的字符串
+     *            encoding format
+     * @return String
      */
     public static String decrypt(String content, String private_key, String input_charset) throws Exception {
         PrivateKey prikey = getPrivateKey(private_key);
@@ -103,7 +103,7 @@ public class RSA {
 
         InputStream ins = new ByteArrayInputStream(Base64.decode(content));
         ByteArrayOutputStream writer = new ByteArrayOutputStream();
-        // rsa解密的字节大小最多是128，将需要解密的内容，按128位拆开解密
+        // Rsa decrypted the largest byte is 128, the need to decrypt the content, according to 128-bit decryption
         byte[] buf = new byte[128];
         int bufl;
 
@@ -126,10 +126,10 @@ public class RSA {
     }
 
     /**
-     * 得到私钥
+     * get private key
      * 
      * @param key
-     *            密钥字符串（经过base64编码）
+     *            Key (encoded via base64)
      * @throws Exception
      */
     public static PrivateKey getPrivateKey(String key) throws Exception {

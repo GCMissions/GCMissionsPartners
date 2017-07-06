@@ -3,14 +3,8 @@ package com.hengtiansoft.common.dto;
 import java.io.Serializable;
 
 public class RegisterRequestDto implements Serializable {
-    /**
-	 * 
-	 */
     private static final long serialVersionUID = -7950697450636843894L;
 
-    /**
-	 * 
-	 */
     private String            loginId;
 
     private String            email;

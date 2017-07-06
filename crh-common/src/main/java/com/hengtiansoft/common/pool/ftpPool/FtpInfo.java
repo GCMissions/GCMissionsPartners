@@ -2,8 +2,8 @@ package com.hengtiansoft.common.pool.ftpPool;
 
 /**
 * Class Name: FtpInfo
-* Description: ftp信息
-* @author jialiangli
+* Description: ftp information
+* @author taochen
 *
 */
 public class FtpInfo {

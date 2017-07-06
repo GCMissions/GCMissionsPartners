@@ -18,12 +18,13 @@ public class NativeQueryUtil {
 	
 	private final static Logger LOGGER = LoggerFactory.getLogger(NativeQueryUtil.class);
 	/**
-	 * 把原生sql查询的结果集转化为自定义的对象，自定义的对象的属性排列顺序需跟sql中对应的字段一样。
-	 * 如果自定义对象中包含其他自定义的对象，需要把它们放在sql字段对应的属性后面。serialVersionUID的顺序不要求。
-	 * 由于使用反射设置属性值，set方法必须提供，setter属性方法属性首字母大写。
-	 * @param target 自定义对象的class
-	 * @param result sql查询结果集
-	 * @return 返回Object,不返回List是因为容易强制转换为对应 的List
+	 * The original sql query result set into a custom object, the custom object of the order of the attributes need to be the same with the sql field.
+	 * If the custom object contains other custom objects, you need to put them in the sql field corresponding to the property behind. The sequence of serialVersionUID is not required.
+	 * The set method must be provided with the setter property method attribute, since the set value is set by using the reflection set property value.
+	 * @param target Customize the class of the object
+	 * @param result Sql query results set
+	 * @return Returns Object, does not return the List collection 
+	 * because it is easy to cast to the corresponding List collection
 	 */
 	public static Object convertResult2Obj(Class<?> target, List<Object[]> result) {
 		List<Object> targetList = new ArrayList<Object>();
@@ -56,7 +57,7 @@ public class NativeQueryUtil {
 				}
 			} catch (InstantiationException | IllegalAccessException
 					| NoSuchMethodException | SecurityException | IllegalArgumentException | InvocationTargetException e) {
-				LOGGER.debug("sql结果集的第"+index+"个属性设值发生异常", e);
+				LOGGER.debug("The value of the "+index+"th attribute of the sql result set has an exception", e);
 			}
 			targetList.add(obj);
 		}
@@ -64,8 +65,8 @@ public class NativeQueryUtil {
 	}
 	
 	/**
-	 * native sql分页的时候，获取开始记录，结束记录
-	 * @param page page为空不分页，查询全部
+	 * native Sql paging time, get the beginning of the record and the end of the record
+	 * @param page 
 	 * @param count
 	 * @return
 	 * @throws Exception
@@ -76,7 +77,7 @@ public class NativeQueryUtil {
 			int pageSize = page.getPageSize();
 			int pageCount = (int) Math.ceil((double) count / (double) pageSize);
 			if(page.getCurrentPage() > pageCount){
-				throw new Exception("当前页数大于总页数");
+				throw new Exception("The current number of pages is greater than the total number of pages");
 			}
 			pageingBean.setStartRow((page.getCurrentPage()-1) * pageSize);
 			pageingBean.setEndRow(pageingBean.getStartRow() + pageSize);

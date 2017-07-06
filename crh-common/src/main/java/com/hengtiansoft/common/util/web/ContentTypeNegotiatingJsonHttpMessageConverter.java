@@ -16,8 +16,8 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 /**
 * Class Name: ContentTypeNegotiatingJsonHttpMessageConverter
-* Description: TODO
-* @author SC
+* Description: 
+* @author taochen
 *
 */
 public class ContentTypeNegotiatingJsonHttpMessageConverter implements HttpMessageConverter<Object> {

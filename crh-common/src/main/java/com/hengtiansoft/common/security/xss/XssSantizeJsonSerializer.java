@@ -1,23 +1,3 @@
-
-/*
-* Project Name: zc-collect-web-user-trunk
-* File Name: XssSantizeJsonSerializer.java
-* Class Name: XssSantizeJsonSerializer
-*
-* Copyright 2014 Hengtian Software Inc
-*
-* Licensed under the Hengtiansoft
-*
-* http://www.hengtiansoft.com
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
-* implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
-	
 package com.hengtiansoft.common.security.xss;
 
 import java.io.IOException;
@@ -31,7 +11,7 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 /**
  * Class Name: XssSantizeJsonSerializer
  * Description: Sanitize String type fields in object for json serialization.   
- * @author SC
+ * @author taochen
  *
  */
 public class XssSantizeJsonSerializer extends JsonSerializer<String> {

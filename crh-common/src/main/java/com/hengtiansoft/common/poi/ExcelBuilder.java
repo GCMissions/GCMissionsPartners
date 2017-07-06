@@ -19,8 +19,8 @@ import org.slf4j.LoggerFactory;
 
 /**
 * Class Name: ExcelBuilder
-* Description: excel生成
-* @author JL
+* Description: excel
+* @author taochen
 *
 */
 public class ExcelBuilder {
@@ -31,7 +31,7 @@ public class ExcelBuilder {
     private HSSFSheet           sheet  = null;
 
     /**
-     * 构造器方法--初始化表格
+     * Constructor method--Initialize the table
      */
     public ExcelBuilder(final HSSFWorkbook wb, final int sheetIndex, final String sheetName) {
         this.wb = wb;
@@ -40,13 +40,13 @@ public class ExcelBuilder {
         } else {
             this.sheet = wb.getSheetAt(sheetIndex);
         }
-        if (!StringUtils.isBlank(sheetName)) {// 设置sheetName
+        if (!StringUtils.isBlank(sheetName)) {// set sheetName
             wb.setSheetName(sheetIndex, sheetName);
         }
     }
 
     /**
-     * 构造器方法--初始化表格
+     * Constructor Method - Initialize the table
      */
     public ExcelBuilder(final HSSFWorkbook wb, final String sheetName) {
         this.wb = wb;
@@ -55,7 +55,7 @@ public class ExcelBuilder {
         } else {
             this.sheet = wb.getSheetAt(0);
         }
-        if (!StringUtils.isBlank(sheetName)) {// 设置sheetName
+        if (!StringUtils.isBlank(sheetName)) {// set sheetName
             wb.setSheetName(0, sheetName);
         }
     }
@@ -74,13 +74,13 @@ public class ExcelBuilder {
 
     public void build() {
         if (null != this.sheet.getRow(0) && null != this.sheet.getRow(1) && this.sheet.getRow(0).getLastCellNum() < this.sheet.getRow(1).getLastCellNum()) {
-            final CellRangeAddress range = new CellRangeAddress(0, 0, 0, this.sheet.getRow(1).getLastCellNum() - 1);// 合并标题单元格
+            final CellRangeAddress range = new CellRangeAddress(0, 0, 0, this.sheet.getRow(1).getLastCellNum() - 1);// Merge the title cell
             this.sheet.addMergedRegion(range);
-            for (int i = 0; i < this.sheet.getRow(1).getLastCellNum(); i++) {// 自动调整列宽
+            for (int i = 0; i < this.sheet.getRow(1).getLastCellNum(); i++) {// Automatically adjust the column width
                 this.sheet.autoSizeColumn(i);
             }
         } else {
-            for (int i = 0; i < this.sheet.getRow(this.sheet.getFirstRowNum()).getLastCellNum(); i++) {// 自动调整列宽
+            for (int i = 0; i < this.sheet.getRow(this.sheet.getFirstRowNum()).getLastCellNum(); i++) {// Automatically adjust the column width
                 this.sheet.autoSizeColumn(i);
             }
         }
@@ -117,7 +117,7 @@ public class ExcelBuilder {
     }
 
     /**
-     * 列头设置
+     * Column header setting
      * @param colNames
      * @param wb
      * @param sheet
@@ -135,12 +135,13 @@ public class ExcelBuilder {
     }
 
     /**
-     * 计算当前行下标
+     * Calculate the current line subscript
      * @return
      */
     private int culCurrRowIndex() {
         if (this.sheet.getLastRowNum() == 0) {
-            if (this.sheet.getPhysicalNumberOfRows() == 0) {// 如果物理行数也为0，说明没有创建任何row，返回第一行下标开始创建row
+            if (this.sheet.getPhysicalNumberOfRows() == 0) {// If the number of physical rows is 0, 
+                                                            //it means that no row is created and the first row is returned.
                 return 0;
             }
             return 1;
@@ -149,7 +150,7 @@ public class ExcelBuilder {
     }
 
     /**
-     * 标题设置
+     * Set the title
      * @param title
      * @param colNames
      * @param wb
@@ -166,10 +167,10 @@ public class ExcelBuilder {
         titleCell.setCellValue(title);
     }
 
-    /*设置字体格式*/
+    /*Set the font format*/
     private HSSFFont getTitleFont(final HSSFWorkbook wb) {
         final HSSFFont fontStyle = wb.createFont();
-        fontStyle.setFontName("宋体");
+        fontStyle.setFontName("Times New Roman");
         fontStyle.setFontHeightInPoints((short) 14);
         fontStyle.setBoldweight(HSSFFont.BOLDWEIGHT_NORMAL);
         return fontStyle;
@@ -177,7 +178,7 @@ public class ExcelBuilder {
 
     private HSSFFont getHeaderFont(final HSSFWorkbook wb) {
         final HSSFFont fontStyle = wb.createFont();
-        fontStyle.setFontName("宋体");
+        fontStyle.setFontName("Times New Roman");
         fontStyle.setFontHeightInPoints((short) 14);
         fontStyle.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);
         return fontStyle;
@@ -185,7 +186,7 @@ public class ExcelBuilder {
 
     private HSSFFont getContentFont(final HSSFWorkbook wb) {
         final HSSFFont fontStyle = wb.createFont();
-        fontStyle.setFontName("宋体");
+        fontStyle.setFontName("Times New Roman");
         fontStyle.setFontHeightInPoints((short) 12);
         fontStyle.setBoldweight(HSSFFont.BOLDWEIGHT_NORMAL);
         return fontStyle;
@@ -193,8 +194,8 @@ public class ExcelBuilder {
 
     private HSSFCellStyle getHeaderCellStyle(final HSSFWorkbook wb, final HSSFFont font) {
         final HSSFCellStyle cellStyle = wb.createCellStyle();
-        cellStyle.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);// 设置填充样式
-        cellStyle.setFillForegroundColor(HSSFColor.GREY_25_PERCENT.index);// 设置填充色
+        cellStyle.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);// Set the fill style
+        cellStyle.setFillForegroundColor(HSSFColor.GREY_25_PERCENT.index);// Set the fill color
         if (font != null) {
             cellStyle.setFont(font);
         }
@@ -216,7 +217,7 @@ public class ExcelBuilder {
 
     private HSSFCellStyle getTitleCellStyle(final HSSFWorkbook wb, final HSSFFont font) {
         final HSSFCellStyle cellStyle = wb.createCellStyle();
-        // 设置填充色
+        // Set the fill color
         if (font != null) {
             cellStyle.setFont(font);
         }

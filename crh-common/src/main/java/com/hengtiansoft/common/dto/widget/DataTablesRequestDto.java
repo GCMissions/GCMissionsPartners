@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * "abRegex":[false,false,false,false,false,false,false], "abSearchable":[true,true,true,true,true,true,true],
  * "iSortingCols":1, "aiSortCol":[0], "asSortDir":["asc"], "abSortable":[true,true,true,true,true,true,true] }
  * 
- * @author SC
+ * @author taochen
  */
 @SuppressWarnings("serial")
 public class DataTablesRequestDto implements Serializable {

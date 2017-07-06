@@ -1,17 +1,3 @@
-/*
- * Project Name: wrw-common
- * File Name: CustomLongSerialize.java
- * Class Name: CustomLongSerialize
- * Copyright 2014 Hengtian Software Inc
- * Licensed under the Hengtiansoft
- * http://www.hengtiansoft.com
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
- * implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.hengtiansoft.common.util;
 
 import java.io.IOException;
@@ -24,9 +10,9 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 
 /**
  * Class Name: CustomLongSerialize
- * Description: TODO
+ * Description: 
  * 
- * @author chengminmiao
+ * @author taochen
  */
 public class CustomLongSerialize extends JsonSerializer<Long> {
 

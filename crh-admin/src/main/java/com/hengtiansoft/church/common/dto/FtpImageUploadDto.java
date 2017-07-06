@@ -6,8 +6,8 @@ public class FtpImageUploadDto implements Serializable{
 
     /**
     * Variables Name: serialVersionUID
-    * Description: TODO
-    * Value Description: TODO
+    * Description: 
+    * Value Description: 
     */
     private static final long serialVersionUID = 1L;
     

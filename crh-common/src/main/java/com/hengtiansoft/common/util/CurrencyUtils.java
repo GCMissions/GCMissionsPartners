@@ -1,42 +1,24 @@
-/*
- * Project Name: wrw-common
- * File Name: MoneyUtils.java
- * Class Name: MoneyUtils
- *
- * Copyright 2014 Hengtian Software Inc
- *
- * Licensed under the Hengtiansoft
- *
- * http://www.hengtiansoft.com
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
- * implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.hengtiansoft.common.util;
 
 import java.text.DecimalFormat;
 
 /**
 * Class Name: CurrencyUtils
-* Description: 金额转换工具类：
-* 使用场景：
-* （1）提供从元转换成分 存储到数据库
-* （2）提供从分转换成元，展示到页面
+* Description: Amount conversion tool class：
+* Use of the scene:
+* （1）yuan to fen, Stored in the database
+* （2）fen to yuan,Show on the page
 * 
-* @author xianghuang
+* @author taochen
 *
 */
 public class CurrencyUtils {
     
     /**
-    * Description: 元转换为分，
+    * Description: yuan to fen，
     *
-    * @param yuan 值保留两位小数,本方法是多余的会丢到；
-    *     具体多余的是丢到还是四舍五入要看业务场景
+    * @param yuan the value preserves two decimal places 
+    *    
     * @return
     */
     public static Long rmbYuanToFen(Double yuan){
@@ -51,7 +33,7 @@ public class CurrencyUtils {
     }
     
     /**
-    * Description: 分转换为元，值保留两位小数
+    * Description: fen to yuan ，the value preserves two decimal places
     *
     * @param fen
     * @return

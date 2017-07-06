@@ -41,13 +41,12 @@ import org.springframework.util.Assert;
  * 
  * @Package com.zcckj.common.util
  * 
- * @Prject: yun-base
  * 
- * @Description: http工具类 （包含获取真实ip，添加取消cookie，发http请求post或get）
+ * @Description: Http tool class (including get real ip, add and cancel cookies, send http request post or get)
  * 
- * @author mapengwei
+ * @author taochen
  * 
- * @date 2014-12-9 上午9:18:32
+ * @date 
  * 
  * @version V1.0
  */
@@ -58,7 +57,7 @@ public class HttpUtils {
 	}
 
 	/**
-	 * 取消cookie
+	 * cancel cookie
 	 * 
 	 * @author mapengwei
 	 * @param request
@@ -78,15 +77,15 @@ public class HttpUtils {
 	}
 
 	/**
-	 * 设置cookie
+	 * set cookie
 	 * 
 	 * @param response
 	 * @param cookieName
-	 *            cookie名
+	 *            cookie name
 	 * @param cookieValue
-	 *            cookie值
+	 *            cookie value
 	 * @param time
-	 *            cookie有效生存时间
+	 *            cookie effective time
 	 */
 	public static void addCookie(HttpServletResponse response, String cookieName, String cookieValue, int time) {
 		try {
@@ -104,19 +103,19 @@ public class HttpUtils {
 	}
 
 	/**
-	 * 设置cookie
+	 * set cookie
 	 * 
 	 * @param response
 	 * @param domain
-	 *            保存cookie 域名
+	 *            save cookie domain 
 	 * @param path
-	 *            保存cookie路径
+	 *            Save the cookie path
 	 * @param cookieName
-	 *            cookie名
+	 *            cookie name
 	 * @param cookieValue
-	 *            cookie值
+	 *            cookie value
 	 * @param time
-	 *            cookie有效生存时间
+	 *            cookie effective time
 	 */
 	public static void addCookie(HttpServletResponse response, String domain, String path, String cookieName, String cookieValue, int time) {
 		try {
@@ -141,7 +140,7 @@ public class HttpUtils {
 	}
 
 	/**
-	 * 通过cookie名获取cookie值
+	 * Get the cookie value by cookie name
 	 * 
 	 * @param request
 	 * @param cookieName
@@ -163,13 +162,13 @@ public class HttpUtils {
 	}
 
 	/**
-	 * 根据cookie名称取得cookie的值
+	 * Get the value of the cookie based on the cookie name
 	 * 
 	 * @param HttpServletRequest
-	 *            request request对象
+	 *            request request object
 	 * @param name
-	 *            cookie名称
-	 * @return string cookie的值 当取不到cookie的值时返回null
+	 *            cookie name
+	 * @return string cookie value , Return null when fail to get a cookie value
 	 */
 	public static String getCookieValue(HttpServletRequest request, String cookieName) {
 		Cookie[] cookies = request.getCookies();
@@ -186,13 +185,13 @@ public class HttpUtils {
 	}
 
 	/**
-	 * POST请求
+	 * POST Request method
 	 * 
 	 * @param url
 	 *            URL
 	 * @param parameterMap
-	 *            请求参数
-	 * @return 返回结果
+	 *            Request parameter
+	 * @return 
 	 */
 	public static String post(String url, Map<String, Object> parameterMap) {
 		Assert.hasText(url);
@@ -263,13 +262,13 @@ public class HttpUtils {
 	}
 
 	/**
-	 * GET请求
+	 * GET Request method
 	 * 
 	 * @param url
 	 *            URL
 	 * @param parameterMap
-	 *            请求参数
-	 * @return 返回结果
+	 *            Request parameter
+	 * @return 
 	 */
 	public static String get(String url, Map<String, Object> parameterMap) {
 		Assert.hasText(url);

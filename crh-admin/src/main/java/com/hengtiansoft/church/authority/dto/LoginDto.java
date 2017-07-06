@@ -5,8 +5,8 @@ import java.io.Serializable;
 /**
  * 
 * Class Name: LoginDto
-* Description: 登录DTO
-* @author zhisongliu
+* Description: Login Dto 
+* @author tao chen
 *
  */
 public class LoginDto implements Serializable {

@@ -14,7 +14,7 @@ import org.springframework.cache.CacheManager;
 import org.springframework.cache.support.AbstractCacheManager;
 
 /**
- * @author jizhoujiang
+ * @author taochen
  *
  */
 public class MemcachedCacheManager extends AbstractCacheManager implements DisposableBean, CacheManager {

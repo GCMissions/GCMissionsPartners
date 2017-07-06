@@ -11,9 +11,9 @@ public class RandomUtil {
     public static final String NUMBERCHAR = "0123456789";
 
     /**
-     * Description: 获取定长的随机字符串（仅包含数字）
+     * Description: randomly get a string of the specified length (contains only numbers)
      *
-     * @param length 字符串长度
+     * @param length  The length of the string
      * @return
      */
     public static String generateNumberString(int length) {
@@ -26,9 +26,9 @@ public class RandomUtil {
     }
     
     /**
-     * Description: 获取定长的随机字符串（包含大小写字母、数字）
+     * Description: randomly get a string of the specified length (including uppercase and lowercase letters, numbers)
      *
-     * @param length 字符串长度
+     * @param length The length of the string
      * @return
      */
     public static String generateString(int length) {
@@ -41,7 +41,7 @@ public class RandomUtil {
     }
 
     /**
-     * Description: 获取定长的随机字符串（包含大小写字母）
+     * Description: randomly get a string of the specified length (including uppercase and lowercase letters)
      *
      * @param length
      * @return
@@ -56,7 +56,7 @@ public class RandomUtil {
     }
 
     /**
-     * Description: 获取定长的随机小写字母字符串
+     * Description: Randomly fetches a lowercase letter string of the specified length
      *
      * @param length
      * @return
@@ -66,7 +66,7 @@ public class RandomUtil {
     }
 
     /**
-     * Description: 获取定长的随机大写字母字符串
+     * Description: Randomly fetches a uppercase letter string of the specified length
      *
      * @param length
      * @return

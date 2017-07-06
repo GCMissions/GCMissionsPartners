@@ -2,7 +2,7 @@ package com.hengtiansoft.common.enumeration;
 
 @Deprecated
 public enum BasicTypeEnum {
-    POINTS(1, "积分配置");
+    POINTS(1, "Configure Points");
 
     private BasicTypeEnum(Integer key, String name) {
         this.key = key;

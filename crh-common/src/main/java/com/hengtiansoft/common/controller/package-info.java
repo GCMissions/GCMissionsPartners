@@ -1,7 +1,7 @@
 /**
  * Class Name: package-info
  * Description: common controllers
- * @author SC
+ * @author taochen
  *
  */
 package com.hengtiansoft.common.controller;

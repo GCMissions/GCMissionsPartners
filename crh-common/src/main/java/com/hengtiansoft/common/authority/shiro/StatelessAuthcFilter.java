@@ -18,9 +18,9 @@ import com.hengtiansoft.common.dto.ResultDtoFactory;
 import com.hengtiansoft.common.util.web.WebUtil;
 
 /**
- * Class Name: StatelessAuthcFilter Description: token验证Filter
+ * Class Name: StatelessAuthcFilter Description: token verification Filter
  * 
- * @author jialiangli
+ * @author taochen
  *
  */
 public class StatelessAuthcFilter extends AccessControlFilter {
@@ -53,7 +53,7 @@ public class StatelessAuthcFilter extends AccessControlFilter {
                 getSubject(request, response).login(statelessToken);
                 return true;
             } catch (Exception e) {
-                LOGGER.info("Token:{}无效， 验证失败", token);
+                LOGGER.info("Token:{}Invalid， Validation failed", token);
             }
         }
         if (isAjaxRequest((HttpServletRequest) request)) {
@@ -66,13 +66,13 @@ public class StatelessAuthcFilter extends AccessControlFilter {
 
    
 
-    // 登录失败时默认返回401状态码
+    // The 401 status code is returned by default when the login fails
     private void onLoginFail(ServletResponse response) throws IOException {
         HttpServletResponse httpResponse = (HttpServletResponse) response;
         httpResponse.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
         ObjectMapper mapper = WebUtil.getObjectMapper();
         String json = mapper.writeValueAsString(ResultDtoFactory.toUnauthorized("Please login again!"));
-        LOGGER.info("权限验证失败");
+        LOGGER.info("Permission validation failed");
         httpResponse.getOutputStream().write(json.getBytes("UTF-8"));
     }
 

@@ -1,21 +1,3 @@
-/*
- * Project Name: wrw-web
- * File Name: JsonUtils.java
- * Class Name: JsonUtils
- *
- * Copyright 2014 Hengtian Software Inc
- *
- * Licensed under the Hengtiansoft
- *
- * http://www.hengtiansoft.com
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
- * implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.hengtiansoft.common.util;
 
 import java.text.ParseException;
@@ -33,7 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @author dogndongliu
+ * @author taochen
  */
 public final class DateUtils {
 
@@ -62,13 +44,13 @@ public final class DateUtils {
     private static final Logger LOGGER = LoggerFactory.getLogger(DateUtils.class);
 
     /**
-     * 不可实例化
+     * Can not be instantiated
      */
     private DateUtils() {
     }
 
     /**
-     * 获取Date型当前日期
+     * Get the current date, the data type is date
      * 
      * @return
      */
@@ -77,7 +59,7 @@ public final class DateUtils {
     }
     
     /**
-     * 获取Date型当前月份
+     * Get the current month, the datatype is date
      * 
      * @return
      */
@@ -106,7 +88,8 @@ public final class DateUtils {
     }
 
     /**
-     * 将传入的Date型日期转化为pattern类型的日期(默认使用yyyy-MM-dd HH:mm:ss格式)
+     * Converts the date of the incoming Date type 
+     * to the date of the pattern type (the default is yyyy-MM-dd HH: mm: ss format)
      * 
      * @param date
      * @param pattern
@@ -124,7 +107,8 @@ public final class DateUtils {
     }
 
     /**
-     * 将传入的字符串日期转化为指定格式的Date型日期(默认使用yyyy-MM-dd HH:mm:ss格式)
+     * Converts the incoming string date to 
+     * the date of the date type of the specified format (the default is yyyy-MM-dd HH: mm: ss format)
      * 
      * @param date
      * @return
@@ -142,7 +126,7 @@ public final class DateUtils {
     }
 
     /**
-     * 获取两个时间间差的时间
+     * Get the time between the two time differences
      * 
      * @param biggerDate
      * @param smallerDate
@@ -172,7 +156,7 @@ public final class DateUtils {
     }
     
     /**
-     * 获取某日期的月份
+     * Get the month of the date
      * 
      * @return
      */
@@ -183,7 +167,7 @@ public final class DateUtils {
     }
     
     /**
-     * 获取某日期的日
+     *
      * 
      * @return
      */
@@ -194,7 +178,7 @@ public final class DateUtils {
     }
     
     /**
-     * 获得所在月的上个月的第一天和最后一天.
+     * Get the first day of last month and the last day of last month.
      * @param currentDate
      * @return
      */
@@ -215,16 +199,14 @@ public final class DateUtils {
     }
     
     /** 
-     * 获得指定日期的后一天 
+     * One day after obtaining a specified date
      *  
      * @param specifiedDay 
      * @return 
      */  
     public static Date getSpecifiedDayAfter(Date specifiedDay) {  
-//        List<Date> list = getStartDateAndEndDateInPreviousMonth(new Date());
         Calendar c = Calendar.getInstance();  
         c.setTime(specifiedDay); 
-//        System.out.println(DateUtils.format(list.get(1), DateUtils.STRING_PATTERN_SHORT));;
         int day = c.get(Calendar.DATE);  
         c.set(Calendar.DATE, day + 1);  
         return c.getTime();  

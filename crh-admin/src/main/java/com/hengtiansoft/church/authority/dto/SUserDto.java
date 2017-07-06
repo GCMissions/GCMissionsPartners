@@ -4,16 +4,16 @@ import java.io.Serializable;
 
 /**
  * Class Name: SUserDto
- * Description: 账户信息DTO
+ * Description: account information DTO
  * 
- * @author zhisongliu
+ * @author tao chen
  */
 public class SUserDto implements Serializable {
 
     /**
     * Variables Name: serialVersionUID
-    * Description: TODO
-    * Value Description: TODO
+    * Description: 
+    * Value Description: 
     */
     private static final long serialVersionUID = -8500343522458962523L;
 

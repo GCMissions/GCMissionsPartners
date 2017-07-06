@@ -19,9 +19,10 @@ import com.google.code.kaptcha.util.Config;
 import com.hengtiansoft.common.security.service.KaptchaService;
 
 /**
- * Class Name: KaptchaSupport Description: TODO
+ * Class Name: KaptchaSupport 
+ * Description: 
  * 
- * @author SC
+ * @author taochen
  *
  */
 public class KaptchaSupport extends KaptchaExtend {

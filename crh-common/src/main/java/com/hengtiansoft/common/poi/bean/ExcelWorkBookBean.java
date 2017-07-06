@@ -4,16 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ExcelWorkBookBean {
-    // 文件名称
+    // file Name
     private String               fileName;
 
-    // sheet数量
+    // sheet count
     private int                  sheetCount = 1;
 
-    // sheet集合
+    // sheet  collection
     private List<ExcelSheetBean> sheetBeans = new ArrayList<>();
 
-    // 模板名称
+    // template name
     private String               templateName;
 
     public String getFileName() {

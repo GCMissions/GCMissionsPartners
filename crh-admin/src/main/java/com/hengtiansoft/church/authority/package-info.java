@@ -1,8 +1,5 @@
 /**
- * 
- */
-/**
- * @author zhisongliu
- * 权限管理。
+ * @author tao chen
+ * authority management
  */
 package com.hengtiansoft.church.authority;

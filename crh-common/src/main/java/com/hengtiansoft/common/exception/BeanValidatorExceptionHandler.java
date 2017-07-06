@@ -1,24 +1,5 @@
 package com.hengtiansoft.common.exception;
 
-/*
- * Project Name: zc-collect-web-user
- * File Name: ExceptionHandler.java
- * Class Name: ExceptionHandler
- *
- * Copyright 2014 Hengtian Software Inc
- *
- * 
- *
- * http://www.hengtiansoft.com
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
- * implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 import java.util.List;
 import java.util.Set;
 
@@ -41,7 +22,7 @@ import com.hengtiansoft.common.dto.ValidationResultDto;
  * the validation from service will be wrapped into <code>ValidateException</code>, then the handler will catch the
  * exception and return the errors into view
  * 
- * @author SC
+ * @author taochen
  * 
  */
 @Service

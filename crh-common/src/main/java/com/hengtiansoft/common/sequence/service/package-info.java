@@ -1,4 +1,4 @@
 /**
- * Created by liminghua on 16/6/13.
+ * Created by taochen.
  */
 package com.hengtiansoft.common.sequence.service;

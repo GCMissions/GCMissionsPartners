@@ -9,7 +9,7 @@ import javax.persistence.Query;
 import com.hengtiansoft.common.dto.PagingDto;
 
 public class QueryUtil {
-    // 设置sql参数
+    // Set the parameters of sql
     public static void processParamForQuery(Query query, Map<String, Object> paramMap) {
         for (Entry<String, Object> entry : paramMap.entrySet()) {
             String paramName = entry.getKey();

@@ -4,8 +4,8 @@ import java.io.Serializable;
 /**
  * 
 * Class Name: SRoleInfoDto
-* Description: 角色信息DTO
-* @author zhisongliu
+* Description: The role of the information DTO
+* @author tao chen
 *
  */
 public class SRoleInfoDto implements Serializable{

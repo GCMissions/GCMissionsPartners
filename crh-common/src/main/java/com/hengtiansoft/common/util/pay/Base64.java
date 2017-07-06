@@ -1,9 +1,3 @@
-/*
- * Copyright (C) 2010 The MobileSecurePay Project
- * All right reserved.
- * author: shiqun.shi@alipay.com
- */
-
 package com.hengtiansoft.common.util.pay;
 
 public final class Base64 {

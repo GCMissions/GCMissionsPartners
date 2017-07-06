@@ -1,22 +1,3 @@
-/*
- * Project Name: zc-collect-web-user
- * File Name: BaseController.java
- * Class Name: BaseController
- *
- * Copyright 2014 Hengtian Software Inc
- *
- * Licensed under the Hengtiansoft
- *
- * http://www.hengtiansoft.com
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
- * implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.hengtiansoft.common.controller;
 
 import java.util.Set;
@@ -33,7 +14,7 @@ import com.hengtiansoft.common.constant.ApplicationConstant;
  * Class Name: BaseController
  * Description: all controller should extend this base class
  * 
- * @author SC
+ * @author taochen
  * 
  */
 

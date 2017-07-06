@@ -9,9 +9,9 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 
 /**
- * Class Name: StatelessRealm Description: 无状态验证Realm
+ * Class Name: StatelessRealm Description: Stateless validation Realm
  *
- * @author jialiangli
+ * @author taochen
  */
 public class StatelessRealm extends AuthorizingRealm {
 
@@ -34,7 +34,7 @@ public class StatelessRealm extends AuthorizingRealm {
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) {
         SimpleAuthenticationInfo authenticationInfo = statelessAuthcImpl.doGetAuthenticationInfo(token);
-        // 已经验证过了，不需要再密码进行验证
+        // Has been verified, do not need to re-verify the password
         setCredentialsMatcher(new StatelessCredentialsMatcher());
         return authenticationInfo;
     }

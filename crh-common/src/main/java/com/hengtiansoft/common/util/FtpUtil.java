@@ -22,16 +22,17 @@ import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
 /**
- * Class Name: FtpUtil Description: ftp工具类
+ * Class Name: FtpUtil 
+ * Description: ftp tool class 
  * 
- * @author jialiangli
+ * @author taochen
  */
 public class FtpUtil {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(FtpUtil.class);
 
     /**
-     * Description: 上传文件
+     * Description: upload files
      *
      * @param fileName
      * @param input
@@ -54,7 +55,7 @@ public class FtpUtil {
     }
 
     /**
-     * Description: 上传文件
+     * Description: upload files
      *
      * @param fileName
      * @param input
@@ -73,7 +74,7 @@ public class FtpUtil {
             FTPFile[] files = ftpClient.listFiles();
             for (int i = 0; i < files.length; i++) {
                 if (files[i].isDirectory()) {
-                    // 如果文件夹中没有当前月则创建
+                    // If the folder does not have the current month, it is created
                     String name = files[i].getName();
                     if (!name.equals(date)) {
                         ftpClient.makeDirectory(date);
@@ -85,7 +86,7 @@ public class FtpUtil {
                         ftpClient.storeFile(fileName, input);
                         break;
                     }
-                    // 如果没有文件夹当前月则创建
+                   
                 } else {
                     ftpClient.makeDirectory(date);
                     changeWorkingDirectory(ftpClient, image + imagePath + "/" + date);
@@ -95,7 +96,7 @@ public class FtpUtil {
             }
 
         } catch (Exception e) {
-            LOGGER.error("文件上传失败", e);
+            LOGGER.error("File upload failed", e);
         } finally {
             pool.releaseConnection(ftpClient);
         }
@@ -132,7 +133,7 @@ public class FtpUtil {
         Writer writer = null;
         OutputStreamWriter outputStreamWriter = null;
         try {
-            // 处理传输
+            // Transmission processing
             outputStreamWriter = new OutputStreamWriter(ftpClient.storeFileStream(remoteAbsoluteFile), "UTF-8");
             writer = new BufferedWriter(outputStreamWriter);
             template.process(model, writer);
@@ -143,14 +144,14 @@ public class FtpUtil {
             IOUtils.closeQuietly(writer);
             IOUtils.closeQuietly(outputStreamWriter);
             if (autoClose) {
-                // 断开连接
+                // Disconnect
                 pool.releaseConnection(ftpClient);
             }
         }
     }
 
     /**
-     * Description: 删除文件
+     * Description: delete file
      *
      * @param fileName
      * @param image
@@ -163,14 +164,14 @@ public class FtpUtil {
             changeWorkingDirectory(ftpClient, image + imagePath);
             ftpClient.deleteFile(fileName);
         } catch (Exception e) {
-            LOGGER.error("文件删除失败", e);
+            LOGGER.error("File deletion failed", e);
         } finally {
             pool.releaseConnection(ftpClient);
         }
     }
 
     /**
-     * Description: 目录切换
+     * Description: Directory switch
      *
      * @param ftpClient
      * @param targetPath
@@ -187,13 +188,13 @@ public class FtpUtil {
                     ftpClient.changeWorkingDirectory(paths[i]);
                 }
                 if (!ftpClient.changeWorkingDirectory(targetPath)) {
-                    LOGGER.error("调转到目标目录失败");
+                    LOGGER.error("Change job target directory failed");
                     return;
                 }
             }
         } catch (IOException e) {
-            LOGGER.error("调转到目标目录失败", e);
+            LOGGER.error("Change job target directory failed", e);
         }
-        LOGGER.debug("调转到目标目录");
+        LOGGER.debug("Change the target directory of the job");
     }
 }

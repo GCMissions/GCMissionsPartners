@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * Class Name: SequenceGenerator Description: 序列生成器
+ * Class Name: SequenceGenerator Description: Sequence Generator
  * 
- * @author jialiangli
+ * @author taochen
  */
 @Service
 public class SequenceGenerator {
@@ -16,7 +16,7 @@ public class SequenceGenerator {
     @Autowired
     private SequenceGeneratorService sequenceGeneratorService;
     /**
-     * Description: 从内存中取序列
+     * Description: Take the sequence from RAM
      *
      * @param sequenceType
      * @return
@@ -27,7 +27,7 @@ public class SequenceGenerator {
     }
 
     /**
-     * Description: 取订单编号
+     * Description: Take the order number
      *
      * @param sequenceType
      * @return

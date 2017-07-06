@@ -20,14 +20,14 @@ import com.hengtiansoft.common.util.pay.RSA;
 public class AlipayUtil {
     private static final Logger log= LoggerFactory.getLogger(AlipayUtil.class);
     /**
-     * 支付宝消息验证地址
+     * Alipay message verification URL
      */
     private static final String HTTPS_VERIFY_URL = "https://mapi.alipay.com/gateway.do?service=notify_verify&";
 
     /**
-     * Description: 签名
+     * Description: signature
      *
-     * @param content 待签名内容
+     * @param content Waiting for signatures
      * @return
      */
     public static String sign(String content) {
@@ -35,19 +35,19 @@ public class AlipayUtil {
     }
 
     /**
-     * 验证消息是否是支付宝发出的合法消息
-     * @param params 通知返回来的参数数组
-     * @return 验证结果
+     *Verify that the message is a legitimate message sent by Alipay
+     * @param params An array of parameters returned from the information
+     * @return Validation results
      */
     public static boolean vertify(Map<String, String> params) {
-        // 验证通知来源
+        // Verify the source of the notification
         String responseTxt = "false";
         if (null != params.get("notify_id")) {
             String notify_id = params.get("notify_id");
             responseTxt = vertifyResponse(notify_id);
         }
 
-        // 验证签名
+        // Verify the signature
         boolean isSign = false;
         if (null != params.get("sign")) {
             try {
@@ -62,16 +62,18 @@ public class AlipayUtil {
     }
 
     /**
-     * 获取远程服务器ATN结果,验证返回URL
-     * @param notify_id 通知校验ID
-     * @return 服务器ATN结果
-     * 验证结果集：
-     * invalid命令参数不对 出现这个错误，请检测返回处理中partner和key是否为空 
-     * true 返回正确信息
-     * false 请检查防火墙或者是服务器阻止端口问题以及验证时间是否超过一分钟
+     * Get the remote server ATN result, verify and return the URL
+     * @param notify_id 
+     * @return Server ATN results
+     * Verify the result set：
+     * invalid Command parameters are incorrect. 
+     *          If this error occurs, check whether partner and key are empty in return processing
+     * true  Return the correct information
+     * false Check the firewall or server to block port issues and verify 
+     *          that the time is more than one minute
      */
     private static String vertifyResponse(String notify_id) {
-        //获取远程服务器ATN结果，验证是否是支付宝服务器发来的请求
+        //Get the remote server ATN results ,verify that the request was sent by the Alipay server.
 
         String partner = AlipayConfig.partner;
         String veryfy_url = HTTPS_VERIFY_URL + "partner=" + partner + "&notify_id=" + notify_id;
@@ -80,13 +82,15 @@ public class AlipayUtil {
     }
 
     /**
-     * 获取远程服务器ATN结果
-     * @param urlvalue 指定URL路径地址
-     * @return 服务器ATN结果
-     * 验证结果集：
-     * invalid命令参数不对 出现这个错误，请检测返回处理中partner和key是否为空 
-     * true 返回正确信息
-     * false 请检查防火墙或者是服务器阻止端口问题以及验证时间是否超过一分钟
+     * Get the remote server ATN results
+     * @param urlvalue Specifies the URL path address
+     * @return Server ATN results
+       * Verify the result set：
+     * invalid Command parameters are incorrect. 
+     *            If this error occurs, check whether partner and key are empty in return processing
+     * true     Return the correct information
+     * false    Check the firewall or server to block port issues and verify 
+     *            that the time is more than one minute
      */
     private static String checkUrl(String urlvalue) {
         String inputLine = "";
@@ -106,18 +110,18 @@ public class AlipayUtil {
     }
 
     /**
-     * 根据反馈回来的信息，生成签名结果
-     * @param Params 通知返回来的参数数组
-     * @param sign 比对的签名结果
-     * @return 生成的签名结果
+     * According to the feedback back to the information, generate signature results
+     * @param Params An array of parameters returned from the information
+     * @param sign Comparison of signature results
+     * @return Generated signature results
      * @throws UnsupportedEncodingException 
      */
     private static boolean getSignVertify(Map<String, String> Params, String sign) throws UnsupportedEncodingException {
-        //过滤空值、sign与sign_type参数
+        //Filter null, sign and sign_type parameters
         Map<String, String> sParaNew = paraFilter(Params);
-        //获取待签名字符串
+        //Get the string to be signed
         String preSignStr = createLinkString(sParaNew);
-        //获得签名验证结果
+        //Get signature verification results
         boolean isSign = false;
         if (AlipayConfig.signType.equals("RSA")) {
             isSign = RSA.verify(preSignStr, sign, AlipayConfig.publicKey, AlipayConfig.charset);
@@ -126,9 +130,9 @@ public class AlipayUtil {
     }
 
     /** 
-     * 除去数组中的空值和签名参数
-     * @param params 签名参数组
-     * @return 去掉空值与签名参数后的新签名参数组
+     * Removes null and signature parameters from the array
+     * @param params Signature parameters
+     * @return 
      */
     public static Map<String, String> paraFilter(Map<String, String> params) {
         Map<String, String> result = new HashMap<String, String>();
@@ -136,7 +140,7 @@ public class AlipayUtil {
             return result;
         }
 
-        // 去除参数"sign","sign_type"：不参与签名或签名验证
+        // Remove the parameter "sign", "sign_type": do not participate in signature or signature verification
         for (String key : params.keySet()) {
             if ("sign".equalsIgnoreCase(key) || "sign_type".equalsIgnoreCase(key)) {
                 continue;
@@ -151,9 +155,10 @@ public class AlipayUtil {
     }
 
     /** 
-     * 把数组所有元素排序，并按照“参数=参数值”的模式用“&”字符拼接成字符串
-     * @param params 需要排序并参与字符拼接的参数组
-     * @return 拼接后字符串
+     * Sort all the elements of the array and concatenate them into a string with the "&" character 
+     * according to the "parameter = parameter value" pattern
+     * @param params The parameters that need to be sorted, and the parameters that require character splicing
+     * @return The string after splicing
      * @throws UnsupportedEncodingException 
      */
     public static String createLinkString(Map<String, String> params) throws UnsupportedEncodingException {
@@ -167,7 +172,7 @@ public class AlipayUtil {
             String key = keys.get(i);
             String value = params.get(key);
 
-            //拼接时，不包括最后一个&字符
+            //When stitching, not including the last character "&"
             if (i == keys.size() - 1) {
                 prestr = prestr + key + "=" + value;
             } else {
@@ -186,8 +191,8 @@ public class AlipayUtil {
         for (String key : map.keySet()) {
             sbHtml.append("<input type=\"hidden\" name=\"" + key + "\" value=\"" + map.get(key) + "\"/>");
         }
-        // submit按钮控件请不要含有name属性
-        sbHtml.append("<input type=\"submit\" value=\"" + "提交" + "\" style=\"display:none;\"></form>");
+        // Submit button controls do not include the name attribute
+        sbHtml.append("<input type=\"submit\" value=\"" + "submit" + "\" style=\"display:none;\"></form>");
         sbHtml.append("<script>document.forms['alipaysubmit'].submit();</script>");
         return sbHtml.toString();
     }

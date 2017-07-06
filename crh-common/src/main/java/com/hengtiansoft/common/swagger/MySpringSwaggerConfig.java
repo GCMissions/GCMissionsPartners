@@ -31,7 +31,9 @@ public class MySpringSwaggerConfig extends SpringSwaggerConfig {
     }
 
     /**
-     * 链式编程 来定制API样式 后续会加上分组信息
+     * Chain programming 
+     * Used to customize the API style 
+     * will be added after the grouping information
      *
      * @return
      */
@@ -42,7 +44,7 @@ public class MySpringSwaggerConfig extends SpringSwaggerConfig {
     }
 
     private ApiInfo apiInfo() {
-        return new ApiInfo("API", "API文档", "index.html", "", "My License", "");
+        return new ApiInfo("API", "API Documentation", "index.html", "", "My License", "");
     }
 
 }

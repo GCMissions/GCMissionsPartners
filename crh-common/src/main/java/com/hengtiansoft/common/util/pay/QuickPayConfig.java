@@ -3,31 +3,31 @@ package com.hengtiansoft.common.util.pay;
 import com.hengtiansoft.common.util.AppConfigUtil;
 
 /**
- * 快捷支付（市民卡支付）配置
+ * Quick payment configuration
  * 
- * @author yigesong
+ * @author taochen
  *
  */
 public class QuickPayConfig {
-    // 版本号
+    // version
     private static String version     = AppConfigUtil.getConfig("quickpay.pay.version");
 
-    // 交易代码
+    // trasaction code
     private static String transCode   = AppConfigUtil.getConfig("quickpay.pay.transcode");
 
-    // 商户号
+    // merchant code
     private static String merCode     = AppConfigUtil.getConfig("quickpay.pay.mercode");
 
-    // 渠道号
+    // channel number
     private static String chainNo     = AppConfigUtil.getConfig("quickpay.pay.chainno");
 
-    // 请求地址
+    // request Url
     private static String requestUrl  = AppConfigUtil.getConfig("quickpay.pay.requesturl");
 
-    // 证书地址
+    // certificate path
     private static String pfxPath     = AppConfigUtil.getConfig("quickpay.pay.pfxpath");
 
-    // 证书密码
+    // certificate password
     private static String pfxPassword = AppConfigUtil.getConfig("quickpay.pay.pfxpassword");
 
     public static String getVersion() {

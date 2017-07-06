@@ -1,22 +1,3 @@
-/*
- * Project Name: zc-collect-web-user
- * File Name: ValidateInterceptor.java
- * Class Name: ValidateInterceptor
- *
- * Copyright 2014 Hengtian Software Inc
- *
- * 
- *
- * http://www.hengtiansoft.com
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
- * implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.hengtiansoft.common.validation;
 
 import java.lang.annotation.Annotation;
@@ -50,7 +31,7 @@ import com.hengtiansoft.common.util.ApplicationContextUtil;
  * <p>
  * Description: the Interceptor for service validation
  * 
- * @author SC
+ * @author taochen
  * 
  */
 @Component
@@ -124,20 +105,22 @@ public class ValidateInterceptor {
      * @throws IllegalAccessException
      * @throws IllegalArgumentException
      */
-    // 循环验证,并抓取错误(只验证本类下的validation注解的属性和包含的类型为Dto的属性,继承属性不验证, 只有onValid配置isDeepCheck为true时才循环验证)
-    // isParentCheck为true时验证从父类继承的属性
+    // Loop validation and catch errors
+    //(Only validate the attributes of the "@validation" annotation in this class and the attributes that contain the type Dto, the inherited attribute is not validated, 
+    //and only onValid is configured to check if the isDeepCheck is true)
+    // When the isParentCheck is true, the attributes inherited from the parent class are validated
     private void executeValidate(final Object validatedObj, final Class<?>[] groups,
             final Set<ConstraintViolation<?>> result, boolean isDeepCheck, boolean isParentCheck) throws IllegalArgumentException,
             IllegalAccessException {
         result.addAll(validator.validate(validatedObj, groups));
         Class<?> clazz = validatedObj.getClass();
         if (isDeepCheck) {
-            List<Field> fields = Arrays.asList(clazz.getDeclaredFields());//获取本类声明的属性
+            List<Field> fields = Arrays.asList(clazz.getDeclaredFields());//Get the attributes of this type of declaration
             fieldsValidate(fields, validatedObj, groups, result, isDeepCheck, isParentCheck);
         }
-        if (isParentCheck) {    //获取包括父类的继承属性(只是父类,不包含超类)
+        if (isParentCheck) {    //Gets the inheritance attribute that includes the parent class (only the parent class, not the superclass)
             Class<?> parentClazz = clazz.getSuperclass();
-            List<Field> superFields = Arrays.asList(parentClazz.getDeclaredFields());//获取本类声明的属性
+            List<Field> superFields = Arrays.asList(parentClazz.getDeclaredFields());//Get attributes of this class declaration
             fieldsValidate(superFields, validatedObj, groups, result, isDeepCheck, isParentCheck);
         }
     }
@@ -147,11 +130,11 @@ public class ValidateInterceptor {
         for (Field field : fields) {
             field.setAccessible(true);
             Object value = field.get(validatedObj);
-            // 单实体dto
+            //dto
             if (value != null && value.getClass().toString().endsWith("Dto")) {
                 executeValidate(value, groups, result, isDeepCheck, isParentCheck);
             }
-            // 数组array
+            //array
             if (value != null && value.getClass().isArray()) {
                 int arrayLength = Array.getLength(value);
                 for (int i = 0; i < arrayLength; i++) {
@@ -161,7 +144,6 @@ public class ValidateInterceptor {
                     }
                 }
             }
-            // 集合collection
             if (value != null && Collection.class.isAssignableFrom(value.getClass())) {
                 Collection<?> collection = (Collection<?>) value;
                 for (Object inner : collection) {

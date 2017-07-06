@@ -13,7 +13,7 @@ import org.springframework.cache.Cache;
 import org.springframework.cache.support.SimpleValueWrapper;
 
 /**
- * @author jizhoujiang
+ * @author taochen
  *
  */
 public class SimpleMemcachedCache implements Cache {

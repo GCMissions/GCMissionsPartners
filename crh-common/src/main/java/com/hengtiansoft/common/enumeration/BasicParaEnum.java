@@ -2,7 +2,7 @@ package com.hengtiansoft.common.enumeration;
 
 @Deprecated
 public enum BasicParaEnum {
-    REGISTER_POINTS(1, "注册积分值"), CONSUME_POINTS(2, "消费积分比");
+    REGISTER_POINTS(1, "Register Points"), CONSUME_POINTS(2, "Consume Points");
 
     private BasicParaEnum(Integer key, String name) {
         this.key = key;

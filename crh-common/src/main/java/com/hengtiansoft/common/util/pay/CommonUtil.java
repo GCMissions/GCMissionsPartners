@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 public class CommonUtil {
 
    /**
-    * Discription：获取IP地址
+    * Discription：Get the IP address
     */
     public static String getIpAddr(HttpServletRequest request) {
         String ip = request.getHeader("x-forwarded-for");
@@ -26,7 +26,7 @@ public class CommonUtil {
     }
     
     /**
-     * Description: 获取HttpRequest中的参数Map
+     * Description: Gets the parameter Map in HttpRequest
      *
      * @param request 
      * @return

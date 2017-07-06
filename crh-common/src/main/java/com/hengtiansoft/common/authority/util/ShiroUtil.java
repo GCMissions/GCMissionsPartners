@@ -11,7 +11,7 @@ import com.hengtiansoft.common.util.BizUtil;
 
 public class ShiroUtil {
     /**
-     * Description: 从cookie或者header里获得token
+     * Description: Get token from cookie or header
      *
      * @param request
      * @return

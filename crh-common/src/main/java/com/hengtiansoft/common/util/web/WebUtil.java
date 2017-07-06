@@ -13,9 +13,10 @@ import com.hengtiansoft.common.util.DateTimeUtil;
 import com.hengtiansoft.common.util.PageEnumSerializer;
 
 /**
- * Class Name: WebUtil Description: TODO
+ * Class Name: WebUtil 
+ * Description: 
  * 
- * @author SC
+ * @author taochen
  * 
  */
 public final class WebUtil {
@@ -36,7 +37,7 @@ public final class WebUtil {
     }
 
     /**
-     * Description: 获得用户来源
+     * Description: Get the user source
      *
      * @return
      */

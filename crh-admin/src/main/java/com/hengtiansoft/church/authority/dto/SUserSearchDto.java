@@ -4,16 +4,16 @@ import com.hengtiansoft.common.dto.PagingDto;
 
 /**
  * Class Name: SUserSearchDto
- * Description: 账户搜索DTO
+ * Description: Search for account information DTO
  * 
- * @author zhisongliu
+ * @author tao chen
  */
 public class SUserSearchDto extends PagingDto<SUserDto> {
 
     /**
     * Variables Name: serialVersionUID
-    * Description: TODO
-    * Value Description: TODO
+    * Description: 
+    * Value Description: 
     */
     private static final long serialVersionUID = 424250826390683519L;
 

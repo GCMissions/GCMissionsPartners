@@ -1,16 +1,16 @@
 package com.hengtiansoft.common.poi.bean;
 
 public class ExcelCellBean {
-    // 列填充的值
+    // Start column
     private Object value;
 
-    // 垮几列
+    
     private int    collapseColumn = 1;
 
-    // 起始行
+    // Start row
     private int    row;
 
-    // 起始列
+    // Start column
     private int    col            = 0;
 
     public ExcelCellBean(Object value) {

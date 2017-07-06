@@ -3,11 +3,11 @@ package com.hengtiansoft.common.poi.bean;
 import java.util.List;
 
 public class SimpleExcelBean {
-    // 标题
+    // title
     private String             title;
-    // 列名
+    // column name
     private String[]           colNames;
-    // 内容
+    // content
     private List<List<String>> content;
 
     public String getTitle() {

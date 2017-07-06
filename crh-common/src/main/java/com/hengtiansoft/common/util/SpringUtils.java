@@ -1,21 +1,3 @@
-/*
-* Project Name: xinyunlian-ecom
-* File Name: SpringUtils.java
-* Class Name: SpringUtils
-*
-* Copyright 2014 Hengtian Software Inc
-*
-* Licensed under the Hengtiansoft
-*
-* http://www.hengtiansoft.com
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
-* implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
 package com.hengtiansoft.common.util;
 
 import java.util.Locale;
@@ -31,7 +13,7 @@ import org.springframework.web.servlet.LocaleResolver;
 /**
  * Utils - Spring.
  * 
- * @author Hengtiansoft Team
+ * @author taochen
  * @version 1.0_beta
  */
 @Component("springUtils")
@@ -42,7 +24,7 @@ public final class SpringUtils implements ApplicationContextAware, DisposableBea
 	private static ApplicationContext applicationContext;
 
 	/**
-	 * 不可实例化.
+	 * Can not be instantiated.
 	 */
 	private SpringUtils() {
 	}
@@ -70,7 +52,7 @@ public final class SpringUtils implements ApplicationContextAware, DisposableBea
 	}
 
 	/**
-	 * 获取applicationContext.
+	 * get applicationContext.
 	 * 
 	 * @return applicationContext
 	 */
@@ -79,11 +61,11 @@ public final class SpringUtils implements ApplicationContextAware, DisposableBea
 	}
 
 	/**
-	 * 获取实例.
+	 * Get the instance.
 	 * 
 	 * @param name
-	 *            Bean名称
-	 * @return 实例
+	 *            Bean name
+	 * @return instance
 	 */
 	public static Object getBean(String name) {
 		Assert.hasText(name);
@@ -91,13 +73,13 @@ public final class SpringUtils implements ApplicationContextAware, DisposableBea
 	}
 
 	/**
-	 * 获取实例.
+	 * Get the instance.
 	 * 
 	 * @param name
-	 *            Bean名称
+	 *            Bean name
 	 * @param type
-	 *            Bean类型
-	 * @return 实例
+	 *            Bean type
+	 * @return instance
 	 */
 	public static <T> T getBean(String name, Class<T> type) {
 		Assert.hasText(name);
@@ -106,13 +88,13 @@ public final class SpringUtils implements ApplicationContextAware, DisposableBea
 	}
 
 	/**
-	 * 获取国际化消息.
+	 * Get international news.
 	 * 
 	 * @param code
-	 *            代码
+	 *            
 	 * @param args
-	 *            参数
-	 * @return 国际化消息
+	 *           
+	 * @return Internationalized news
 	 */
 	public static String getMessage(String code, Object... args) {
 		LocaleResolver localeResolver = getBean("localeResolver", LocaleResolver.class);

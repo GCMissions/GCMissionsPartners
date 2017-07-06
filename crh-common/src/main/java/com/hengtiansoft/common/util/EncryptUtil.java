@@ -1,21 +1,3 @@
-/*
- * Project Name: zc-collect-common
- * File Name: EncryptUtil.java
- * Class Name: EncryptUtil
- *
- * Copyright 2014 Hengtian Software Inc
- *
- * Licensed under the Hengtiansoft
- *
- * http://www.hengtiansoft.com
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
- * implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.hengtiansoft.common.util;
 
 import java.io.UnsupportedEncodingException;
@@ -33,15 +15,16 @@ import org.slf4j.LoggerFactory;
 import com.hengtiansoft.common.constant.ApplicationConstant;
 
 /**
- * Class Name: EncryptUtil Description: 加密工具类
+ * Class Name: EncryptUtil 
+ * Description: Encryption tool class
  * 
- * @author jialiangli
+ * @author taochen
  *
  */
 public class EncryptUtil {
     private static final Logger log= LoggerFactory.getLogger(EncryptUtil.class);
     /**
-     * 描述: MD5 加密
+     * Description: MD5 encryption
      * 
      * @param input
      * @param salt
@@ -68,7 +51,7 @@ public class EncryptUtil {
     }
 
     /**
-     * 描述：密码一次加密
+     * Description: Password is encrypted once
      */
     public static String encryptMd5(String input) {
         try {
@@ -88,13 +71,13 @@ public class EncryptUtil {
     }
 
     /**
-     * AES加密
+     * AES encryption
      * 
      * @param content
-     *            待加密的内容
+     *            Content to be encrypted
      * @param encryptKey
-     *            加密密钥
-     * @return 加密后的byte[]
+     *            Encryption key
+     * @return Encrypted byte[]
      * @throws NoSuchAlgorithmException 
      */
     public static byte[] aesEncryptToBytes(String content, String encryptKey) {
@@ -114,13 +97,13 @@ public class EncryptUtil {
     }
 
     /**
-     * AES解密
+     * AES decryption
      * 
      * @param encryptBytes
-     *            待解密的byte[]
+     *            To be decrypted
      * @param decryptKey
-     *            解密密钥
-     * @return 解密后的String
+     *            Decryption key
+     * @return String 
      */
     public static String aesDecryptByBytes(byte[] encryptBytes, String decryptKey) {
         try {
@@ -141,7 +124,7 @@ public class EncryptUtil {
     }
 
     /**
-     * 将二进制转换成16进制
+     * Converts the binary to hexadecimal
      * 
      * @param buf
      * @return
@@ -159,7 +142,7 @@ public class EncryptUtil {
     }
 
     /**
-     * 将16进制转换为二进制
+     * Converts hexadecimal to binary
      * 
      * @param hexStr
      * @return
@@ -175,15 +158,15 @@ public class EncryptUtil {
         }
         return result;
     }
-
+    
     /**
-     * AES加密
+     * AES encryption
      * 
      * @param content
-     *            待加密的内容
+     *            Content to be encrypted
      * @param encryptKey
-     *            加密密钥
-     * @return 加密后的byte[]
+     *            Encryption key
+     * @return Encrypted byte[]
      * @throws NoSuchAlgorithmException 
      */
     public static String aesEncrypt(String content, String encryptKey){
@@ -191,13 +174,13 @@ public class EncryptUtil {
     }
 
     /**
-     * AES解密
+     * AES decryption
      * 
      * @param encryptStr
-     *            待解密的String
+     *            The String to be decrypted
      * @param decryptKey
-     *            解密密钥
-     * @return 解密后的String
+     *            Decryption key
+     * @return String
      */
     public static String aesDecrypt(String encryptStr, String decryptKey) {
         return aesDecryptByBytes(parseHexStr2Byte(encryptStr), decryptKey);

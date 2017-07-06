@@ -40,9 +40,9 @@ import com.hengtiansoft.common.util.EncryptUtil;
 import com.hengtiansoft.common.util.WRWUtil;
 
 /**
- * Class Name: SUserServiceImpl Description: 账户管理业务实现类
+ * Class Name: SUserServiceImpl Description: User management implementation class
  * 
- * @author zhisongliu
+ * @author tao chen
  */
 @Service
 public class SUserServiceImpl implements SUserService {
@@ -72,7 +72,7 @@ public class SUserServiceImpl implements SUserService {
             paramSql.append(" and s.USER_NAME like :userName");
             param.put("userName", "%" + dto.getUserName() + "%");
         }
-        // 转化成小写比较
+        // Convert lowercase for comparison
         if (!WRWUtil.isEmpty(dto.getLoginId())) {
             paramSql.append(" and s.LOGIN_ID like :loginId");
             param.put("loginId", "%" + dto.getLoginId() + "%");
@@ -135,7 +135,7 @@ public class SUserServiceImpl implements SUserService {
         if (WRWUtil.isEmpty(dto.getLoginId())) {
             throw new WRWException(EErrorCode.LOGIN_ID_VALUE_IS_NULL);
         } else {
-            // 验证该登录名是否存在
+            // Verify that the user name exists
             int countLoginId = sUserDao.findbyLoginIdAndOrgId(dto.getLoginId());
             if (countLoginId > 0) {
                 throw new WRWException(EErrorCode.ENTITY_USER_IS_EXIST);
@@ -158,7 +158,7 @@ public class SUserServiceImpl implements SUserService {
         if (!WRWUtil.isEmpty(dto.getStatus())) {
             entity.setStatus(StatusEnum.getCodeByText(dto.getStatus()));
         }
-        // 以手机号后六位作为默认密码
+        // The last six digits of the phone number as the default password
         String myPwd = "";
         if (!WRWUtil.isEmpty(dto.getPassword())) {
             myPwd = dto.getPassword();
@@ -196,7 +196,8 @@ public class SUserServiceImpl implements SUserService {
         if (!"on".equals(dto.getLockUser())) {
             entity.setStatus(StatusEnum.NORMAL.getCode());
         }
-        // 判断传过来的密码和数据库中的是否相等,如果相等，则没有更新密码，如果不相等，则更改了密码
+        // To determine whether the password entered and the password in the database are equal. 
+       // If they are equal, the password is not updated and the password is changed if they are not equal.
         if (!WRWUtil.isEmpty(dto.getPassword())) {
             String updatePwd = EncryptUtil.encryptMd5(dto.getPassword());
             if (!entity.getPassword().equals(updatePwd)) {
@@ -231,7 +232,8 @@ public class SUserServiceImpl implements SUserService {
 
     @Override
     public List<SRoleInfoEntity> findRoles() {
-        // 去掉区域平台商和终端配送商的ID
+        // Remove the ID of the regional platform vendor 
+        //and the ID of the terminal distributor
         return sRoleInfoDao.findAllByStatus();
     }
 
@@ -265,16 +267,16 @@ public class SUserServiceImpl implements SUserService {
     @Override
     @Transactional(value = "jpaTransactionManager")
     public ResultDto<String> detele(Long id) {
-        // 判断该ID是否为当前登录ID,
+        // Determines whether or not the ID is the current login ID,
         if (id.equals(AuthorityContext.getCurrentUser().getUserId())) {
             throw new WRWException(EErrorCode.USER_DELETE_IS_USING);
         }
-        // 判断该ID是否为系统adminID,
+        // Determines whether the ID is the ID of the system admin,
         if (id.equals(SystemConst.SYSTEM_USER_ID)) {
             throw new WRWException(EErrorCode.SYSTEM_USER_NOT_DELETE);
         }
         SUserEntity entity = sUserDao.findOne(id);
-        // 将状态置为3，则就是逻辑删除
+        // Setting the status to 3 is indicated as deletion
         entity.setStatus(StatusEnum.REMOVED.getCode());
         sUserDao.save(entity);
         return ResultDtoFactory.toAck(EErrorCode.SUCCESS);
@@ -296,12 +298,11 @@ public class SUserServiceImpl implements SUserService {
     @Override
     @Transactional(value = "jpaTransactionManager")
     public ResultDto<String> selfUpdate(SUserSaveAndUpdateDto dto) {
-        // 判断是否是当前用户
         if (!dto.getId().equals(AuthorityContext.getCurrentUser().getUserId())) {
             throw new WRWException(EErrorCode.USER_UPDATE_NOT_USING);
         }
         SUserEntity entity = sUserDao.findOne(dto.getId());
-        // 验证 ,只有平台（orgId=0）才做手机号姓名验证
+        // Only the platform (orgId = 0) to do phone number name verification
         if (entity.getOrgId().equals(0L)) {
             if (WRWUtil.isEmpty(dto.getPhone())) {
                 throw new WRWException(EErrorCode.PHONE_VALUE_IS_NULL);
@@ -316,8 +317,9 @@ public class SUserServiceImpl implements SUserService {
         if (!WRWUtil.isEmpty(dto.getStatus())) {
             entity.setStatus(StatusEnum.getCodeByText(dto.getStatus()));
         }
-        // 判断传过来的密码和数据库中的是否相等,如果相等，则没有更新密码，如果不相等，则更改了密码
-        // 先判断传进来的密码是否为空，若为空则表示不更改密码
+        // To determine whether the password entered and the password in the database are equal. 
+        // If they are equal, the password is not updated and the password is changed if they are not equal.
+        // First determine whether the incoming password is empty, if it is empty that does not change the password
         if (!WRWUtil.isEmpty(dto.getPassword()) && !entity.getPassword().equals(dto.getPassword())) {
             String password2 = EncryptUtil.encryptMd5(dto.getPassword(), entity.getLoginId());
             entity.setPassword(password2);

@@ -18,11 +18,11 @@ import org.springframework.util.Assert;
  * 
  * @Package com.hengtiansoft.common.util
  * 
- * @Description: cookie工具类
+ * @Description: cookie tool class
  * 
- * @author mapengwei
+ * @author taochen
  * 
- * @date 2015年12月16日 下午3:11:10
+ * @date 
  * 
  * @version V1.0
  * 
@@ -32,22 +32,22 @@ public class CookieUtils {
     
     private static final Logger log= LoggerFactory.getLogger(CookieUtils.class);
 	/**
-	 * 添加cookie
+	 * add cookie
 	 * 
 	 * @param response
 	 *            HttpServletResponse
 	 * @param name
-	 *            cookie名称
+	 *            cookie name
 	 * @param value
-	 *            cookie值
+	 *            cookie value
 	 * @param maxAge
-	 *            有效期(单位: 秒)
+	 *            Valid (in seconds)
 	 * @param path
-	 *            路径
+	 *            
 	 * @param domain
-	 *            域
+	 *            
 	 * @param secure
-	 *            是否启用加密
+	 *            whether encryption is enabled
 	 */
 	public static void addCookie(HttpServletResponse response, String name, String value, Integer maxAge, String path, String domain, Boolean secure) {
 		Assert.notNull(response);
@@ -75,45 +75,45 @@ public class CookieUtils {
 	}
 
 	/**
-	 * 添加cookie
+	 * add cookie
 	 * 
 	 * @param response
 	 *            HttpServletResponse
 	 * @param name
-	 *            cookie名称
+	 *            cookie name
 	 * @param value
-	 *            cookie值
+	 *            cookie value
 	 * @param maxAge
-	 *            有效期(单位: 秒)
+	 *            Valid (in seconds)
 	 */
 	public static void addCookie(HttpServletResponse response, String name, String value, Integer maxAge) {
 		addCookie(response, name, value, maxAge, "/", "", null);
 	}
 
 	/**
-	 * 添加cookie
+	 * add cookie
 	 * 
 	 * @param request
 	 *            HttpServletRequest
 	 * @param response
 	 *            HttpServletResponse
 	 * @param name
-	 *            cookie名称
+	 *            cookie name
 	 * @param value
-	 *            cookie值
+	 *            cookie value
 	 */
 	public static void addCookie(HttpServletResponse response, String name, String value) {
 		addCookie(response, name, value, null, "/", "", null);
 	}
 
 	/**
-	 * 获取cookie
+	 * get cookie
 	 * 
 	 * @param request
 	 *            HttpServletRequest
 	 * @param name
-	 *            cookie名称
-	 * @return 若不存在则返回null
+	 *            cookie name
+	 * @return returns null if it does not exist
 	 */
 	public static String getCookie(HttpServletRequest request, String name) {
 		Assert.notNull(request);
@@ -135,18 +135,18 @@ public class CookieUtils {
 	}
 
 	/**
-	 * 移除cookie
+	 * removed cookie
 	 * 
 	 * @param request
 	 *            HttpServletRequest
 	 * @param response
 	 *            HttpServletResponse
 	 * @param name
-	 *            cookie名称
+	 *            cookie name
 	 * @param path
-	 *            路径
+	 *            
 	 * @param domain
-	 *            域
+	 *            
 	 */
 	public static void removeCookie(HttpServletResponse response, String name, String path, String domain) {
 		Assert.notNull(response);
@@ -168,14 +168,14 @@ public class CookieUtils {
 	}
 
 	/**
-	 * 移除cookie
+	 * removed cookie
 	 * 
 	 * @param request
 	 *            HttpServletRequest
 	 * @param response
 	 *            HttpServletResponse
 	 * @param name
-	 *            cookie名称
+	 *            cookie name
 	 */
 	public static void removeCookie(HttpServletResponse response, String name) {
 		removeCookie(response, name, "/", "");

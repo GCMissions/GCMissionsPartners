@@ -23,9 +23,9 @@ import com.hengtiansoft.common.dto.ResultDtoFactory;
 import com.hengtiansoft.common.util.AppConfigUtil;
 
 /**
- * Class Name: SUserController Description: 账户控制器
+ * Class Name: SUserController Description: UserController
  * 
- * @author zhisongliu
+ * @author tao chen
  */
 @Controller
 @RequestMapping(value = "/user")
@@ -35,7 +35,7 @@ public class SUserController {
     private SUserService sUserService;
 
     /**
-     * Description:进入首页
+     * Description:go to the home page
      * 
      * @return
      */
@@ -47,7 +47,7 @@ public class SUserController {
     }
 
     /**
-     * Description:首页数据
+     * Description:home data
      * 
      * @param dto
      * @return
@@ -60,7 +60,7 @@ public class SUserController {
     }
 
     /**
-     * Description:进入到添加页面
+     * Description:Go to the add page
      * 
      * @return
      */
@@ -70,7 +70,7 @@ public class SUserController {
     }
 
     /**
-     * Description :获取添加页面角色数据
+     * Description :Get Data page of the Add Roles
      * 
      * @return
      */
@@ -78,12 +78,12 @@ public class SUserController {
     @ResponseBody
     public ResultDto<List<SRoleInfoEntity>> addPageData() {
         List<SRoleInfoEntity> list = sUserService.findRoles();
-        return ResultDtoFactory.toAck("角色Dto", list);
+        return ResultDtoFactory.toAck("Role Dto", list);
 
     }
 
     /**
-     * Description : 新增保存
+     * Description : Save the new data
      * 
      * @param dto
      * @return
@@ -95,7 +95,7 @@ public class SUserController {
     }
 
     /**
-     * Description:进入到编辑页面
+     * Description:go to the edit page
      * 
      * @return
      */
@@ -105,7 +105,7 @@ public class SUserController {
     }
 
     /**
-     * Description : 编辑页面数据
+     * Description : Edit the data for the page
      */
     @RequestMapping(value = "/editData/{id}", method = RequestMethod.POST)
     @ResponseBody
@@ -115,11 +115,11 @@ public class SUserController {
         SUserSaveAndUpdateDto dto = sUserService.findById(id);
         editDto.setDto(dto);
         editDto.setList(roles);
-        return ResultDtoFactory.toAck("编辑DTO", editDto);
+        return ResultDtoFactory.toAck("Edit DTO", editDto);
     }
-    
+
     /**
-     * Description:编辑保存
+     * Description:save the modified information
      * 
      * @param dto
      * @return
@@ -127,7 +127,9 @@ public class SUserController {
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
     @ResponseBody
     public ResultDto<String> edit(@RequestBody SUserUpdateDto dto) {
-        /** 2016-8-18 yigesong 编辑用户时状态不设置 WELY-175，专门开一个解锁用户按钮 **/
+        /**
+         *  taochen Edit the user when the state does not set WELY-175, specifically open a unlock user button
+         **/
         return sUserService.update(dto);
     }
 
@@ -139,7 +141,7 @@ public class SUserController {
     }
 
     /**
-     * Description: 密码重置
+     * Description: reset password
      *
      * @param memberId
      * @return
@@ -151,7 +153,8 @@ public class SUserController {
     }
 
     /**
-     * Description:进入到个人资料编辑页面
+     * Description:Go to the page where you 
+     *              edited your personal information
      * 
      * @return
      */
@@ -161,7 +164,7 @@ public class SUserController {
     }
 
     /**
-     * Description:个人资料编辑页面数据
+     * Description:get the personal information data that needs to be modified
      */
     @RequestMapping(value = "/selfEditData", method = RequestMethod.POST)
     @ResponseBody
@@ -172,13 +175,14 @@ public class SUserController {
         SUserSaveAndUpdateDto dto = sUserService.findById(id);
         editDto.setDto(dto);
         editDto.setList(roles);
-        editDto.setQrCodeUrl(AppConfigUtil.getConfig("common.qr.server") + AppConfigUtil.getConfig("common.qr.url") + "/?" + dto.getOrgId());
+        editDto.setQrCodeUrl(AppConfigUtil.getConfig("common.qr.server") + AppConfigUtil.getConfig("common.qr.url")
+                + "/?" + dto.getOrgId());
 
-        return ResultDtoFactory.toAck("个人资料编辑DTO", editDto);
+        return ResultDtoFactory.toAck("Edit DTO", editDto);
     }
 
     /**
-     * Description:编辑保存
+     * Description:Save the modified personal information
      * 
      * @param dto
      * @return

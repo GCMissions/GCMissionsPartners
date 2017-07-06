@@ -3,7 +3,7 @@ package com.hengtiansoft.common.sequence.service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * Created by liminghua on 16/6/13.
+ * Created by taochen.
  */
 public interface SequenceGeneratorService {
     @Transactional

@@ -1,21 +1,3 @@
-/*
- * Project Name: zc-collect-common
- * File Name: BaiduLBSUtil.java
- * Class Name: BaiduLBSUtil
- *
- * Copyright 2014 Hengtian Software Inc
- *
- * Licensed under the Hengtiansoft
- *
- * http://www.hengtiansoft.com
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
- * implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.hengtiansoft.common.lbs;
 
 import java.io.UnsupportedEncodingException;
@@ -37,9 +19,9 @@ import com.hengtiansoft.common.util.BizUtil;
 import com.hengtiansoft.common.util.HttpUtil;
 
 /**
- * Class Name: BaiduApiUtil Description: 百度位置相关API
+ * Class Name: BaiduApiUtil Description: Baidu location related API
  * 
- * @author jialiangli
+ * @author taochen
  *
  */
 public class BaiduApiUtil {
@@ -53,8 +35,7 @@ public class BaiduApiUtil {
     private static final String BAIDU_POI_CREATE                = "http://api.map.baidu.com/geodata/v3/poi/create";
 
     private static final String BAIDU_POI_STORE_USER_QUERY      = "http://api.map.baidu.com/geosearch/v3/detail";  // http://api.map.baidu.com/geosearch/v3/detail/{uid}
-                                                                                                                    // //
-                                                                                                                    // GET请求
+                                                                                                                    // GET  Request
 
     private static final String BAIDU_GEOCODER_URL              = "http://api.map.baidu.com/geocoder/v2/?";
 
@@ -69,7 +50,7 @@ public class BaiduApiUtil {
     private static final String BAIDU_LBS_STOREUSER_GEOTABLE_ID = "baidu.lbs.storeuser.geotable_id";
 
     /**
-     * Description: 按获得附近门店按距离排序
+     * Description: Get nearby stores sort by distance
      *
      * @param localtion
      * @param radius
@@ -83,7 +64,7 @@ public class BaiduApiUtil {
     }
 
     /**
-     * Description: 按获得附近门店按星级排序
+     * Description: Get nearby stores sorted by rate
      *
      * @param localtion
      * @param radius
@@ -97,7 +78,7 @@ public class BaiduApiUtil {
     }
 
     /**
-     * Description: 获得附近门店
+     * Description: get nearby Store
      *
      * @param localtion
      * @param radius
@@ -125,13 +106,13 @@ public class BaiduApiUtil {
         if (NORMAL_STATUS_CODE.equals(locationInfoBean.getStatus())) {
             return locationInfoBean;
         } else {
-            LOGGER.error("百度获取门店信息失败，错误码：", locationInfoBean.getStatus());
+            LOGGER.error("Baidu access to store information failure, error code：", locationInfoBean.getStatus());
         }
         return null;
     }
 
     /**
-     * Description: 获取门店技师经纬度
+     * Description: Get the store latitude and longitude
      *
      * @param localtion
      * @param radius
@@ -151,13 +132,13 @@ public class BaiduApiUtil {
         if (NORMAL_STATUS_CODE.equals(userLocationInfoBean.getStatus())) {
             return userLocationInfoBean;
         } else {
-            LOGGER.error("百度获取门店信息失败，错误码：", userLocationInfoBean.getStatus());
+            LOGGER.error("Baidu access to store information failure, error code：", userLocationInfoBean.getStatus());
         }
         return null;
     }
 
     /**
-    * Description: 上传位置信息
+    * Description: Upload location information
     *
     * @param params
     * @return
@@ -168,13 +149,13 @@ public class BaiduApiUtil {
         if (NORMAL_STATUS_CODE.equals(resultBean.getStatus())) {
             return resultBean;
         } else {
-            LOGGER.error("百度上传信息失败，错误码：{}", resultBean.getStatus());
+            LOGGER.error("Baidu upload information failed, error code：{}", resultBean.getStatus());
         }
         return null;
     }
 
     /**
-    * Description: 修改位置信息
+    * Description: Modify the location information
     *
     * @param params
     * @return
@@ -185,13 +166,13 @@ public class BaiduApiUtil {
         if (NORMAL_STATUS_CODE.equals(resultBean.getStatus())) {
             return resultBean;
         } else {
-            LOGGER.error("百度修改信息失败，错误码：{}", resultBean.getStatus());
+            LOGGER.error("Baidu modified information failed, error code：{}", resultBean.getStatus());
         }
         return null;
     }
 
     /**
-    * Description: 上传门店信息
+    * Description: Upload store information
     *
     * @return
     */
@@ -214,7 +195,7 @@ public class BaiduApiUtil {
     }
 
     /**
-     * Description: 上传门店用户信息
+     * Description: Upload store user information
      *
      * @return
      */
@@ -230,7 +211,7 @@ public class BaiduApiUtil {
     }
 
     /**
-    * Description: 修改门店信息
+    * Description: Modify store information
     *
     * @param storeLocationDetailBean
     * @return
@@ -277,7 +258,7 @@ public class BaiduApiUtil {
     }
 
     /**
-     * Description: 修改门店用户信息
+     * Description: Modify the store user information
      *
      * @param storeLocationDetailBean
      * @return
@@ -300,7 +281,7 @@ public class BaiduApiUtil {
     }
 
     /**
-    * Description: 根据地址获得经纬度
+    * Description: According to the address obtained latitude and longitude
     *
     * @param address
     * @return
@@ -320,10 +301,10 @@ public class BaiduApiUtil {
                     Map<String, String> map = (Map<String, String>) result.get("location");
                     return new String[] { String.valueOf(map.get("lng")), String.valueOf(map.get("lat")) };
                 } else {
-                    LOGGER.error("百度获取取地址坐标失败，错误码："+ geocoderBean.getStatus());
+                    LOGGER.error("Baidu gets address error, error code："+ geocoderBean.getStatus());
                 }
             } catch (UnsupportedEncodingException e) {
-                LOGGER.error("百度获取地址坐标编码转换错误，地址：{}", address);
+                LOGGER.error("Baidu gets the address coordinate code conversion error, address：{}", address);
                 
             }
         }

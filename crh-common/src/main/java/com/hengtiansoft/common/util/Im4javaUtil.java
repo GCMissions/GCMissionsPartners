@@ -13,19 +13,19 @@ import org.springframework.util.Assert;
 
 /**
 * Class Name: Im4javaUtil
-* Description: 裁剪图片
-* @author quanjunlin
+* Description: Cut the picture
+* @author taochen
 *
 */
 public final class Im4javaUtil {
 
-	/** GraphicsMagick程序路径 */
+	/** GraphicsMagick program path */
 	private static String graphicsMagickPath;
 
-	/** 背景颜色 */
+	/** background color */
 	private static final Color BACKGROUND_COLOR = Color.white;
 
-	/** 目标图片品质(取值范围: 0 - 100) */
+	/** Target image quality (in the range 0 - 100) */
 	private static final int DEST_QUALITY = 88;
 	private static final Logger log= LoggerFactory.getLogger(Im4javaUtil.class);
 
@@ -51,22 +51,22 @@ public final class Im4javaUtil {
 	}
 
 	/**
-	 * 不可实例化
+	 * Can not be instantiated
 	 */
 	private Im4javaUtil() {
 	}
 
 	/**
-	 * 等比例图片缩放
+	 * The same proportion of image scaling
 	 * 
 	 * @param srcFile
-	 *            源文件
+	 *            
 	 * @param destFile
-	 *            目标文件
+	 *            
 	 * @param destWidth
-	 *            目标宽度
+	 *            
 	 * @param destHeight
-	 *            目标高度
+	 *            
 	 */
 	public static void zoom(File srcFile, File destFile, int destWidth, int destHeight) {
 		Assert.notNull(srcFile);
@@ -97,17 +97,17 @@ public final class Im4javaUtil {
 	}
 
 	/**
-	 * 初始化
+	 * initialization
 	 */
 	public static void initialize() {
 	}
 
 	/**
-	 * 转换颜色为十六进制代码
+	 * The conversion color is hexadecimal
 	 * 
 	 * @param color
-	 *            颜色
-	 * @return 十六进制代码
+	 *            
+	 * @return Hexadecimal code
 	 */
 	private static String toHexEncoding(Color color) {
 		String R, G, B;

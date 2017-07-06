@@ -1,21 +1,3 @@
-/*
- * Project Name: zc-collect-common
- * File Name: ZCUtil.java
- * Class Name: ZCUtil
- *
- * Copyright 2014 Hengtian Software Inc
- *
- * Licensed under the Hengtiansoft
- *
- * http://www.hengtiansoft.com
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
- * implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.hengtiansoft.common.util;
 
 import java.io.ByteArrayInputStream;
@@ -30,9 +12,10 @@ import sun.misc.BASE64Decoder;
 import com.hengtiansoft.common.util.web.WebUtil;
 
 /**
- * Class Name: ZCUtil Description: 中策项目工具类
+ * Class Name: ZCUtil 
+ * Description: zhongce Project tool class
  * 
- * @author jialiangli
+ * @author taochen
  *
  */
 @SuppressWarnings("restriction")
@@ -41,7 +24,7 @@ public class BizUtil {
     private static final Logger LOGGER = LoggerFactory.getLogger(BizUtil.class);
 
     /**
-     * 描述: 判断字符串是否为空
+     * Description: Determines whether the string is empty
      * 
      * @param name
      * @return
@@ -51,7 +34,7 @@ public class BizUtil {
     }
 
     /**
-     * 描述: 判断字符串是否为空
+     * Description: Determines whether the string is empty
      * 
      * @param name
      * @return
@@ -61,7 +44,7 @@ public class BizUtil {
     }
 
     /**
-     * 描述: 判断字符串是否为空
+     * Description: Determines whether the string is empty
      * 
      * @param name
      * @return
@@ -71,7 +54,7 @@ public class BizUtil {
     }
 
     /**
-     * 描述: 模糊查询时,过滤特殊字符
+     * Filtering special characters when blurring queries
      * 
      * @param string
      * @return
@@ -81,7 +64,7 @@ public class BizUtil {
     }
 
     /**
-     * 描述: 模糊查询时,过滤特殊字符
+     * Description: Filtering special characters when blurring queries
      * 
      * @param string
      * @return
@@ -91,7 +74,7 @@ public class BizUtil {
     }
 
     /**
-     * 描述: 模糊查询时,过滤特殊字符
+     * Description: Filtering special characters when blurring queries
      * 
      * @param string
      * @return
@@ -115,7 +98,7 @@ public class BizUtil {
     }
 
     /**
-     * 描述: 将对象转化成json字符串
+     * Description: Converts an object to a json string
      * 
      * @param object
      * @return
@@ -124,13 +107,13 @@ public class BizUtil {
         try {
             return WebUtil.getObjectMapper().writeValueAsString(object);
         } catch (Exception e) {
-            LOGGER.error("Json转换错误", e);
+            LOGGER.error("Json conversion error", e);
         }
         return null;
     }
 
     /**
-     * Description: 将json字符串转化为Object对象
+     * Description: Converts a json string  to an object
      *
      * @param content
      * @param valueType
@@ -140,7 +123,7 @@ public class BizUtil {
         try {
             return WebUtil.getObjectMapper().readValue(content, valueType);
         } catch (IOException e) {
-            LOGGER.error("Json转换错误", e);
+            LOGGER.error("Json conversion error", e);
         }
         return null;
     }

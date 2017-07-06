@@ -1,25 +1,25 @@
 package com.hengtiansoft.common.enumeration;
 
 /**
- * Class Name: FloorTypeEnum Description: 广告位枚举
+ * Class Name: FloorTypeEnum Description: Ad Placement 
  * 
- * @author yigesong
+ * @author taochen
  */
 public enum FloorTypeEnum {
-    HOT_SALE("1", "热销商品", 4), CORE_PRODUCT("2", "核心产品", 10),HIGH_END("3", "高端产品", 10), AREA_PRODUCT("4", "区域产品", 10), AREA_SPEC("5", "当地特供", 10);
+    HOT_SALE("1", "Hot Sale", 4), CORE_PRODUCT("2", "Core Products", 10),HIGH_END("3", "High-end Products", 10), AREA_PRODUCT("4", "Regional Products", 10), AREA_SPEC("5", "Regional Specialty Products", 10);
 
     /**
-     * 对应楼层的层级
+     * Corresponding to the level of the floor
      */
     private String  position;
 
     /**
-     * 楼层名称
+     * The name of the floor
      */
     private String  name;
 
     /**
-     * 楼层最多显示几个产品
+     * The floor can display the maximum number of products
      */
     private Integer maxProduct;
 

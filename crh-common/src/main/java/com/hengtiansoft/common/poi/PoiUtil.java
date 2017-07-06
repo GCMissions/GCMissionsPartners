@@ -24,8 +24,8 @@ import com.hengtiansoft.common.util.DateTimeUtil;
 
 /**
 * Class Name: PoiUtil
-* Description: POI工具类
-* @author JL
+* Description: POI Tools
+* @author taochen
 *
 */
 public class PoiUtil {
@@ -34,7 +34,7 @@ public class PoiUtil {
     private static final String FILE_SUFFIX = ".xls";
 
     /**
-    * Description: 多sheet excel
+    * Description: many sheets excel
     *
     * @param beans
     * @param os
@@ -52,7 +52,7 @@ public class PoiUtil {
     }
 
     /**
-    * Description: 把数据写入到excel
+    * Description: Write the data to excel
     *
     * @param bean
     * @param os
@@ -67,7 +67,7 @@ public class PoiUtil {
     }
 
     /**
-    * Description: 多sheet excel
+    * Description: Many sheets excel
     *
     * @param bean
     * @param response
@@ -82,7 +82,7 @@ public class PoiUtil {
     }
 
     /**
-    * Description: 把数据写入到excel
+    * Description: Write the data to excel
     *
     * @param bean
     * @param response
@@ -97,7 +97,7 @@ public class PoiUtil {
     }
 
     /**
-    * Description: 根据模板导出excel
+    * Description: Export excel according to template
     *
     * @param workBookBean
     * @param response
@@ -115,10 +115,10 @@ public class PoiUtil {
     }
 
     /**
-     * 从excel里读数据（以2003版本格式为准，xls结尾）
-     * @param colLength --列长度，根据列长度读取
-     * @param is 输入流（一般为文件流）
-     * @return 返回一个二维数组格式的数据
+     * Read data from excel in (subject to the 2003 version of the format,  xls end)
+     * @param colLength --The column length is read according to the column length
+     * @param is Input stream (usually file stream)
+     * @return a two-dimensional array of data
      * @throws IOException 
      */
     public static String[][] getFromExcel(int colLength, InputStream is) {
@@ -155,7 +155,7 @@ public class PoiUtil {
     }
 
     /**
-     * 转换得到string值
+     * The conversion gets the value of the string type
      * @param cellTypeCode
      * @return
      */
@@ -172,10 +172,10 @@ public class PoiUtil {
         case HSSFCell.CELL_TYPE_BOOLEAN:
             return String.valueOf(cell.getBooleanCellValue());
         case HSSFCell.CELL_TYPE_NUMERIC:
-            if (HSSFDateUtil.isCellDateFormatted(cell)) {// 判断是否日期类型
+            if (HSSFDateUtil.isCellDateFormatted(cell)) {// Judge whether the date type
                 return DateTimeUtil.parseDateToString(cell.getDateCellValue(), DateTimeUtil.SIMPLE_FMT);
             }
-            cell.setCellType(HSSFCell.CELL_TYPE_STRING);// 如果是数字，返回原始类型数字的文本格式
+            cell.setCellType(HSSFCell.CELL_TYPE_STRING);// If it is a number, returns the text format of the original type number
             return cell.getStringCellValue();
         case HSSFCell.CELL_TYPE_FORMULA:
             return cell.getCellFormula();
@@ -197,7 +197,7 @@ public class PoiUtil {
             if (null != agent && -1 != agent.indexOf("MSIE") || null != agent && -1 != agent.indexOf("Trident")) {// ie
                 String name = java.net.URLEncoder.encode(fileNames, "UTF8");
                 newFileName = name;
-            } else if (null != agent && -1 != agent.indexOf("Mozilla")) {// 火狐,chrome等
+            } else if (null != agent && -1 != agent.indexOf("Mozilla")) {// Firefox,chrome...
                 newFileName = new String(fileNames.getBytes("UTF-8"), "iso-8859-1");
             }
         } catch (Exception e) {

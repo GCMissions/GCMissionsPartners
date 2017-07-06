@@ -6,8 +6,8 @@ import java.util.List;
 /**
  * 
 * Class Name: SRoleInfoSaveAndUpdateDto
-* Description: 角色新增或编辑DTO
-* @author zhisongliu
+* Description: Add or edit roles DTO
+* @author tao chen
 *
  */
 public class SRoleInfoSaveAndUpdateDto implements Serializable{

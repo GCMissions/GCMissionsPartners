@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ExcelRegionBean {
-    private ExcelCellBean             title;
+    private ExcelCellBean title;
 
-    // 起始行
-    private int                       row;
+    // Start row
+    private int row;
 
-    // 起始列
-    private int                       col;
+    // Start column
+    private int col;
 
     private List<List<ExcelCellBean>> excelRows = new ArrayList<>();
 

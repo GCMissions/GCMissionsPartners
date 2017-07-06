@@ -21,7 +21,7 @@ import org.springframework.util.CollectionUtils;
 import com.google.common.collect.Maps;
 
 /**
- * @author jizhoujiang
+ * @author taochen
  *
  */
 public class MemcachedCacheFactory implements FactoryBean<CacheManager>, InitializingBean, DisposableBean {

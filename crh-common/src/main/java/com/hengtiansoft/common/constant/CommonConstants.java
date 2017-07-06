@@ -4,9 +4,11 @@ import com.hengtiansoft.common.util.StringUtil;
 
 /**
  * 
- * Class Name: CommonConstants Description: TODO
+ * Class Name: CommonConstants 
  * 
- * @author chengchaoyin
+ * Description: 
+ * 
+ * @author taochen
  *
  */
 public class CommonConstants {

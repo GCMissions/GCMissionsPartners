@@ -21,8 +21,8 @@ import com.hengtiansoft.common.util.web.WebUtil;
 /**
  * 
 * Class Name: WRWUtil
-* Description: 吾儿乐园工具类
-* @author chengchaoyin
+* Description: WRW paradise tool class
+* @author taochen
 *
  */
 public class WRWUtil {
@@ -36,7 +36,7 @@ public class WRWUtil {
     private static final String NUMERRIC_PATTERN = "[0-9]*";
 
     /**
-     * 描述: 判断字符串是否为空
+     * Description: Determines whether the string is empty
      * 
      * @param name
      * @return
@@ -46,7 +46,7 @@ public class WRWUtil {
     }
 
     /**
-     * 描述: 判断字符串是否为空
+     * Description: Determines whether the string is empty
      * 
      * @param name
      * @return
@@ -56,7 +56,7 @@ public class WRWUtil {
     }
 
     /**
-     * 描述: 判断字符串是否为空
+     * Description: Determines whether the string is empty
      * 
      * @param name
      * @return
@@ -66,7 +66,7 @@ public class WRWUtil {
     }
 
     /**
-     * 描述: 模糊查询时,过滤特殊字符
+     * Description: Filtering special characters when blurring queries
      * 
      * @param string
      * @return
@@ -76,7 +76,7 @@ public class WRWUtil {
     }
 
     /**
-     * 描述: 模糊查询时,过滤特殊字符
+     * Description: Filtering special characters when blurring queries
      * 
      * @param string
      * @return
@@ -86,7 +86,7 @@ public class WRWUtil {
     }
 
     /**
-     * 描述: 模糊查询时,过滤特殊字符
+     * Description: Filtering special characters when blurring queries
      * 
      * @param string
      * @return
@@ -110,7 +110,7 @@ public class WRWUtil {
     }
 
     /**
-     * 描述: 将对象转化成json字符串
+     * Description: Converts an object to a json string
      * 
      * @param object
      * @return
@@ -119,13 +119,13 @@ public class WRWUtil {
         try {
             return WebUtil.getObjectMapper().writeValueAsString(object);
         } catch (Exception e) {
-            LOGGER.error("Json转换错误", e);
+            LOGGER.error("Json conversion error", e);
         }
         return null;
     }
 
     /**
-     * Description: 将json字符串转化为Object对象
+     * Description: Converts a json string  to an object
      *
      * @param content
      * @param valueType
@@ -135,7 +135,7 @@ public class WRWUtil {
         try {
             return WebUtil.getObjectMapper().readValue(content, valueType);
         } catch (IOException e) {
-            LOGGER.error("Json转换错误", e);
+            LOGGER.error("Json conversion error", e);
         }
         return null;
     }
@@ -146,7 +146,7 @@ public class WRWUtil {
     }
 
     /**
-     * Description: Object 转 Long
+     * Description: Object to Long
      *
      * @param obj
      * @return
@@ -159,7 +159,7 @@ public class WRWUtil {
     }
 
     /**
-     * Description: Object 转 Long
+     * Description: Object to Long
      *
      * @param obj
      * @return
@@ -172,8 +172,8 @@ public class WRWUtil {
     }
     
     /**
-     * Description: Object 转 String
-     * 当Object=null时，返回空白“”
+     * Description: Object to String
+     * When Object = null, returns blank ""
      * 
      * @param obj
      * @return
@@ -222,7 +222,7 @@ public class WRWUtil {
     }
 
     /**
-     * Description: 元转分
+     * Description: yuan to fen
      *
      * @param yuan
      * @return
@@ -235,7 +235,7 @@ public class WRWUtil {
     }
 
     /**
-     * Description: 分转元
+     * Description: fen to yuan
      *
      * @param fen
      * @return
@@ -248,7 +248,7 @@ public class WRWUtil {
     }
     
     /**
-     * Description: 分转远
+     * Description: fen to yuan
      *
      * @param fen
      * @return
@@ -261,7 +261,7 @@ public class WRWUtil {
     }
     
     /**
-     * Description: 分转元无逗号
+     * Description: fen to yuan  Not included","
      *
      * @param fen
      * @return
@@ -275,12 +275,12 @@ public class WRWUtil {
 
     
     /**
-     * Description: 取随机字符串
+     * Description: Get a random string
      *
      * @param length
      * @return
      */
-    public static String getRandomString(int length) { // length表示生成字符串的长度
+    public static String getRandomString(int length) { // length represents the length of the generated string
         String base = "abcdefghijklmnopqrstuvwxyz0123456789";
         Random random = new Random();
         StringBuffer sb = new StringBuffer();
@@ -292,12 +292,12 @@ public class WRWUtil {
     }
 
     /**
-     * Description: 取随机数字字符串
+     * Description: Get a random number string
      *
      * @param length
      * @return
      */
-    public static String getRandomNumberString(int length) { // length表示生成字符串的长度
+    public static String getRandomNumberString(int length) { // length represents the length of the generated string
         String base = "0123456789";
         Random random = new Random();
         StringBuffer sb = new StringBuffer();
@@ -309,7 +309,7 @@ public class WRWUtil {
     }
     
     /**
-     * 获取配置文件信息 creater:bindizhang
+     * Get the configuration file information  creater:bindizhang
      * 
      * @param paramKey
      * @return
@@ -320,13 +320,13 @@ public class WRWUtil {
         try {
             props = PropertiesLoaderUtils.loadProperties(resource);
         } catch (IOException e) {
-            LOGGER.error("读取配置文件错误!");
+            LOGGER.error("Read the configuration file error!");
         }
         return props.getProperty(paramKey);
     }
     
     /**
-     * 判断传输过来的id是否为数字. creater : bindizhang
+     * Determine whether the obtained id is a number. creater : bindizhang
      * 
      * @param id
      * @return boolean

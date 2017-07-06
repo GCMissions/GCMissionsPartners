@@ -1,29 +1,29 @@
 package com.hengtiansoft.common.lbs;
 
 /**
- * Description: 计算距离，采用Google Maps的算法
+ * Description: Calculate the distance using the algorithm for Google Maps
  * 
- * @author huizhuang
+ * @author taochen
  */
 public class LocationUtil {
 
-    // 赤道半径（精确到米）
+    // Equatorial radius (accuracy: m)
     private static final double EARTH_RADIUS_M  = 6378137;
 
-    // 赤道半径（精确到千米）
+    // Equatorial radius (accuracy: km)
     private static final double EARTH_RADIUS_KM = 6378.137;
 
     /**
-     * Description: 获取2个经纬度间的距离（精确到米）
+     * Description: Get the distance between two latitude and longitude (accurate to meters)
      *
      * @param lat1
-     *            点1的经度
+     *            Latitude point 1
      * @param lng1
-     *            点1的纬度
+     *            Longitude point 1
      * @param lat2
-     *            点2的经度
+     *            Latitude point 2
      * @param lng2
-     *            点2的纬度
+     *            Longitude point 2
      * @return
      */
     public static double getDistance_M(double lat1, double lng1, double lat2, double lng2) {
@@ -43,16 +43,16 @@ public class LocationUtil {
     }
 
     /**
-     * Description: 获取2个经纬度间的距离（精确到千米）
+     * Description: Get the distance between two latitude and longitude (accurate to kilometers)
      *
      * @param lat1
-     *            点1的经度
+     *            Latitude point 1
      * @param lng1
-     *            点1的纬度
+     *            Longitude point 1
      * @param lat2
-     *            点2的经度
+     *            Latitude point 2
      * @param lng2
-     *            点2的纬度
+     *            Longitude point 2
      * @return
      */
     public static double getDistance_KM(double lat1, double lng1, double lat2, double lng2) {

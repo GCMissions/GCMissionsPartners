@@ -20,9 +20,9 @@ import com.hengtiansoft.common.dto.ResultDto;
 
 /**
  * 
-* Class Name: SRoleInfoController
-* Description: 角色控制器
-* @author zhisongliu
+* Class Name: Role of the controller
+* Description: Role Controller
+* @author tao chen
 *
  */
 @Controller
@@ -33,7 +33,7 @@ public class SRoleInfoController {
     private SRoleInfoService sRoleInfoService;
 
     /**
-     * Description:进入首页
+     * Description:Go to the home page
      * 
      * @return
      */
@@ -43,7 +43,7 @@ public class SRoleInfoController {
     }
 
     /**
-     * Description:首页数据
+     * Description:home data
      * 
      * @param dto
      * @return
@@ -56,7 +56,7 @@ public class SRoleInfoController {
     }
 
     /**
-     * Description:进入到添加页面
+     * Description:Go to the add page
      * 
      * @return
      */
@@ -68,7 +68,7 @@ public class SRoleInfoController {
     }
 
     /**
-     * Description : 新增保存
+     * Description : save role
      * 
      * @param dto
      * @return
@@ -80,7 +80,7 @@ public class SRoleInfoController {
     }
 
     /**
-     * Description:进入到编辑页面
+     * Description:go to the edit page
      * 
      * @return
      */
@@ -93,7 +93,7 @@ public class SRoleInfoController {
     }
 
     /**
-     * Description:编辑保存
+     * Description:save the modified information
      * 
      * @param dto
      * @return
@@ -112,7 +112,7 @@ public class SRoleInfoController {
     }
 
     /**
-     * Description:进入到查看页面
+     * Description:Go to the page for viewing details
      * 
      * @return
      */

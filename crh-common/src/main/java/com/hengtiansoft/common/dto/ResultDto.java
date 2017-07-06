@@ -7,8 +7,8 @@ import com.hengtiansoft.common.constant.ResultCode;
 
 /**
 * Class Name: ResultDto
-* Description: TODO
-* @author SC
+* Description: 
+* @author taochen
 *
 */
 public class ResultDto<T> implements Serializable {

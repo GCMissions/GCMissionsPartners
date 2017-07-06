@@ -45,7 +45,7 @@ import freemarker.template.utility.DeepUnwrap;
 /**
  * Utils - Freemarker
  * 
- * @author Hengtiansoft Team
+ * @author taochen
  * @version 1.0_beta
  */
 @SuppressWarnings("unchecked")
@@ -115,19 +115,19 @@ public final class FreemarkerUtils {
 	}
 
 	/**
-	 * 不可实例化
+	 * Can not be instantiated
 	 */
 	private FreemarkerUtils() {
 	}
 
 	/**
-	 * 解析字符串模板
+	 * Parse the string template
 	 * 
 	 * @param template
-	 *            字符串模板
+	 *            
 	 * @param model
-	 *            数据
-	 * @return 解析后内容
+	 *            
+	 * @return 
 	 */
 	public static String process(String template, Map<String, ?> model) throws IOException, TemplateException {
 		Configuration configuration = null;
@@ -142,15 +142,15 @@ public final class FreemarkerUtils {
 	}
 
 	/**
-	 * 解析字符串模板
+	 * Parse the string template
 	 * 
 	 * @param template
-	 *            字符串模板
+	 *            String template
 	 * @param model
-	 *            数据
+	 *            
 	 * @param configuration
-	 *            配置
-	 * @return 解析后内容
+	 *            
+	 * @return 
 	 */
 	public static String process(String template, Map<String, ?> model, Configuration configuration) throws IOException, TemplateException {
 		if (template == null) {
@@ -165,15 +165,15 @@ public final class FreemarkerUtils {
 	}
 
 	/**
-	 * 获取参数
+	 * Get the parameters
 	 * 
 	 * @param name
-	 *            名称
+	 *            
 	 * @param type
-	 *            类型
+	 *            
 	 * @param params
-	 *            参数
-	 * @return 参数,若不存在则返回null
+	 *            
+	 * @return Parameter, if the parameter does not exist then null is returned
 	 */
 	public static <T> T getParameter(String name, Class<T> type, Map<String, TemplateModel> params) throws TemplateModelException {
 		Assert.hasText(name);
@@ -188,13 +188,13 @@ public final class FreemarkerUtils {
 	}
 
 	/**
-	 * 获取变量
+	 * Get the variable
 	 * 
 	 * @param name
-	 *            名称
+	 *            
 	 * @param env
 	 *            Environment
-	 * @return 变量
+	 * @return variable
 	 */
 	public static TemplateModel getVariable(String name, Environment env) throws TemplateModelException {
 		Assert.hasText(name);
@@ -203,12 +203,12 @@ public final class FreemarkerUtils {
 	}
 
 	/**
-	 * 设置变量
+	 * set the variable
 	 * 
 	 * @param name
-	 *            名称
+	 *            
 	 * @param value
-	 *            变量值
+	 *            
 	 * @param env
 	 *            Environment
 	 */
@@ -223,10 +223,10 @@ public final class FreemarkerUtils {
 	}
 
 	/**
-	 * 设置变量
+	 * set the variable
 	 * 
 	 * @param variables
-	 *            变量
+	 *            
 	 * @param env
 	 *            Environment
 	 */

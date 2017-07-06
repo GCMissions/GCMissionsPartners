@@ -1,21 +1,3 @@
-/*
- * Project Name: zc-collect-common
- * File Name: FtpClientPool.java
- * Class Name: FtpClientPool
- *
- * Copyright 2014 Hengtian Software Inc
- *
- * Licensed under the Hengtiansoft
- *
- * http://www.hengtiansoft.com
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
- * implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.hengtiansoft.common.pool.ftpPool;
 
 import java.io.IOException;
@@ -31,8 +13,8 @@ import org.slf4j.LoggerFactory;
 
 /**
 * Class Name: FtpClientFactory
-* Description: Ftp连接池工厂
-* @author jialiangli
+* Description: Ftp Connection pool factory
+* @author taochen
 *
 */
 public class FtpClientFactory extends BasePooledObjectFactory<FTPClient> {
@@ -50,17 +32,17 @@ public class FtpClientFactory extends BasePooledObjectFactory<FTPClient> {
         FTPClient ftpClient = null;
         try {
             ftpClient = new FTPClient();
-            ftpClient.connect(ftpInfo.getFtpHost(), ftpInfo.getFtpPort());// 连接FTP服务器
-            ftpClient.login(ftpInfo.getFtpUserName(), ftpInfo.getFtpPassword());// 登陆FTP服务器
-            LOGGER.debug("IP:" + ftpInfo.getFtpHost() + ", 端口：" + ftpInfo.getFtpPort() + "，用户名：" + ftpInfo.getFtpUserName() + "，密码" + ftpInfo.getFtpPassword());
+            ftpClient.connect(ftpInfo.getFtpHost(), ftpInfo.getFtpPort());// Connect to the FTP server
+            ftpClient.login(ftpInfo.getFtpUserName(), ftpInfo.getFtpPassword());// Log in to the FTP server
+            LOGGER.debug("IP:" + ftpInfo.getFtpHost() + ", Port：" + ftpInfo.getFtpPort() + "，UserName：" + ftpInfo.getFtpUserName() + "，Password" + ftpInfo.getFtpPassword());
             if (FTPReply.isPositiveCompletion(ftpClient.getReplyCode())) {
-                LOGGER.info("FTP连接成功");
+                LOGGER.info("FTP connection is successful");
             } else {
                 ftpClient.disconnect();
-                LOGGER.error("未连接到FTP,用户名或密码错误");
+                LOGGER.error("Not connected to FTP, username or password is incorrect");
             }
         } catch (SocketException e) {
-            LOGGER.error("FTP的IP地址可能错误,请正确配置", e);
+            LOGGER.error("IP address of the FTP may be wrong, please correct configuration", e);
         } catch (IOException e) {
             LOGGER.error("msg",e);
         }
@@ -76,9 +58,9 @@ public class FtpClientFactory extends BasePooledObjectFactory<FTPClient> {
     public void destroyObject(PooledObject<FTPClient> p) {
         try {
             p.getObject().disconnect();
-            LOGGER.debug("FTP连接关闭");
+            LOGGER.debug("FTP connection is off");
         } catch (IOException e) {
-            LOGGER.error("FTP关闭连接错误", e);
+            LOGGER.error("FTP Close connection error", e);
         }
     }
 

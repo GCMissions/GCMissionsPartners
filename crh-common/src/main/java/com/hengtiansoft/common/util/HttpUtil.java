@@ -1,21 +1,3 @@
-/*
- * Project Name: zc-collect-common
- * File Name: HttpRequestUtil.java
- * Class Name: HttpRequestUtil
- *
- * Copyright 2014 Hengtian Software Inc
- *
- * Licensed under the Hengtiansoft
- *
- * http://www.hengtiansoft.com
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
- * implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.hengtiansoft.common.util;
 
 import java.io.BufferedReader;
@@ -31,9 +13,10 @@ import org.slf4j.LoggerFactory;
 import com.hengtiansoft.common.constant.ApplicationConstant;
 
 /**
- * Class Name: HttpRequestUtil Description: 发送http请求
+ * Class Name: HttpRequestUtil 
+ * Description: Send http request
  * 
- * @author jialiangli
+ * @author taochen
  *
  */
 public class HttpUtil {
@@ -71,15 +54,15 @@ public class HttpUtil {
             httpUrlConn.setUseCaches(false);
             httpUrlConn.setRequestProperty(ApplicationConstant.CONTENT_TYPE, contentType);
             httpUrlConn.setRequestMethod(ApplicationConstant.POST);
-            // 当有数据需要提交时
+            // When there is data to be submitted
             if (null != params) {
                 try (OutputStream outputStream = httpUrlConn.getOutputStream()) {
-                    // 注意编码格式，防止中文乱码
+                    // Note that the encoding format
                     outputStream.write(params.getBytes(ApplicationConstant.ENCODING));
                     outputStream.flush();
                 }
             }
-            // 将返回的输入流转换成字符串
+            // Converts the returned input stream to a string
             try (InputStream inputStream = httpUrlConn.getInputStream(); InputStreamReader inputStreamReader = new InputStreamReader(inputStream, ApplicationConstant.ENCODING); BufferedReader bufferedReader = new BufferedReader(inputStreamReader)) {
                 String str = null;
                 while ((str = bufferedReader.readLine()) != null) {
@@ -111,7 +94,7 @@ public class HttpUtil {
             httpUrlConn.setUseCaches(false);
             httpUrlConn.setRequestMethod(ApplicationConstant.GET);
             httpUrlConn.connect();
-            // 将返回的输入流转换成字符串
+            // Converts the returned input stream to a string
             try (InputStream inputStream = httpUrlConn.getInputStream(); InputStreamReader inputStreamReader = new InputStreamReader(inputStream, ApplicationConstant.ENCODING); BufferedReader bufferedReader = new BufferedReader(inputStreamReader)) {
                 String str = null;
                 while ((str = bufferedReader.readLine()) != null) {

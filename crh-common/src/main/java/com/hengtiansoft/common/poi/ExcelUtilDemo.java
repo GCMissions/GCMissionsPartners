@@ -24,7 +24,7 @@ public class ExcelUtilDemo {
     private List<List<String>> content = new ArrayList<List<String>>();
     {
 
-        // 数据从数据库取
+        // Data is taken from the database
         List<String> row1 = new ArrayList<String>();
         row1.add("11");
         row1.add("12");
@@ -45,14 +45,14 @@ public class ExcelUtilDemo {
     }
 
     /**
-    * Description: 导出excel
+    * Description: Export excel
     *
     */
     @RequestMapping("/toExcel")
     public void toExcel(HttpServletRequest request, HttpServletResponse response) {
         SimpleExcelBean bean = new SimpleExcelBean();
-        bean.setTitle("单Sheet");
-        bean.setColNames(new String[] { "第一列", "第二列" });
+        bean.setTitle("A Sheet");
+        bean.setColNames(new String[] { "First row", "Second column" });
         bean.setContent(content);
         try {
             PoiUtil.toExcel(bean, response, request);
@@ -62,23 +62,23 @@ public class ExcelUtilDemo {
     }
 
     /**
-     * Description: 导出excel
+     * Description: Export excel
      *
      */
     @RequestMapping("/toExcelMulity")
     public void toExcelMulity(HttpServletRequest request, HttpServletResponse response) {
         SimpleMulityExcelBean mulityExcelBean = new SimpleMulityExcelBean();
-        mulityExcelBean.setTitle("多Sheet");
-        // 第一页
+        mulityExcelBean.setTitle("Many sheets");
+        // First Page
         SimpleExcelBean bean1 = new SimpleExcelBean();
-        bean1.setTitle("第一页");
-        bean1.setColNames(new String[] { "第一列", "第二列" });
+        bean1.setTitle("First Page");
+        bean1.setColNames(new String[] { "First row", "Second column" });
         bean1.setContent(content);
 
-        // 第二页
+        // Second Page
         SimpleExcelBean bean2 = new SimpleExcelBean();
-        bean2.setTitle("第二页");
-        bean2.setColNames(new String[] { "第一列", "第二列" });
+        bean2.setTitle("Second Page");
+        bean2.setColNames(new String[] { "First row", "Second column" });
         bean2.setContent(content);
         mulityExcelBean.getBeans().add(bean1);
         mulityExcelBean.getBeans().add(bean2);

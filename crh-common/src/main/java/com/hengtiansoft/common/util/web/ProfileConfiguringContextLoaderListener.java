@@ -8,7 +8,7 @@ import org.springframework.web.context.ContextLoaderListener;
 /**
  * Configure profile from web init param before initializing Spring.
  * 
- * @author SC
+ * @author taochen
  *
  */
 public class ProfileConfiguringContextLoaderListener extends

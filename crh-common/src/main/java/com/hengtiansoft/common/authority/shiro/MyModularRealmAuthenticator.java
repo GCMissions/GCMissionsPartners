@@ -1,21 +1,3 @@
-/*
- * Project Name: zc-collect-common
- * File Name: ModularRealmAuthenticator.java
- * Class Name: ModularRealmAuthenticator
- *
- * Copyright 2014 Hengtian Software Inc
- *
- * Licensed under the Hengtiansoft
- *
- * http://www.hengtiansoft.com
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
- * implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.hengtiansoft.common.authority.shiro;
 
 import java.util.Collection;
@@ -32,10 +14,10 @@ import org.slf4j.LoggerFactory;
 
 /**
 * Class Name: ModularRealmAuthenticator
-* Description: 重写ModularRealmAuthenticator，改为短路方式。
-*              如果认证方式为FirstSuccessfulStrategy，
-*              则直接返回第一个验证成功的，不再继续验证后面的
-* @author jialiangli
+* Description: Rewrite ModularRealmAuthenticator to short circuit mode.
+*              If the authentication method is FirstSuccessfulStrategy, 
+*              return directly to the first verification is successful, no longer continue to verify.
+* @author taochen
 *
 */
 public class MyModularRealmAuthenticator extends ModularRealmAuthenticator {
@@ -74,7 +56,8 @@ public class MyModularRealmAuthenticator extends ModularRealmAuthenticator {
 
                 aggregate = strategy.afterAttempt(realm, token, info, aggregate, t);
 
-                // 如果认证方式为FirstSuccessfulStrategy， 则直接返回第一个验证成功的，不再继续验证后面的
+                // If the authentication method is FirstSuccessfulStrategy, 
+                // return directly to the first verification is successful, no longer continue to verify.
                 if (strategy.getClass() == FirstSuccessfulStrategy.class && aggregate != null && !CollectionUtils.isEmpty(aggregate.getPrincipals())) {
                     return aggregate;
                 }

@@ -158,7 +158,7 @@ public class RegionAdminServiceImpl implements RegionAdminService {
             countryRegionRefDao.save(saveRfEntities);
         } else {
             Long regionId = dto.getId();
-            // 需要先判断需要删除的国家是否还绑定了partner
+            // You need to determine whether the country that needs to be deleted is also bound to the partner
             List<CountryRegionRefEntity> regionRefList = countryRegionRefDao.findByRegionIdAndDelFlag(regionId, StatusEnum.NORMAL.getCode());
             List<Long> countryList = new ArrayList<Long>();
             List<Long> removeCountryIdList = new ArrayList<Long>();

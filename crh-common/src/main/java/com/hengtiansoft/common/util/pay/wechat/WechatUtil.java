@@ -19,7 +19,7 @@ import com.hengtiansoft.common.util.pay.QHttpClientUtil;
 public class WechatUtil {
 
     /**
-     * Description: 获取微信统一下单单号
+     * Description: 
      *
      * @param params
      * @param unifieOrderUrl
@@ -34,9 +34,9 @@ public class WechatUtil {
     }
     
     /**
-     * Description: 微信签名
+     * Description: WeChar signature
      *
-     * @param params 请求参数
+     * @param params Requested parameters
      * @return
      */
     public static String Sign(Map<String, String> params, String apiKey) {
@@ -46,18 +46,18 @@ public class WechatUtil {
     }
     
     /**
-     * Description: 组装微信签名参数
+     * Description: WeChat signature parameters for assembly
      *
      * @param params
      * @param apiKey
      * @return
      */
     private static String generateSignVertifyString(Map<String, String> params) {
-        // 参数名按字符表排序
+        // Parameter names are sorted by character table
         List<String> keys = new ArrayList<String>(params.keySet());
         Collections.sort(keys);
 
-        // 参数组装
+        // Parameter assembly
         StringBuffer sb = new StringBuffer();
         for (String key : keys) {
             String value = params.get(key);
@@ -66,14 +66,14 @@ public class WechatUtil {
             }
         }
         
-        // 附加密钥
+        // Additional key
         sb.append("key").append("=").append(WechatConfig.apiKey);
           
         return sb.toString();
     }
     
     /**
-     * Description：参数XML转义
+     * Description：Parameter XML escaping
      */
     public static String getRequestXml(Map<String, String> params) {
         StringBuffer sb = new StringBuffer();
@@ -94,7 +94,7 @@ public class WechatUtil {
     }
     
     /**
-     * Description: 生成微信回调返回结果
+     * Description: 
      *
      * @param code
      * @param msg
@@ -112,7 +112,7 @@ public class WechatUtil {
     }
     
     /**
-     * Description: xml解析
+     * Description: xml analysis
      *
      * @param xmlStr
      * @return

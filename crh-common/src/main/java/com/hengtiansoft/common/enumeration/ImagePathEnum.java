@@ -1,47 +1,29 @@
-/*
- * Project Name: wuliangye-collect-common
- * File Name: ImagePathEnum.java
- * Class Name: ImagePathEnum
- *
- * Copyright 2014 Hengtian Software Inc
- *
- * Licensed under the Hengtiansoft
- *
- * http://www.hengtiansoft.com
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
- * implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.hengtiansoft.common.enumeration;
 
 /**
  * Class Name: ImagePathEnum
- * Description: 图片上传二级目录
- * @author yigesong
+ * Description: Picture upload secondary directory
+ * @author taochen
  *
  */
 public enum ImagePathEnum {
- ADMIN_PRODUCT("10","五品库平台系统商品","/product"),
+ ADMIN_PRODUCT("10","Platform Systems Goods","/product"),
  
- ADMIN_BRAND("11","五品库平台系统品牌","/brand"),
+ ADMIN_BRAND("11","Platform System Brand","/brand"),
  
- ADMIN_AD("12","五品库平台系统广告","/da"),
+ ADMIN_AD("12","Platform System Ads","/da"),
  
- PFLOOR_PRODUCT("13","五品库平台系统楼层商品","/fproduct"),
+ PFLOOR_PRODUCT("13","Platform System Floor Goods","/fproduct"),
  
- PRODUCT_DETAIL("14","五品库平台系统楼层商品","/productdetail"),
+ PRODUCT_DETAIL("14","Platform System Product Details","/productdetail"),
  
- APP_IMAGE("15","五品库平台系统APP消息主图","/appImage"),
+ APP_IMAGE("15","Platform System APP Message Picture","/appImage"),
  
- ADMIN_APP_MESSAGE("20","五品库平台系统APP消息","/appmessage"),
+ ADMIN_APP_MESSAGE("20","Platform System APP Message","/appmessage"),
  
- ADMIN_TEAM("16","五品库平台系统高端产品团购图片","/adminteam"),
+ ADMIN_TEAM("16","Platform system high-end product team to buy the picture","/adminteam"),
  
- ADMIN_MEDIA("21","吾儿酷袋图片管理","/kd");
+ ADMIN_MEDIA("21","Kd Picture management","/kd");
  
     private String key;
     private String name;

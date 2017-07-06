@@ -8,8 +8,8 @@ import com.hengtiansoft.church.authority.constant.TreeNodeBean;
 /**
  * 
 * Class Name: SRoleEditDto
-* Description: 角色编辑DTO
-* @author zhisongliu
+* Description: Edit the role Dto
+* @author tao chen
 *
  */
 public class SRoleEditDto implements Serializable{

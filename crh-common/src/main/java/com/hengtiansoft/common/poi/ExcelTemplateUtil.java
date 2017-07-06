@@ -21,9 +21,9 @@ import com.hengtiansoft.common.poi.bean.ExcelSheetBean;
 import com.hengtiansoft.common.poi.bean.ExcelWorkBookBean;
 
 /**
- * 根据模板生成excel工具类
+ * Generate excel tool classes based on templates
  * 
- * @author jialiangli
+ * @author taochen
  *
  */
 public class ExcelTemplateUtil {
@@ -35,7 +35,7 @@ public class ExcelTemplateUtil {
     public static HSSFWorkbook buildExceFile(ExcelWorkBookBean workBookBean) throws IOException {
         StringBuilder filePath = new StringBuilder(File.separator).append(FILE_FOLDER).append(File.separator).append(workBookBean.getTemplateName()).append(FILE_SUFFIX);
         try (InputStream inputStream = new FileInputStream(filePath.toString()); HSSFWorkbook workbook = new HSSFWorkbook(inputStream);) {
-            // 遍历sheet
+            // Traverse the sheet
             for (int i = 0; i < workBookBean.getSheetBeans().size(); i++) {
                 ExcelSheetBean excelSheetBean = workBookBean.getSheetBeans().get(i);
                 if (null == excelSheetBean) {
@@ -46,56 +46,56 @@ public class ExcelTemplateUtil {
                     continue;
                 }
                 if (null != excelSheetBean.getTitle()) {
-                    // 构建sheet标题
+                    // create sheet title
                     buildSheetTitle(hssfSheet, excelSheetBean.getTitle());
                 }
-                // 遍历region
+                // Traverse region
                 for (int j = 0; j < excelSheetBean.getRegionBeans().size(); j++) {
                     ExcelRegionBean regionBean = excelSheetBean.getRegionBeans().get(j);
                     if (null != regionBean.getTitle()) {
-                        // 构建region小标题
+                        // create region title
                         buildSheetTitle(hssfSheet, regionBean.getTitle());
                     }
                     int startRowInx = 0;
-                    // 填充行数据
+                    // Fill row value
                     for (int k = 0; k < regionBean.getExcelRows().size(); k++) {
-                        // 获取行列信息
+                        // Get the row and column information
                         List<ExcelCellBean> cellBeans = regionBean.getExcelRows().get(k);
-                        // 获取要填充起始行
+                        // Gets the starting row to be filled
                         HSSFRow startRow = hssfSheet.getRow(regionBean.getRow());
                         if (startRow == null) {
                             startRow = hssfSheet.createRow(regionBean.getRow());
                         }
-                        // 列的偏移量
+                        // Column offset
                         int regionCol = regionBean.getCol();
                         if (0 == k) {
-                            // 填充起始行值
+                            // Fill the starting row value
                             buildExcelRow(startRow, cellBeans, regionCol);
                         } else {
                             startRowInx = regionBean.getRow() + k;
                             HSSFRow targetRow = hssfSheet.createRow(startRowInx);
-                            // 设置行属性
+                            // Set the row properties
                             targetRow.setHeightInPoints(startRow.getHeightInPoints());
                             targetRow.setRowNum(targetRow.getRowNum());
                             HSSFCell sourceCell = null;
                             HSSFCell targetCell = null;
                             for (int m = 0; m < cellBeans.size(); m++) {
                                 ExcelCellBean cellBean = cellBeans.get(m);
-                                // // 如果有行偏移，则复制第一行数据
+                                //If there is a row offset, the first row of data is copied
                                 for (int h = 0; h < cellBean.getCol(); h++) {
                                     sourceCell = startRow.getCell(regionCol);
                                     targetCell = targetRow.createCell(regionCol);
                                     copyCell(sourceCell, targetCell, true);
                                     regionCol++;
                                 }
-                                // 获取起始行中的列
+                                // Gets the columns in the starting row
                                 sourceCell = startRow.getCell(regionCol);
                                 targetCell = targetRow.createCell(regionCol);
                                 copyCell(sourceCell, targetCell, false);
                                 setCellValue(targetCell, cellBean.getValue());
                                 regionCol++;
                             }
-                            // 补足列数与第一行相同
+                            // The number of complement columns is the same as the first row
                             for (; regionCol < startRow.getLastCellNum(); regionCol++) {
                                 sourceCell = startRow.getCell(regionCol);
                                 targetCell = targetRow.createCell(regionCol);
@@ -103,7 +103,7 @@ public class ExcelTemplateUtil {
                             }
                         }
                     }
-                    // 如果没有数据就把第一行设置为空
+                    // If there is no data to put the first row is set to null
                     if (CollectionUtils.isEmpty(regionBean.getExcelRows())) {
                         removeStartRowData(hssfSheet.getRow(regionBean.getRow()));
                     }
@@ -146,7 +146,6 @@ public class ExcelTemplateUtil {
                 cell = hssfRow.createCell(col);
             }
             setCellValue(cell, cellBean.getValue());
-            // 设置下一次获取列的下表
             // col += cellBean.getCollapseColumn();
             col++;
         }
@@ -162,7 +161,8 @@ public class ExcelTemplateUtil {
     }
 
     /**
-     * 复制单元格，如果copyValueFlag=true, 则连数据一起复制
+     * Copy cell, if copyValueFlag = true, 
+     * then replicated together with the data
      * 
      * @param sourceCell
      * @param targetCell
@@ -174,7 +174,7 @@ public class ExcelTemplateUtil {
         int srcCellType = sourceCell.getCellType();
         targetCell.setCellStyle(sourceCell.getCellStyle());
         targetCell.setCellType(srcCellType);
-        // 不同数据类型处理
+        // Different types of data processing
         if (copyValueFlag) {
             if (srcCellType == HSSFCell.CELL_TYPE_NUMERIC) {
                 if (HSSFDateUtil.isCellDateFormatted(sourceCell)) {

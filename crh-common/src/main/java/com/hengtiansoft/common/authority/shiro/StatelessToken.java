@@ -4,8 +4,8 @@ import org.apache.shiro.authc.AuthenticationToken;
 
 /**
 * Class Name: StatelessToken
-* Description: 无状态Token
-* @author jialiangli
+* Description: Stateless Token
+* @author taochen
 *
 */
 public class StatelessToken implements AuthenticationToken {

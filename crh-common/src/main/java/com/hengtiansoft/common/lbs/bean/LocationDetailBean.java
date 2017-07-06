@@ -7,9 +7,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class LocationDetailBean {
 
-    private String   uid;                       // 百度数据ID
+    private String   uid;                       // Baidu data ID
 
-    private String   geotable_id;               // 百度表ID
+    private String   geotable_id;               // Baidu table ID
 
     private String   title;
 
@@ -21,10 +21,10 @@ public class LocationDetailBean {
 
     private String   district;
 
-    private Integer  coord_type = 3;            // 1：GPS经纬度坐标 2：国测局加密经纬度坐标
-                                                 // 3：百度加密经纬度坐标 4：百度加密墨卡托坐标
+    private Integer  coord_type = 3;            //1: GPS latitude and longitude coordinates 2: National Bureau of Surveying latitude and longitude coordinates
+                                              // 3: Baidu encryption latitude and longitude coordinates 4: Baidu encryption Mecato coordinates
 
-    private String[] location   = new String[2]; // 0经度 1纬度
+    private String[] location   = new String[2]; // 0 Longitude 1 latitude
 
     private String   tags;
 
@@ -32,7 +32,7 @@ public class LocationDetailBean {
 
     private Integer  weight;
 
-    private Long     create_time;               // 秒级时间戳
+    private Long     create_time;               // Second level timestamp
 
     public Long getCreate_time() {
         return create_time;

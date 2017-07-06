@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 /**
  * Utility to access Spring context from a non-managed bean.
  * 
- * @author SC
+ * @author taochen
  * 
  */
 @Component

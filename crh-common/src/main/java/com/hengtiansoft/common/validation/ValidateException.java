@@ -1,22 +1,3 @@
-/*
- * Project Name: zc-collect-web-user
- * File Name: ValidateException.java
- * Class Name: ValidateException
- *
- * Copyright 2014 Hengtian Software Inc
- *
- * Licensed under the Hengtiansoft
- *
- * http://www.hengtiansoft.com
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
- * implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.hengtiansoft.common.validation;
 
 import java.util.ArrayList;
@@ -30,7 +11,7 @@ import org.springframework.validation.BindingResult;
  * Description: the validate exception, <br>
  * the exception will wrap the <code>Erros</code> list which thrown from service or any facade
  * 
- * @author SC
+ * @author taochen
  * 
  */
 
@@ -69,7 +50,7 @@ public class ValidateException extends RuntimeException {
 
     /**
      * 
-     * Description: TODO
+     * Description: 
      * 
      * @param bindingResult
      * @return
@@ -80,7 +61,7 @@ public class ValidateException extends RuntimeException {
 
     /**
      * 
-     * Description: TODO
+     * Description: 
      * 
      * @return
      */
@@ -97,7 +78,7 @@ public class ValidateException extends RuntimeException {
 
     /**
      * 
-     * Description: TODO
+     * Description: 
      * 
      * @param bindingResult
      * @return
@@ -108,7 +89,7 @@ public class ValidateException extends RuntimeException {
 
     /**
      * 
-     * Description: TODO
+     * Description: 
      * 
      * @return
      */
@@ -126,7 +107,7 @@ public class ValidateException extends RuntimeException {
 
     /**
      * 
-     * Description: TODO
+     * Description: 
      * 
      * @param bindingResult
      * @return
@@ -137,7 +118,7 @@ public class ValidateException extends RuntimeException {
 
     /**
      * 
-     * Description: TODO
+     * Description: 
      * 
      * @return
      */

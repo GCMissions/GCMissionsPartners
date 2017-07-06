@@ -4,33 +4,33 @@ package com.hengtiansoft.common.util.pay.wechat;
 import com.hengtiansoft.common.util.AppConfigUtil;
 
 /**
- * Discription：测试暂用
+ * Discription：test use
  * 
- * @author huizhuang
+ * @author taochen
  */
 public class WechatConfig {
 
-    // 扩展字段
+    // Extended field
     public static String packageValue      = "Sign=WXPay";
 
-    // 支付类型
+    //Payment Types
     public static String tradeType         = AppConfigUtil.getConfig("wechat.trad_type");
 
-    // 统一下单地址
+    // unified order url
     public static String unifiedorderUrl   = "https://api.mch.weixin.qq.com/pay/unifiedorder";
 
-    // API 密钥
+    // API key
     public static String apiKey            = AppConfigUtil.getConfig("wechat.apikey");
 
     // APP ID
     public static String appid             = AppConfigUtil.getConfig("wechat.appid");
 
-    // 商户号
+    // Merchant number
     public static String mchid             = AppConfigUtil.getConfig("wechat.mchid");
 
-    // 订单回调地址
+    // Order callback address
     public static String payNotifyUrl      = AppConfigUtil.getConfig("wechat.pay.notify_url");
 
-    // 充值支付回调地址
+    // Recharge callback address
     public static String rechargeNotifyUrl = AppConfigUtil.getConfig("wechat.recharge.notify_url");
 }

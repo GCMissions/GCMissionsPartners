@@ -12,9 +12,10 @@ import com.hengtiansoft.common.util.pay.ib.IbPayConfig;
 public class QuickPayUtil {
 
     /** 
-     * 把数组所有元素排序，并按照“参数=参数值”的模式用“&”字符拼接成字符串
-     * @param params 需要排序并参与字符拼接的参数组
-     * @return 拼接后字符串
+     * Sort all the elements of the array and concatenate them into a string with the "&" character 
+     * according to the "parameter = parameter value" pattern
+     * @param params Need to be sorted and participate in the character splicing of the combination of parameters
+     * @return The string after splicing
      * @throws UnsupportedEncodingException 
      */
     public static String createLinkString(LinkedHashMap<String, Object> params) throws UnsupportedEncodingException {
@@ -27,7 +28,7 @@ public class QuickPayUtil {
             String key = keys.get(i);
             String value = String.valueOf(params.get(key));
 
-            // 拼接时，不包括最后一个&字符
+            // When splicing, the last "&" character is not included
             if (i == keys.size() - 1) {
                 prestr = prestr + key + "=" + value;
             } else {
@@ -58,8 +59,8 @@ public class QuickPayUtil {
         for (String key : map.keySet()) {
             sbHtml.append("<input type=\"hidden\" name=\"" + key + "\" value=\"" + map.get(key) + "\"/>");
         }
-        // submit按钮控件请不要含有name属性
-        sbHtml.append("<input type=\"submit\" value=\"" + "提交" + "\" style=\"display:none;\"></form>");
+        // The submit button control should not contain the name attribute
+        sbHtml.append("<input type=\"submit\" value=\"" + "submit" + "\" style=\"display:none;\"></form>");
         sbHtml.append("<script>document.forms['ibpaysubmit'].submit();</script>");
         return sbHtml.toString();
     }

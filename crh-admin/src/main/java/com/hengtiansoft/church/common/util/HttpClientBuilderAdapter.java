@@ -1,17 +1,3 @@
-/*
- * Project Name: wrw-admin
- * File Name: HttpClientBuilderAdapter.java
- * Class Name: HttpClientBuilderAdapter
- * Copyright 2014 Hengtian Software Inc
- * Licensed under the Hengtiansoft
- * http://www.hengtiansoft.com
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
- * implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.hengtiansoft.church.common.util;
 
 import java.io.IOException;
@@ -43,7 +29,7 @@ import com.thoughtworks.xstream.io.xml.XmlFriendlyNameCoder;
  * Class Name: HttpClientBuilderAdapter
  * Description:
  * 
- * @author xiaoluzhou
+ * @author taochen
  */
 public class HttpClientBuilderAdapter implements IServiceRequest {
 
@@ -98,7 +84,7 @@ public class HttpClientBuilderAdapter implements IServiceRequest {
 
             result = EntityUtils.toString(entity, "UTF-8");
 
-            log.info("微信刷卡支付返回：" + result);
+            log.info("WeChar credit card payment to return the results：" + result);
 
         } catch (ConnectionPoolTimeoutException e) {
             log.error("http get throw ConnectionPoolTimeoutException(wait time out)");

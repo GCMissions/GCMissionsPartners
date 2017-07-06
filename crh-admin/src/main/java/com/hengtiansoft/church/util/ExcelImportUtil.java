@@ -22,17 +22,16 @@ import jxl.Sheet;
 import jxl.Workbook;
 
 
-/**excel导入工具
- * @author wang.wei
- * @2015/04/12
+/**Excel import tool
+ * @author taochen
  */
 public class ExcelImportUtil {
 	
 	
-	/**获取excel数据并设置到对象
-	 * @param excelPath					excel模板的路径
-	 * @param cl						任意Class
-	 * @param propertiesFilePath		属性文件路径（相对路径）
+	/**Excel data acquisition and setting object
+	 * @param excelPath					Excel template path
+	 * @param cl						Class
+	 * @param propertiesFilePath		relative path
 	 * @return
 	 * @throws InstantiationException
 	 * @throws IllegalAccessException
@@ -65,13 +64,13 @@ public class ExcelImportUtil {
 					Class<? extends Object> cl1 = object.getClass();
                     Method[] methods= cl1.getMethods();
                     for (int i = 0; i < methods.length; i++) {
-                        if("setFileName".equals(methods[i].getName())){//写入文件名
+                        if("setFileName".equals(methods[i].getName())){//Write  the file name
                             methods[i].invoke(object, excelPath.substring(excelPath.lastIndexOf(File.separator)+1, excelPath.length()));
                         }
-                        if("setSheetName".equals(methods[i].getName())){//写入sheet名
+                        if("setSheetName".equals(methods[i].getName())){//Write the sheet name
                             methods[i].invoke(object,sheet.getName());
                         }
-                        if("setLineNum".equals(methods[i].getName())){//写入行号
+                        if("setLineNum".equals(methods[i].getName())){//Write  the line number
                             methods[i].invoke(object,rowIndex+1);
                         }
                     }
@@ -96,10 +95,10 @@ public class ExcelImportUtil {
 	}
 	
 	/**
-	 * 读取excel模板数据
-	 * 用map封装excel的一行数据
-	 * 将封装好一行数据的map设置到list里。
-	 * @param excelPath    excel文件的路径
+	 * Read the data from the excel template
+	 * Use the map collection to wrap excel's line of data
+	 * Put the map collection of the data into the list collection.
+	 * @param excelPath    
 	 * @return
 	 */
 	public static List<Map<Object,Object>> getExcelData2Map(String excelPath){
@@ -117,12 +116,11 @@ public class ExcelImportUtil {
 			
 				Map<Object, Object> headMap =  new HashMap<Object, Object>();
 				
-				//获取表头信息 前提是这个表格不是空表
+				//Gets the header information on the premise that this table is not empty table
 				if(rowCount >= 0 ){
 					Cell[] headCells = sheet.getRow(0); 			
 					
 					for(Cell cell : headCells){
-						//TODO 预留处理方式 即表头定义未定
 						headMap.put(cell.getColumn(), cell.getContents());						
 					}
 				}		
@@ -148,11 +146,11 @@ public class ExcelImportUtil {
 	}
 	
 	/** 
-	 * 将一个单元格包含的数据设置到map里
-	 * @param cell		单元格
-	 * @param ranges	合并单元格
-	 * @param headMap	headMap用来封装excel表头信息
-	 * @param rowMap 	rowMap用来封装excel一行数据
+	 * Place the data contained in a cell into the map collection
+	 * @param cell		
+	 * @param ranges	Merge Cells
+	 * @param headMap	headMap is used to encapsulate excel's header information
+	 * @param rowMap 	rowMap is used to encapsulate excel's line of data
 	 * @return
 	 */
 	private static Map<Object, Object> setOneCell2Map(Cell cell, Range[] ranges,
@@ -172,11 +170,11 @@ public class ExcelImportUtil {
 	}
 
 	/**
-	 * 根据excel表头信息headMap封装数据到map里
-	 * @param cellData   单元格包含的文本数据
-	 * @param colNum	   单元格所属的列号
-	 * @param headMap    headMap用来封装excel表头信息
-	 * @param rowMap     rowMap用来封装excel一行数据
+	 * According to excel header information headMap for data encapsulation
+	 * @param cellData   The text data contained in the cell
+	 * @param colNum	 The cell number where the cell is located
+	 * @param headMap    headMap is used to encapsulate excel's header information
+	 * @param rowMap     rowMap is used to encapsulate excel's line of data
 	 * @return
 	 */
 	private static Map<Object, Object> setCellMapInfo(String cellData, int colNum,
@@ -194,12 +192,12 @@ public class ExcelImportUtil {
 	}
 
 	/**
-	 * 设置一个cell数据到对象里
-	 * @param <T>					泛型对象
-	 * @param cell					excel单元格对象
-	 * @param object				对象
-	 * @param ranges				合并单元格	
-	 * @param propertiesFilePath	属性文件路径（相对路径） 
+	 * Set a cell data to the object
+	 * @param <T>					Generic object
+	 * @param cell					Excel the object of the cell
+	 * @param object				object
+	 * @param ranges				Merge Cells	
+	 * @param propertiesFilePath	relative path
 	 * @throws InvocationTargetException 
 	 * @throws IllegalAccessException 
 	 * @throws IllegalArgumentException 
@@ -224,11 +222,11 @@ public class ExcelImportUtil {
 	}
 
 	/**
-	 * 设置对象的信息
-	 * @param propertiesMap		属性文件map
-	 * @param object			对象
-	 * @param cellData			excel单元格的数据
-	 * @param colNum			单元格所属excel的列数
+	 * Set the information of the object
+	 * @param propertiesMap		The map collection of the properties file
+	 * @param object			object
+	 * @param cellData			Excel the object of the cell
+	 * @param colNum			The cell's excel column number
 	 * @return
 	 * @throws IllegalArgumentException
 	 * @throws IllegalAccessException
@@ -299,8 +297,8 @@ public class ExcelImportUtil {
 	}
 
 	/**
-	 * 属性文件转换成map
-	 * @param propertiesFilePath    属性文件路径（相对路径）
+	 * Convert property files to map collection
+	 * @param propertiesFilePath    Path to the properties file (relative path)
 	 * @return
 	 */
 	private static<T> Map<String, Object> properties2Map(String propertiesFilePath) {
@@ -327,9 +325,9 @@ public class ExcelImportUtil {
 		return propertiesMap;
 	}
 
-	/** 设置构成合并单元格的子单元格信息
-	 * @param cell		单元格信息
-	 * @param ranges	合并单元格
+	/** Sets the subcell information that makes up the merged cell
+	 * @param cell		Cell information
+	 * @param ranges	Merge Cells
 	 * @return
 	 */
 	private static String setRangeCellValue(Cell cell, Range[] ranges) {

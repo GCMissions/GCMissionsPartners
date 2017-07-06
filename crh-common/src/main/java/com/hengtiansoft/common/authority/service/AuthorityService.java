@@ -1,21 +1,3 @@
-/*
- * Project Name: zc-collector-supplier
- * File Name: AuthorityService.java
- * Class Name: AuthorityService
- *
- * Copyright 2014 Hengtian Software Inc
- *
- * Licensed under the Hengtiansoft
- *
- * http://www.hengtiansoft.com
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
- * implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.hengtiansoft.common.authority.service;
 
 import java.util.List;
@@ -31,15 +13,16 @@ import com.hengtiansoft.common.authority.domain.UserInfo;
 import com.hengtiansoft.common.xmemcached.constant.CacheType;
 
 /**
- * Class Name: AuthorityService Description: 权限验证Service
+ * Class Name: AuthorityService 
+ * Description: Verification of permissions Service
  * 
- * @author jialiangli
+ * @author taochen
  *
  */
 public interface AuthorityService {
 
     /**
-     * Description: 根据Token获得用户信息
+     * Description: Obtain user information based on Token
      *
      * @param token
      * @return
@@ -48,7 +31,7 @@ public interface AuthorityService {
     public UserInfo findUserInfoByToken(String token);
 
     /**
-     * Description: 验证登陆信息
+     * Description: Verify login information
      *
      * @param loginId
      * @param password
@@ -57,7 +40,7 @@ public interface AuthorityService {
     public UserInfo authcUser(String loginId, String password);
 
     /**
-     * Description: 获得用户登录信息
+     * Description: Get the user's login information
      *
      * @param userInfo
      * @return
@@ -65,14 +48,14 @@ public interface AuthorityService {
     public String getToken(UserInfo userInfo);
 
     /**
-     * Description: 设置登录信息
+     * Description: Set the login information
      *
      * @param userInfo
      */
     public void setLoginInfo(UserInfo userInfo, String token);
 
     /**
-     * Description: 清除用户token
+     * Description: Clear the user token
      *
      * @param userId
      */
@@ -80,7 +63,7 @@ public interface AuthorityService {
     public void clearToken(Long userId);
 
     /**
-     * Description: 根据Token获得用户角色信息
+     * Description: Obtain user role information based on Token
      *
      * @param token
      * @return
@@ -88,7 +71,7 @@ public interface AuthorityService {
     public List<RoleInfo> findRoleInfosByUserId(Long userId);
 
     /**
-     * Description: 根据角色获得相关权限
+     * Description: Obtain the relevant permissions based on roles
      *
      * @param roleIds
      * @return
@@ -96,7 +79,7 @@ public interface AuthorityService {
     public List<FunctionInfo> findFunctionsByRoleIds(Iterable<Long> roleIds);
 
     /**
-     * Description: 获得权限
+     * Description: Get permission
      *
      * @return
      */
@@ -105,7 +88,7 @@ public interface AuthorityService {
     Map<String, FunctionInfo> getFunctions();
 
     /**
-     * Description: 清除指定用户的个人信息缓存。
+     * Description: Clear the user's personal information cache.
      *
      * @param userId
      */
@@ -113,7 +96,7 @@ public interface AuthorityService {
     void clearUserInfoCache(String token);
 
     /**
-     * Description: 清除指定用户的认证信息缓存。
+     * Description: Clears the authentication information cache for the specified user.
      *
      * @param userId
      */
@@ -121,7 +104,7 @@ public interface AuthorityService {
     void clearAuthcCache(String token);
 
     /**
-     * Description: 清除指定用户的授权信息缓存。
+     * Description: Clear the authorization information cache for the specified user.
      *
      * @param userId
      */
@@ -129,7 +112,7 @@ public interface AuthorityService {
     void clearAuthzCache(String token);
 
     /**
-     * Description: 获得静态资源地址
+     * Description: Obtain the static resource path
      *
      * @return
      */
@@ -137,7 +120,7 @@ public interface AuthorityService {
     String getStaticPath();
 
     /**
-     * Description: 获得图片资源地址
+     * Description: Get the image resource path
      *
      * @return
      */
@@ -146,7 +129,7 @@ public interface AuthorityService {
     
     
     /**
-     * Description: 获得Qq地址
+     * Description: Get the Qq path
      *
      * @return
      */

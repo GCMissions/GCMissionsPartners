@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 /**
  * The class JacksonUtil
  *
- * json字符与对像转换
+ * json character and object conversion
  * 
  * @version: $Revision$ $Date$ $LastChangedBy$
  *
@@ -16,8 +16,8 @@ public final class JacksonUtil {
     public static ObjectMapper objectMapper;
 
     /**
-     * 使用泛型方法，把json字符串转换为相应的JavaBean对象。 (1)转换为普通JavaBean：readValue(json,Student.class)
-     * (2)转换为List,如List<Student>,将第二个参数传递为Student [].class.然后使用Arrays.asList();方法把得到的数组转换为特定类型的List
+     *Use the generic method to convert the json string to the corresponding JavaBean object. (1) converted to a normal JavaBean: readValue (json, Student.class)
+     *   (2) is converted to a set of List, such as List <Student>, the second parameter is passed Student [] .class then Arrays.asList ();. The method of converting an array obtained for a specific type of List
      * 
      * @param jsonStr
      * @param valueType
@@ -38,7 +38,7 @@ public final class JacksonUtil {
     }
 
     /**
-     * json数组转List
+     * Json array to the List collection
      * 
      * @param jsonStr
      * @param valueTypeRef
@@ -59,7 +59,7 @@ public final class JacksonUtil {
     }
 
     /**
-     * 把JavaBean转换为json字符串
+     * Converts a JavaBean to a json string
      * 
      * @param object
      * @return

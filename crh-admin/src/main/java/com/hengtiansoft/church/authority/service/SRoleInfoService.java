@@ -10,14 +10,14 @@ import com.hengtiansoft.common.dto.ResultDto;
 /**
  * 
 * Class Name: SRoleInfoService
-* Description: 角色Service
-* @author zhisongliu
+* Description:  role service
+* @author tao chen
 *
  */
 public interface SRoleInfoService {
     /**
      * 
-    * Description: 搜索
+    * Description: search
     *
     * @param dto
      */
@@ -25,7 +25,7 @@ public interface SRoleInfoService {
 
     /**
      * 
-    * Description: 获取权限节点树
+    * Description: Get permission node tree
     *
     * @param functionId
     * @return
@@ -34,7 +34,7 @@ public interface SRoleInfoService {
 
     /**
      * 
-    * Description: 角色保存
+    * Description: save roles
     *
     * @param dto
     * @return
@@ -43,7 +43,7 @@ public interface SRoleInfoService {
 
     /**
      * 
-    * Description: 通过Id来查找角色信息
+    * Description: To find the role information by Id
     *
     * @param id
     * @return
@@ -52,7 +52,7 @@ public interface SRoleInfoService {
 
     /**
      * 
-    * Description: 角色更新
+    * Description: Update the role
     *
     * @param dto
     * @return
@@ -61,7 +61,7 @@ public interface SRoleInfoService {
 
     /**
      * 
-    * Description: 角色删除
+    * Description: delete the role
     *
     * @param id
     * @return

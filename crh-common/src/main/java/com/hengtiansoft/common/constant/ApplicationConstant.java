@@ -3,7 +3,7 @@ package com.hengtiansoft.common.constant;
 /**
  * Class Name: ApplicationConstant Description: application level constants.
  * 
- * @author SC
+ * @author taochen
  * 
  */
 public final class ApplicationConstant {

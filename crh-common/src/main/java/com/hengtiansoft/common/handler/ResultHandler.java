@@ -1,21 +1,3 @@
-/*
- * Project Name: zc-collect-common
- * File Name: ResultHandler.java
- * Class Name: ResultHandler
- *
- * Copyright 2014 Hengtian Software Inc
- *
- * Licensed under the Hengtiansoft
- *
- * http://www.hengtiansoft.com
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
- * implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.hengtiansoft.common.handler;
 
 import java.lang.reflect.Method;
@@ -39,9 +21,10 @@ import com.hengtiansoft.common.util.AppConfigUtil;
 import com.hengtiansoft.common.util.web.WebUtil;
 
 /**
- * Class Name: ResultHandler Description: TODO
+ * Class Name: ResultHandler 
+ * Description: 
  * 
- * @author jialiangli
+ * @author taochen
  *
  */
 @Aspect
@@ -54,19 +37,19 @@ public class ResultHandler {
     public Object handlerRequestMapping(final ProceedingJoinPoint joinPoint) throws Throwable {
         final Method method = ((MethodSignature) joinPoint.getSignature()).getMethod();
         String requestUrl = getMappingUrl(method);
-        // 判断用户是否有权限范围该接口
+        // To determine whether the user has the authority of the interface
         if (!hasPermission(requestUrl)) {
-            throw new AuthorizationException("无权限访问该资源");
+            throw new AuthorizationException("No permission to access the resource");
         }
-        // 初始化参数
+        // Initialize parameters
         String token = AuthorityContext.getCurrentToken();
         if (token != null) {
-            LOGGER.debug("设置当前用户缓存");
+            LOGGER.debug("Set the current user cache");
             AuthorityContext.setCurrentUser();
         }
-        // 如果返回为页面，则为页面添加参数
+        // If you return to a page, then add parameters to a page
         if (String.class.equals(method.getReturnType()) || ModelAndView.class.equals(method.getReturnType())) {
-            LOGGER.debug("设置页面参数");
+            LOGGER.debug("Set the page parameters");
             HttpServletRequest request = WebUtil.getThreadRequest();
             AuthorityContext ac = new AuthorityContext();
             request.setAttribute("auth", ac);
@@ -75,14 +58,14 @@ public class ResultHandler {
             request.setAttribute("ftpPath", AuthorityContext.getFtpPath());
             request.setAttribute("uin", AuthorityContext.getQqPath());
             if (AppConfigUtil.isDevEnv()) {
-                LOGGER.debug("开发环境，静态资源为本机");
+                LOGGER.debug("Development environment, static resources for the machine");
                 request.setAttribute("staticPath", request.getContextPath());
             } else {
-                LOGGER.debug("非开发环境，静态资源为静态资源服务器");
+                LOGGER.debug("Non-development environment, static resources for the static resource server");
                 request.setAttribute("staticPath", AuthorityContext.getStaticPath());
             }
         }
-        // 执行方法
+        // Execution method
         return joinPoint.proceed();
     }
 

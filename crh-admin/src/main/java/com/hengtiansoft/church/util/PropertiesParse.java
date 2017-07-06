@@ -7,14 +7,14 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.Map.Entry;
 /***
- * descripion: 配置文件解析代码
- * @author weiwang
+ * descripion: Configuration file parsing code
+ * @author taochen
  *
  */
 public class PropertiesParse {
 	/**
-	 * 属性文件转换成map
-	 * @param propertiesFilePath    属性文件路径（相对路径）
+	 * place the properties file into the map collection
+	 * @param propertiesFilePath    
 	 * @return
 	 */
 	public static<T> Map<String, Object> properties2Map(String propertiesFilePath) {

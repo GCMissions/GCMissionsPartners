@@ -1,8 +1,5 @@
 /**
- * 
- */
-/**
- * @author zhisongliu
+ * @author taochen
  *
  */
 package com.hengtiansoft.church.common.dto;

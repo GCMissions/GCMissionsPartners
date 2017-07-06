@@ -1,21 +1,3 @@
-/*
- * Project Name: 3t-common
- * File Name: CustomDateTimeDeserialize.java
- * Class Name: CustomDateTimeDeserialize
- *
- * Copyright 2014 Hengtian Software Inc
- *
- * Licensed under the Hengtiansoft
- *
- * http://www.hengtiansoft.com
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
- * implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.hengtiansoft.common.serialize;
 
 import java.io.IOException;
@@ -33,9 +15,10 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 
 /**
- * Class Name: CustomDateTimeDeserialize Description: TODO
+ * Class Name: CustomDateTimeDeserialize 
+ * Description: 
  * 
- * @author kangruan
+ * @author taochen
  *
  */
 public class CustomDateTimeDeserialize extends JsonDeserializer<Date> {
@@ -52,7 +35,7 @@ public class CustomDateTimeDeserialize extends JsonDeserializer<Date> {
                 date = sdf.parse(jp.getText());
             }
         } catch (ParseException e) {
-            logger.error("日期转换错误", e);
+            logger.error("Date conversion error", e);
         }
         return date;
     }

@@ -9,22 +9,15 @@ import com.hengtiansoft.church.entity.SRoleInfoEntity;
 import com.hengtiansoft.common.dto.ResultDto;
 
 /**
- * 
-* Class Name: SUserService
-* Description: 用户业务
-* @author zhisongliu
-*
- */
-/**
 * Class Name: SUserService
 * Description: 
-* @author xianghuang
+* @author tao chen
 *
 */
 public interface SUserService {
     /**
      * 
-    * Description: 搜索
+    * Description: search
     *
     * @param dto
      */
@@ -32,7 +25,7 @@ public interface SUserService {
 
     /**
      * 
-    * Description: 用户保存
+    * Description: save the user
     *
     * @param dto
     * @return
@@ -41,7 +34,7 @@ public interface SUserService {
 
     /**
      * 
-    * Description: 个人资料更新（当前用户）
+    * Description: Update personal information (current user)
     *
     * @param dto
     * @return
@@ -50,7 +43,7 @@ public interface SUserService {
 
     /**
      * 
-    * Description: 用户更新
+    * Description: update the user
     *
     * @param dto
     * @return
@@ -59,7 +52,7 @@ public interface SUserService {
 
     /**
      * 
-    * Description: 查询出所有的角色
+    * Description: Find out all the roles
     *
     * @return
      */
@@ -67,7 +60,7 @@ public interface SUserService {
 
     /**
      * 
-    * Description: 通过ID来查找出用户信息
+    * Description: Find out information through the user's ID
     *
     * @param id
     * @return
@@ -76,7 +69,7 @@ public interface SUserService {
     
     
     /**
-    * Description: 查询用户拥有的角色
+    * Description: Queries the user exists role
     *
     * @param id
     * @return
@@ -85,7 +78,7 @@ public interface SUserService {
 
     /**
      * 
-    * Description: 删除账户
+    * Description: delete the user
     *
     * @param ids
     * @return
@@ -94,7 +87,7 @@ public interface SUserService {
 
     /**
      * 
-    * Description: 重置密码
+    * Description: Reset the password
     *
     * @param loginId
     * @return

@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * 
- * @author SC
+ * @author taochen
  * 
  */
 public final class EnumHelper implements Serializable {

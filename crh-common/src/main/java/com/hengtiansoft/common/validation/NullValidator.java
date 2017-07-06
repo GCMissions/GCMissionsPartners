@@ -8,8 +8,8 @@ import com.hengtiansoft.common.validation.BaseValidator;
 
 /**
 * Class Name: NullValidator
-* Description: TODO
-* @author SC
+* Description: 
+* @author taochen
 *
 */
 public class NullValidator extends BaseValidator implements ConstraintValidator<NullCheck, Object> {

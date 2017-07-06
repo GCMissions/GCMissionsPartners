@@ -15,8 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- *@author:jianghm
- *@date:2016年6月21日 上午10:33:13
+ *@author:taochen
  *@description:
  */
 public class CertificateCoder {
@@ -26,7 +25,7 @@ public class CertificateCoder {
 	/**
 	 * 
 	 * @param certificatePath
-	 * @return Certificate 证书
+	 * @return Certificate 
 	 * @throws Exception
 	 */
 	private static Certificate getCertificate(String certificatePath) throws Exception {
@@ -39,7 +38,7 @@ public class CertificateCoder {
 	}
 
 	/**
-	 * 签名
+	 * signature
 	 * 
 	 * @param sign
 	 * @param strPfx
@@ -48,11 +47,11 @@ public class CertificateCoder {
 	 * @throws Exception
 	 */
 	public static String sign(String sign, String strPfx, String strPassword) throws Exception {
-		// 获取证书
+		// Get the certificate
 		X509Certificate x509 = (X509Certificate) getCertformPfx(strPfx, strPassword);
-		// 构建签名,由证书指定签名算法
+		// Build the signature and specify the signature algorithm from the certificate
 		Signature sa = Signature.getInstance(x509.getSigAlgName());
-		// 获取私匙
+		// Get a private key
 		PrivateKey privateKey = getPvkformPfx(strPfx, strPassword);
 		sa.initSign(privateKey);
 		sa.update(sign.getBytes("GBK"));
@@ -60,7 +59,7 @@ public class CertificateCoder {
 	}
 
 	/**
-	 * 验证签名
+	 * Verify the signature
 	 * 
 	 * @param data
 	 * @param sign
@@ -77,7 +76,7 @@ public class CertificateCoder {
 	}
 	
 	/**
-	 * 验证签名
+	 * Verify the signature
 	 * 
 	 * @param data
 	 * @param sign
@@ -92,7 +91,7 @@ public class CertificateCoder {
 		return sa.verify(Base64.decodeBase64(sign.getBytes("GBK")));
 	}
 	
-	// 转换成十六进制字符串
+	// Convert to a hexadecimal string
 	public static String Byte2String(byte[] b) {
 		String hs = "";
 		String stmp = "";
@@ -112,8 +111,8 @@ public class CertificateCoder {
 		int temp = number;
 		byte[] b = new byte[4];
 		for (int i = b.length - 1; i > -1; i--) {
-			b[i] = Integer.valueOf(temp & 0xff).byteValue();// 将最高位保存在最低位
-			temp = temp >> 8; // 向右移8位
+			b[i] = Integer.valueOf(temp & 0xff).byteValue();// The highest bit is stored in the lowest position
+			temp = temp >> 8; // Move 8 bits to the right
 		}
 		return b;
 	}
@@ -186,7 +185,7 @@ public class CertificateCoder {
 	}
 	
 	public static void main(String[] args) throws Exception {
-		// 签名测试
-		System.out.println(CertificateCoder.sign("签名串", "pfx证书路径", "pfx证书密码"));
+		// Signature test
+		System.out.println(CertificateCoder.sign("Signature string", "Pfx Certificate Path", "Pfx Certificate Password"));
 	}
 }

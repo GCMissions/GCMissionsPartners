@@ -1,26 +1,12 @@
-/*
- * Project Name: zc-collect-common
- * File Name: PagingDto.java
- * Class Name: PagingDto
- * Copyright 2014 Hengtian Software Inc
- * Licensed under the Hengtiansoft
- * http://www.hengtiansoft.com
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
- * implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.hengtiansoft.common.dto;
 
 import java.io.Serializable;
 import java.util.List;
 
 /**
- * Class Name: PagingDto Description:分页Dto
+ * Class Name: PagingDto Description:Paging Dto
  * 
- * @author jialiangli
+ * @author taochen
  */
 public class PagingDto<T> implements Serializable {
 
@@ -33,19 +19,19 @@ public class PagingDto<T> implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    // 每页显示记录数
+    // The number of data per page
     private Integer           pageSize         = 50;
 
-    // 当前页数
+    // Current page number
     private Integer           currentPage      = 1;
 
-    // 总记录数
+    // Total number of data
     private Long              totalRecord;
 
-    // 总页数
+    // total pages
     private Integer           totalPages;
 
-    // 数据List
+    // Data container
     private List<T>           list;
 
     public Integer getPageSize() {

@@ -1,39 +1,21 @@
-/*
-* Project Name: xinyunlian-ecom
-* File Name: EnumConverter.java
-* Class Name: EnumConverter
-*
-* Copyright 2014 Hengtian Software Inc
-*
-* Licensed under the Hengtiansoft
-*
-* http://www.hengtiansoft.com
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
-* implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
 package com.hengtiansoft.common.util;
 
 import org.apache.commons.beanutils.converters.AbstractConverter;
 
 /**
- * 枚举类型转换
+ * Enum type conversion
  * 
- * @author Hengtiansoft Team
+ * @author taochen
  * @version 1.0_beta
  */
 public class EnumConverter extends AbstractConverter {
 
-	/** 枚举类型 */
+	/** Enum type */
 	private final Class<?> enumClass;
 
 	/**
 	 * @param enumClass
-	 *            枚举类型
+	 *            Enum type
 	 */
 	public EnumConverter(Class<?> enumClass) {
 		this(enumClass, null);
@@ -41,9 +23,9 @@ public class EnumConverter extends AbstractConverter {
 
 	/**
 	 * @param enumClass
-	 *            枚举类型
+	 *            Enum type
 	 * @param defaultValue
-	 *            默认值
+	 *            
 	 */
 	public EnumConverter(Class<?> enumClass, Object defaultValue) {
 		super(defaultValue);
@@ -51,9 +33,9 @@ public class EnumConverter extends AbstractConverter {
 	}
 
 	/**
-	 * 获取默认类型
+	 * Get the default type
 	 * 
-	 * @return 默认类型
+	 * @return the default type
 	 */
 	@Override
 	protected Class<?> getDefaultType() {
@@ -61,13 +43,13 @@ public class EnumConverter extends AbstractConverter {
 	}
 
 	/**
-	 * 转换为枚举对象
+	 * Converted to enumerate objects
 	 * 
 	 * @param type
-	 *            类型
+	 *            
 	 * @param value
-	 *            值
-	 * @return 枚举对象
+	 *            
+	 * @return Enum object
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	protected Object convertToType(Class type, Object value) {
@@ -76,11 +58,11 @@ public class EnumConverter extends AbstractConverter {
 	}
 
 	/**
-	 * 转换为字符串
+	 * Convert to a string
 	 * 
 	 * @param value
-	 *            值
-	 * @return 字符串
+	 *            
+	 * @return string
 	 */
 	protected String convertToString(Object value) {
 		return value.toString();

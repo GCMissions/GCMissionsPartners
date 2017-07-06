@@ -3,7 +3,7 @@ package com.hengtiansoft.common.constant;
 /**
  * Class Name: ResultCode Description: defines response codes that will be used in AJAX response
  * 
- * @author SC
+ * @author taochen
  * 
  */
 public final class ResultCode {

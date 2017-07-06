@@ -7,8 +7,8 @@ import java.util.List;
 
 /**
  * Class Name: DateSplitUtil
- * Description: 日期分割器
- * @author zhongyidong
+ * Description: Split date
+ * @author taochen
  *
  */
 public class DateSplitUtil {
@@ -20,21 +20,21 @@ public class DateSplitUtil {
     public static  Calendar cal = Calendar.getInstance(); 
 
     /**
-     * Description: 将时间段进行分隔
+     * Description: Separated by time interval
      *
      * @param startDate
      * @param endDate
-     * @return 日期列表
+     * @return Date list
      * @throws Exception
      */
     public static List<Date> dateSplit(Date startDate, Date endDate) throws Exception {  
         if (startDate.after(endDate))  {
-            throw new Exception("开始时间应该在结束时间之后");  
+            throw new Exception("The start time should be after the end time");  
         }
         
         Long spi = endDate.getTime() - startDate.getTime();  
         Long step = (spi / ONE_DAY);  
-        System.out.println("相差天数：" + step);
+        System.out.println("Days：" + step);
         
         List<Date> dateList = new ArrayList<Date>();  
         for (int i = 0; i <= step.intValue(); i++) {  
@@ -44,23 +44,23 @@ public class DateSplitUtil {
     }  
   
     /**
-     * Description: 获取当月的天数
+     * Description: Get the number of days in the month
      *
      * @param date
      * @return
      */
     public static Integer getDaysOfMonth(Date date) {  
         cal.setTime(date);
-        // 设为当月的第一天
+        // Set the first day of the month
         cal.set(Calendar.DAY_OF_MONTH, 1);
-        // 日期回滚一天，即最后一天
+        // Date Rollback day, that is the last day
         cal.roll(Calendar.DAY_OF_MONTH, -1);
         
         return cal.get(Calendar.DAY_OF_MONTH);  
     }  
   
     /**
-     * Description: 获取两个日期之间的月份之差
+     * Description: Month of taking the difference between two dates
      *
      * @param startDate
      * @param endDate
@@ -80,10 +80,10 @@ public class DateSplitUtil {
         
         Integer diff = 0;
         if (startYear.equals(endYear)) {
-            // 如果在同一年，直接相减
+            // If in the same year, use subtraction directly
             diff = endMonth - startMonth;
         } else {
-            // 反之，用12减去开始月份再加上结束月份
+            // Use 12 minus the start month plus the end month
             diff = 12 - startMonth + endMonth;
         }
         return diff;

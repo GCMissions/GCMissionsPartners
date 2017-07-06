@@ -15,9 +15,10 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.support.PropertiesLoaderUtils;
 
 /**
- * 字符类型公共处理类 Class Name: StringUtil Description: TODO
+ *  Class Name: StringUtil 
+ *  Description: Character type public processing class
  * 
- * @author chengchaoyin
+ * @author taochen
  *
  */
 public class StringUtil extends StringUtils {
@@ -25,29 +26,29 @@ public class StringUtil extends StringUtils {
     private static final String NUMERRIC_PATTERN = "[0-9]*";
 
     /**
-     * 判断字符串<em>text</em>是否为 <strong>null或空串</strong>
+     * Determines whether the string <em> text </ em> is <strong> null or empty </ strong>
      * 
      * @param text
-     *            需判断的字符串
-     * @return 空返回 <strong>true</strong>
+     *            Need to judge the string
+     * @return Empty back to <strong> true </ strong>
      */
     public static boolean isEmpty(String text) {
         return (text == null) || "".equals(text);
     }
 
     /**
-     * 判断字符串<em>text</em>是否为 <strong>null或空串</strong>
+     * Determines whether the string <em> text </ em> is <strong> null or empty </ strong>
      * 
      * @param text
-     *            需判断的字符串
-     * @return 非空返回 <strong>true</strong>
+     *            Need to judge the string
+     * @return Non-empty return <strong> true </ strong>
      */
     public static boolean isNotEmpty(String text) {
         return !isEmpty(text);
     }
 
     /**
-     * 判断传输过来的id是否为数字. creater : bindizhang
+     * To determine whether the transmitted id is a digit. Creator: bindi zhang
      * 
      * @param id
      * @return boolean
@@ -57,7 +58,7 @@ public class StringUtil extends StringUtils {
     }
 
     /**
-     * 数组转换字符串 creater : bindizhang
+     * Array conversion string creator: bindi zhang
      */
     public static String arrayToString(Object[] array) {
         StringBuffer sb = new StringBuffer();
@@ -72,7 +73,7 @@ public class StringUtil extends StringUtils {
     }
 
     /**
-     * 拼接字符串工具类.
+     * Stitching string tool class.
      * 
      * @author penglan
      * @param strs
@@ -90,7 +91,7 @@ public class StringUtil extends StringUtils {
         return strBuilder.toString();
     }
 
-    /** 判断是否为邮箱. */
+    /** To determine whether the mailbox. */
     public static boolean isNameAdressFormat(String email) {
         boolean isExist = false;
 
@@ -104,15 +105,15 @@ public class StringUtil extends StringUtils {
     }
 
     /**
-     * 补齐字符串长度.
+     * Padded string length.
      * 
      * @param resource
-     *            源字符串
+     *            Source string
      * @param length
-     *            总长度
+     *            
      * @param fillChar
-     *            填入字符串
-     * @return 如果源字符串长度大于总长度，则放回源字符串，否则返回补齐字符串
+     *            Fill in the string
+     * @return If the source string length is greater than the total length, the source string is returned, otherwise the padding string
      */
     public static String StringFormat(String resource, int length, char fillChar) {
         if (resource.length() >= length) {
@@ -128,18 +129,19 @@ public class StringUtil extends StringUtils {
     }
 
     /**
-     * 拼接in语句:oracle有1000个参数长度限制 mysql的话 由系统参数 max_allowed_packet参数设置 默认为1M 25165824 所以此方法目前没用
+     * Stitching "in" statement: oracle has 1000 parameters of the length of the restrictions 
+     * mysql by the system parameters max_allowed_packet parameters set to default to 1M 25165824 so this method is currently useless
      * 
      * @param columnName
-     *            列名称
+     *            
      * @param valueList
-     *            列list值
+     *            
      * @return
      */
     public static String contactInSql(String columnName, List<String> valueList) {
         StringBuffer sb = new StringBuffer();
         sb.append("(");
-        int inPage = 1000; // in字句最多参数个数
+        int inPage = 1000; // in the largest number of parameter words
         int allSize = valueList.size();
         int count = allSize / inPage;
         int mode = allSize % inPage;
@@ -166,7 +168,7 @@ public class StringUtil extends StringUtils {
     }
 
     /**
-     * 获取配置文件信息 creater:bindizhang
+     * Get the configuration file information creator: bindi zhang
      * 
      * @param paramKey
      * @return
@@ -177,7 +179,7 @@ public class StringUtil extends StringUtils {
         try {
             props = PropertiesLoaderUtils.loadProperties(resource);
         } catch (IOException e) {
-            LOGGER.error("读取配置文件错误!");
+            LOGGER.error("Read the configuration file error!");
         }
         return props.getProperty(paramKey);
     }

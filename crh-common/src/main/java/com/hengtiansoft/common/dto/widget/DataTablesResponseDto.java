@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * Value object for jQuery DataTables JSON response.
  * 
- * @author SC
+ * @author taochen
  * 
  * @param <T>
  */

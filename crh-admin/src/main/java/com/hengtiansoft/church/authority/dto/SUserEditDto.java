@@ -7,9 +7,9 @@ import com.hengtiansoft.church.entity.SRoleInfoEntity;
 
 /**
  * Class Name: SUserEditDto
- * Description: 账户编辑DTO
+ * Description: Edit the account DTO
  * 
- * @author zhisongliu
+ * @author tao chen
  */
 public class SUserEditDto implements Serializable {
 
