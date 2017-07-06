@@ -2,7 +2,7 @@
  * Created by JetBrains PhpStorm.
  * User: taoqili
  * Date: 12-1-30
- * Time: 下午12:50
+ * Time: 12:50 pm
  * To change this template use File | Settings | File Templates.
  */
 
@@ -37,7 +37,7 @@ function addOkListener() {
 			for (var j = 0,url; url = imageUrls[j++];) {
 				if (!url.original || src.indexOf(url.original.replace(" ","")) != -1) {
 					img.src = urlPrefix + url.url;
-					img.setAttribute("_src", urlPrefix + url.url);  //同时修改"_src"属性
+					img.setAttribute("_src", urlPrefix + url.url);  //Modify the "_src" property at the same time
 					img.setAttribute("title",url.title);
                     domUtils.removeAttributes(img, ["word_img","style","width","height"]);
 					editor.fireEvent("selectionchange");
@@ -54,7 +54,7 @@ function addOkListener() {
 }
 
 /**
- * 绑定开始上传事件
+ * Modify the "_src" property at the same time
  */
 function addUploadListener() {
 	g("upload").onclick = function () {
@@ -64,7 +64,6 @@ function addUploadListener() {
 }
 
 function showLocalPath(id) {
-    //单张编辑
     var img = editor.selection.getRange().getClosedNode();
     var images = editor.execCommand('wordimage');
     if(images.length==1 || img && img.tagName == 'IMG'){
@@ -72,7 +71,7 @@ function showLocalPath(id) {
         return;
     }
 	var path = images[0];
-    var leftSlashIndex  = path.lastIndexOf("/")||0,  //不同版本的doc和浏览器都可能影响到这个符号，故直接判断两种
+    var leftSlashIndex  = path.lastIndexOf("/")||0, 
         rightSlashIndex = path.lastIndexOf("\\")||0,
         separater = leftSlashIndex > rightSlashIndex ? "/":"\\" ;
 
@@ -81,9 +80,7 @@ function showLocalPath(id) {
 }
 
 function createFlashUploader(opt, callbacks) {
-    //由于lang.flashI18n是静态属性，不可以直接进行修改，否则会影响到后续内容
     var i18n = utils.extend({},lang.flashI18n);
-    //处理图片资源地址的编码，补全等问题
     for(var i in i18n){
         if(!(i in {"lang":1,"uploadingTF":1,"imageTF":1,"textEncoding":1}) && i18n[i]){
             i18n[i] = encodeURIComponent(editor.options.langPath + editor.options.lang + "/images/" + i18n[i]);

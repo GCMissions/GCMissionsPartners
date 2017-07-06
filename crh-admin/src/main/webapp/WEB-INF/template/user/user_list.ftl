@@ -33,11 +33,11 @@
                     <div class="form-horizontal search-group" id="search-area" >
                     	<div class="box-body">
                     		 <div class="col-sm-12">
-                    		 	<label class="col-sm-2 control-label">Username：</label>
+                    		 	<label class="col-sm-2 control-label">Username:</label>
                     		 	<input id="text-input" name="loginId" class="form-control col-sm-2" type="text">
-                    		 	<label class="col-sm-1 control-label" style="margin-left: 2%;">Email：</label>
+                    		 	<label class="col-sm-1 control-label" style="margin-left: 2%;">Email:</label>
 					           	<input id="text-input" name="email" class="form-control col-sm-2" type="text">
-					           	<label class="col-sm-1 control-label">Role：</label>
+					           	<label class="col-sm-1 control-label">Role:</label>
 					           	<div class="col-sm-2" style="margin-left: -2%;">
                     		 		<select class="selectpicker form-control productBrand " id="roleId" title="roles" > 
                                     	<option value="">All</option>
@@ -133,7 +133,7 @@
 	<div class="form-group row">
 	<label class="col-sm-4 control-label" for="type-select"></label>
 		<div class="col-sm-4">
-			<label class="role_checkbox"><input name="unlock" type="hidden" value="1"/><input type="checkbox" class="flat-red" {{if dto.status == '禁用' }}checked{{else}}disabled{{/if}} name="lockUser" />Locked</label>
+			<label class="role_checkbox"><input name="unlock" type="hidden" value="1"/><input type="checkbox" class="flat-red" {{if dto.status == 'Disable' }}checked{{else}}disabled{{/if}} name="lockUser" />Locked</label>
 		</div>
 	</div>
 </div>
@@ -174,8 +174,8 @@
 		<label class="col-sm-4 control-label">Status</label>
 		<div class="col-sm-5">
 			  <select class="form-control" name="status">
-				<option value="启用"> Enable </option>
-				<option value="禁用"> Disable </option>
+				<option value="enable"> Enable </option>
+				<option value="disable"> Disable </option>
 			  </select>
 		</div>
     </div>

@@ -51,7 +51,7 @@
                         	<!-- <th field="roleId" width=70><div class="datagrid-header-check"><input type="checkbox"></div></th> -->
                         	<th>No.</th>
                             <th>Role Name</th>
-                            <!-- <th>状态</th> -->
+                            <!-- <th>status</th> -->
                             <th>Create Time</th>
                             <th>Action</th>
                         </thead>
