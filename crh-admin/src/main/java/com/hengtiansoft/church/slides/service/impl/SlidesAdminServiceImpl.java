@@ -10,6 +10,7 @@ import java.util.Map;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -114,6 +115,11 @@ public class SlidesAdminServiceImpl implements SlidesAdminService {
         SlidesEntity slide = null;
         UserInfo userInfo = AuthorityContext.getCurrentUser();
         Long userId = 0L;
+        if (StringUtils.isNotEmpty(dto.getDescription()) && 255 < dto.getDescription().length()) {
+
+            return ResultDtoFactory.toNack("The maximum length of the description is 255 bytes!");
+
+        }
         if (userInfo != null) {
             userId = userInfo.getUserId();
         }

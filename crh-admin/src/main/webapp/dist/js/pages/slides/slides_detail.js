@@ -73,7 +73,7 @@ $(function(){
 							if (msg.code == "ACK") {
 								window.location.href=urlPrefix+"slides/";
 							} else {
-								$("body").loadingInfo("warn", msg.message);
+//								$("body").loadingInfo("warn", msg.message);
 							}
 						}
 			    	});

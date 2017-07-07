@@ -32,7 +32,7 @@ import com.hengtiansoft.common.util.BasicUtil;
 
 @Service
 public class ResourceAdminServiceImpl implements ResourceAdminService {
-    
+
     @Autowired
     private ResourceDao resourceDao;
     @Autowired
@@ -44,8 +44,7 @@ public class ResourceAdminServiceImpl implements ResourceAdminService {
         Map<String, Object> param = new HashMap<String, Object>();
         StringBuilder conditionSql = new StringBuilder("");
         StringBuilder countSql = new StringBuilder("");
-        StringBuilder sql = new StringBuilder(
-                " select id,image,link,title,sort from resource where 1=1 ");
+        StringBuilder sql = new StringBuilder(" select id,image,link,title,sort from resource where 1=1 ");
         countSql.append(" select count(1) from ( ").append(sql);
         conditionSql.append(" and del_flag = '1' order by sort ");
         Query query = entityManager.createNativeQuery(sql.append(conditionSql).toString());
@@ -130,7 +129,12 @@ public class ResourceAdminServiceImpl implements ResourceAdminService {
     @Transactional
     public ResultDto<?> saveResource(ResourceSaveDto dto) {
         if (!dto.getLink().contains("http://") && !dto.getLink().contains("https://")) {
-            return ResultDtoFactory.toNack("The URL format is incorrect, please check it again.(e.g, http://www.google.com or https://www.google.com)", null);
+            return ResultDtoFactory
+                    .toNack("The URL format is incorrect, please check it again.(e.g, http://www.google.com or https://www.google.com)",
+                            null);
+        }
+        if (dto.getTitle().length() > 50) {
+            return ResultDtoFactory.toNack("The maximum length of the title is 50 bytes!");
         }
         ResourceEntity resource = null;
         UserInfo userInfo = AuthorityContext.getCurrentUser();
