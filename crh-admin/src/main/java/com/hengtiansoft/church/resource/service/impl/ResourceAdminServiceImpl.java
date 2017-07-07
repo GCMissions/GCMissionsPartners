@@ -10,6 +10,7 @@ import java.util.Map;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -133,7 +134,7 @@ public class ResourceAdminServiceImpl implements ResourceAdminService {
                     .toNack("The URL format is incorrect, please check it again.(e.g, http://www.google.com or https://www.google.com)",
                             null);
         }
-        if (dto.getTitle().length() > 50) {
+        if (StringUtils.isNotEmpty(dto.getTitle()) && dto.getTitle().length() > 50) {
             return ResultDtoFactory.toNack("The maximum length of the title is 50 bytes!");
         }
         ResourceEntity resource = null;
