@@ -174,8 +174,8 @@
 		<label class="col-sm-4 control-label">Status</label>
 		<div class="col-sm-5">
 			  <select class="form-control" name="status">
-				<option value="enable"> Enable </option>
-				<option value="disable"> Disable </option>
+				<option value="Enable"> Enable </option>
+				<option value="Disable"> Disable </option>
 			  </select>
 		</div>
     </div>
