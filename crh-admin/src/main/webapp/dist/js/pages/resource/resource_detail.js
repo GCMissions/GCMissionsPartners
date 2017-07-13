@@ -4,7 +4,7 @@ $(function(){
 				var _self = this;
 				_self.initEvents();
 			},
-			initEvents : function(){
+			initEvents : function(){  
 				$("#add").click(function(){
 					var image = $("#resource_img").attr("src");
 					var link = $("#link").val();
