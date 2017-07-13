@@ -10,6 +10,10 @@ $(function(){
 					var link = $("#link").val();
 					var title = $("#title").val();
 					var type = "0";
+					var remarks = "1";
+					if("none" != document.getElementById("video").style.display){
+						var remarks = "0"; 
+					}
 					if (image == uiBase + "img/default_goods_image_240.gif" || image == uiBase + "/img/default_goods_image_240.gif") {
 						$("body").loadingInfo("warn", "Please upload the picture!");
 						return;
@@ -31,7 +35,8 @@ $(function(){
 						"image" : image,
 						"link" : link,
 						"title" : title,
-						"type" : type
+						"type" : type,
+						"remarks" : remarks
 					}
 					saveSlide(saveParam);
 				});
@@ -41,6 +46,10 @@ $(function(){
 					var link = $("#link").val();
 					var title = $("#title").val();
 					var type = "1";
+					var remarks = "1";
+					if("none" != document.getElementById("video").style.display){
+						var remarks = "0"; 
+					}
 					if (image == uiBase + "img/default_goods_image_240.gif" || image == uiBase + "/img/default_goods_image_240.gif") {
 						$("body").loadingInfo("warn", "Please upload the picture!");
 						return;
@@ -63,7 +72,8 @@ $(function(){
 					    "image" : image,
 						"link" : link,
 						"title" : title,
-						"type" : type
+						"type" : type,
+						"remarks" : remarks
 					}
 					saveSlide(saveParam);
 				});

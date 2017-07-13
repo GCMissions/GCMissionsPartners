@@ -34,6 +34,17 @@ public class ResourceEntity extends BaseEntity {
     
     @Column(name = "DEL_FLAG")
     private String delFlag;
+    
+    @Column(name = "REMARKS")
+    private String remarks;
+
+    public String getDesc() {
+        return remarks;
+    }
+
+    public void setDesc(String remarks) {
+        this.remarks = remarks;
+    }
 
     public Long getId() {
         return id;
