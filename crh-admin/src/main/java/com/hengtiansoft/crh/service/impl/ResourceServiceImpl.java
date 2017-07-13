@@ -28,6 +28,7 @@ public class ResourceServiceImpl implements ResourceService {
             dto.setTitle(resource.getTitle());
             dto.setImgSrc(resource.getImage());
             dto.setUrl(resource.getLink());
+            dto.setRemarks(resource.getRemarks());
             dtoList.add(dto);
         }
         return ResultDtoFactory.toAck("SUCCESS", dtoList);

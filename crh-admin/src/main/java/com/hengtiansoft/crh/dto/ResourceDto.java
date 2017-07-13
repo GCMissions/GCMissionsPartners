@@ -11,6 +11,16 @@ public class ResourceDto implements Serializable {
     private String imgSrc;
     
     private String url;
+    
+    private String remarks;
+    
+    public String getRemarks() {
+        return remarks;
+    }
+
+    public void setRemarks(String remarks) {
+        this.remarks = remarks;
+    }
 
     public String getTitle() {
         return title;

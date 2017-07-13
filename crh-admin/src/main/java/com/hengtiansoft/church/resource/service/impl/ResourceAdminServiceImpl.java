@@ -164,7 +164,7 @@ public class ResourceAdminServiceImpl implements ResourceAdminService {
         resource.setLink(dto.getLink());
         resource.setTitle(dto.getTitle());
         resource.setImage(dto.getImage());
-        resource.setDesc(dto.getRemarks());
+        resource.setRemarks(dto.getRemarks());
         resourceDao.save(resource);
         return ResultDtoFactory.toAck("Operation is successful!", null);
     }

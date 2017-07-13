@@ -38,11 +38,11 @@ public class ResourceEntity extends BaseEntity {
     @Column(name = "REMARKS")
     private String remarks;
 
-    public String getDesc() {
+    public String getRemarks() {
         return remarks;
     }
 
-    public void setDesc(String remarks) {
+    public void setRemarks(String remarks) {
         this.remarks = remarks;
     }
 
