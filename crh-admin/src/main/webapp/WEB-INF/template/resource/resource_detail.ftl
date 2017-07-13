@@ -15,6 +15,45 @@
 		cursor: pointer;	
 	}
 </style>
+
+<script type="text/javascript"> 
+         function uploadvideo(){
+					var display = document.getElementById("video").style.display;
+					if (display == "none"){
+						$("#video").removeAttr("style");
+					    document.getElementById("linkfile").style.display="none";
+					}
+					else{
+						 document.getElementById("video").style.display="none";
+						 $("#linkfile").removeAttr("style");
+						}
+				}
+         function ajaxupload(){
+        	 $.ajaxFileUpload({
+ 				url : $.GLOBAL.config.uploadvideoUrl.template({source: uploadSourcesMap.resource}),
+ 				secureuri : false,
+ 				fileElementId : "videoFile",
+ 				dataType : 'json',
+ 				global : false,
+ 				data : {},
+ 				success : function (data, status) {
+ 					if (data.code == "ACK") {
+ 						$("#link").val(data.data.url);  
+ 					} else {
+ 						$(window).loadingInfo("error", data.message);
+ 					}
+ 				}
+ 				
+ 			});
+         }
+        
+         
+</script>
+ 
+
+
+
+
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 	<div class="wrapper" style="overflow:visible">
@@ -76,20 +115,31 @@
                     			<span class="col-sm-9" style="color: red;">suggest ratio 2:1 and size < 5M </span>
                     		</div>
                     		<div class="col-sm-12" style="margin-top: 3%;">
-                    			<label class="col-sm-2"><span class="requiredField">*</span>Link:</label>
-                    			<#if showType == "0">
-                    			<input type="text" id="link" class="col-sm-12 form-control" style="width: 300px;"/>
-                    			<#else>
-                    			<input type="text" id="link" class="col-sm-12 form-control" value="${resource.link}" style="width: 300px;"/>
-                    			</#if>
+	                    		<div class="col-sm-6" style="" id="linkfile">
+		                    		<label class="col-sm-2"><span class="requiredField">*</span>Link:</label>
+	                    			<#if showType == "0">
+	                    			<input type="text" id="link" class="col-sm-12 form-control" style="width: 300px;"/>
+	                    			<#else>
+	                    			<input type="text" id="link" class="col-sm-12 form-control" value="${resource.link}" style="width: 300px;"/>
+	                    			</#if>
+	                    		</div>
+	                    		<div style="display:none;" id="video">
+	                    			<label class="col-sm-1" style="margin-right:10px;"><span class="requiredField"style="">&nbsp;&nbsp;&nbsp;&nbsp;*</span>video:</label>
+	                    			<input type="file" id="videoFile" name="videoFile" class="col-sm-12 form-control" onchange="ajaxupload()" value="" style="width: 300px;"/>
+	                    		</div>
+	                    		<div class="col-sm-4">
+	                    			<button  class="btn btn-primary" id="uploadVideo" onclick="uploadvideo()" style="font-weight:100;">上传本地视频</button>
+	                    		</div>
                     		</div>
-                    		<div class="col-sm-12" id="radio_box">
-                    			<label class="col-sm-2"><span class="requiredField">*</span>Title:</label>
-                    			<#if showType == "0">
-                    			<input type="text" id="title" class="col-sm-12 form-control" style="width: 300px;"/>
-                    			<#else>
-                    			<input type="text" id="title" class="col-sm-12 form-control" value="${resource.title}" style="width: 300px;"/>
-                    			</#if>
+                    		<div class="col-sm-12" >
+	                    		<div class="col-sm-6" id="radio_box">
+		                    		<label class="col-sm-2"><span class="requiredField">*</span>Title:</label>
+	                    			<#if showType == "0">
+	                    			<input type="text" id="title" class="col-sm-12 form-control" style="width: 300px;"/>
+	                    			<#else>
+	                    			<input type="text" id="title" class="col-sm-12 form-control" value="${resource.title}" style="width: 300px;"/>
+	                    			</#if>
+	                    		</div>
                     		</div>
                     		<div class="col-sm-6" style="margin-top: 20px;">
 								<div class="col-sm-6 col-sm-offset-5">

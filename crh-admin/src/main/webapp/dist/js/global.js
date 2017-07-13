@@ -16,6 +16,7 @@ $.GLOBAL.config = {
     editUserPostUrl  : urlPrefix +  'user/selfEdit',       //post --> saveData
     uploadUrl : urlPrefix + "main/addImage/{{source}}", //source  uploadSourcesMap.product
     ossUploadUrl : urlPrefix + "main/ossAddImage/{{source}}",
+    uploadvideoUrl : urlPrefix + "video/uploadVideo/{{source}}",
     ossUploadNewUrl : urlPrefix + "main/ossUploadImage/{{source}}",//File name re generation (excluding Chinese)
     ossUploadUrlList : urlPrefix + "main/ossAddImageList/{{source}}",
     uploadSourcesMap :{

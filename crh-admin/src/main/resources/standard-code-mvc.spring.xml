@@ -64,7 +64,7 @@
 	<!-- file upload resolver, max size is 2000K -->
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<property name="maxUploadSize" value="71000000" />
+		<property name="maxUploadSize" value="7100000000" />
 		<property name="resolveLazily" value="true" />
 	</bean>
 
