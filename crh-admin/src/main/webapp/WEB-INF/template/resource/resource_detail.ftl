@@ -128,7 +128,7 @@
 	                    			<input type="file" id="videoFile" name="videoFile" class="col-sm-12 form-control" onchange="ajaxupload()" value="" style="width: 300px;"/>
 	                    		</div>
 	                    		<div class="col-sm-4">
-	                    			<button  class="btn btn-primary" id="uploadVideo" onclick="uploadvideo()" style="font-weight:100;">上传本地视频</button>
+	                    			<button  class="btn btn-primary" id="uploadVideo" onclick="uploadvideo()" style="font-weight:100;">Upload Video</button>
 	                    		</div>
                     		</div>
                     		<div class="col-sm-12" >
