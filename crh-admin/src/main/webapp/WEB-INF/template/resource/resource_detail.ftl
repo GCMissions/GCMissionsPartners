@@ -42,6 +42,7 @@
  				success : function (data, status) {
  					if (data.code == "ACK") {
  						$("#link").val(data.data.url); 
+ 						uploadvideo();
  					} else {
  						$(window).loadingInfo("error", data.message);
  					}
