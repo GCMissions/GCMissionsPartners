@@ -22,16 +22,18 @@
 					if (display == "none"){
 						$("#video").removeAttr("style");
 					    document.getElementById("linkfile").style.display="none";
+					    document.getElementById("uploadVideo").style.display="none"
 					}
 					else{
 						 document.getElementById("video").style.display="none";
 						 $("#linkfile").removeAttr("style");
+						 $("#uploadVideo").removeAttr("style");
 						}
 				}
 
          function ajaxupload(){
-        	 var value =  $("#uploadVideo").text();
-        	 $("#uploadVideo").text("uploading...").attr("disabled", true);
+        	 var value =  document.getElementById("filebutton").value;
+        	 $("#filebutton").val("uploading...").attr("disabled", true);
         	 $.ajaxFileUpload({
  				url : $.GLOBAL.config.uploadvideoUrl.template({source: uploadSourcesMap.resource}),
  				secureuri : false,
@@ -46,10 +48,10 @@
  					} else {
  						$(window).loadingInfo("error", data.message);
  					}
- 					$("#uploadVideo").text(value).attr("disabled", false);
+ 					$("#filebutton").val(value).attr("disabled", false);
  				},
                 error: function (data, status){//服务器响应失败处理函数
-                	$("#uploadVideo").text(value).attr("disabled", false);
+                	$("#filebutton").val(value).attr("disabled", false);
                 }
  				
  			});
@@ -128,7 +130,8 @@
 	                    		</div>
 	                    		<div style="display:none;" id="video">
 	                    			<label class="col-sm-1" style="margin-right:10px;"><span class="requiredField"style="">&nbsp;&nbsp;&nbsp;&nbsp;*</span>video:</label>
-	                    			<input type="file" id="videoFile" name="videoFile" class="col-sm-12 form-control" onchange="ajaxupload()" value="" style="width: 300px;"/>
+	                    			<input type="file" id="videoFile" name="videoFile" class="col-sm-6 form-control" onchange="ajaxupload()" value=" " style="display:none;width: 300px;"/>
+									<input type=button id=filebutton value= "Select Document"  class="col-sm-3 btn btn-success fileinput-button" onclick="videoFile.click()">  
 	                    		</div>
 	                    		<div class="col-sm-4">
 	                    			<button  class="btn btn-primary" id="uploadVideo" onclick="uploadvideo()" style="font-weight:100;">Upload Video</button>
