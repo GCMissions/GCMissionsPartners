@@ -42,11 +42,10 @@
  				success : function (data, status) {
  					if (data.code == "ACK") {
  						$("#link").val(data.data.url); 
- 						$("#uploadVideo").text(value).attr("disabled", false);
  					} else {
  						$(window).loadingInfo("error", data.message);
- 						$("#uploadVideo").text(value).attr("disabled", false);
  					}
+ 					$("#uploadVideo").text(value).attr("disabled", false);
  				},
                 error: function (data, status){//服务器响应失败处理函数
                 	$("#uploadVideo").text(value).attr("disabled", false);
