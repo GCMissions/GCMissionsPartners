@@ -156,11 +156,11 @@
                     </ul>
 				</li>
 				</#if>
-			
+				
 				<#if auth.hasPermission("mission")>
                  <li class="treeview">
                     <a href="#">
-                        <img src="${uiBase}img/region2.png">  
+                        <img src="${uiBase}img/resourse-2.png">  
                         <span>Mission </span> 
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
@@ -171,6 +171,7 @@
                     </ul>
 				</li>
 				</#if>
+				
               </ul>
             </section>
             <!-- /.sidebar -->
