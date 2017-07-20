@@ -36,6 +36,13 @@ public class PartnerAdminController {
         return dto;
     }
 
+    @RequestMapping(value="/others", method = RequestMethod.POST)
+    @ResponseBody
+    public PartnerSearchDto searchOtherPartner(@RequestBody PartnerSearchDto dto) {
+        partnerService.getAllOtherPartner(dto);
+        return dto;
+    }
+
     @RequestMapping(value = "/view/{id}/{showType}", method = RequestMethod.GET)
     public String view(@PathVariable Long id, @PathVariable String showType, Model model) {
         model.addAttribute("showType", showType);
