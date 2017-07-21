@@ -41,7 +41,7 @@ public class SalutatoryAdminServiceImpl implements SalutatoryAdminService {
             message = "Error Opearation";
         } else {
             message = "Saved Operation";
-            if (dto.getId() == 0L) {
+            if (dto.getId() == 0L || Long.valueOf(dto.getId()) == null) {
                 salutatory = new SalutatoryEntity();
                 salutatory.setCreateTime(new Date());
             } else {
