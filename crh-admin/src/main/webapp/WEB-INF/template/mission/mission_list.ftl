@@ -42,27 +42,33 @@
                     				<option value="${item.id}" <#if item.display == "1">selected=selected</#if>>${item.name}</option>
                     				</#list>
                     			</select>
-                    			
                     			</div>
-                    			<!--  <div class="col-sm-3"><button class="btn  btn-primary" id="change" >  Change</button></div>-->
+                    		    <div class="col-sm-3"><button class="btn  btn-primary" id="change" >  Change model as the current</button></div>
                     		</div>
                     	</div>
                     </div>
                     
+                    <!-- textAreal -->
                     <div id = "textAreal" class="box-body">
                    		 <input  class="col-sm-6 form-control" type="hidden" id="sal"/>
 	                    <div class="col-md-12">
 	                		<label class="col-sm-1"><span class="requiredField">*</span>Title:</label>
 	                		<input type="text" class="col-sm-6 form-control"style="width: 385px;" id="title"/>
 	            		</div>
+	            		<div class="col-md-12">
+	                		<label class="col-sm-1"><span class="requiredField">*</span>Content:</label>
+	            		</div>
 	                    <div  class="box-body">
 	                   		<textarea id="TextArea1" cols="20" rows="2" class="ckeditor" style = "margin-top:100px"></textarea>
 	                    </div>
 	                    <div class="col-sm-6">
-									<button  class="btn  btn-primary" id="savebtn" style="font-weight:100">Save</button>
+									<button  class="btn  btn-primary" id="editbtn" style="font-weight:100">Edit</button>
+									<button  class="btn  btn-primary" id="savebtn" style="font-weight:100;">Save</button>
+									<button  class="btn  btn-primary" id="resetbtn" style="font-weight:100">Reset</button>
 						</div>
                     </div>
                     
+                    <!-- table  -->
                     <div class="box-body" id = "missionTable" style="display:none">
                     <table id="dataList" class="table table-bordered table-hover" >
                       <thead>
@@ -76,6 +82,8 @@
                         </tbody>
                       </table>
                     </div>
+                    
+                    <div></div>
                 </div>
              </div>
         </div>
@@ -90,5 +98,33 @@
 <script type="text/javascript" src="${uiBase}vendor/ckeditor/ckeditor.js"></script>
 <script type="text/javascript">
     CKEDITOR.replace('TextArea1');
+</script>
+<script id="editMission" type="text/html">
+<form id="addEditForm" method="post" class="form-horizontal">
+<div class="box-body form-horizontal addEditTpl">
+	<div class="form-group row">
+
+      <input type= "hidden" name = "mid" id ="mid" value = "{dto.id}"
+
+	  <label class="col-sm-4 control-label" ><span class="requiredField">*</span>Title</label>
+	  <div class="col-sm-8">
+	    <input type="text" class="form-control" id = "mtitle" name = "mtitle"
+        	data-rule-required="true" value="${dto.title}" >${dto.title}</input>
+	  </div>
+	</div>
+	<div class="form-group row">
+		<label class="col-sm-4 control-label"><span class="requiredField">*</span>Content</label>
+	  	<div class="col-sm-8">
+	  		<textarea rows="10" data-rule-required="true" class="form-control col-sm-12" name = "mcontent" id="mcontent">${dto.content}</textarea>
+	  	</div>
+	</div>
+	<div class="form-group row">
+	<label class="col-sm-4 control-label" for="type-select"></label>
+		<div class="col-sm-4">
+			<!--<label class="role_checkbox"><input name="unlock" type="hidden" value="1"/><input type="checkbox" class="flat-red" {{if dto.status == 'Disable' }}checked{{else}}disabled{{/if}} name="lockUser" />Locked</label>-->
+		</div>
+	</div>
+</div>
+</form>
 </script>
 <script type="text/javascript" src="${uiBase}js/pages/mission/mission_list.js?v=${resourceVersion}"></script>

@@ -239,6 +239,7 @@ $(function(){
 		            userId = $form.find('input[name="id"]').val(),
 		            action = userId ? that.editURL: that.addURL,
 		            data = that.getJson($form);
+				
 		        if($form.validate().form()) {
 		        	$btn.saving();
 		            $.ajax({
