@@ -24,7 +24,7 @@
         <section class="content-header">
           <ol class="breadcrumb">
             <li><img src="${uiBase}img/partner.png"> Mission</li>
-          	<li>Edit Partner</li>
+          	<li>Edit Mission</li>
           </ol>
         </section>
         

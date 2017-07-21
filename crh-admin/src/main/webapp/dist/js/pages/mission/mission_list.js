@@ -79,7 +79,7 @@ $(function() {
 					data : JSON.stringify(data),
 					success : function(msg) {
 						if (msg.code == "ACK") {
-							alert("save Successfully");
+							$("body").loadingInfo("warn", "Save Successfully");
 						}
 					}
 				});
@@ -95,7 +95,7 @@ $(function() {
 					},
 					success : function(msg) {
 						if (msg.code == "ACK") {
-							alert("Change Model Successfully");
+							$("body").loadingInfo("warn", "Update Successfully");
 						}
 					}
 				});
