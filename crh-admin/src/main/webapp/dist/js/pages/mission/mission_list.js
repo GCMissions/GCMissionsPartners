@@ -79,7 +79,7 @@ $(function() {
 					data : JSON.stringify(data),
 					success : function(msg) {
 						if (msg.code == "ACK") {
-							alert("修改成功!");
+							alert("save Successfully");
 						}
 					}
 				});
@@ -95,7 +95,7 @@ $(function() {
 					},
 					success : function(msg) {
 						if (msg.code == "ACK") {
-							alert("修改成功!");
+							alert("Change Model Successfully");
 						}
 					}
 				});
@@ -122,10 +122,11 @@ $(function() {
 			}
 
 			setVal();
-			$("#change").click(function() {
+			$("#model").change(function(){
 				changeModel();
 				changeTab();
 			});
+				
 
 		}
 	}.init();

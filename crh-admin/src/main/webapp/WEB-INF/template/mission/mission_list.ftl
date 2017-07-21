@@ -43,12 +43,12 @@
                     				</#list>
                     			</select>
                     			</div>
-                    			<div class="col-sm-3"><button class="btn  btn-primary" id="change" >  Change</button></div>
+                    			<!--  <div class="col-sm-3"><button class="btn  btn-primary" id="change" >  Change</button></div>-->
                     		</div>
                     	</div>
                     </div>
                     
-                    <div id = "textAreal" style="display:none">
+                    <div id = "textAreal" class="box-body">
                    		 <input  class="col-sm-6 form-control" type="hidden" id="sal"/>
 	                    <div class="col-md-12">
 	                		<label class="col-sm-1"><span class="requiredField">*</span>Title:</label>
@@ -58,15 +58,13 @@
 	                   		<textarea id="TextArea1" cols="20" rows="2" class="ckeditor" style = "margin-top:100px"></textarea>
 	                    </div>
 	                    <div class="col-sm-6" style="margin-top: 120px;">
-								<div class="col-sm-6 col-sm-offset-5">
-									<button class="btn  btn-default backPage" id="back" >  Cancel</button>
+									<!--<button class="btn  btn-default backPage" id="back" >  Cancel</button>-->
 									<button  class="btn  btn-primary" id="savebtn" style="font-weight:100">Save</button>
-								</div>
 						</div>
                     </div>
                     
                     <div class="box-body" id = "missionTable" style="display:none">
-                      <table id="dataList" class="table table-bordered table-hover" >
+                    <table id="dataList" class="table table-bordered table-hover" >
                       <thead>
                         	<!-- <th field="brand_id" width=70><div class="datagrid-header-check"><input type="checkbox"></div></th> -->
                         	<th>index</th>
