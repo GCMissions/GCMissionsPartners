@@ -116,7 +116,6 @@ $(function(){
 				
 				setVal();
 				$("#change").click(function(){
-					alert($("#model").val());
 					changeModel();
 					changeTab();
 				});
