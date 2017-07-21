@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.google.code.yanf4j.core.Session;
 import com.hengtiansoft.church.dao.MissionDao;
 import com.hengtiansoft.church.dao.ModelDao;
+import com.hengtiansoft.church.dao.SalutataoryDao;
 import com.hengtiansoft.church.entity.MissionEntity;
 import com.hengtiansoft.church.entity.ModelEntity;
 import com.hengtiansoft.church.enums.StatusEnum;
@@ -25,6 +26,8 @@ public class MissionServiceImpl implements MissionService {
     private MissionDao missionDao;
     @Autowired
     private ModelDao modelDao;
+    @Autowired
+    private SalutataoryDao salutataoryDao;
 
     @Override
     public ResultDto<List<MissionEntity>> getMissions() {
@@ -43,10 +46,9 @@ public class MissionServiceImpl implements MissionService {
         }else{
             data.setModelId(model.getId());
         }
-        
         //特殊情況
         if(data.getModelId() == 2L){
-            
+            data.setSalutatoryEntity(salutataoryDao.findAll().get(0));
         }else{
             List<MissionEntity> list = missionDao.findAll();
             data.setMissions(list);

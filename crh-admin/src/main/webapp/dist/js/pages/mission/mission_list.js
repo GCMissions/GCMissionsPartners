@@ -1,5 +1,6 @@
 $(function(){
-	var slideList = {
+	var missionList = {
+			
 			init : function() {
 				var _self = this;
 				_self.initEvents();
@@ -8,145 +9,119 @@ $(function(){
 				var bootTable = $.GLOBAL.utils.loadBootTable({
 					table : $('#dataList'),
 					pagination : true,
-					pageSize : 10,
-					url: 'slides/list',
+					pageSize : 4,
+					url: 'mission/list',
 					sidePagination:'server',
 					queryAddParams: function() {
 						
 					},
 					columns: [{
-						field: 'index',
+						field: 'id',
                 		width: '5%'
 					} ,{
-						field: 'image',
-						width: '20%',
-						formatter: function(value,row,index){
-							return "<div class='adspic-list'><ul><li class='adspic-upload'><div class='upload-thumb'>" +
-								   "<img src='" + value + "' class='slideImage'>" +
-								   "</div></li></ul></div>";
-						}
+						field: 'title',
+						width: '25%',
 					} , {
-						field: 'description',
-						width: '35%'
+						field: 'content',
+						width: '60%'
 					} , {
-						field: 'displayed',
-						width: '20%'
-					}, {
 						field: 'id',
-						width: '20%',
-						formatter: function(value,row,index){
+						width: '10%',
+						formatter: function(value,row,id){
 							var result = "";
-							result += "<a href='" + urlPrefix + "slides/view/" + value + "' class='detailItem' data-id='"+value+"'>Edit</a>";
-							if (row.index != row.totalRecords) {
-								result += "<a style='margin-left: 10%;' href=''  class='downItem' data-id='"+value+"'>Down</a>";
-							}
-							if (row.index != "1") {
-								result += "<a style='margin-left: 10%;' href='' class='upItem' data-id='"+value+"'>Up</a>";
-							}
-							result += "<a style='margin-left: 10%;' href='javascript:void(0)' class='deleteItem' data-id='"+value+"'>Delete</a>";
+							result += "<a href='" + urlPrefix + "mission/view/" + value + "' class='detailItem' data-id='"+value+"'>Edit</a>";
 							return result;
 						} 
 					}]
 				});
 				
-				$("#dataList").on('click','.deleteItem',function(){
-					var id = $(this).data("id");
-					this.dialog =  BootstrapDialog.show({
-		                title: 'Delete Slide',
-		                type : BootstrapDialog.TYPE_WARNING,
-		                message: 'Confirm to delete the slide?',
-		                draggable: true,
-		                size : BootstrapDialog.SIZE_SMALL,
-		                buttons: [{
-		                    label: 'Confirm',
-		                    cssClass: 'btn-primary saveAddEditTpl',
-		                    action: function(dialog) {
-		                    	dialog.close();
-		                    	deleteSlide(id);
-		                    }
-		                }, {
-		                    label: 'Cancel',
-		                    action: function(dialog) {
-		                        dialog.close();
-		                    }
-		                }]
-		            });
-				});
-				
-				var deleteSlide = function(id){
+				var setVal = function(){
 					$.ajax({
 			    		type         : 'POST',
-						url          : urlPrefix + "slides/delete",
+						url          : urlPrefix + "salutatory/get",
+						contentType: "application/json;charset=utf-8",
+						dataType     : 'json',
+						success : function(msg){
+							debugger;
+							if (msg != null &&  msg != "") {
+								$("#sal").attr("value",msg.id);
+								$("#title").attr("value",msg.title);
+								setTimeout(function(){
+									 CKEDITOR.instances.TextArea1.settData(msg.content);
+								},0);
+							} 
+						}
+			    	});
+	
+			   };
+
+				$("#savebtn").click(function(){
+					//获取当前编辑的内容
+					var content = CKEDITOR.instances.TextArea1.getData();
+					var title  = $("#title").val();
+					$.ajax({
+			    		type         : 'POST',
+						url          : urlPrefix + "salutatory/save",
+						contentType: "application/json;charset=utf-8",
 						dataType     : 'json',
 						data 	     : {
-							"id" : id
+							"id":$("#sal").val(),
+							"title" : title,
+							"content":content
 						},
 						success : function(msg){
 							if (msg.code == "ACK") {
-								freshTable();
-							} else {
-								$("body").loadingInfo("warn", msg.message);
-							}
+								alert("修改成功!");
+							} 
+						}
+			    	});
+				});
+				
+
+				var changeModel = function(){
+					$.ajax({
+			    		type         : 'POST',
+						url          : urlPrefix + "model/change",
+						dataType     : 'json',
+						data 	     : {
+							"id" : $("#model").val()
+						},
+						success : function(msg){
+							if (msg.code == "ACK") {
+								alert("修改成功!");
+							} 
 						}
 			    	});
 				};
 				
-				$("#dataList").on('click','.downItem',function(){
-					var id = $(this).data("id");
-					var dataParam = {
-							"id":id,
-							"type": "0"
-					};
-					$.ajax({
-			    		type         : 'POST',
-						url          : urlPrefix + "slides/sort",
-						dataType     : 'json',
-						contentType: "application/json;charset=utf-8",
-						data 	     : JSON.stringify(dataParam),
-						success : function(msg){
-							if (msg.code == "ACK") {
-								bootTable.refreshThis();
-							} else {
-								$("body").loadingInfo("warn", msg.message);
-							}
-						}
-			    	});
-				});
-				
-				$("#dataList").on('click','.upItem',function(){
-					var id = $(this).data("id");
-					var dataParam = {
-							"id":id,
-							"type": "1"
-					};
-					$.ajax({
-			    		type         : 'POST',
-						url          : urlPrefix + "slides/sort",
-						dataType     : 'json',
-						contentType: "application/json;charset=utf-8",
-						data 	     : JSON.stringify(dataParam),
-						success : function(msg){
-							if (msg.code == "ACK") {
-								bootTable.refreshThis();
-							} else {
-								$("body").loadingInfo("warn", msg.message);
-							}
-						}
-			    	});
-				});
-				
-				var freshTable = function(){
-					var num =  $('#dataList').bootstrapTable('getOptions').pageNumber;
-					var size =  $('#dataList').bootstrapTable('getOptions').pageSize;
-					var record =  $('#dataList').bootstrapTable('getOptions').totalRows;
-					var total =  $('#dataList').bootstrapTable('getOptions').totalPages
-					if(num == total && (record - 1)%size == 0&&num>1){
-						 num = num-1;
-						 $('#dataList').bootstrapTable('refresh', {query: {currentPage:num}});
+				var changeTab = function(){
+					var code = $("#model").val();
+					if(code==1){
+						$("#missionTable").show();
+						$("#textAreal").hide();
 					}else{
-						 $('#dataList').bootstrapTable('refresh', {query: {currentPage:num}});
-					}; 
+						$("#missionTable").hide();
+						$("#textAreal").show();
+					}
 				};
+				
+				var code = $("#model").val();
+				if(code==1){
+					$("#missionTable").show();
+					$("#textAreal").hide();
+				}else{
+					$("#missionTable").hide();
+					$("#textAreal").show();
+				}
+				
+				setVal();
+				$("#change").click(function(){
+					alert($("#model").val());
+					changeModel();
+					changeTab();
+				});
+				
 			}
 	}.init();
+	
 })

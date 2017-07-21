@@ -1,15 +1,12 @@
 package com.hengtiansoft.church.mission.services.impl;
 
-import java.util.List;
-
 import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.hengtiansoft.church.dao.MissionDao;
 import com.hengtiansoft.church.entity.MissionEntity;
 import com.hengtiansoft.church.mission.dto.MissionSaveDto;
+import com.hengtiansoft.church.mission.dto.MissionSearchDto;
 import com.hengtiansoft.church.mission.services.MissionAdminService;
 import com.hengtiansoft.common.dto.ResultDto;
 import com.hengtiansoft.common.dto.ResultDtoFactory;
@@ -20,8 +17,9 @@ public class MissionAdminServeiceImpl implements MissionAdminService{
     @Autowired
     private MissionDao  missionDao;
     @Override
-    public ResultDto<List<MissionEntity>> getAllMission() {
-        return ResultDtoFactory.toAck("",missionDao.findAll());
+    public MissionSearchDto getAllMission(final MissionSearchDto dto) {
+       dto.setList(missionDao.findAll());
+       return dto;
     }
 
     @Transactional

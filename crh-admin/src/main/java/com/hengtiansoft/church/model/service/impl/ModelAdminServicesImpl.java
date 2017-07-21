@@ -31,16 +31,9 @@ public class ModelAdminServicesImpl implements ModelAdminService{
     @Transactional
     @Override
     public ResultDto<?> changeModel(Long id) {
-        String message = "";
-        ModelEntity model = modelDao.getCurrentModel();
-        if(id == 0L || id == model.getId()){
-            message = "Error operation!";
-        }else{
-            modelDao.chooseModel(id); 
-            modelDao.unchooseModel(model.getId());
-            message = "Change Model Successfully!";
-        }
-        return ResultDtoFactory.toAck(message,null);
+        modelDao.updateAllToUnChoose();
+        modelDao.chooseModel(id); 
+        return ResultDtoFactory.toAck("success",null);
     }
 
    
