@@ -53,9 +53,12 @@ $(function() {
 							$("#sal").attr("value", msg.id);
 							$("#title").attr("value", msg.title);
 							setTimeout(function() {
+								var aa = msg.content;
+								aa = aa.replace(new RegExp("&lt;","g"),"<").replace(new RegExp("&gt;","g"),">")
 								CKEDITOR.instances.TextArea1
-										.setData(msg.content);
-							}, 0);
+										.insertHtml(aa);
+//								.insertText(msg.content);
+							}, 2000);
 						}
 					}
 				});

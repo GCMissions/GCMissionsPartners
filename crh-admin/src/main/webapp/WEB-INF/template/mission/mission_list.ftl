@@ -42,6 +42,7 @@
                     				<option value="${item.id}" <#if item.display == "1">selected=selected</#if>>${item.name}</option>
                     				</#list>
                     			</select>
+                    			
                     			</div>
                     			<!--  <div class="col-sm-3"><button class="btn  btn-primary" id="change" >  Change</button></div>-->
                     		</div>
@@ -57,8 +58,7 @@
 	                    <div  class="box-body">
 	                   		<textarea id="TextArea1" cols="20" rows="2" class="ckeditor" style = "margin-top:100px"></textarea>
 	                    </div>
-	                    <div class="col-sm-6" style="margin-top: 120px;">
-									<!--<button class="btn  btn-default backPage" id="back" >  Cancel</button>-->
+	                    <div class="col-sm-6">
 									<button  class="btn  btn-primary" id="savebtn" style="font-weight:100">Save</button>
 						</div>
                     </div>
