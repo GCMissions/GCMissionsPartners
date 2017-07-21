@@ -12,6 +12,8 @@ public interface PartnerAdminService {
 
     void searchPartner(PartnerSearchDto dto);
     
+    void getAllOtherPartner(PartnerSearchDto dto);
+    
     PartnerSaveDto view(Long id);
     
     ResultDto<?> deletePartner(Long id);
@@ -21,4 +23,5 @@ public interface PartnerAdminService {
     RegionAndCountryDto getAllRegion();
     
     ResultDto<List<CountryEntity>> getCountry(Long regionId);
+    
 }

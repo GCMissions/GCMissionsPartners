@@ -156,6 +156,22 @@
                     </ul>
 				</li>
 				</#if>
+				
+				<#if auth.hasPermission("mission")>
+                 <li class="treeview">
+                    <a href="#">
+                        <img src="${uiBase}img/resourse-2.png">  
+                        <span>Mission </span> 
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                   		<#if auth.hasPermission("mission.show")>
+                        <li><a href="mission/" class="J_menuItem"><i class="fa fa-circle-o"></i>Mission Management</a></li>
+                        </#if>
+                    </ul>
+				</li>
+				</#if>
+				
               </ul>
             </section>
             <!-- /.sidebar -->

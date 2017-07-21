@@ -33,6 +33,9 @@
 				/web/slide/**=anon
 				/web/resource/**=anon
 				/web/partner/**=anon
+				/web/mission/**=anon
+				/web/salutatory/**=anon
+				/web/model/**=anon
 				/assets/**=anon
 				/web/api-docs/**=anon
 				/web/error/404=anon
