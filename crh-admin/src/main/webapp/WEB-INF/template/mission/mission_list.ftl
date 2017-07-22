@@ -69,7 +69,7 @@
                     </div>
                     
                     <!-- table  -->
-                    <div class="box-body" id = "missionTable" style="display:none">
+                    <div class="box-body" id = "missionTable">
                     <table id="dataList" class="table table-bordered table-hover" >
                       <thead>
                         	<!-- <th field="brand_id" width=70><div class="datagrid-header-check"><input type="checkbox"></div></th> -->
@@ -102,27 +102,20 @@
 <script id="editMission" type="text/html">
 <form id="addEditForm" method="post" class="form-horizontal">
 <div class="box-body form-horizontal addEditTpl">
+
 	<div class="form-group row">
-
-      <input type= "hidden" name = "mid" id ="mid" value = "{dto.id}"
-
 	  <label class="col-sm-4 control-label" ><span class="requiredField">*</span>Title</label>
 	  <div class="col-sm-8">
-	    <input type="text" class="form-control" id = "mtitle" name = "mtitle"
-        	data-rule-required="true" value="${dto.title}" >${dto.title}</input>
+		<input type="hidden" name="id" value={{id}}>
+	    <input type="text" class="form-control" name="title" placeholder="Please enter your title"
+        	data-rule-required="true" data-msg-required="Please enter your title" value="{{title}}" >
 	  </div>
 	</div>
 	<div class="form-group row">
 		<label class="col-sm-4 control-label"><span class="requiredField">*</span>Content</label>
 	  	<div class="col-sm-8">
-	  		<textarea rows="10" data-rule-required="true" class="form-control col-sm-12" name = "mcontent" id="mcontent">${dto.content}</textarea>
+	  		<textarea rows="10" data-rule-required="true" class="form-control col-sm-12" name = "content" value="{{content}}">{{content}}</textarea>
 	  	</div>
-	</div>
-	<div class="form-group row">
-	<label class="col-sm-4 control-label" for="type-select"></label>
-		<div class="col-sm-4">
-			<!--<label class="role_checkbox"><input name="unlock" type="hidden" value="1"/><input type="checkbox" class="flat-red" {{if dto.status == 'Disable' }}checked{{else}}disabled{{/if}} name="lockUser" />Locked</label>-->
-		</div>
 	</div>
 </div>
 </form>

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.hengtiansoft.church.entity.MissionEntity;
 import com.hengtiansoft.church.entity.ModelEntity;
 import com.hengtiansoft.church.mission.dto.MissionSaveDto;
 import com.hengtiansoft.church.mission.dto.MissionSearchDto;
@@ -39,12 +40,18 @@ public class MissionAdminController {
         return missionService.getAllMission(dto);
     }
     
-    @RequestMapping(value = "/view/{id}", method = RequestMethod.GET)
-    public String view(@PathVariable Long id, Model model) {
-        model.addAttribute("mission", missionService.view(id));
-        return "mission/mission_detail";
-    }
+//    @RequestMapping(value = "/view/{id}", method = RequestMethod.GET)
+//    public String view(@PathVariable Long id, Model model) {
+//        model.addAttribute("mission", missionService.view(id));
+//        return "mission/mission_detail";
+//    }
+//    
     
+    @RequestMapping(value = "/view/{id}", method = RequestMethod.GET)
+    @ResponseBody
+    public MissionEntity view(@PathVariable(value="id") Long id) {
+        return missionService.view(id);
+    }
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     @ResponseBody
     public ResultDto<?> savePartner(@RequestBody MissionSaveDto dto) {
