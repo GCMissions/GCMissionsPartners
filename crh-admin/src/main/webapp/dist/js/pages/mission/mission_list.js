@@ -190,7 +190,7 @@ $(function() {
 					data : JSON.stringify(data),
 					success : function(msg) {
 						if (msg.code == "ACK") {
-							$("body").loadingInfo("error", "Save Successfully");
+							$("body").loadingInfo("success", "Save Successfully");
 						}
 					}
 				});
@@ -218,13 +218,8 @@ $(function() {
 					});
 					
 					reset.on("click",function(){
+						CKEDITOR.instances.TextArea1.setData(' ');
 						setVal();
-						CKEDITOR.instances.TextArea1.setReadOnly(true);
-//						CKEDITOR.config.readOnly = true;
-						title.attr("disabled",true);
-						save.hide();
-						edit.show();
-						reset.hide();
 					});
 					
 					save.on("click",function(){
@@ -260,7 +255,7 @@ $(function() {
 					},
 					success : function(msg) {
 						if (msg.code == "ACK") {
-							$("body").loadingInfo("warn", "Update Successfully");
+							$("body").loadingInfo("success", "Update Successfully");
 						}
 					}
 				});

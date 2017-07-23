@@ -34,15 +34,13 @@
                 <div class="box box-primary">
                     <div class="form-horizontal search-group" id="search-area" >
                     	<div class="box-body">
-                    		<div class="col-sm-12" style = "height:50px; width = "100%">
-                    			<div class="col-sm-3"><lable>The Current Model:</lable></div>
-                    			<div class="col-sm-3">
-                    			<select class="col-sm-10 form-control" id="model" style="width: 200px; height:80%;line-height:50px;">
+                    		<div class="col-sm-8">
+                    			<div class="col-sm-3" style="text-align:center;top:50%;margin-top:6px;"><lable>The Current Model:</lable></div>
+                    			<select class="col-sm-3 form-control" id="model" style="width: 200px; height:80%;line-height:50px;">
                     				<#list model as item>
                     				<option value="${item.id}" <#if item.display == "1">selected=selected</#if>>${item.name}</option>
                     				</#list>
                     			</select>
-                    			</div>
                     		    <div class="col-sm-3"><button class="btn  btn-primary" id="change" >  Change model as the current</button></div>
                     		</div>
                     	</div>
@@ -52,19 +50,19 @@
                     <div id = "textAreal" class="box-body">
                    		 <input  class="col-sm-6 form-control" type="hidden" id="sal"/>
 	                    <div class="col-md-12">
-	                		<label class="col-sm-1"><span class="requiredField">*</span>Title:</label>
-	                		<input type="text" class="col-sm-6 form-control"style="width: 385px;" id="title"/>
-	            		</div>
-	            		<div class="col-md-12">
-	                		<label class="col-sm-1"><span class="requiredField">*</span>Content:</label>
-	            		</div>
-	                    <div  class="box-body">
+		                		<label class="col-sm-1"><span class="requiredField">*</span>Title:</label>
+		                		<input type="text" class="col-sm-6 form-control"style="width: 385px;" id="title"/>
+	            			</div>
+		            		<div class="col-md-12">
+		                		<label class="col-sm-1"><span class="requiredField">*</span>Content:</label>
+		            		</div>
+	                    <div  class="col-md-12">
 	                   		<textarea id="TextArea1" cols="20" rows="2" class="ckeditor" style = "margin-top:100px"></textarea>
 	                    </div>
-	                    <div class="col-sm-6">
-									<button  class="btn  btn-primary" id="editbtn" style="font-weight:100">Edit</button>
-									<button  class="btn  btn-primary" id="savebtn" style="font-weight:100;">Save</button>
-									<button  class="btn  btn-primary" id="resetbtn" style="font-weight:100">Reset</button>
+	                    <div class="col-sm-12">
+							<button  class="btn  btn-primary" id="editbtn" style="font-weight:100">Edit</button>
+							<button  class="btn  btn-primary" id="savebtn" style="font-weight:100;">Save</button>
+							<button  class="btn  btn-primary" id="resetbtn" style="font-weight:100">Reset</button>
 						</div>
                     </div>
                     
