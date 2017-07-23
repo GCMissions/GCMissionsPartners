@@ -164,7 +164,7 @@ $(function() {
 								aa = aa.replace(new RegExp("&lt;","g"),"<").replace(new RegExp("&gt;","g"),">")
 								CKEDITOR.instances.TextArea1
 										.insertHtml(aa);
-							});
+							},500);
 						}
 					}
 				});
