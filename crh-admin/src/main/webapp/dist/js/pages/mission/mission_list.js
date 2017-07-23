@@ -1,6 +1,6 @@
 $(function() {
 	var missionList = {
-
+	    bootTable : void 0,
 		init : function() {
 			var _self = this;
 			_self.initEvents();
@@ -9,7 +9,7 @@ $(function() {
 			_self.mod();
 		},
 		initEvents : function() {
-			var bootTable = $.GLOBAL.utils.loadBootTable({
+			this.bootTable = $.GLOBAL.utils.loadBootTable({
 				table : $('#dataList'),
 				pagination : true,
 				pageSize : 4,
@@ -46,39 +46,37 @@ $(function() {
 		
 		editDialog:function(){
 			var that = this;
-			setTimeout(function(){
-				$(".editMissionList").on("click",function(){
-					var id = $(this).prop('value');
-					$.ajax({
-						type: "GET",
-						url: urlPrefix + "mission/view/"+id,
-						dataType: 'json',
-						contentType: 'application/json;charset=utf-8',
-					})
-					.done(function(response){
-						if(response != null && response != ""){
-							that.dialog=BootstrapDialog.show({
-								title: 'Edit Mission',
-								message:  $(template('editMission',response)),
-								draggable: true,
-								buttons: [{
-									label: 'Save',
-									cssClass: 'btn-primary saveAddEditTpl',
-									action: function(dialog, e) {
-										saveMission($(e.target));
-									}
-								}, {
-									label: 'Cancel',
-									action: function(dialog) {
-										dialog.close();
-									}
-								}],
-								
-							});
-						}
-					});
+			$('#dataList').on('click','.editMissionList',function(){
+				var id = $(this).prop('value');
+				$.ajax({
+					type: "GET",
+					url: urlPrefix + "mission/view/"+id,
+					dataType: 'json',
+					contentType: 'application/json;charset=utf-8',
+				})
+				.done(function(response){
+					if(response != null && response != ""){
+						that.dialog=BootstrapDialog.show({
+							title: 'Edit Mission',
+							message:  $(template('editMission',response)),
+							draggable: true,
+							buttons: [{
+								label: 'Save',
+								cssClass: 'btn-primary saveAddEditTpl',
+								action: function(dialog, e) {
+									saveMission($(e.target));
+								}
+							}, {
+								label: 'Cancel',
+								action: function(dialog) {
+									dialog.close();
+								}
+							}],
+							
+						});
+					}
 				});
-			},100);
+			});
 			
 			var getJson = function($form) {
 				$.fn.serializeObject = function(){
