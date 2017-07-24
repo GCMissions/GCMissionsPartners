@@ -69,7 +69,6 @@ $(function(){
 						$("body").loadingInfo("warn", "Please enter the introduce!");
 						return;
 					}
-					alert(introduce.length);
 					if(introduce.length >2000){
 						$("body").loadingInfo("warn", "Text length must not exceed 2000!");
 						return;
