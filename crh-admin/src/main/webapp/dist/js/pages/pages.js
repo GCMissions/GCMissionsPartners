@@ -4,14 +4,14 @@ $(function() {
 	 * Used for date control formatting
 	 */
 	$.fn.datetimepicker.dates['ch'] = {
-			Days: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-			DaysShort: [" seven "," one "," two "," three "," four "," five "," six ","seven"],
-			months :[" one "," two "," three "," four "," five "," six ",
-			                "seven", "eight", "nine", "ten", "eleven", "twelve" ],
-			                MonthsShort: ["January", "May", "March", "April", "May", "June", "July", "August", "September", " October "," November "," December "],
-			                Meridiem: ["morning", "afternoon"],
-			                Suffix: [],
-			                Today: "today"
+	Days: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+	DaysShort: [" seven "," one "," two "," three "," four "," five "," six ","seven"],
+	months :[" one "," two "," three "," four "," five "," six ",
+	"seven", "eight", "nine", "ten", "eleven", "twelve" ],
+	MonthsShort: ["January", "May", "March", "April", "May", "June", "July", "August", "September", " October "," November "," December "],
+	Meridiem: ["morning", "afternoon"],
+	Suffix: [],
+	Today: "today"
 	};
 	var datetimepicker = {
         init: function(){
