@@ -69,7 +69,11 @@ $(function(){
 						$("body").loadingInfo("warn", "Please enter the introduce!");
 						return;
 					}
-					
+					alert(introduce.length);
+					if(introduce.length >2000){
+						$("body").loadingInfo("warn", "Text length must not exceed 2000!");
+						return;
+					}
 					var saveParam = {
 						"partnerName" : partnerName,
 						"mission" : mission,
@@ -120,7 +124,10 @@ $(function(){
 						$("body").loadingInfo("warn", "Please enter the introduce!");
 						return;
 					}
-					
+					if(introduce.length >2000){
+						$("body").loadingInfo("warn", "Text length must not exceed 2000!");
+						return;
+					}
 					var saveParam = {
 						"id" : $("#partnerId").val(),
 						"partnerName" : partnerName,

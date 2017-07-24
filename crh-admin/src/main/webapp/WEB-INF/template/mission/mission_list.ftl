@@ -97,7 +97,6 @@
 <script type="text/javascript">
     CKEDITOR.replace('TextArea1',{
         toolbar :
-            
 					[
                       { name: 'document', items : [ 'Source','-','Save','NewPage','DocProps','Preview','Print','-','Templates' ] },
                       { name: 'clipboard', items : [ 'Cut','Copy','Paste','PasteText','PasteFromWord','-','Undo','Redo' ] },
@@ -108,7 +107,7 @@
                       { name: 'basicstyles', items : [ 'Bold','Italic','Underline','Strike','Subscript','Superscript','-','RemoveFormat' ] },
                       { name: 'paragraph', items : [ 'NumberedList','BulletedList','-','Outdent','Indent','-','Blockquote','CreateDiv',
                       '-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock','-','BidiLtr','BidiRtl' ] },
-                      { name: 'links', items : [ 'Link','Unlink','Anchor'] },
+                      //{ name: 'links', items : [ 'Link','Unlink','Anchor'] },
                       { name: 'insert', items : [ 'Flash','Table','HorizontalRule','Smiley','SpecialChar','PageBreak','Iframe' ] },
                       '/',
                       { name: 'styles', items : [ 'Styles','Format','Font','FontSize' ] },
