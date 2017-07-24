@@ -148,6 +148,11 @@ $(function() {
 			};
 		},
 		salu:function(){
+			function escape2Html(str) {   
+                var arrEntities={'lt':'<','gt':'>','nbsp':' ','amp':'&','quot':'"'};   
+                return str.replace(/&(lt|gt|nbsp|amp|quot);/ig,function(all,i){return arrEntities[i];});   
+			};  
+
 			//
 			var setVal = function() {
 				$.ajax({
@@ -161,9 +166,10 @@ $(function() {
 							$("#title").attr("value", msg.title);
 							setTimeout(function() {
 								var aa = msg.content;
-								aa = aa.replace(new RegExp("&lt;","g"),"<").replace(new RegExp("&gt;","g"),">")
+								aa =escape2Html(aa);
 								CKEDITOR.instances.TextArea1
 										.insertHtml(aa);
+								CKEDITOR.instances.TextArea1.setReadOnly(true);
 							},500);
 						}
 					}
@@ -203,7 +209,6 @@ $(function() {
 				edit.show();
 				setTimeout(function(){
 					setVal();
-//					CKEDITOR.instances.TextArea1.setReadOnly(true);
 //				 	CKEDITOR.config.readOnly = true;
 					title.attr("disabled",true);
 					edit.on("click",function(){
