@@ -229,7 +229,7 @@ $(function() {
 						reset.hide();
 						save.hide();
 					});
-				},2000);
+				},300);
 //				
 		},
 		
