@@ -109,27 +109,27 @@ $(function(){
 						contentType: 'application/json'
 					})
 					.done(function(response){
-							if(response.code == "ACK"){
-								that.dialog =  BootstrapDialog.show({
-									title: 'Add User',
-									message: $(template('addEditTpl',response)),
-									draggable: true,
-									buttons: [{
-										label: 'Save',
-										cssClass: 'btn-primary saveAddEditTpl',
-										action: function(dialog, e) {
-											that.save($(e.target));
-										}
-									}, {
-										label: 'Cancel',
-										action: function(dialog) {
-											dialog.close();
-										}
-									}],
-									
-								});
-							}
-						});
+						if(response.code == "ACK"){
+							that.dialog =  BootstrapDialog.show({
+								title: 'Add User',
+								message: $(template('addEditTpl',response)),
+								draggable: true,
+								buttons: [{
+									label: 'Save',
+									cssClass: 'btn-primary saveAddEditTpl',
+									action: function(dialog, e) {
+										that.save($(e.target));
+									}
+								}, {
+									label: 'Cancel',
+									action: function(dialog) {
+										dialog.close();
+									}
+								}],
+								
+							});
+						}
+					});
 				});
 				
 				that.$dataList.on("click", "a.removeItem", function() {
@@ -239,6 +239,7 @@ $(function(){
 		            userId = $form.find('input[name="id"]').val(),
 		            action = userId ? that.editURL: that.addURL,
 		            data = that.getJson($form);
+				
 		        if($form.validate().form()) {
 		        	$btn.saving();
 		            $.ajax({
