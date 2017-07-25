@@ -53,7 +53,7 @@ public class ResourceAdminServiceImpl implements ResourceAdminService {
         Query countQuery = entityManager.createNativeQuery(countSql.append(conditionSql).append(" ) a").toString());
         QueryUtil.processParamForQuery(countQuery, param);
         BigInteger totalRecord = (BigInteger) countQuery.getSingleResult();
-        query.setFirstResult(dto.getPageSize() * (dto.getCurrentPage() - 1));
+        query.setFirstResult(dto.getPageSize() * ((dto.getCurrentPage() == 0?1:dto.getCurrentPage()) - 1));
         query.setMaxResults(dto.getPageSize());
         dto.setTotalRecord(totalRecord.longValue());
         dto.setTotalPages(totalRecord.intValue() % dto.getPageSize() == 0 ? totalRecord.intValue() / dto.getPageSize()
