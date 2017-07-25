@@ -69,7 +69,7 @@ public class ResourceAdminServiceImpl implements ResourceAdminService {
             dto.setImage(BasicUtil.objToString(obj[1]));
             dto.setLink(BasicUtil.objToString(obj[2]));
             dto.setTitle(BasicUtil.objToString(obj[3]));
-            dto.setIndex(BasicUtil.objToString(obj[4]));
+            dto.setIndex(Long.parseLong(BasicUtil.objToString(obj[4])));
             dto.setTotalRecords(list.size() + "");
             resourceList.add(dto);
         }
@@ -110,19 +110,19 @@ public class ResourceAdminServiceImpl implements ResourceAdminService {
     @Transactional
     public ResultDto<?> adjustSort(Long id, String type) {
         ResourceEntity originResource = resourceDao.findOne(id);
-        Integer originSort = Integer.parseInt(originResource.getSort());
+        Long originSort = originResource.getSort();
         ResourceEntity nextResource = null;
         if (OprationTypeConstants.UP_SORT.equals(type)) {
             // up sort
-            nextResource = resourceDao.findBySort(originSort - 1 + "");
-            originResource.setSort(originSort - 1 + "");
+            nextResource = resourceDao.findBySort(originSort - 1);
+            originResource.setSort(originSort - 1);
         } else {
             // down sort
-            nextResource = resourceDao.findBySort(originSort + 1 + "");
-            originResource.setSort(originSort + 1 + "");
+            nextResource = resourceDao.findBySort(originSort + 1);
+            originResource.setSort(originSort + 1);
         }
         resourceDao.save(originResource);
-        nextResource.setSort(originSort.toString());
+        nextResource.setSort(originSort);
         resourceDao.save(nextResource);
         return ResultDtoFactory.toAck("Success!", null);
     }
@@ -154,7 +154,7 @@ public class ResourceAdminServiceImpl implements ResourceAdminService {
             if (lastSortResource == null) {
                 resource.setSort(SortConstants.FIRST_SORT);
             } else {
-                resource.setSort(Integer.parseInt(lastSortResource.getSort()) + 1 + "");
+                resource.setSort(lastSortResource.getSort() + 1);
             }
         } else {
             // Editor

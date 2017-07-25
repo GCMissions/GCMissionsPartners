@@ -18,9 +18,9 @@ public interface SlidesDao extends JpaRepository<SlidesEntity, Long>, JpaSpecifi
     SlidesEntity findLastSortEntity();
 
     @Query(value = "select * from slides where del_flag = '1' and sort = ?1 order by id desc limit 1", nativeQuery = true)
-    SlidesEntity findBySort(String sort);
+    SlidesEntity findBySort(Long sort);
 
     @Modifying
     @Query(value = "update slides set sort = sort - 1 where sort > ?1 and del_flag = '1'", nativeQuery = true)
-    void updateSort(String sort);
+    void updateSort(Long sort);
 }

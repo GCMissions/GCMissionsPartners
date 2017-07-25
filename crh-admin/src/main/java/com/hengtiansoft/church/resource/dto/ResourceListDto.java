@@ -8,7 +8,7 @@ public class ResourceListDto implements Serializable {
 
     private Long id;
 
-    private String index;
+    private Long index;
 
     private String image;
 
@@ -36,11 +36,11 @@ public class ResourceListDto implements Serializable {
         this.id = id;
     }
 
-    public String getIndex() {
+    public Long getIndex() {
         return index;
     }
 
-    public void setIndex(String index) {
+    public void setIndex(Long index) {
         this.index = index;
     }
 

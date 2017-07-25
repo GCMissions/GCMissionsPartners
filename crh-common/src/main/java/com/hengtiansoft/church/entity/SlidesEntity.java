@@ -30,7 +30,7 @@ public class SlidesEntity extends BaseEntity {
     private String display;
     
     @Column(name = "SORT")
-    private String sort;
+    private Long sort;
     
     @Column(name = "DEL_FLAG")
     private String delFlag;
@@ -67,12 +67,11 @@ public class SlidesEntity extends BaseEntity {
         this.display = display;
     }
 
-
-    public String getSort() {
+    public Long getSort() {
         return sort;
     }
 
-    public void setSort(String sort) {
+    public void setSort(Long sort) {
         this.sort = sort;
     }
 

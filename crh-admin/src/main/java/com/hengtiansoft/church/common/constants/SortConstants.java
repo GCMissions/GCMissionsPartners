@@ -6,5 +6,5 @@ public final class SortConstants {
         
     }
     
-    public static final String FIRST_SORT = "1";
+    public static final Long FIRST_SORT = 1L;
 }

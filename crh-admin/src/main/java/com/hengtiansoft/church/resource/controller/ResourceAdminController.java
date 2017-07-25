@@ -63,4 +63,5 @@ public class ResourceAdminController {
     public ResultDto<?> adjustSort(@RequestBody ResourceSortDto dto) {
         return resourceService.adjustSort(dto.getId(), dto.getType());
     }
+    
 }

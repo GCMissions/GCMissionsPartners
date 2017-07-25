@@ -30,7 +30,7 @@ public class ResourceEntity extends BaseEntity {
     private String link;
     
     @Column(name = "SORT")
-    private String sort;
+    private Long sort;
     
     @Column(name = "DEL_FLAG")
     private String delFlag;
@@ -78,16 +78,16 @@ public class ResourceEntity extends BaseEntity {
         this.link = link;
     }
 
-    public String getSort() {
+    public String getDelFlag() {
+        return delFlag;
+    }
+
+    public Long getSort() {
         return sort;
     }
 
-    public void setSort(String sort) {
+    public void setSort(Long sort) {
         this.sort = sort;
-    }
-
-    public String getDelFlag() {
-        return delFlag;
     }
 
     public void setDelFlag(String delFlag) {

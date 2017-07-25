@@ -74,7 +74,7 @@ public class SlidesAdminServiceImpl implements SlidesAdminService {
             } else {
                 dto.setDisplayed("Hidden");
             }
-            dto.setIndex(BasicUtil.objToString(obj[4]));
+            dto.setIndex(Long.parseLong(BasicUtil.objToString(obj[4])));
             dto.setTotalRecords(list.size() + "");
             slideList.add(dto);
         }
@@ -133,7 +133,7 @@ public class SlidesAdminServiceImpl implements SlidesAdminService {
             if (lastSortSlide == null) {
                 slide.setSort(SortConstants.FIRST_SORT);
             } else {
-                slide.setSort(Integer.parseInt(lastSortSlide.getSort()) + 1 + "");
+                slide.setSort(lastSortSlide.getSort() + 1);
             }
         } else {
             // Editor
@@ -152,19 +152,19 @@ public class SlidesAdminServiceImpl implements SlidesAdminService {
     @Transactional
     public ResultDto<?> adjustSort(Long id, String type) {
         SlidesEntity originSlide = slidesDao.findOne(id);
-        Integer originSort = Integer.parseInt(originSlide.getSort());
+        Long originSort = originSlide.getSort();
         SlidesEntity nextSlide = null;
         if (OprationTypeConstants.UP_SORT.equals(type)) {
             // up sort
-            nextSlide = slidesDao.findBySort(originSort - 1 + "");
-            originSlide.setSort(originSort - 1 + "");
+            nextSlide = slidesDao.findBySort(originSort - 1);
+            originSlide.setSort(originSort - 1);
         } else {
             // down sort
-            nextSlide = slidesDao.findBySort(originSort + 1 + "");
-            originSlide.setSort(originSort + 1 + "");
+            nextSlide = slidesDao.findBySort(originSort + 1);
+            originSlide.setSort(originSort + 1);
         }
         slidesDao.save(originSlide);
-        nextSlide.setSort(originSort.toString());
+        nextSlide.setSort(originSort);
         slidesDao.save(nextSlide);
         return ResultDtoFactory.toAck("Success!", null);
     }
