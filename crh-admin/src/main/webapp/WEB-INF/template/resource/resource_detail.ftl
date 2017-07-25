@@ -22,12 +22,16 @@
 					if (display == "none"){
 						$("#video").removeAttr("style");
 					    document.getElementById("linkfile").style.display="none";
-					    document.getElementById("uploadVideo").style.display="none"
+					    document.getElementById("uploadVideo").style.display="none";
+					    $("#hidden").val(1); 
 					}
 					else{
 						 document.getElementById("video").style.display="none";
 						 $("#linkfile").removeAttr("style");
 						 $("#uploadVideo").removeAttr("style");
+						 $("#hidden").val(0); 
+						 $("#link").attr("disabled",true);
+						 $("#link").attr("title","Local upload video, link can not be modified");
 						}
 				}
 
@@ -63,6 +67,11 @@
 <body class="hold-transition skin-blue sidebar-mini">
 	<div class="wrapper" style="overflow:visible">
       <!-- Content Wrapper. Contains page content -->
+	<#if showType == "0">
+	<input type="hidden" id="hidden" value="1"></input>
+	<#else>
+	<input type="hidden" id="hidden" value="${resource.remarks}"></input>
+	</#if>
       <div class="content-wrapper page-content-wrapper">
        <!-- Content Header (Page header) -->
         <section class="content-header">

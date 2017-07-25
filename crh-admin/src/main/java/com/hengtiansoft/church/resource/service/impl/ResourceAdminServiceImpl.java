@@ -102,6 +102,7 @@ public class ResourceAdminServiceImpl implements ResourceAdminService {
         dto.setIndex(resource.getSort());
         dto.setLink(resource.getLink());
         dto.setTitle(resource.getTitle());
+        dto.setRemarks(resource.getRemarks());
         return dto;
     }
 

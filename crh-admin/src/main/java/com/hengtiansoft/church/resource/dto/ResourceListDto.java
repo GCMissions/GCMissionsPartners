@@ -17,9 +17,19 @@ public class ResourceListDto implements Serializable {
     private String title;
 
     private String totalRecords;
-
+    
+    private String remarks;
+    
     public Long getId() {
         return id;
+    }
+
+    public String getRemarks() {
+        return remarks;
+    }
+
+    public void setRemarks(String remarks) {
+        this.remarks = remarks;
     }
 
     public void setId(Long id) {
